@@ -1,0 +1,212 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#score {
+  display: flex;
+  justify-content: center; /* Zentriert den Inhalt horizontal */
+  align-items: center; /* Zentriert den Inhalt vertikal */
+  height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
+
+  font-size: 2em;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 50px; /* Passen Sie die Höhe nach Bedarf an */
+  width: 30%;
+  background-color: #ff8161; /* Passen Sie die Farbe nach Bedarf an */
+  margin: auto;
+}
+#clicker {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #fac928;
+  color: rgb(0, 0, 0) rbe;
+  text-align: center;
+  cursor: pointer;
+  width: 350px;
+  height: 350px;
+  bottom: 35px;
+  position: fixed;
+}
+#shop {
+  box-sizing: border-box;
+  justify-content: center;
+  margin: 20px;
+  border: 1px solid #000000;
+  height: 500px;
+  width: 250px;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+}
+
+#article1 {
+  box-sizing: border-box;
+  background-color: lightblue;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  width: 50%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#counter1 {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: top;
+  width: 43.65%;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+#article2 {
+  box-sizing: border-box;
+  background-color: rgb(230, 173, 206);
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  width: 50%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#counter2 {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: top;
+  width: 43.65%;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+#article3 {
+  box-sizing: border-box;
+  background-color: rgb(228, 144, 19);
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  width: 50%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#counter3 {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: top;
+  width: 43.65%;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+#article4 {
+  box-sizing: border-box;
+  background-color: rgb(27, 204, 27);
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  width: 50%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#counter4 {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: top;
+  width: 43.65%;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+#article5 {
+  box-sizing: border-box;
+  background-color: rgb(69, 0, 197);
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  width: 50%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#counter5 {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: top;
+  width: 43.65%;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+#leaderboard {
+  display: flex;
+  justify-content: center; /* Zentriert den Inhalt horizontal */
+  height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
+  height: 500px;
+  width: 250px;
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #000;
+  position: absolute;
+  left: 0;
+}
+#items {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 200px; /* Passen Sie die Höhe nach Bedarf an */
+  width: 85%;
+  background-color: #c0bbbb; /* Passen Sie die Farbe nach Bedarf an */
+  margin: auto;
+}
+
+.item {
+  margin: 10px;
+}
