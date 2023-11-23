@@ -46,6 +46,8 @@ body {
 
 #article1 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   background-color: lightblue;
   border: 2px solid #000000;
   border-radius: 20px;
@@ -61,6 +63,8 @@ body {
 
 #counter1 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   display: inline-block;
   border: 2px solid #000000;
   border-radius: 20px;
@@ -74,6 +78,8 @@ body {
 
 #article2 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   background-color: rgb(230, 173, 206);
   border: 2px solid #000000;
   border-radius: 20px;
@@ -89,6 +95,8 @@ body {
 
 #counter2 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   display: inline-block;
   border: 2px solid #000000;
   border-radius: 20px;
@@ -102,6 +110,8 @@ body {
 
 #article3 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   background-color: rgb(228, 144, 19);
   border: 2px solid #000000;
   border-radius: 20px;
@@ -117,6 +127,8 @@ body {
 
 #counter3 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   display: inline-block;
   border: 2px solid #000000;
   border-radius: 20px;
@@ -130,6 +142,8 @@ body {
 
 #article4 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   background-color: rgb(27, 204, 27);
   border: 2px solid #000000;
   border-radius: 20px;
@@ -145,6 +159,8 @@ body {
 
 #counter4 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   display: inline-block;
   border: 2px solid #000000;
   border-radius: 20px;
@@ -158,6 +174,8 @@ body {
 
 #article5 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   background-color: rgb(69, 0, 197);
   border: 2px solid #000000;
   border-radius: 20px;
@@ -173,6 +191,8 @@ body {
 
 #counter5 {
   box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
   display: inline-block;
   border: 2px solid #000000;
   border-radius: 20px;
