@@ -30,7 +30,7 @@ document.querySelector("#article1").addEventListener("click", function () {
 let costTwo = 100; // Angenommen, dies ist der anfängliche Preis für 'article2'
 let counterTwo = 0;
 
-function increaseScore() {
+function increaseScoreTwo() {
   score++;
   document.querySelector("#score").textContent = score;
 }
@@ -39,7 +39,7 @@ document.getElementById("article2").addEventListener("click", function () {
   if (score >= costTwo) {
     score -= costTwo;
     costTwo = Math.round(costTwo * 1.2);
-    setInterval(increaseScore, 500);
+    setInterval(increaseScoreTwo, 1000);
     document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
     counterTwo++;
     document.querySelector("#article2").textContent =
@@ -49,11 +49,86 @@ document.getElementById("article2").addEventListener("click", function () {
 });
 
 // THIRD ARTICLE
-let costThree;
+let costThree = 1;
 let counterThree = 0;
 
-let costFour;
+function increaseScoreThree (){
+  score = score + 5;
+  document.querySelector("#score").textContent = score;
+};
+
+document.getElementById("article3").addEventListener("click", function () {
+  if (score >= costThree) {
+    score -= costThree;
+    costThree = Math.round(costThree * 1.2);
+    setInterval(increaseScoreThree, 1000);
+    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    counterThree++;
+    document.querySelector("#article3").textContent =
+      "Clicking Eehdgar" + costThree + " $";
+    document.querySelector("#counter3").textContent = counterThree + "x";
+  }
+});
+
+let costFour = 100000;
 let counterFour = 0;
 
-let costFive;
+function increaseScoreFour (){
+  score = score + 20;
+  document.querySelector("#score").textContent = score;
+};
+
+document.getElementById("article4").addEventListener("click", function () {
+  if (score >= costFour) {
+    score -= costFour;
+    costFour = Math.round(costFour * 1.2);
+    setInterval(increaseScoreFour, 1000);
+    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    counterFour++;
+    document.querySelector("#article4").textContent =
+      "Clicking Eehdgar" + costFour + " $";
+    document.querySelector("#counter4").textContent = counterFour + "x";
+  }
+});
+
+let costFive = 1;
 let counterFive = 0;
+
+function increaseScoreFive (){
+  score = score + 100;
+  document.querySelector("#score").textContent = score;
+};
+
+document.getElementById("article5").addEventListener("click", function () {
+  if (score >= costFive) {
+    score -= costFive;
+    costFive = Math.round(costFive * 1.2);
+    setInterval(increaseScoreFive, 1000);
+    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    counterFive++;
+    document.querySelector("#article5").textContent =
+      "Clicking Eehdgar" + costFive + " $";
+    document.querySelector("#counter5").textContent = counterFive + "x";
+  }
+});
+
+let costSix = 1;
+let counterSix = 0;
+
+function increaseScoreSix (){
+  score = score + 100;
+  document.querySelector("#score").textContent = score;
+};
+
+document.getElementById("article6").addEventListener("click", function () {
+  if (score >= costSix) {
+    score -= costSix;
+    costSix = Math.round(costSix * 1.2);
+    setInterval(increaseScoreSix, 1000);
+    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    counterSix++;
+    document.querySelector("#article6").textContent =
+      "Clicking Eehdgar" + costSix + " $";
+    document.querySelector("#counter6").textContent = counterSix + "x";
+  }
+});
