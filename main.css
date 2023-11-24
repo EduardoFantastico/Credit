@@ -33,10 +33,12 @@ body {
   position: fixed;
 }
 #shop {
+  background-color: #c0bbbb;
+  text-align: center;
   box-sizing: border-box;
   justify-content: center;
   margin: 20px;
-  border: 1px solid #000000;
+  border: 1px solid #d41d1d;
   height: 500px;
   width: 250px;
   padding: 10px;
@@ -112,7 +114,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(228, 144, 19);
+  background-color: rgb(247, 208, 150);
   border: 2px solid #000000;
   border-radius: 20px;
   height: 60px;
@@ -144,7 +146,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(27, 204, 27);
+  background-color: rgb(184, 233, 184);
   border: 2px solid #000000;
   border-radius: 20px;
   height: 60px;
@@ -176,7 +178,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(69, 0, 197);
+  background-color: rgb(214, 195, 248);
   border: 2px solid #000000;
   border-radius: 20px;
   height: 60px;

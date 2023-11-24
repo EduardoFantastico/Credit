@@ -3,12 +3,14 @@
 let score = 0;
 let pointsPerClick = 1; // Punkte pro Klick
 
+// BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
   score += pointsPerClick; // Erhöht den Score um die Anzahl der Punkte pro Klick
 
   document.querySelector("#score").textContent = score;
 });
 
+// FIRST ARTICLE
 let costOne = 10;
 let counterOne = 0;
 
@@ -24,6 +26,7 @@ document.querySelector("#article1").addEventListener("click", function () {
   }
 });
 
+// SECOND ARTICLE
 let costTwo = 100; // Angenommen, dies ist der anfängliche Preis für 'article2'
 let counterTwo = 0;
 
@@ -45,6 +48,7 @@ document.getElementById("article2").addEventListener("click", function () {
   }
 });
 
+// THIRD ARTICLE
 let costThree;
 let counterThree = 0;
 
