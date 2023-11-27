@@ -4,6 +4,27 @@ body {
   flex-direction: column;
   align-items: center;
 }
+#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+}
+.blocker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
 #score {
   display: flex;
   justify-content: center; /* Zentriert den Inhalt horizontal */
@@ -326,8 +347,4 @@ body {
   width: 85%;
   background-color: #c0bbbb; /* Passen Sie die Farbe nach Bedarf an */
   margin: auto;
-}
-
-.item {
-  margin: 10px;
 }
