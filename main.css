@@ -62,6 +62,12 @@ body {
   justify-content: center;
 }
 
+#arrow-left {
+}
+
+#arrow-right {
+}
+
 #shop-box {
   order: 2;
   flex-grow: 1;
