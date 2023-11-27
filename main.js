@@ -31,6 +31,7 @@ let costTwo = 100; // Angenommen, dies ist der anfängliche Preis für 'article2
 let counterTwo = 0;
 
 function increaseScoreTwo() {
+  // increaseScore kommt öfter im Code vor, wird in der Artikelfunktion verwendet
   score++;
   document.querySelector("#score").textContent = score;
 }
