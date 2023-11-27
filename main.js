@@ -1,5 +1,6 @@
 "use strict";
 
+let level = 0;
 let score = 0;
 let pointsPerClick = 1; // Punkte pro Klick
 
@@ -147,4 +148,22 @@ document.getElementById("article7").addEventListener("click", function () {
     document.querySelector("#article7").textContent = costSeven + " $";
     document.querySelector("#counter7").textContent = counterSeven + "x";
   }
+});
+
+// New Research Section
+document.getElementById("shop-research").addEventListener("click", function () {
+  var newField = document.getElementById("new-field");
+  newField.innerHTML = '<input type="text" placeholder="Research">';
+});
+
+function checkScore() {
+  if (score > 100 && level < 1) {
+    score = 100;
+    document.querySelector("#score").textContent = score;
+  }
+}
+
+document.querySelector("#research1").addEventListener("click", function () {
+  level++;
+  document.querySelector("#level").textContent = "LEVEL " + level;
 });
