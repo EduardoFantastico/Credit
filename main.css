@@ -62,10 +62,30 @@ body {
   justify-content: center;
 }
 
+#research-shop {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 35%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#shop-research {
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 35%;
+  padding: 5px;
+  cursor: pointer;
+}
+
 #arrow-left {
 }
 
 #arrow-right {
+}
+
+.rotate-180 {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 #shop-box {
