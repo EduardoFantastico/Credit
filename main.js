@@ -7,7 +7,7 @@ let pointsPerClick = 1; // Punkte pro Klick
 document.querySelector("#clicker").addEventListener("click", function () {
   score += pointsPerClick; // Erhöht den Score um die Anzahl der Punkte pro Klick
 
-  document.querySelector("#score").textContent = score;
+  document.querySelector("#score").textContent = score + " $";
 });
 
 // FIRST ARTICLE
@@ -19,9 +19,9 @@ document.querySelector("#article1").addEventListener("click", function () {
     score -= costOne;
     costOne = Math.round(costOne * 1.2);
     pointsPerClick++; // Erhöht die Punkte pro Klick jedes Mal, wenn ein Artikel gekauft wird
-    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    document.querySelector("#score").textContent = score + " $"; // Aktualisiert den Score sofort nach dem Kauf
     counterOne++;
-    document.querySelector("#article1").textContent = costOne;
+    document.querySelector("#article1").textContent = costOne + " $";
     document.querySelector("#counter1").textContent = counterOne + "x";
   }
 });
@@ -40,10 +40,9 @@ document.getElementById("article2").addEventListener("click", function () {
     score -= costTwo;
     costTwo = Math.round(costTwo * 1.2);
     setInterval(increaseScoreTwo, 1000);
-    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    document.querySelector("#score").textContent = score + " $"; // Aktualisiert den Score sofort nach dem Kauf
     counterTwo++;
-    document.querySelector("#article2").textContent =
-      "Clicking Tommy" + costTwo + " $";
+    document.querySelector("#article2").textContent = costTwo + " $";
     document.querySelector("#counter2").textContent = counterTwo + "x";
   }
 });
@@ -52,20 +51,19 @@ document.getElementById("article2").addEventListener("click", function () {
 let costThree = 1;
 let counterThree = 0;
 
-function increaseScoreThree (){
+function increaseScoreThree() {
   score = score + 5;
   document.querySelector("#score").textContent = score;
-};
+}
 
 document.getElementById("article3").addEventListener("click", function () {
   if (score >= costThree) {
     score -= costThree;
     costThree = Math.round(costThree * 1.2);
     setInterval(increaseScoreThree, 1000);
-    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    document.querySelector("#score").textContent = score + " $"; // Aktualisiert den Score sofort nach dem Kauf
     counterThree++;
-    document.querySelector("#article3").textContent =
-      "Clicking Eehdgar" + costThree + " $";
+    document.querySelector("#article3").textContent = costThree + " $";
     document.querySelector("#counter3").textContent = counterThree + "x";
   }
 });
@@ -73,20 +71,19 @@ document.getElementById("article3").addEventListener("click", function () {
 let costFour = 100000;
 let counterFour = 0;
 
-function increaseScoreFour (){
+function increaseScoreFour() {
   score = score + 20;
   document.querySelector("#score").textContent = score;
-};
+}
 
 document.getElementById("article4").addEventListener("click", function () {
   if (score >= costFour) {
     score -= costFour;
     costFour = Math.round(costFour * 1.2);
     setInterval(increaseScoreFour, 1000);
-    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    document.querySelector("#score").textContent = score + " $"; // Aktualisiert den Score sofort nach dem Kauf
     counterFour++;
-    document.querySelector("#article4").textContent =
-      "Clicking Eehdgar" + costFour + " $";
+    document.querySelector("#article4").textContent = costFour + " $";
     document.querySelector("#counter4").textContent = counterFour + "x";
   }
 });
@@ -94,10 +91,10 @@ document.getElementById("article4").addEventListener("click", function () {
 let costFive = 1;
 let counterFive = 0;
 
-function increaseScoreFive (){
+function increaseScoreFive() {
   score = score + 100;
   document.querySelector("#score").textContent = score;
-};
+}
 
 document.getElementById("article5").addEventListener("click", function () {
   if (score >= costFive) {
@@ -106,8 +103,7 @@ document.getElementById("article5").addEventListener("click", function () {
     setInterval(increaseScoreFive, 1000);
     document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
     counterFive++;
-    document.querySelector("#article5").textContent =
-      "Clicking Eehdgar" + costFive + " $";
+    document.querySelector("#article5").textContent = costFive + " $";
     document.querySelector("#counter5").textContent = counterFive + "x";
   }
 });
@@ -115,10 +111,10 @@ document.getElementById("article5").addEventListener("click", function () {
 let costSix = 1;
 let counterSix = 0;
 
-function increaseScoreSix (){
+function increaseScoreSix() {
   score = score + 100;
   document.querySelector("#score").textContent = score;
-};
+}
 
 document.getElementById("article6").addEventListener("click", function () {
   if (score >= costSix) {
@@ -127,8 +123,7 @@ document.getElementById("article6").addEventListener("click", function () {
     setInterval(increaseScoreSix, 1000);
     document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
     counterSix++;
-    document.querySelector("#article6").textContent =
-      "Clicking Eehdgar" + costSix + " $";
+    document.querySelector("#article6").textContent = costSix + " $";
     document.querySelector("#counter6").textContent = counterSix + "x";
   }
 });
@@ -136,10 +131,10 @@ document.getElementById("article6").addEventListener("click", function () {
 let costSeven = 1;
 let counterSeven = 0;
 
-function increaseScoreSeven (){
+function increaseScoreSeven() {
   score = score + 100;
   document.querySelector("#score").textContent = score;
-};
+}
 
 document.getElementById("article7").addEventListener("click", function () {
   if (score >= costSiSven) {
@@ -148,8 +143,7 @@ document.getElementById("article7").addEventListener("click", function () {
     setInterval(increaseScoreSeven, 1000);
     document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
     counterSeven++;
-    document.querySelector("#article7").textContent =
-      "Clicking Eehdgar" + costSeven + " $";
+    document.querySelector("#article7").textContent = costSeven + " $";
     document.querySelector("#counter7").textContent = counterSeven + "x";
   }
 });
