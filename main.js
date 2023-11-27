@@ -138,7 +138,7 @@ function increaseScoreSeven() {
 }
 
 document.getElementById("article7").addEventListener("click", function () {
-  if (score >= costSiSven) {
+  if (score >= costSeven) {
     score -= costSeven;
     costSeven = Math.round(costSeven * 1.2);
     setInterval(increaseScoreSeven, 1000);
