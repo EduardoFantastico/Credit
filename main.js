@@ -132,3 +132,24 @@ document.getElementById("article6").addEventListener("click", function () {
     document.querySelector("#counter6").textContent = counterSix + "x";
   }
 });
+
+let costSeven = 1;
+let counterSeven = 0;
+
+function increaseScoreSeven (){
+  score = score + 100;
+  document.querySelector("#score").textContent = score;
+};
+
+document.getElementById("article7").addEventListener("click", function () {
+  if (score >= costSiSven) {
+    score -= costSeven;
+    costSeven = Math.round(costSeven * 1.2);
+    setInterval(increaseScoreSeven, 1000);
+    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    counterSeven++;
+    document.querySelector("#article7").textContent =
+      "Clicking Eehdgar" + costSeven + " $";
+    document.querySelector("#counter7").textContent = counterSeven + "x";
+  }
+});

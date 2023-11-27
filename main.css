@@ -26,11 +26,15 @@ body {
   background-color: rgb(250, 40, 40);
   color: rgb(0, 0, 0) rbe;
   text-align: center;
+  justify-content: center;
   cursor: pointer;
   width: 350px;
   height: 350px;
   bottom: 35px;
-  position: fixed;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  
 }
 #shop {
   background-color: #c0bbbb;
@@ -41,7 +45,6 @@ body {
   border: 1px solid #d41d1d;
   height: 500px;
   width: 250px;
-  padding: 10px;
   position: absolute;
   right: 0;
   display: block;
@@ -51,16 +54,22 @@ body {
   width: 100%;
   height: 50px;
   order: 1;
+  font-size: 2em;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 
 #shop-box {
   order: 2;
   flex-grow: 1;
-  background-color: rgba(250, 40, 40, 0.1);
   overflow-y: scroll;
   width: 100%;
-  height: 450px;
+  height: 449px;
   padding: 0;
 }
 
@@ -267,14 +276,46 @@ body {
   margin-left: 5px;
 }
 
+#article7 {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  background-color: rgb(120, 195, 148);
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  width: 50%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#counter7 {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 20px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: top;
+  width: 43.65%;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
 #leaderboard {
-  display: flex;
+  display: block;
   justify-content: center; /* Zentriert den Inhalt horizontal */
+  text-align: center;
   height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
   height: 500px;
   width: 250px;
   margin: 20px;
-  padding: 10px;
   border: 1px solid #000;
   position: absolute;
   left: 0;
