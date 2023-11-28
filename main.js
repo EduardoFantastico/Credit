@@ -27,118 +27,109 @@ let levelLimits = [
   Infinity,
 ];
 
-
-
-
 function folieShop() {
   document.getElementById("research").style.marginLeft = "-300px";
   document.getElementById("Leaderboard").style.marginLeft = "-300px";
   document.getElementById("shop").style.marginLeft = "20px";
 }
 
-function folieLeaderboard(){
+function folieLeaderboard() {
   document.querySelector("#research").style.marginLeft = "-300px";
   document.querySelector("#Leaderboard").style.marginLeft = "20px";
   document.querySelector("#shop").style.marginLeft = "-300px";
 }
 
-function folieResearch(){
+function folieResearch() {
   document.querySelector("#research").style.marginLeft = "20px";
   document.querySelector("#Leaderboard").style.marginLeft = "-300px";
   document.querySelector("#shop").style.marginLeft = "-300px";
 }
 
-
-
-
 let folie = 1;
 
 document.getElementById("shop-left").addEventListener("click", function () {
-  if(folie === 3) {
+  if (folie === 3) {
     folie = 1; // Shop
     folieShop();
-  }else if (folie === 1){
+  } else if (folie === 1) {
     folie = 2; // Research
     folieResearch();
-  }else if (folie === 2) {
+  } else if (folie === 2) {
     folie = 3; // Leaderboard
     folieLeaderboard();
   }
 });
 
 document.getElementById("shop-right").addEventListener("click", function () {
-  if(folie === 3) {
+  if (folie === 3) {
     folie = 2;
     folieResearch();
-  }else if (folie === 1){
-    folie =3; 
+  } else if (folie === 1) {
+    folie = 3;
     folieLeaderboard();
-  }else if (folie === 2) {
-    folie = 1; 
+  } else if (folie === 2) {
+    folie = 1;
     folieShop();
   }
 });
-
 
 document.getElementById("research-left").addEventListener("click", function () {
-  if(folie === 3) {
+  if (folie === 3) {
     folie = 1; // Shop
     folieShop();
-  }else if (folie === 1){
+  } else if (folie === 1) {
     folie = 2; // Research
     folieResearch();
-  }else if (folie === 2) {
+  } else if (folie === 2) {
     folie = 3; // Leaderboard
     folieLeaderboard();
   }
 });
 
-document.getElementById("research-right").addEventListener("click", function () {
-  if(folie === 3) {
-    folie = 2;
-    folieResearch();
-  }else if (folie === 1){
-    folie =3; 
-    folieLeaderboard();
-  }else if (folie === 2) {
-    folie = 1; 
-    folieShop();
-  }
-});
+document
+  .getElementById("research-right")
+  .addEventListener("click", function () {
+    if (folie === 3) {
+      folie = 2;
+      folieResearch();
+    } else if (folie === 1) {
+      folie = 3;
+      folieLeaderboard();
+    } else if (folie === 2) {
+      folie = 1;
+      folieShop();
+    }
+  });
 
-document.getElementById("leaderboard-left").addEventListener("click", function () {
-  if(folie === 3) {
-    folie = 1; // Shop
-    folieShop();
-  }else if (folie === 1){
-    folie = 2; // Research
-    folieResearch();
-  }else if (folie === 2) {
-    folie = 3; // Leaderboard
-    folieLeaderboard();
-  }
-});
+document
+  .getElementById("leaderboard-left")
+  .addEventListener("click", function () {
+    if (folie === 3) {
+      folie = 1; // Shop
+      folieShop();
+    } else if (folie === 1) {
+      folie = 2; // Research
+      folieResearch();
+    } else if (folie === 2) {
+      folie = 3; // Leaderboard
+      folieLeaderboard();
+    }
+  });
 
-document.getElementById("leaderboard-right").addEventListener("click", function () {
-  if(folie === 3) {
-    folie = 2;
-    folieResearch();
-  }else if (folie === 1){
-    folie =3; 
-    folieLeaderboard();
-  }else if (folie === 2) {
-    folie = 1; 
-    folieShop();
-  }
-});
-
-
-
-
-
-
-
-
+document
+  .getElementById("leaderboard-right")
+  .addEventListener("click", function () {
+    if (folie === 3) {
+      folie = 2;
+      folieResearch();
+    } else if (folie === 1) {
+      folie = 3;
+      folieLeaderboard();
+    } else if (folie === 2) {
+      folie = 1;
+      folieShop();
+    }
+  });
 
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
@@ -277,8 +268,6 @@ document.getElementById("article7").addEventListener("click", function () {
 
 // New Research Section
 
-
-
 document.getElementById("shop-research").addEventListener("click", function () {
   var newField = document.getElementById("new-field");
   newField.innerHTML = '<input type="text" placeholder="Research">';
@@ -290,64 +279,65 @@ let timerLevel = 0;
 let wirdGeupgradedLevel = false;
 
 document.querySelector("#research1").addEventListener("click", function () {
-  if (wirdGeupgradedLevel === false){
-  if (score >= costLevel) {
-    wirdGeupgradedLevel = true;
-    score = score - costLevel;
-    let countdownTimerLevel = setInterval(function () {
-      timerLevel++;
-      let progressLevel = (timerLevel / 1000) * 100 + "%";
-      document.querySelector("#researchbar1").style.width = progressLevel;
-      // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
-      if (timerLevel === 1000) {
-        wirdGeupgradedLevel = false;
-        document.querySelector("#researchbar1").style.width = 0;
-        timerLevel = 0;
-        clearInterval(countdownTimerLevel);
-        level++;
-        document.querySelector("#level").textContent = "LEVEL " + level;
-        document.documentElement.style.setProperty(
-          "--research1-color",
-          "rgb(51, 221, 85)"
-        );
-        document.querySelector("#research1").style.backgroundColor =
-          "var(--research1-color)";
-        setTimeout(() => {
+  if (wirdGeupgradedLevel === false) {
+    if (score >= costLevel) {
+      wirdGeupgradedLevel = true;
+      score = score - costLevel;
+      let countdownTimerLevel = setInterval(function () {
+        timerLevel++;
+        let progressLevel = (timerLevel / 1000) * 100 + "%";
+        document.querySelector("#researchbar1").style.width = progressLevel;
+        // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
+        if (timerLevel === 1000) {
+          wirdGeupgradedLevel = false;
+          document.querySelector("#researchbar1").style.width = 0;
+          timerLevel = 0;
+          clearInterval(countdownTimerLevel);
+          level++;
+          document.querySelector("#level").textContent = "LEVEL " + level;
           document.documentElement.style.setProperty(
             "--research1-color",
-            "rgb(144, 247, 247)"
+            "rgb(51, 221, 85)"
           );
           document.querySelector("#research1").style.backgroundColor =
             "var(--research1-color)";
-        }, 400);
-      }
-    }, 5);
-  } else {
-    document.documentElement.style.setProperty("--research1-color", "red");
-    document.querySelector("#research1").style.backgroundColor =
-      "var(--research1-color)";
-    document.documentElement.style.setProperty("--my-color", "red");
-    document.querySelector("#research1").style.backgroundColor =
-      "var(--my-color)";
-    setTimeout(() => {
-      document.documentElement.style.setProperty(
-        "--research1-color",
-        "rgb(144, 247, 247)"
-      );
+          setTimeout(() => {
+            document.documentElement.style.setProperty(
+              "--research1-color",
+              "rgb(144, 247, 247)"
+            );
+            document.querySelector("#research1").style.backgroundColor =
+              "var(--research1-color)";
+          }, 400);
+        }
+      }, 5);
+    } else {
+      document.documentElement.style.setProperty("--research1-color", "red");
       document.querySelector("#research1").style.backgroundColor =
         "var(--research1-color)";
-    }, 1500);
+      document.documentElement.style.setProperty("--my-color", "red");
+      document.querySelector("#research1").style.backgroundColor =
+        "var(--my-color)";
+      setTimeout(() => {
+        document.documentElement.style.setProperty(
+          "--research1-color",
+          "rgb(144, 247, 247)"
+        );
+        document.querySelector("#research1").style.backgroundColor =
+          "var(--research1-color)";
+      }, 1500);
+    }
   }
-}});
+});
 
-let costGoldRush      = 1;
-let progressGoldRush  = 0;
-let timerGoldRush     = 0;
+let costGoldRush = 1;
+let progressGoldRush = 0;
+let timerGoldRush = 0;
 
-document.querySelector("#research2").addEventListener("click", function () {  
-  if (score >= costGoldRush){   
-    score = score - costGoldRush;  
-    let countdownTimerGoldRush = setInterval(function() {
+document.querySelector("#research2").addEventListener("click", function () {
+  if (score >= costGoldRush) {
+    score = score - costGoldRush;
+    let countdownTimerGoldRush = setInterval(function () {
       timerGoldRush++;
       let progressGoldRush =
         (timerGoldRush /
@@ -394,17 +384,16 @@ document.querySelector("#research2").addEventListener("click", function () {
         "var(--research2-color)";
     }, 1500);
   }
-}});
+});
 
+let costDouble = 1;
+let progressDouble = 0;
+let timerDouble = 0;
 
-let costDouble      = 1;
-let progressDouble  = 0;
-let timerDouble     = 0;
-
-document.querySelector("#research3").addEventListener("click", function () {  
-  if (score >= costDouble){   
-    score = score - costDouble;  
-    let countdownTimerDouble = setInterval(function() {
+document.querySelector("#research3").addEventListener("click", function () {
+  if (score >= costDouble) {
+    score = score - costDouble;
+    let countdownTimerDouble = setInterval(function () {
       timerDouble++;
       let progressDouble =
         (timerDouble /
@@ -451,16 +440,16 @@ document.querySelector("#research3").addEventListener("click", function () {
         "var(--research3-color)";
     }, 1500);
   }
-}});
+});
 
-let costRandomizer      = 1;
-let progressRandomizer  = 0;
-let timerRandomizer     = 0;
+let costRandomizer = 1;
+let progressRandomizer = 0;
+let timerRandomizer = 0;
 
-document.querySelector("#research4").addEventListener("click", function () {  
-  if (score >= costRandomizer){   
-    score = score - costRandomizer;  
-    let countdownTimerRandomizer = setInterval(function() {
+document.querySelector("#research4").addEventListener("click", function () {
+  if (score >= costRandomizer) {
+    score = score - costRandomizer;
+    let countdownTimerRandomizer = setInterval(function () {
       timerRandomizer++;
       let progressRandomizer =
         (timerRandomizer /
@@ -507,17 +496,16 @@ document.querySelector("#research4").addEventListener("click", function () {
         "var(--research4-color)";
     }, 1500);
   }
-}});
+});
 
+let costGoofyAh = 1;
+let progressGoofyAh = 0;
+let timerGoofyAh = 0;
 
-let costGoofyAh      = 1;
-let progressGoofyAh  = 0;
-let timerGoofyAh     = 0;
-
-document.querySelector("#research5").addEventListener("click", function () {  
-  if (score >= costGoofyAh){   
-    score = score - costGoofyAh;  
-    let countdownTimerGoofyAh = setInterval(function() {
+document.querySelector("#research5").addEventListener("click", function () {
+  if (score >= costGoofyAh) {
+    score = score - costGoofyAh;
+    let countdownTimerGoofyAh = setInterval(function () {
       timerGoofyAh++;
       let progressGoofyAh =
         (timerGoofyAh /
@@ -564,16 +552,16 @@ document.querySelector("#research5").addEventListener("click", function () {
         "var(--research5-color)";
     }, 1500);
   }
-}});
+});
 
-let costTest      = 1;
-let progressTest  = 0;
-let timerTest     = 0;
+let costTest = 1;
+let progressTest = 0;
+let timerTest = 0;
 
-document.querySelector("#research6").addEventListener("click", function () {  
-  if (score >= costTest){   
-    score = score - costTest;  
-    let countdownTimerTest = setInterval(function() {
+document.querySelector("#research6").addEventListener("click", function () {
+  if (score >= costTest) {
+    score = score - costTest;
+    let countdownTimerTest = setInterval(function () {
       timerTest++;
       let progressTest =
         (timerTest /
@@ -620,18 +608,16 @@ document.querySelector("#research6").addEventListener("click", function () {
         "var(--research6-color)";
     }, 1500);
   }
-}});
+});
 
+let costSabotageHouse = 1;
+let progressSabotageHouse = 0;
+let timerSabotageHouse = 0;
 
-
-let costSabotageHouse      = 1;
-let progressSabotageHouse  = 0;
-let timerSabotageHouse     = 0;
-
-document.querySelector("#research7").addEventListener("click", function () {  
-  if (score >= costSabotageHouse){   
-    score = score - costSabotageHouse;  
-    let countdownTimerSabotageHouse = setInterval(function() {
+document.querySelector("#research7").addEventListener("click", function () {
+  if (score >= costSabotageHouse) {
+    score = score - costSabotageHouse;
+    let countdownTimerSabotageHouse = setInterval(function () {
       timerSabotageHouse++;
       let progressSabotageHouse =
         (timerSabotageHouse /
@@ -680,22 +666,6 @@ document.querySelector("#research7").addEventListener("click", function () {
     }, 1500);
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 let scorechecker = setInterval(() => {
   if (score > levelLimits[level]) {
