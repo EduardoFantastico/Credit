@@ -70,6 +70,7 @@ document.getElementById("article3").addEventListener("click", function () {
   }
 });
 
+// FOURTH ARTICLE
 let costFour = 100000;
 let counterFour = 0;
 
@@ -90,6 +91,7 @@ document.getElementById("article4").addEventListener("click", function () {
   }
 });
 
+// FIFTH ARTICLE
 let costFive = 1;
 let counterFive = 0;
 
@@ -110,6 +112,7 @@ document.getElementById("article5").addEventListener("click", function () {
   }
 });
 
+// SIXTH ARTICLE
 let costSix = 1;
 let counterSix = 0;
 
@@ -130,6 +133,7 @@ document.getElementById("article6").addEventListener("click", function () {
   }
 });
 
+// SEVENTH ARTICLE
 let costSeven = 1;
 let counterSeven = 0;
 
@@ -164,26 +168,31 @@ function checkScore() {
 }
 
 let costLevel = 1;
+let progress = 0;
 
 document.querySelector("#research1").addEventListener("click", function () {
   if (score >= costLevel){
     score = score - costLevel;
     document.querySelector("#score").textContent = score;
-    let timerLevel = 5;
+    let timerLevel = 0;
     let countdownTimerLevel = setInterval(function() {
-      timerLevel--;
-      if (timerLevel < 0) {
+      timerLevel++;
+      let progress = (timerLevel / 1000) * 100 +"%";
+
+      document.querySelector("#researchbar1").style.width = progress;
+      // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
+      if (timerLevel === 1000) {
         clearInterval(countdownTimerLevel);
         level++;
         document.querySelector("#level").textContent = "LEVEL " + level;
       }
-    }, 1000);
+    }, 5);
   } else {
-    document.documentElement.style.setProperty("--my-color", "red");
-    document.querySelector("#research1").style.backgroundColor = "var(--my-color)";
+    document.documentElement.style.setProperty("--research1-color", "red");
+    document.querySelector("#research1").style.backgroundColor = "var(--research1-color)";
     setTimeout(() => {
-      document.documentElement.style.setProperty("--my-color", "rgb(144, 247, 247)");
-      document.querySelector("#research1").style.backgroundColor = "var(--my-color)";
+      document.documentElement.style.setProperty("--research1-color", "rgb(144, 247, 247)");
+      document.querySelector("#research1").style.backgroundColor = "var(--research1-color)";
     }, 1500);
   }
 });
