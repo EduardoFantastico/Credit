@@ -397,6 +397,13 @@ body {
 
 :root{
   --research1-color: rgb(144, 247, 247);
+  --research2-color: rgb(144, 247, 247);
+  --research3-color: rgb(144, 247, 247);
+  --research4-color: rgb(144, 247, 247);
+  --research5-color: rgb(144, 247, 247);
+  --research6-color: rgb(144, 247, 247);
+  --research7-color: rgb(144, 247, 247);
+  
 }
 
 #research1 {
@@ -419,7 +426,7 @@ body {
 
 
 #researchbar1{
-  width: var(--research1-prog);
+  width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
   position: absolute;
@@ -447,7 +454,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(144, 247, 247);
+  background-color: var(--research2-color);
   border: 2px solid #000000;
   border-radius: 10px;
   height: 60px;
@@ -458,12 +465,41 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   cursor: pointer;
+  position: relative;
 }
+
+
+#researchbar2{
+  width: 0;
+  height: 100%;
+  background-color: rgb(24, 177, 248);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9px;
+}
+
+#researchtext2{
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  left: 0;
+}
+
 #research3 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(144, 247, 247);
+  background-color: var(--research3-color);
   border: 2px solid #000000;
   border-radius: 10px;
   height: 60px;
@@ -474,12 +510,40 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   cursor: pointer;
+  position: relative;
 }
+
+
+#researchbar3{
+  width: 0;
+  height: 100%;
+  background-color: rgb(24, 177, 248);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9px;
+}
+#researchtext3{
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  left: 0;
+}
+
 #research4 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(144, 247, 247);
+  background-color: var(--research4-color);
   border: 2px solid #000000;
   border-radius: 10px;
   height: 60px;
@@ -490,12 +554,40 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   cursor: pointer;
+  position: relative;
 }
+
+
+#researchbar4{
+  width: 0;
+  height: 100%;
+  background-color: rgb(24, 177, 248);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9px;
+}
+#researchtext4{
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  left: 0;
+}
+
 #research5 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(144, 247, 247);
+  background-color: var(--research5-color);
   border: 2px solid #000000;
   border-radius: 10px;
   height: 60px;
@@ -506,28 +598,40 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   cursor: pointer;
+  position: relative;
 }
-#research5 {
+
+
+#researchbar5{
+  width: 0;
+  height: 100%;
+  background-color: rgb(24, 177, 248);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9px;
+}
+#researchtext5{
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(144, 247, 247);
-  border: 2px solid #000000;
+  border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 10px;
-  height: 60px;
-  width: 95%;
+  height: 100%;
+  width: 100%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
-  margin-top: 20px;
-  margin-right: 5px;
-  cursor: pointer;
+  position: absolute;
+  top:  0;
+  left: 0;
 }
+
 #research6 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(144, 247, 247);
+  background-color: var(--research6-color);
   border: 2px solid #000000;
   border-radius: 10px;
   height: 60px;
@@ -538,12 +642,40 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   cursor: pointer;
+  position: relative;
 }
+
+
+#researchbar6{
+  width: 0;
+  height: 100%;
+  background-color: rgb(24, 177, 248);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9px;
+}
+#researchtext6{
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid rgb(51, 221, 85,0);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  left: 0;
+}
+
 #research7 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  background-color: rgb(144, 247, 247);
+  background-color: var(--research7-color);
   border: 2px solid #000000;
   border-radius: 10px;
   height: 60px;
@@ -554,4 +686,31 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   cursor: pointer;
+  position: relative;
+}
+
+
+#researchbar7{
+  width: 0;
+  height: 100%;
+  background-color: rgb(24, 177, 248);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9px;
+}
+#researchtext7{
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  left: 0;
 }
