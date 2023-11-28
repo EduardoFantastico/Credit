@@ -1,5 +1,5 @@
 "use strict";
-document.getElementById("startButton").addEventListener("click", function () {
+/* document.getElementById("startButton").addEventListener("click", function () {
   var name = document.getElementById("nameInput").value;
   if (name) {
     document.getElementById("startScreen").style.display = "none";
@@ -8,7 +8,7 @@ document.getElementById("startButton").addEventListener("click", function () {
   } else {
     alert("Bitte geben Sie Ihren Namen ein");
   }
-});
+}); */
 
 let level = 0;
 let score = 0;
@@ -167,9 +167,12 @@ document.getElementById("shop-research").addEventListener("click", function () {
 let costLevel = 1;
 let progressLevel = 0;
 let timerLevel = 0;
+let wirdGeupgradedLevel = false;
 
 document.querySelector("#research1").addEventListener("click", function () {
+  if (wirdGeupgradedLevel === false){
   if (score >= costLevel) {
+    wirdGeupgradedLevel = true;
     score = score - costLevel;
     let countdownTimerLevel = setInterval(function() {
       timerLevel++;
@@ -177,6 +180,7 @@ document.querySelector("#research1").addEventListener("click", function () {
       document.querySelector("#researchbar1").style.width = progressLevel;
       // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
       if (timerLevel === 1000) {
+        wirdGeupgradedLevel = false;
         document.querySelector("#researchbar1").style.width = 0;
         timerLevel = 0;
         clearInterval(countdownTimerLevel);
@@ -206,14 +210,17 @@ document.querySelector("#research1").addEventListener("click", function () {
         "var(--research1-color)";
     }, 1500);
   }
-});
+}});
 
 let costGoldRush      = 1;
 let progressGoldRush  = 0;
 let timerGoldRush     = 0;
+let wirdGeupgradedGoldRush = false;
 
 document.querySelector("#research2").addEventListener("click", function () {  
+  if (wirdGeupgradedGoldRush === false){
   if (score >= costGoldRush){   
+    wirdGeupgradedGoldRush = true;
     score = score - costGoldRush;  
     let countdownTimerGoldRush = setInterval(function() {
       timerGoldRush++;
@@ -223,6 +230,7 @@ document.querySelector("#research2").addEventListener("click", function () {
       if (timerGoldRush === 1000) {   //Hier Zeit in 5/1000 einer Sekunde eingeben :)
         clearInterval(countdownTimerGoldRush);
         timerGoldRush = 0;
+        wirdGeupgradedGoldRush = false;
         // Ziel Hierrein //
 
 
@@ -247,15 +255,18 @@ document.querySelector("#research2").addEventListener("click", function () {
       document.querySelector("#research2").style.backgroundColor = "var(--research2-color)";
     }, 1500);
   }
-});
+}});
 
 
 let costDouble      = 1;
 let progressDouble  = 0;
 let timerDouble     = 0;
+let wirdGeupgradedDouble = false;
 
-document.querySelector("#research3").addEventListener("click", function () {  
+document.querySelector("#research3").addEventListener("click", function () { 
+  if (wirdGeupgradedDouble === false){ 
   if (score >= costDouble){   
+    wirdGeupgradedDouble = true;
     score = score - costDouble;  
     let countdownTimerDouble = setInterval(function() {
       timerDouble++;
@@ -265,6 +276,7 @@ document.querySelector("#research3").addEventListener("click", function () {
       if (timerDouble === 1000) {   //Hier Zeit in 5/1000 einer Sekunde eingeben :)
         clearInterval(countdownTimerDouble);
         timerDouble = 0;
+        wirdGeupgradedDouble = false;
         // Ziel Hierrein //
 
 
@@ -289,14 +301,17 @@ document.querySelector("#research3").addEventListener("click", function () {
       document.querySelector("#research3").style.backgroundColor = "var(--research3-color)";
     }, 1500);
   }
-});
+}});
 
 let costRandomizer      = 1;
 let progressRandomizer  = 0;
 let timerRandomizer     = 0;
+let wirdGeupgradedrandomizer = false;
 
-document.querySelector("#research4").addEventListener("click", function () {  
-  if (score >= costRandomizer){   
+document.querySelector("#research4").addEventListener("click", function () {
+  if (wirdGeupgradedrandomizer === false){  
+  if (score >= costRandomizer){ 
+    wirdGeupgradedrandomizer = true;  
     score = score - costRandomizer;  
     let countdownTimerRandomizer = setInterval(function() {
       timerRandomizer++;
@@ -306,6 +321,7 @@ document.querySelector("#research4").addEventListener("click", function () {
       if (timerRandomizer === 1000) {   //Hier Zeit in 5/1000 einer Sekunde eingeben :)
         clearInterval(countdownTimerRandomizer);
         timerRandomizer = 0;
+        wirdGeupgradedrandomizer = false;
         // Ziel Hierrein //
 
 
@@ -330,15 +346,18 @@ document.querySelector("#research4").addEventListener("click", function () {
       document.querySelector("#research4").style.backgroundColor = "var(--research4-color)";
     }, 1500);
   }
-});
+}});
 
 
 let costGoofyAh      = 1;
 let progressGoofyAh  = 0;
 let timerGoofyAh     = 0;
+let wirdGeupgradedGoofyAh = false;
 
-document.querySelector("#research5").addEventListener("click", function () {  
-  if (score >= costGoofyAh){   
+document.querySelector("#research5").addEventListener("click", function () { 
+  if (wirdGeupgradedGoofyAh === false) { 
+  if (score >= costGoofyAh){ 
+    wirdGeupgradedGoofyAh = true;  
     score = score - costGoofyAh;  
     let countdownTimerGoofyAh = setInterval(function() {
       timerGoofyAh++;
@@ -348,6 +367,7 @@ document.querySelector("#research5").addEventListener("click", function () {
       if (timerGoofyAh === 1000) {   //Hier Zeit in 5/1000 einer Sekunde eingeben :)
         clearInterval(countdownTimerGoofyAh);
         timerGoofyAh = 0;
+        wirdGeupgradedGoofyAh = false;
         // Ziel Hierrein //
 
 
@@ -372,14 +392,17 @@ document.querySelector("#research5").addEventListener("click", function () {
       document.querySelector("#research5").style.backgroundColor = "var(--research5-color)";
     }, 1500);
   }
-});
+}});
 
 let costTest      = 1;
 let progressTest  = 0;
 let timerTest     = 0;
+let wirdGeupgradedTest = false;
 
 document.querySelector("#research6").addEventListener("click", function () {  
+  if (wirdGeupgradedTest === false) {
   if (score >= costTest){   
+    wirdGeupgradedTest = true;
     score = score - costTest;  
     let countdownTimerTest = setInterval(function() {
       timerTest++;
@@ -389,6 +412,7 @@ document.querySelector("#research6").addEventListener("click", function () {
       if (timerTest === 1000) {   //Hier Zeit in 5/1000 einer Sekunde eingeben :)
         clearInterval(countdownTimerTest);
         timerTest = 0;
+        wirdGeupgradedTest = false;
         // Ziel Hierrein //
 
 
@@ -413,16 +437,19 @@ document.querySelector("#research6").addEventListener("click", function () {
       document.querySelector("#research6").style.backgroundColor = "var(--research6-color)";
     }, 1500);
   }
-});
+}});
 
 
 
 let costSabotageHouse      = 1;
 let progressSabotageHouse  = 0;
 let timerSabotageHouse     = 0;
+let wirdGeupgradedSabotageHouse = false;
 
 document.querySelector("#research7").addEventListener("click", function () {  
+ if (wirdGeupgradedSabotageHouse === false) { 
   if (score >= costSabotageHouse){   
+    wirdGeupgradedSabotageHouse = true;
     score = score - costSabotageHouse;  
     let countdownTimerSabotageHouse = setInterval(function() {
       timerSabotageHouse++;
@@ -432,6 +459,7 @@ document.querySelector("#research7").addEventListener("click", function () {
       if (timerSabotageHouse === 1000) {   //Hier Zeit in 5/1000 einer Sekunde eingeben :)
         clearInterval(countdownTimerSabotageHouse);
         timerSabotageHouse = 0;
+        wirdGeupgradedSabotageHouse = false;
         // Ziel Hierrein //
 
 
@@ -456,7 +484,7 @@ document.querySelector("#research7").addEventListener("click", function () {
       document.querySelector("#research7").style.backgroundColor = "var(--research7-color)";
     }, 1500);
   }
-});
+}});
 
 
 
