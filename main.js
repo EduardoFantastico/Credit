@@ -176,7 +176,7 @@ document.getElementById("shop-research").addEventListener("click", function () {
 function checkScore() {
   if (score > 100 && level < 1) {
     score = 100;
-    document.querySelector("#score").textContent = score;
+    document.querySelector("#score").textContent = score + " $";
   }
 }
 
