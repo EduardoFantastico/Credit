@@ -277,11 +277,6 @@ document.getElementById("article7").addEventListener("click", function () {
 
 
 
-document.getElementById("shop-research").addEventListener("click", function () {
-  var newField = document.getElementById("new-field");
-  newField.innerHTML = '<input type="text" placeholder="Research">';
-});
-
 let costLevel = 1;
 let progressLevel = 0;
 let timerLevel = 0;
@@ -392,7 +387,7 @@ document.querySelector("#research2").addEventListener("click", function () {
         "var(--research2-color)";
     }, 1500);
   }
-}});
+});
 
 
 let costDouble      = 1;
@@ -449,7 +444,7 @@ document.querySelector("#research3").addEventListener("click", function () {
         "var(--research3-color)";
     }, 1500);
   }
-}});
+});
 
 let costRandomizer      = 1;
 let progressRandomizer  = 0;
@@ -505,7 +500,7 @@ document.querySelector("#research4").addEventListener("click", function () {
         "var(--research4-color)";
     }, 1500);
   }
-}});
+});
 
 
 let costGoofyAh      = 1;
@@ -562,7 +557,7 @@ document.querySelector("#research5").addEventListener("click", function () {
         "var(--research5-color)";
     }, 1500);
   }
-}});
+});
 
 let costTest      = 1;
 let progressTest  = 0;
@@ -618,7 +613,7 @@ document.querySelector("#research6").addEventListener("click", function () {
         "var(--research6-color)";
     }, 1500);
   }
-}});
+});
 
 
 
