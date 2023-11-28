@@ -1,4 +1,21 @@
+#startScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameScreen {
+}
+
 body {
+  background-color: #383838;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -351,7 +368,8 @@ body {
   margin-left: 5px;
 }
 
-#leaderboard {
+#research {
+  background-color: #c0bbbb;
   display: block;
   justify-content: center; /* Zentriert den Inhalt horizontal */
   text-align: center;
@@ -376,6 +394,7 @@ body {
 }
 
 #content-box-research {
+  background-color: #c0bbbb;
   order: 2;
   flex-grow: 1;
   overflow-y: scroll;
@@ -395,7 +414,7 @@ body {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-:root{
+:root {
   --research1-color: rgb(144, 247, 247);
   --research2-color: rgb(144, 247, 247);
   --research3-color: rgb(144, 247, 247);
@@ -425,8 +444,8 @@ body {
 }
 
 
-#researchbar1{
-  width: 0;
+#researchbar1 {
+  width: var(--research1-prog);
   height: 100%;
   background-color: rgb(24, 177, 248);
   position: absolute;
@@ -434,7 +453,7 @@ body {
   top: 0;
   border-radius: 9px;
 }
-#researchtext1{
+#researchtext1 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -446,7 +465,7 @@ body {
   vertical-align: top;
   display: inline-block;
   position: absolute;
-  top:  0;
+  top: 0;
   left: 0;
 }
 

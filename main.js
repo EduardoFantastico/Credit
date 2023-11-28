@@ -1,8 +1,31 @@
 "use strict";
+document.getElementById("startButton").addEventListener("click", function () {
+  var name = document.getElementById("nameInput").value;
+  if (name) {
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+    // Ihr Spielstartcode geht hier, z.B. initGame(name);
+  } else {
+    alert("Bitte geben Sie Ihren Namen ein");
+  }
+});
 
 let level = 0;
 let score = 0;
 let pointsPerClick = 1; // Punkte pro Klick
+let levelLimits = [
+  100,
+  500,
+  1000,
+  2500,
+  5000,
+  10000,
+  25000,
+  50000,
+  100000,
+  1000000,
+  Infinity,
+];
 
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
@@ -149,7 +172,7 @@ let progressLevel = 0;
 let timerLevel = 0;
 
 document.querySelector("#research1").addEventListener("click", function () {
-  if (score >= costLevel){
+  if (score >= costLevel) {
     score = score - costLevel;
     let countdownTimerLevel = setInterval(function() {
       timerLevel++;
@@ -160,8 +183,10 @@ document.querySelector("#research1").addEventListener("click", function () {
         clearInterval(countdownTimerLevel);
         level++;
         document.querySelector("#level").textContent = "LEVEL " + level;
-        document.querySelector("#researchbar1").style.width = 0;
-        document.documentElement.style.setProperty("--research1-color", "rgb(51, 221, 85)");
+      }
+    }, 5);
+  } else {
+    document.documentElement.style.setProperty("--research1-color", "red");
     document.querySelector("#research1").style.backgroundColor = "var(--research1-color)";
     setTimeout(() => {
       document.documentElement.style.setProperty("--research1-color", "rgb(144, 247, 247)");
@@ -171,10 +196,18 @@ document.querySelector("#research1").addEventListener("click", function () {
     }, 5);
   } else {
     document.documentElement.style.setProperty("--research1-color", "red");
-    document.querySelector("#research1").style.backgroundColor = "var(--research1-color)";
+    document.querySelector("#research1").style.backgroundColor =
+      "var(--research1-color)";
+    document.documentElement.style.setProperty("--my-color", "red");
+    document.querySelector("#research1").style.backgroundColor =
+      "var(--my-color)";
     setTimeout(() => {
-      document.documentElement.style.setProperty("--research1-color", "rgb(144, 247, 247)");
-      document.querySelector("#research1").style.backgroundColor = "var(--research1-color)";
+      document.documentElement.style.setProperty(
+        "--research1-color",
+        "rgb(144, 247, 247)"
+      );
+      document.querySelector("#research1").style.backgroundColor =
+        "var(--research1-color)";
     }, 1500);
   }
 });
