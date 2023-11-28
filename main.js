@@ -143,7 +143,7 @@ let costSeven = 1;
 let counterSeven = 0;
 
 function increaseScoreSeven() {
-  score = score + 100;}
+  score = score + 1000;}
 
 document.getElementById("article7").addEventListener("click", function () {
   if (score >= costSeven) {
@@ -162,10 +162,7 @@ document.getElementById("shop-research").addEventListener("click", function () {
   newField.innerHTML = '<input type="text" placeholder="Research">';
 });
 
-let scorechecker = setInterval(() => {
-  if (score > 100 && level < 1) {
-    score = 100;  }
-}, 1);
+
 
 let costLevel = 1;
 let progressLevel = 0;
@@ -477,10 +474,10 @@ document.querySelector("#research7").addEventListener("click", function () {
 
 
 
-
-
-
-
+let scorechecker = setInterval(() => {
+  if (score > levelLimits[level]) {
+    score = levelLimits[level];  }
+}, 1);
 
 
 let wiederholung = setInterval(() => {
