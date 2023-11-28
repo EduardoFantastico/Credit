@@ -138,8 +138,6 @@ document.getElementById("leaderboard-right").addEventListener("click", function 
 
 
 
-
-
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
   score += pointsPerClick; // Erhöht den Score um die Anzahl der Punkte pro Klick
