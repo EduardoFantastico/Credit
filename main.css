@@ -1,4 +1,5 @@
 body {
+  background-color: #383838;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -351,7 +352,8 @@ body {
   margin-left: 5px;
 }
 
-#leaderboard {
+#research {
+  background-color: #c0bbbb;
   display: block;
   justify-content: center; /* Zentriert den Inhalt horizontal */
   text-align: center;
@@ -375,6 +377,7 @@ body {
 }
 
 #content-box-research {
+  background-color: #c0bbbb;
   order: 2;
   flex-grow: 1;
   overflow-y: scroll;

@@ -3,6 +3,19 @@
 let level = 0;
 let score = 0;
 let pointsPerClick = 1; // Punkte pro Klick
+let levelLimits = [
+  100,
+  500,
+  1000,
+  2500,
+  5000,
+  10000,
+  25000,
+  50000,
+  100000,
+  1000000,
+  Infinity,
+];
 
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
@@ -34,7 +47,7 @@ let counterTwo = 0;
 function increaseScoreTwo() {
   // increaseScore kommt öfter im Code vor, wird in der Artikelfunktion verwendet
   score++;
-  document.querySelector("#score").textContent = score;
+  document.querySelector("#score").textContent = score + " $";
 }
 
 document.getElementById("article2").addEventListener("click", function () {
@@ -55,7 +68,7 @@ let counterThree = 0;
 
 function increaseScoreThree() {
   score = score + 5;
-  document.querySelector("#score").textContent = score;
+  document.querySelector("#score").textContent = score + " $";
 }
 
 document.getElementById("article3").addEventListener("click", function () {
@@ -75,7 +88,7 @@ let counterFour = 0;
 
 function increaseScoreFour() {
   score = score + 20;
-  document.querySelector("#score").textContent = score;
+  document.querySelector("#score").textContent = score + " $";
 }
 
 document.getElementById("article4").addEventListener("click", function () {
@@ -95,7 +108,7 @@ let counterFive = 0;
 
 function increaseScoreFive() {
   score = score + 100;
-  document.querySelector("#score").textContent = score;
+  document.querySelector("#score").textContent = score + " $";
 }
 
 document.getElementById("article5").addEventListener("click", function () {
@@ -103,7 +116,7 @@ document.getElementById("article5").addEventListener("click", function () {
     score -= costFive;
     costFive = Math.round(costFive * 1.2);
     setInterval(increaseScoreFive, 1000);
-    document.querySelector("#score").textContent = score; // Aktualisiert den Score sofort nach dem Kauf
+    document.querySelector("#score").textContent = score + " $"; // Aktualisiert den Score sofort nach dem Kauf
     counterFive++;
     document.querySelector("#article5").textContent = costFive + " $";
     document.querySelector("#counter5").textContent = counterFive + "x";
@@ -115,7 +128,7 @@ let counterSix = 0;
 
 function increaseScoreSix() {
   score = score + 100;
-  document.querySelector("#score").textContent = score;
+  document.querySelector("#score").textContent = score + " $";
 }
 
 document.getElementById("article6").addEventListener("click", function () {
@@ -135,7 +148,7 @@ let counterSeven = 0;
 
 function increaseScoreSeven() {
   score = score + 100;
-  document.querySelector("#score").textContent = score;
+  document.querySelector("#score").textContent = score + " $";
 }
 
 document.getElementById("article7").addEventListener("click", function () {
@@ -155,13 +168,6 @@ document.getElementById("shop-research").addEventListener("click", function () {
   var newField = document.getElementById("new-field");
   newField.innerHTML = '<input type="text" placeholder="Research">';
 });
-
-function checkScore() {
-  if (score > 100 && level < 1) {
-    score = 100;
-    document.querySelector("#score").textContent = score;
-  }
-}
 
 document.querySelector("#research1").addEventListener("click", function () {
   level++;
