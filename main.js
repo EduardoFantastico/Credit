@@ -477,7 +477,6 @@ document.querySelector("#research7").addEventListener("click", function () {
 let scorechecker = setInterval(() => {
   if (score > levelLimits[level]) {
     score = levelLimits[level];  }
-    console.log(levelLimits[level]);
 }, 1);
 
 
