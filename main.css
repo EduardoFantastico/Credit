@@ -361,6 +361,7 @@ body {
   height: 500px;
   width: 250px;
   margin: 20px;
+  background-color: #c0bbbb;
   border: 1px solid #000;
   position: absolute;
   left: 0;
@@ -416,7 +417,35 @@ body {
   margin-top: 20px;
   margin-right: 5px;
   cursor: pointer;
+  position: relative;
 }
+
+
+#researchbar1{
+  width: var(--research1-prog);
+  height: 100%;
+  background-color: rgb(24, 177, 248);
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 9px;
+}
+#researchtext1{
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  position: absolute;
+  top:  0;
+  left: 0;
+}
+
 #research2 {
   box-sizing: border-box;
   text-align: center;
