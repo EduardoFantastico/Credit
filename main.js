@@ -169,7 +169,37 @@ document.getElementById("shop-research").addEventListener("click", function () {
   newField.innerHTML = '<input type="text" placeholder="Research">';
 });
 
+function checkScore() {
+  if (score > 100 && level < 1) {
+    score = 100;
+    document.querySelector("#score").textContent = score;
+  }
+}
+
 document.querySelector("#research1").addEventListener("click", function () {
-  level++;
-  document.querySelector("#level").textContent = "LEVEL " + level;
+  if (score >= costLevel) {
+    score = score - costLevel;
+    document.querySelector("#score").textContent = score;
+    let timerLevel = 5;
+    let countdownTimerLevel = setInterval(function () {
+      timerLevel--;
+      if (timerLevel < 0) {
+        clearInterval(countdownTimerLevel);
+        level++;
+        document.querySelector("#level").textContent = "LEVEL " + level;
+      }
+    }, 1000);
+  } else {
+    document.documentElement.style.setProperty("--my-color", "red");
+    document.querySelector("#research1").style.backgroundColor =
+      "var(--my-color)";
+    setTimeout(() => {
+      document.documentElement.style.setProperty(
+        "--my-color",
+        "rgb(144, 247, 247)"
+      );
+      document.querySelector("#research1").style.backgroundColor =
+        "var(--my-color)";
+    }, 1500);
+  }
 });
