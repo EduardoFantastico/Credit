@@ -180,19 +180,18 @@ document.querySelector("#research1").addEventListener("click", function () {
       document.querySelector("#researchbar1").style.width = progressLevel;
       // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
       if (timerLevel === 1000) {
+        document.querySelector("#researchbar1").style.width = 0;
+        timerLevel = 0;
         clearInterval(countdownTimerLevel);
         level++;
         document.querySelector("#level").textContent = "LEVEL " + level;
-      }
-    }, 5);
-  } else {
-    document.documentElement.style.setProperty("--research1-color", "red");
+    document.documentElement.style.setProperty("--research1-color", "rgb(51, 221, 85)");
     document.querySelector("#research1").style.backgroundColor = "var(--research1-color)";
     setTimeout(() => {
       document.documentElement.style.setProperty("--research1-color", "rgb(144, 247, 247)");
       document.querySelector("#research1").style.backgroundColor = "var(--research1-color)";
     }, 400);
-      }
+      };
     }, 5);
   } else {
     document.documentElement.style.setProperty("--research1-color", "red");
