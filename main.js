@@ -27,116 +27,109 @@ let levelLimits = [
   Infinity,
 ];
 
-
-
-
 function folieShop() {
   document.getElementById("research").style.marginLeft = "-300px";
   document.getElementById("Leaderboard").style.marginLeft = "-300px";
   document.getElementById("shop").style.marginLeft = "20px";
 }
 
-function folieLeaderboard(){
+function folieLeaderboard() {
   document.querySelector("#research").style.marginLeft = "-300px";
   document.querySelector("#Leaderboard").style.marginLeft = "20px";
   document.querySelector("#shop").style.marginLeft = "-300px";
 }
 
-function folieResearch(){
+function folieResearch() {
   document.querySelector("#research").style.marginLeft = "20px";
   document.querySelector("#Leaderboard").style.marginLeft = "-300px";
   document.querySelector("#shop").style.marginLeft = "-300px";
 }
 
-
-
-
 let folie = 1;
 
 document.getElementById("shop-left").addEventListener("click", function () {
-  if(folie === 3) {
+  if (folie === 3) {
     folie = 1; // Shop
     folieShop();
-  }else if (folie === 1){
+  } else if (folie === 1) {
     folie = 2; // Research
     folieResearch();
-  }else if (folie === 2) {
+  } else if (folie === 2) {
     folie = 3; // Leaderboard
     folieLeaderboard();
   }
 });
 
 document.getElementById("shop-right").addEventListener("click", function () {
-  if(folie === 3) {
+  if (folie === 3) {
     folie = 2;
     folieResearch();
-  }else if (folie === 1){
-    folie =3; 
+  } else if (folie === 1) {
+    folie = 3;
     folieLeaderboard();
-  }else if (folie === 2) {
-    folie = 1; 
+  } else if (folie === 2) {
+    folie = 1;
     folieShop();
   }
 });
-
 
 document.getElementById("research-left").addEventListener("click", function () {
-  if(folie === 3) {
+  if (folie === 3) {
     folie = 1; // Shop
     folieShop();
-  }else if (folie === 1){
+  } else if (folie === 1) {
     folie = 2; // Research
     folieResearch();
-  }else if (folie === 2) {
+  } else if (folie === 2) {
     folie = 3; // Leaderboard
     folieLeaderboard();
   }
 });
 
-document.getElementById("research-right").addEventListener("click", function () {
-  if(folie === 3) {
-    folie = 2;
-    folieResearch();
-  }else if (folie === 1){
-    folie =3; 
-    folieLeaderboard();
-  }else if (folie === 2) {
-    folie = 1; 
-    folieShop();
-  }
-});
+document
+  .getElementById("research-right")
+  .addEventListener("click", function () {
+    if (folie === 3) {
+      folie = 2;
+      folieResearch();
+    } else if (folie === 1) {
+      folie = 3;
+      folieLeaderboard();
+    } else if (folie === 2) {
+      folie = 1;
+      folieShop();
+    }
+  });
 
-document.getElementById("leaderboard-left").addEventListener("click", function () {
-  if(folie === 3) {
-    folie = 1; // Shop
-    folieShop();
-  }else if (folie === 1){
-    folie = 2; // Research
-    folieResearch();
-  }else if (folie === 2) {
-    folie = 3; // Leaderboard
-    folieLeaderboard();
-  }
-});
+document
+  .getElementById("leaderboard-left")
+  .addEventListener("click", function () {
+    if (folie === 3) {
+      folie = 1; // Shop
+      folieShop();
+    } else if (folie === 1) {
+      folie = 2; // Research
+      folieResearch();
+    } else if (folie === 2) {
+      folie = 3; // Leaderboard
+      folieLeaderboard();
+    }
+  });
 
-document.getElementById("leaderboard-right").addEventListener("click", function () {
-  if(folie === 3) {
-    folie = 2;
-    folieResearch();
-  }else if (folie === 1){
-    folie =3; 
-    folieLeaderboard();
-  }else if (folie === 2) {
-    folie = 1; 
-    folieShop();
-  }
-});
-
-
-
-
-
-
+document
+  .getElementById("leaderboard-right")
+  .addEventListener("click", function () {
+    if (folie === 3) {
+      folie = 2;
+      folieResearch();
+    } else if (folie === 1) {
+      folie = 3;
+      folieLeaderboard();
+    } else if (folie === 2) {
+      folie = 1;
+      folieShop();
+    }
+  });
 
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
@@ -158,7 +151,7 @@ document.querySelector("#article1").addEventListener("click", function () {
   }
 });
 
-// SECOND ARTICLE
+// SECOND ARTICLE --- AUTOMATISCH PUNKTE GENERIEREN
 let costTwo = 100; // Angenommen, dies ist der anfängliche Preis für 'article2'
 let counterTwo = 0;
 
@@ -170,7 +163,7 @@ function increaseScoreTwo() {
 document.getElementById("article2").addEventListener("click", function () {
   if (score >= costTwo) {
     score -= costTwo;
-    costTwo = Math.round(costTwo * 1.2);
+    costTwo = Math.round(costTwo * 1.25);
     setInterval(increaseScoreTwo, 1000);
     counterTwo++;
     document.querySelector("#article2").textContent = costTwo + " $";
@@ -178,95 +171,94 @@ document.getElementById("article2").addEventListener("click", function () {
   }
 });
 
-// THIRD ARTICLE
-let costThree = 1;
+// ARTICLE 3 --- KLICKSTÄRKE IM GRÖSSEREN AUSMASS
+let costThree = 500;
 let counterThree = 0;
 
-function increaseScoreThree() {
-  score = score + 5;
-}
-
-document.getElementById("article3").addEventListener("click", function () {
+document.querySelector("#article3").addEventListener("click", function () {
   if (score >= costThree) {
     score -= costThree;
-    costThree = Math.round(costThree * 1.2);
-    setInterval(increaseScoreThree, 1000);
+    costThree = Math.round(costThree * 1.3);
+    pointsPerClick += 5;
     counterThree++;
     document.querySelector("#article3").textContent = costThree + " $";
     document.querySelector("#counter3").textContent = counterThree + "x";
   }
 });
 
-// FOURTH ARTICLE
-let costFour = 100000;
+// ARTICLE 4 --- PUNKTE DIE DURCH 2 GENERIERT WERDEN, WERDEN VERDOPPELT
+let costFour = 1000;
 let counterFour = 0;
 
-function increaseScoreFour() {
-  score = score + 20;
-}
-
-document.getElementById("article4").addEventListener("click", function () {
+document.querySelector("#article4").addEventListener("click", function () {
   if (score >= costFour) {
     score -= costFour;
-    costFour = Math.round(costFour * 1.2);
-    setInterval(increaseScoreFour, 1000);
+    costFour = Math.round(costFour * 1.35);
+    setInterval(increaseScoreTwo, 500); // Halbiert das Intervall von 'increaseScoreTwo'
     counterFour++;
     document.querySelector("#article4").textContent = costFour + " $";
     document.querySelector("#counter4").textContent = counterFour + "x";
   }
 });
 
-// FIFTH ARTICLE
-let costFive = 1;
+// ARTICLE 5 --- GLÜCKSFUNKTION, ZUFÄLLIGE CHANCE DASS ARTIKEL 2 VERDOPPELT WIRD, BEI KAUF HÖHERE CHANCE
+let costFive = 2000;
 let counterFive = 0;
 
-function increaseScoreFive() {
-  score = score + 100;
-}
-
-document.getElementById("article5").addEventListener("click", function () {
+document.querySelector("#article5").addEventListener("click", function () {
   if (score >= costFive) {
     score -= costFive;
-    costFive = Math.round(costFive * 1.2);
-    setInterval(increaseScoreFive, 1000);
+    costFive = Math.round(costFive * 1.4);
+    setInterval(function () {
+      if (Math.random() < 0.5) {
+        // 50% Chance, dass die Punkte verdoppelt werden
+        score += 2 * pointsPerClick;
+      }
+    }, 1000);
     counterFive++;
     document.querySelector("#article5").textContent = costFive + " $";
     document.querySelector("#counter5").textContent = counterFive + "x";
   }
 });
 
-// SIXTH ARTICLE
-let costSix = 1;
+// ARTICLE 6 --- BOOST FÜR 30 SEKUNDEN
+let costSix = 5000;
 let counterSix = 0;
 
-function increaseScoreSix() {
-  score = score + 100;
-}
-
-document.getElementById("article6").addEventListener("click", function () {
+document.querySelector("#article6").addEventListener("click", function () {
   if (score >= costSix) {
     score -= costSix;
-    costSix = Math.round(costSix * 1.2);
-    setInterval(increaseScoreSix, 1000);
+    costSix = Math.round(costSix * 1.45);
+    let originalPointsPerClick = pointsPerClick;
+    pointsPerClick *= 2; // Verdoppelt die Punkte pro Klick
     counterSix++;
     document.querySelector("#article6").textContent = costSix + " $";
     document.querySelector("#counter6").textContent = counterSix + "x";
+    setTimeout(function () {
+      // Stellt die ursprüngliche Klickrate nach 30 Sekunden wieder her
+      pointsPerClick = originalPointsPerClick;
+    }, 30000);
   }
 });
 
-// SEVENTH ARTICLE
-let costSeven = 1;
+// ARTICLE 7 --- AUTOMATISIERUNG, ALLE 10 SEKUNDEN KAUFT ES AUTOMATISCH ARTICLE 1 SOLANGE PUNKTE DA SIND
+let costSeven = 10000;
 let counterSeven = 0;
 
-function increaseScoreSeven() {
-  score = score + 1000;
-}
-
-document.getElementById("article7").addEventListener("click", function () {
+document.querySelector("#article7").addEventListener("click", function () {
   if (score >= costSeven) {
     score -= costSeven;
-    costSeven = Math.round(costSeven * 1.2);
-    setInterval(increaseScoreSeven, 1000);
+    costSeven = Math.round(costSeven * 1.5);
+    setInterval(function () {
+      if (score >= costOne) {
+        score -= costOne;
+        costOne = Math.round(costOne * 1.2);
+        pointsPerClick++;
+        counterOne++;
+        document.querySelector("#article1").textContent = costOne + " $";
+        document.querySelector("#counter1").textContent = counterOne + "x";
+      }
+    }, 10000); // Kauft alle 10 Sekunden einen Artikel 1, wenn genug Punkte vorhanden sind
     counterSeven++;
     document.querySelector("#article7").textContent = costSeven + " $";
     document.querySelector("#counter7").textContent = counterSeven + "x";
@@ -275,72 +267,71 @@ document.getElementById("article7").addEventListener("click", function () {
 
 // New Research Section
 
-
-
 let costLevel = 1;
 let progressLevel = 0;
 let timerLevel = 0;
 let wirdGeupgradedLevel = false;
 
 document.querySelector("#research1").addEventListener("click", function () {
-  if (wirdGeupgradedLevel === false){
-  if (score >= costLevel) {
-    wirdGeupgradedLevel = true;
-    score = score - costLevel;
-    let countdownTimerLevel = setInterval(function () {
-      timerLevel++;
-      let progressLevel = (timerLevel / 1000) * 100 + "%";
-      document.querySelector("#researchbar1").style.width = progressLevel;
-      // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
-      if (timerLevel === 1000) {
-        wirdGeupgradedLevel = false;
-        document.querySelector("#researchbar1").style.width = 0;
-        timerLevel = 0;
-        clearInterval(countdownTimerLevel);
-        level++;
-        document.querySelector("#level").textContent = "LEVEL " + level;
-        document.documentElement.style.setProperty(
-          "--research1-color",
-          "rgb(51, 221, 85)"
-        );
-        document.querySelector("#research1").style.backgroundColor =
-          "var(--research1-color)";
-        setTimeout(() => {
+  if (wirdGeupgradedLevel === false) {
+    if (score >= costLevel) {
+      wirdGeupgradedLevel = true;
+      score = score - costLevel;
+      let countdownTimerLevel = setInterval(function () {
+        timerLevel++;
+        let progressLevel = (timerLevel / 1000) * 100 + "%";
+        document.querySelector("#researchbar1").style.width = progressLevel;
+        // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
+        if (timerLevel === 1000) {
+          wirdGeupgradedLevel = false;
+          document.querySelector("#researchbar1").style.width = 0;
+          timerLevel = 0;
+          clearInterval(countdownTimerLevel);
+          level++;
+          document.querySelector("#level").textContent = "LEVEL " + level;
           document.documentElement.style.setProperty(
             "--research1-color",
-            "rgb(144, 247, 247)"
+            "rgb(51, 221, 85)"
           );
           document.querySelector("#research1").style.backgroundColor =
             "var(--research1-color)";
-        }, 400);
-      }
-    }, 5);
-  } else {
-    document.documentElement.style.setProperty("--research1-color", "red");
-    document.querySelector("#research1").style.backgroundColor =
-      "var(--research1-color)";
-    document.documentElement.style.setProperty("--my-color", "red");
-    document.querySelector("#research1").style.backgroundColor =
-      "var(--my-color)";
-    setTimeout(() => {
-      document.documentElement.style.setProperty(
-        "--research1-color",
-        "rgb(144, 247, 247)"
-      );
+          setTimeout(() => {
+            document.documentElement.style.setProperty(
+              "--research1-color",
+              "rgb(144, 247, 247)"
+            );
+            document.querySelector("#research1").style.backgroundColor =
+              "var(--research1-color)";
+          }, 400);
+        }
+      }, 5);
+    } else {
+      document.documentElement.style.setProperty("--research1-color", "red");
       document.querySelector("#research1").style.backgroundColor =
         "var(--research1-color)";
-    }, 1500);
+      document.documentElement.style.setProperty("--my-color", "red");
+      document.querySelector("#research1").style.backgroundColor =
+        "var(--my-color)";
+      setTimeout(() => {
+        document.documentElement.style.setProperty(
+          "--research1-color",
+          "rgb(144, 247, 247)"
+        );
+        document.querySelector("#research1").style.backgroundColor =
+          "var(--research1-color)";
+      }, 1500);
+    }
   }
-}});
+});
 
-let costGoldRush      = 1;
-let progressGoldRush  = 0;
-let timerGoldRush     = 0;
+let costGoldRush = 1;
+let progressGoldRush = 0;
+let timerGoldRush = 0;
 
-document.querySelector("#research2").addEventListener("click", function () {  
-  if (score >= costGoldRush){   
-    score = score - costGoldRush;  
-    let countdownTimerGoldRush = setInterval(function() {
+document.querySelector("#research2").addEventListener("click", function () {
+  if (score >= costGoldRush) {
+    score = score - costGoldRush;
+    let countdownTimerGoldRush = setInterval(function () {
       timerGoldRush++;
       let progressGoldRush =
         (timerGoldRush /
@@ -389,15 +380,14 @@ document.querySelector("#research2").addEventListener("click", function () {
   }
 });
 
+let costDouble = 1;
+let progressDouble = 0;
+let timerDouble = 0;
 
-let costDouble      = 1;
-let progressDouble  = 0;
-let timerDouble     = 0;
-
-document.querySelector("#research3").addEventListener("click", function () {  
-  if (score >= costDouble){   
-    score = score - costDouble;  
-    let countdownTimerDouble = setInterval(function() {
+document.querySelector("#research3").addEventListener("click", function () {
+  if (score >= costDouble) {
+    score = score - costDouble;
+    let countdownTimerDouble = setInterval(function () {
       timerDouble++;
       let progressDouble =
         (timerDouble /
@@ -446,14 +436,14 @@ document.querySelector("#research3").addEventListener("click", function () {
   }
 });
 
-let costRandomizer      = 1;
-let progressRandomizer  = 0;
-let timerRandomizer     = 0;
+let costRandomizer = 1;
+let progressRandomizer = 0;
+let timerRandomizer = 0;
 
-document.querySelector("#research4").addEventListener("click", function () {  
-  if (score >= costRandomizer){   
-    score = score - costRandomizer;  
-    let countdownTimerRandomizer = setInterval(function() {
+document.querySelector("#research4").addEventListener("click", function () {
+  if (score >= costRandomizer) {
+    score = score - costRandomizer;
+    let countdownTimerRandomizer = setInterval(function () {
       timerRandomizer++;
       let progressRandomizer =
         (timerRandomizer /
@@ -502,15 +492,14 @@ document.querySelector("#research4").addEventListener("click", function () {
   }
 });
 
+let costGoofyAh = 1;
+let progressGoofyAh = 0;
+let timerGoofyAh = 0;
 
-let costGoofyAh      = 1;
-let progressGoofyAh  = 0;
-let timerGoofyAh     = 0;
-
-document.querySelector("#research5").addEventListener("click", function () {  
-  if (score >= costGoofyAh){   
-    score = score - costGoofyAh;  
-    let countdownTimerGoofyAh = setInterval(function() {
+document.querySelector("#research5").addEventListener("click", function () {
+  if (score >= costGoofyAh) {
+    score = score - costGoofyAh;
+    let countdownTimerGoofyAh = setInterval(function () {
       timerGoofyAh++;
       let progressGoofyAh =
         (timerGoofyAh /
@@ -559,14 +548,14 @@ document.querySelector("#research5").addEventListener("click", function () {
   }
 });
 
-let costTest      = 1;
-let progressTest  = 0;
-let timerTest     = 0;
+let costTest = 1;
+let progressTest = 0;
+let timerTest = 0;
 
-document.querySelector("#research6").addEventListener("click", function () {  
-  if (score >= costTest){   
-    score = score - costTest;  
-    let countdownTimerTest = setInterval(function() {
+document.querySelector("#research6").addEventListener("click", function () {
+  if (score >= costTest) {
+    score = score - costTest;
+    let countdownTimerTest = setInterval(function () {
       timerTest++;
       let progressTest =
         (timerTest /
@@ -615,16 +604,14 @@ document.querySelector("#research6").addEventListener("click", function () {
   }
 });
 
+let costSabotageHouse = 1;
+let progressSabotageHouse = 0;
+let timerSabotageHouse = 0;
 
-
-let costSabotageHouse      = 1;
-let progressSabotageHouse  = 0;
-let timerSabotageHouse     = 0;
-
-document.querySelector("#research7").addEventListener("click", function () {  
-  if (score >= costSabotageHouse){   
-    score = score - costSabotageHouse;  
-    let countdownTimerSabotageHouse = setInterval(function() {
+document.querySelector("#research7").addEventListener("click", function () {
+  if (score >= costSabotageHouse) {
+    score = score - costSabotageHouse;
+    let countdownTimerSabotageHouse = setInterval(function () {
       timerSabotageHouse++;
       let progressSabotageHouse =
         (timerSabotageHouse /
@@ -673,22 +660,6 @@ document.querySelector("#research7").addEventListener("click", function () {
     }, 1500);
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 let scorechecker = setInterval(() => {
   if (score > levelLimits[level]) {
