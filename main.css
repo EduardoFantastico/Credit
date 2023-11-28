@@ -11,9 +11,6 @@
   align-items: center;
 }
 
-#gameScreen {
-}
-
 body {
   background-color: #383838;
   font-family: Arial, sans-serif;
@@ -422,7 +419,6 @@ body {
   --research5-color: rgb(144, 247, 247);
   --research6-color: rgb(144, 247, 247);
   --research7-color: rgb(144, 247, 247);
-  
 }
 
 #research1 {
@@ -442,7 +438,6 @@ body {
   cursor: pointer;
   position: relative;
 }
-
 
 #researchbar1 {
   width: var(--research1-prog);
@@ -487,8 +482,7 @@ body {
   position: relative;
 }
 
-
-#researchbar2{
+#researchbar2 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -498,7 +492,7 @@ body {
   border-radius: 9px;
 }
 
-#researchtext2{
+#researchtext2 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -510,7 +504,7 @@ body {
   vertical-align: top;
   display: inline-block;
   position: absolute;
-  top:  0;
+  top: 0;
   left: 0;
 }
 
@@ -532,8 +526,7 @@ body {
   position: relative;
 }
 
-
-#researchbar3{
+#researchbar3 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -542,7 +535,7 @@ body {
   top: 0;
   border-radius: 9px;
 }
-#researchtext3{
+#researchtext3 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -554,7 +547,7 @@ body {
   vertical-align: top;
   display: inline-block;
   position: absolute;
-  top:  0;
+  top: 0;
   left: 0;
 }
 
@@ -576,8 +569,7 @@ body {
   position: relative;
 }
 
-
-#researchbar4{
+#researchbar4 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -586,7 +578,7 @@ body {
   top: 0;
   border-radius: 9px;
 }
-#researchtext4{
+#researchtext4 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -598,7 +590,7 @@ body {
   vertical-align: top;
   display: inline-block;
   position: absolute;
-  top:  0;
+  top: 0;
   left: 0;
 }
 
@@ -620,8 +612,7 @@ body {
   position: relative;
 }
 
-
-#researchbar5{
+#researchbar5 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -630,7 +621,7 @@ body {
   top: 0;
   border-radius: 9px;
 }
-#researchtext5{
+#researchtext5 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -642,7 +633,7 @@ body {
   vertical-align: top;
   display: inline-block;
   position: absolute;
-  top:  0;
+  top: 0;
   left: 0;
 }
 
@@ -664,8 +655,7 @@ body {
   position: relative;
 }
 
-
-#researchbar6{
+#researchbar6 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -674,11 +664,11 @@ body {
   top: 0;
   border-radius: 9px;
 }
-#researchtext6{
+#researchtext6 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
-  border: 2px solid rgb(51, 221, 85,0);
+  border: 2px solid rgb(51, 221, 85, 0);
   border-radius: 10px;
   height: 100%;
   width: 100%;
@@ -686,7 +676,7 @@ body {
   vertical-align: top;
   display: inline-block;
   position: absolute;
-  top:  0;
+  top: 0;
   left: 0;
 }
 
@@ -708,8 +698,7 @@ body {
   position: relative;
 }
 
-
-#researchbar7{
+#researchbar7 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -718,7 +707,7 @@ body {
   top: 0;
   border-radius: 9px;
 }
-#researchtext7{
+#researchtext7 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -730,6 +719,6 @@ body {
   vertical-align: top;
   display: inline-block;
   position: absolute;
-  top:  0;
+  top: 0;
   left: 0;
 }
