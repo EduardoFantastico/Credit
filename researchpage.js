@@ -1,28 +1,36 @@
 // New Research Section
 
+//Research Section 1 | Level Up! | Rises the Level and Point 
 let costLevel = 1;
 let progressLevel = 0;
 let timerLevel = 0;
-let wirdGeupgradedLevel = false;
+let currentlyUpgradingLevel = false; 
 
 document.querySelector("#research1").addEventListener("click", function () {
-  if (wirdGeupgradedLevel === false) {
-    // tested ob bereits geupdatet wird, damit man nicht 2 mal das selbe gleichzeitig updaten kann
-    if (score >= costLevel) {
-      wirdGeupgradedLevel = true;
-      score = score - costLevel;
-      let countdownTimerLevel = setInterval(function () {
+  if (currentlyUpgradingLevel === false) {         // Tests if Level Up is on cooldown
+    if (score >= costLevel) {                  // Tests if player has enough points 
+      currentlyUpgradingLevel = true;              // Sets Levelup on cooldown
+      score = score - costLevel;               // Removes upgrade cost from score
+
+      // Timer / Cooldown Starts Here //
+      let countdownTimerLevel = setInterval(function () {         
         timerLevel++;
+
+        // Progress Bar (CSS) //
         let progressLevel = (timerLevel / 1000) * 100 + "%";
-        document.querySelector("#researchbar1").style.width = progressLevel;
-        // Änderung: Überprüfe, ob timerLevel gleich 1000 ist
-        if (timerLevel === 1000) {
-          wirdGeupgradedLevel = false; //stellt "wird geupdatet" wieder auf false
-          document.querySelector("#researchbar1").style.width = 0;
+        document.querySelector("#research-bar1").style.width = progressLevel;
+
+        // Timer Finish //
+        if (timerLevel === 1000) {          // Here you can put in how mich time it takes to finish the upgrade //
+          currentlyUpgradingLevel = false; //stellt "wird geupdatet" wieder auf false
+          document.querySelector("#research-bar1").style.width = 0;
           timerLevel = 0;
           clearInterval(countdownTimerLevel);
+          // Input Code Here //
           level++;
           document.querySelector("#level").textContent = "LEVEL " + level;
+
+          // Green blink when finished //
           document.documentElement.style.setProperty(
             "--research1-color",
             "rgb(51, 221, 85)"
@@ -39,6 +47,8 @@ document.querySelector("#research1").addEventListener("click", function () {
           }, 400);
         }
       }, 5);
+
+      // Red Flash if Score < Cost
     } else {
       document.documentElement.style.setProperty("--research1-color", "red");
       document.querySelector("#research1").style.backgroundColor =
@@ -58,34 +68,40 @@ document.querySelector("#research1").addEventListener("click", function () {
   }
 });
 
+//Research Section 2 | Gold Rush | Increses Points gained
 let costGoldRush = 1;
 let progressGoldRush = 0;
 let timerGoldRush = 0;
-let wirdGeupgradedGoldRush = false;
+let currentlyUpgradingGoldRush = false;
 
 document.querySelector("#research2").addEventListener("click", function () {
-  if (wirdGeupgradedGoldRush === false) {
-    if (score >= costGoldRush) {
-      wirdGeupgradedGoldRush = true;
-      score = score - costGoldRush;
+  if (currentlyUpgradingGoldRush === false) {                                      // Tests if Gold Rush is on cooldown
+    if (score >= costGoldRush) {                                               // Tests if player has enough points
+      currentlyUpgradingGoldRush = true;                                           // Sets Gold Rush on cooldown
+      score = score - costGoldRush;                                            // Removes upgrade cost from score
+
+      // Timer / Cooldown Starts Here //
       let countdownTimerGoldRush = setInterval(function () {
         timerGoldRush++;
+
+        // Progress Bar (CSS) //
         let progressGoldRush =
           (timerGoldRush /
             1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
             100 +
           "%";
-        document.querySelector("#researchbar2").style.width = progressGoldRush;
+        document.querySelector("#research-bar2").style.width = progressGoldRush;
 
+        // Timer Finish //
         if (timerGoldRush === 1000) {
           //Hier Zeit in 5/1000 einer Sekunde eingeben :)
           clearInterval(countdownTimerGoldRush);
           timerGoldRush = 0;
-          wirdGeupgradedGoldRush = false;
-          // Ziel Hierrein //
+          currentlyUpgradingGoldRush = false;
+          // Input Code Here //
 
-          /*              */
-          document.querySelector("#researchbar2").style.width = 0;
+          // Green blink when finished //
+          document.querySelector("#research-bar2").style.width = 0;
           document.documentElement.style.setProperty(
             "--research2-color",
             "rgb(51, 221, 85)"
@@ -102,6 +118,8 @@ document.querySelector("#research2").addEventListener("click", function () {
           }, 400);
         }
       }, 5);
+
+      // Red Flash if Score < Cost
     } else {
       document.documentElement.style.setProperty("--research2-color", "red");
       document.querySelector("#research2").style.backgroundColor =
@@ -118,34 +136,40 @@ document.querySelector("#research2").addEventListener("click", function () {
   }
 });
 
+//Research Section 3 | Double It | Permanently doubles Points gained 
 let costDouble = 1;
 let progressDouble = 0;
 let timerDouble = 0;
-let wirdGeupgradedDouble = false;
+let currentlyUpgradingDouble = false;
 
 document.querySelector("#research3").addEventListener("click", function () {
-  if (wirdGeupgradedDouble === false) {
-    if (score >= costDouble) {
-      wirdGeupgradedDouble = true;
-      score = score - costDouble;
+  if (currentlyUpgradingDouble === false) {                                          // Tests if Double It is on cooldown
+    if (score >= costDouble) {                                                   // Tests if player has enough points 
+      currentlyUpgradingDouble = true;                                               // Sets Double It on cooldown
+      score = score - costDouble;                                                // Removes upgrade cost from score
+
+      // Timer / Cooldown Starts Here //
       let countdownTimerDouble = setInterval(function () {
         timerDouble++;
+
+        // Progress Bar (CSS) //
         let progressDouble =
           (timerDouble /
             1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
             100 +
           "%";
-        document.querySelector("#researchbar3").style.width = progressDouble;
+        document.querySelector("#research-bar3").style.width = progressDouble;
 
+        // Timer Finish //
         if (timerDouble === 1000) {
           //Hier Zeit in 5/1000 einer Sekunde eingeben :)
           clearInterval(countdownTimerDouble);
           timerDouble = 0;
-          wirdGeupgradedDouble = false;
-          // Ziel Hierrein //
+          currentlyUpgradingDouble = false;
+          // Input Code Here //
 
-          /*              */
-          document.querySelector("#researchbar3").style.width = 0;
+          // Green blink when finished //
+          document.querySelector("#research-bar3").style.width = 0;
           document.documentElement.style.setProperty(
             "--research3-color",
             "rgb(51, 221, 85)"
@@ -162,6 +186,8 @@ document.querySelector("#research3").addEventListener("click", function () {
           }, 400);
         }
       }, 5);
+
+      // Red Flash if Score < Cost
     } else {
       document.documentElement.style.setProperty("--research3-color", "red");
       document.querySelector("#research3").style.backgroundColor =
@@ -178,35 +204,39 @@ document.querySelector("#research3").addEventListener("click", function () {
   }
 });
 
+//Research Section 4 | Randomizer | Activates random clickable popups you can click to gain points
 let costRandomizer = 1;
 let progressRandomizer = 0;
 let timerRandomizer = 0;
-let wirdGeupgradedrandomizer = false;
+let currentlyUpgradingrandomizer = false;
 
 document.querySelector("#research4").addEventListener("click", function () {
-  if (wirdGeupgradedrandomizer === false) {
-    if (score >= costRandomizer) {
-      wirdGeupgradedrandomizer = true;
-      score = score - costRandomizer;
+  if (currentlyUpgradingrandomizer === false) {                                          // Tests if Randomizer is on cooldown
+    if (score >= costRandomizer) {                                                   // Tests if player has enough points 
+      currentlyUpgradingrandomizer = true;                                               // Sets Randomizer on cooldown
+      score = score - costRandomizer;                                                // Removes upgrade cost from score
+
+      // Timer / Cooldown Starts Here //
       let countdownTimerRandomizer = setInterval(function () {
         timerRandomizer++;
+
+        // Progress Bar (CSS) //
         let progressRandomizer =
           (timerRandomizer /
             1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
             100 +
           "%";
-        document.querySelector("#researchbar4").style.width =
-          progressRandomizer;
+        document.querySelector("#research-bar4").style.width = progressRandomizer;
 
-        if (timerRandomizer === 1000) {
-          //Hier Zeit in 5/1000 einer Sekunde eingeben :)
+        // Timer Finish //
+        if (timerRandomizer === 1000) { //Hier Zeit in 5/1000 einer Sekunde eingeben :)
           clearInterval(countdownTimerRandomizer);
           timerRandomizer = 0;
-          wirdGeupgradedrandomizer = false;
-          // Ziel Hierrein //
+          currentlyUpgradingrandomizer = false;
+          // Input Code Here //
 
-          /*              */
-          document.querySelector("#researchbar4").style.width = 0;
+          // Green blink when finished //
+          document.querySelector("#research-bar4").style.width = 0;
           document.documentElement.style.setProperty(
             "--research4-color",
             "rgb(51, 221, 85)"
@@ -223,6 +253,8 @@ document.querySelector("#research4").addEventListener("click", function () {
           }, 400);
         }
       }, 5);
+
+      // Red Flash if Score < Cost
     } else {
       document.documentElement.style.setProperty("--research4-color", "red");
       document.querySelector("#research4").style.backgroundColor =
@@ -239,34 +271,40 @@ document.querySelector("#research4").addEventListener("click", function () {
   }
 });
 
+//Research Section 5 | -- -- -- | -- -- --
 let costGoofyAh = 1;
 let progressGoofyAh = 0;
 let timerGoofyAh = 0;
-let wirdGeupgradedGoofyAh = false;
+let currentlyUpgradingGoofyAh = false;
 
 document.querySelector("#research5").addEventListener("click", function () {
-  if (wirdGeupgradedGoofyAh === false) {
-    if (score >= costGoofyAh) {
-      wirdGeupgradedGoofyAh = true;
-      score = score - costGoofyAh;
+  if (currentlyUpgradingGoofyAh === false) {                                          // Tests if Application is on cooldown
+    if (score >= costGoofyAh) {                                                   // Tests if player has enough points
+      currentlyUpgradingGoofyAh = true;                                               // Sets Application on cooldown
+      score = score - costGoofyAh;                                                // Removes upgrade cost from score
+
+      // Timer / Cooldown Starts Here //
       let countdownTimerGoofyAh = setInterval(function () {
         timerGoofyAh++;
+
+        // Progress Bar (CSS) //
         let progressGoofyAh =
           (timerGoofyAh /
             1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
             100 +
           "%";
-        document.querySelector("#researchbar5").style.width = progressGoofyAh;
+        document.querySelector("#research-bar5").style.width = progressGoofyAh;
 
+        // Timer Finish //
         if (timerGoofyAh === 1000) {
           //Hier Zeit in 5/1000 einer Sekunde eingeben :)
           clearInterval(countdownTimerGoofyAh);
           timerGoofyAh = 0;
-          wirdGeupgradedGoofyAh = false;
-          // Ziel Hierrein //
+          currentlyUpgradingGoofyAh = false;
+          // Input Code Here //
 
-          /*              */
-          document.querySelector("#researchbar5").style.width = 0;
+          // Green blink when finished //
+          document.querySelector("#research-bar5").style.width = 0;
           document.documentElement.style.setProperty(
             "--research5-color",
             "rgb(51, 221, 85)"
@@ -283,6 +321,8 @@ document.querySelector("#research5").addEventListener("click", function () {
           }, 400);
         }
       }, 5);
+
+      // Red Flash if Score < Cost
     } else {
       document.documentElement.style.setProperty("--research5-color", "red");
       document.querySelector("#research5").style.backgroundColor =
@@ -299,34 +339,40 @@ document.querySelector("#research5").addEventListener("click", function () {
   }
 });
 
+//Research Section 6 | -- -- -- | -- -- --
 let costTest = 1;
 let progressTest = 0;
 let timerTest = 0;
-let wirdGeupgradedTest = false;
+let currentlyUpgradingTest = false;
 
 document.querySelector("#research6").addEventListener("click", function () {
-  if (wirdGeupgradedTest === false) {
-    if (score >= costTest) {
-      wirdGeupgradedTest = true;
-      score = score - costTest;
+  if (currentlyUpgradingTest === false) {                                            // Tests if Application is on cooldown
+    if (score >= costTest) {                                                     // Tests if player has enough points
+      currentlyUpgradingTest = true;                                                 // Sets Application on cooldown
+      score = score - costTest;                                                  // Removes upgrade cost from score
+
+      // Timer / Cooldown Starts Here //
       let countdownTimerTest = setInterval(function () {
         timerTest++;
+
+        // Progress Bar (CSS) //
         let progressTest =
           (timerTest /
             1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
             100 +
           "%";
-        document.querySelector("#researchbar6").style.width = progressTest;
+        document.querySelector("#research-bar6").style.width = progressTest;
 
+        // Timer Finish //
         if (timerTest === 1000) {
           //Hier Zeit in 5/1000 einer Sekunde eingeben :)
           clearInterval(countdownTimerTest);
           timerTest = 0;
-          wirdGeupgradedTest = false;
-          // Ziel Hierrein //
+          currentlyUpgradingTest = false;
+          // Input Code Here //
 
-          /*              */
-          document.querySelector("#researchbar6").style.width = 0;
+          // Green blink when finished //
+          document.querySelector("#research-bar6").style.width = 0;
           document.documentElement.style.setProperty(
             "--research6-color",
             "rgb(51, 221, 85)"
@@ -343,6 +389,8 @@ document.querySelector("#research6").addEventListener("click", function () {
           }, 400);
         }
       }, 5);
+
+      // Red Flash if Score < Cost
     } else {
       document.documentElement.style.setProperty("--research6-color", "red");
       document.querySelector("#research6").style.backgroundColor =
@@ -359,35 +407,40 @@ document.querySelector("#research6").addEventListener("click", function () {
   }
 });
 
+//Research Section 7 | Sabotage House | Unlocks new Sabotage - Shop Section
 let costSabotageHouse = 1;
 let progressSabotageHouse = 0;
 let timerSabotageHouse = 0;
-let wirdGeupgradedSabotageHouse = false;
+let currentlyUpgradingSabotageHouse = false;
 
 document.querySelector("#research7").addEventListener("click", function () {
-  if (wirdGeupgradedSabotageHouse === false) {
-    if (score >= costSabotageHouse) {
-      wirdGeupgradedSabotageHouse = true;
-      score = score - costSabotageHouse;
+  if (currentlyUpgradingSabotageHouse === false) {                                    // Tests if Sabotage House is on cooldown
+    if (score >= costSabotageHouse) {                                             // Tests if player has enough points
+      currentlyUpgradingSabotageHouse = true;                                         // Sets Sabotage on cooldown
+      score = score - costSabotageHouse;                                          // Removes upgrade cost from score
+
+      // Timer / Cooldown Starts Here //
       let countdownTimerSabotageHouse = setInterval(function () {
         timerSabotageHouse++;
+
+        // Progress Bar (CSS) //
         let progressSabotageHouse =
           (timerSabotageHouse /
             1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
             100 +
           "%";
-        document.querySelector("#researchbar7").style.width =
-          progressSabotageHouse;
+        document.querySelector("#research-bar7").style.width = progressSabotageHouse;
 
+        // Timer Finish //
         if (timerSabotageHouse === 1000) {
           //Hier Zeit in 5/1000 einer Sekunde eingeben :)
           clearInterval(countdownTimerSabotageHouse);
           timerSabotageHouse = 0;
-          wirdGeupgradedSabotageHouse = false;
-          // Ziel Hierrein //
+          currentlyUpgradingSabotageHouse = false;
+          // Input Code Here //
 
-          /*              */
-          document.querySelector("#researchbar7").style.width = 0;
+          // Green blink when finished //
+          document.querySelector("#research-bar7").style.width = 0;
           document.documentElement.style.setProperty(
             "--research7-color",
             "rgb(51, 221, 85)"
@@ -404,6 +457,8 @@ document.querySelector("#research7").addEventListener("click", function () {
           }, 400);
         }
       }, 5);
+
+      // Red Flash if Score < Cost
     } else {
       document.documentElement.style.setProperty("--research7-color", "red");
       document.querySelector("#research7").style.backgroundColor =

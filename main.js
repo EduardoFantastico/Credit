@@ -16,110 +16,50 @@ let levelLimits = [
   Infinity,
 ];
 
-// Folienwechsel | Thomas ändert noch die Namen (Er macht das gerne)
-function folieShop() {
+// Change Interface | Switch between Shop, Leaderboard, Research, etc
+
+// Function | Change to Shop
+function changeInterfaceShop() {
   document.getElementById("research").style.marginLeft = "-300px";
-  document.getElementById("Leaderboard").style.marginLeft = "-300px";
+  document.getElementById("leaderboard").style.marginLeft = "-300px";
   document.getElementById("shop").style.marginLeft = "20px";
 }
-
-function folieLeaderboard() {
+// Function | Change to Leaderboard
+function changeInterfaceLeaderboard() {
   document.querySelector("#research").style.marginLeft = "-300px";
-  document.querySelector("#Leaderboard").style.marginLeft = "20px";
+  document.querySelector("#leaderboard").style.marginLeft = "20px";
   document.querySelector("#shop").style.marginLeft = "-300px";
 }
-
-function folieResearch() {
+// Function | Change to Research
+function changeInterfaceResearch() {
   document.querySelector("#research").style.marginLeft = "20px";
-  document.querySelector("#Leaderboard").style.marginLeft = "-300px";
+  document.querySelector("#leaderboard").style.marginLeft = "-300px";
   document.querySelector("#shop").style.marginLeft = "-300px";
 }
-
-let folie = 1;
-
+// Shop | Left Button | Change to Leaderboard
 document.getElementById("shop-left").addEventListener("click", function () {
-  if (folie === 3) {
-    folie = 1; // Shop
-    folieShop();
-  } else if (folie === 1) {
-    folie = 2; // Research
-    folieResearch();
-  } else if (folie === 2) {
-    folie = 3; // Leaderboard
-    folieLeaderboard();
-  }
+changeInterfaceLeaderboard();
 });
-
+// Shop | Right Button | Change to Research
 document.getElementById("shop-right").addEventListener("click", function () {
-  if (folie === 3) {
-    folie = 2;
-    folieResearch();
-  } else if (folie === 1) {
-    folie = 3;
-    folieLeaderboard();
-  } else if (folie === 2) {
-    folie = 1;
-    folieShop();
-  }
+changeInterfaceResearch();
 });
-
+// Research | Left Button | Change to Shop
 document.getElementById("research-left").addEventListener("click", function () {
-  if (folie === 3) {
-    folie = 1; // Shop
-    folieShop();
-  } else if (folie === 1) {
-    folie = 2; // Research
-    folieResearch();
-  } else if (folie === 2) {
-    folie = 3; // Leaderboard
-    folieLeaderboard();
-  }
+changeInterfaceShop();
 });
-
-document
-  .getElementById("research-right")
-  .addEventListener("click", function () {
-    if (folie === 3) {
-      folie = 2;
-      folieResearch();
-    } else if (folie === 1) {
-      folie = 3;
-      folieLeaderboard();
-    } else if (folie === 2) {
-      folie = 1;
-      folieShop();
-    }
-  });
-
-document
-  .getElementById("leaderboard-left")
-  .addEventListener("click", function () {
-    if (folie === 3) {
-      folie = 1; // Shop
-      folieShop();
-    } else if (folie === 1) {
-      folie = 2; // Research
-      folieResearch();
-    } else if (folie === 2) {
-      folie = 3; // Leaderboard
-      folieLeaderboard();
-    }
-  });
-
-document
-  .getElementById("leaderboard-right")
-  .addEventListener("click", function () {
-    if (folie === 3) {
-      folie = 2;
-      folieResearch();
-    } else if (folie === 1) {
-      folie = 3;
-      folieLeaderboard();
-    } else if (folie === 2) {
-      folie = 1;
-      folieShop();
-    }
-  });
+// Research | Right Button | Change to Leaderboard
+document.getElementById("research-right").addEventListener("click", function () {
+  changeInterfaceLeaderboard();
+});
+// Leaderboard | Left Button | Change to Research
+document.getElementById("leaderboard-left").addEventListener("click", function () {
+  changeInterfaceResearch();
+});
+// Leaderboard | Right Button | Change to Shop
+document.getElementById("leaderboard-right").addEventListener("click", function () {
+  changeInterfaceShop();
+});
 
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
@@ -132,6 +72,6 @@ let scorechecker = setInterval(() => {
   }
 }, 1);
 
-let wiederholung = setInterval(() => {
+let repeatend = setInterval(() => {
   document.querySelector("#score").textContent = score + " $";
 }, 1);

@@ -81,7 +81,7 @@
   position: relative;
 }
 
-#researchbar1 {
+#research-bar1 {
   width: var(--research1-prog);
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -91,7 +91,7 @@
   border-radius: 9px;
 }
 
-#researchtext1 {
+#research-text1 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -125,7 +125,7 @@
   position: relative;
 }
 
-#researchbar2 {
+#research-bar2 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -135,7 +135,7 @@
   border-radius: 9px;
 }
 
-#researchtext2 {
+#research-text2 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -169,7 +169,7 @@
   position: relative;
 }
 
-#researchbar3 {
+#research-bar3 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -179,7 +179,7 @@
   border-radius: 9px;
 }
 
-#researchtext3 {
+#research-text3 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -213,7 +213,7 @@
   position: relative;
 }
 
-#researchbar4 {
+#research-bar4 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -223,7 +223,7 @@
   border-radius: 9px;
 }
 
-#researchtext4 {
+#research-text4 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -257,7 +257,7 @@
   position: relative;
 }
 
-#researchbar5 {
+#research-bar5 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -267,7 +267,7 @@
   border-radius: 9px;
 }
 
-#researchtext5 {
+#research-text5 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -301,7 +301,7 @@
   position: relative;
 }
 
-#researchbar6 {
+#research-bar6 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -311,7 +311,7 @@
   border-radius: 9px;
 }
 
-#researchtext6 {
+#research-text6 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -345,7 +345,7 @@
   position: relative;
 }
 
-#researchbar7 {
+#research-bar7 {
   width: 0;
   height: 100%;
   background-color: rgb(24, 177, 248);
@@ -355,7 +355,7 @@
   border-radius: 9px;
 }
 
-#researchtext7 {
+#research-text7 {
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
