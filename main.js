@@ -35,7 +35,7 @@ function changeInterfaceResearch() {
   document.querySelector("#research").style.marginLeft = "20px";
   document.querySelector("#leaderboard").style.marginLeft = "-300px";
   document.querySelector("#shop").style.marginLeft = "-300px";
-}
+}  
 // Shop | Left Button | Change to Leaderboard
 document.getElementById("shop-left").addEventListener("click", function () {
 changeInterfaceLeaderboard();
