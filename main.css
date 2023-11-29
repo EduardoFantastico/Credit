@@ -100,7 +100,7 @@ body {
   transform: rotate(180deg);
 }
 
-#Leaderboard {
+#leaderboard {
   background-color: #c0bbbb;
   display: block;
   justify-content: center; /* Zentriert den Inhalt horizontal */
@@ -116,7 +116,7 @@ body {
   left: 0;
 }
 
-#untere-leiste {
+#bottom-bar {
   position: fixed;
   bottom: 20px;
   left: 0;
@@ -129,7 +129,7 @@ body {
   margin: auto;
 }
 
-#menu-fenster {
+#menu-window {
   position: absolute;
   height: 100%;
   width: 200px;
@@ -152,7 +152,7 @@ body {
   width: 100%;
   height: 25%;
 }
-#inventar-fenster {
+#inventory-window {
   position: absolute;
   height: 100%;
   width: calc(100% - 500px);
@@ -161,7 +161,7 @@ body {
   background-color: blue;
   display: block;
 }
-#invzeile1 {
+#inventory-top-row {
   position: absolute;
   width: 100%;
   height: 50%;
@@ -172,7 +172,7 @@ body {
   flex-wrap: wrap;
 }
 
-#invzeile2 {
+#inventory-bottem-row {
   position: absolute;
   width: 100%;
   height: 50%;
@@ -183,7 +183,7 @@ body {
   flex-wrap: wrap;
 }
 
-#invslot {
+#inventory-slot {
   left: 0;
   height: 90px;
   width: 90px;
@@ -191,7 +191,7 @@ body {
   background-color: grey;
   border: 1 solid black;
 }
-#chat-fenster {
+#chat-window {
   position: absolute;
   height: 100%;
   width: 300px;
@@ -199,7 +199,7 @@ body {
   right: 0;
 }
 
-#Leaderboard {
+#leaderboard {
   background-color: #c0bbbb;
   display: block;
   justify-content: center; /* Zentriert den Inhalt horizontal */
