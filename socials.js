@@ -1,19 +1,29 @@
-// Get the chat input, chat history, and chat form elements
+// Holen Sie sich das Chat-Eingabe-, Chat-Verlauf- und Chat-Formular-Element
 const chatInput = document.querySelector("#chat-input");
 const chatMessages = document.querySelector("#chat-history");
 const chatForm = document.querySelector("#chat-form");
+const scrollToBottom = () => {
+    setTimeout(() => {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 0);
+  };
+  const adjustChatHistoryHeight = () => {
+    const chatHistory = document.querySelector("#chat-history");
+    const contentBoxChat = document.querySelector("#content-box-chat");
+    const chatTextSpace = document.querySelector("#chat-text-space");
+    chatHistory.style.height = (contentBoxChat.offsetHeight - chatTextSpace.offsetHeight) + "px";
+  };
 
-// Create a function to generate the chat message element
+// Erstellen Sie eine Funktion, um das Chat-Nachrichten-Element zu generieren
 const createChatMessageElement = (message) => {
   return `
     <div class="chat-message">
-      <div class="message-sender">${message.sender}</div>
-      <div class="message-text">${message.text}</div>
+      <div class="message-text">${message.sender}${message.text}</div>
     </div>
   `;
 };
 
-// Create a function to send the chat message
+// Erstellen Sie eine Funktion, um die Chat-Nachricht zu senden
 const sendMessage = (e) => {
   e.preventDefault();
 
@@ -22,38 +32,43 @@ const sendMessage = (e) => {
   }
 
   const message = {
-    sender: "You" + ": ",
+    sender: "You: ",
     text: chatInput.value,
   };
   
-  // Create a new div element
+  // Erstellen Sie ein neues div-Element
   const messageElement = document.createElement('div');
-  // Add the message as HTML content
+  // Fügen Sie die Nachricht als HTML-Inhalt hinzu
   messageElement.innerHTML = createChatMessageElement(message);
-  // Add the element at the beginning of #chat-history
+  // Fügen Sie das Element am Anfang von #chat-history hinzu
   chatMessages.prepend(messageElement);
+  scrollToBottom(); //
+  adjustChatHistoryHeight();
   
-  console.log(message.sender, message.text); // Log the message to the console
+  console.log(message.sender, message.text); // Loggen Sie die Nachricht in der Konsole
   checkCommand();
   chatInput.value = "";
 };
 
-// Create a function to send the bot message
+// Erstellen Sie eine Funktion, um die Chat-Nachricht des Bots zu senden
 const sendBotMessage = (text) => {
   const message = {
-    sender: "Bot" + ": ",
+    sender: "Bot: ",
     text: text,
   };
   
-  // Create a new div element
+  // Erstellen Sie ein neues div-Element
   const messageElement = document.createElement('div');
-  // Add the message as HTML content
+  // Fügen Sie die Nachricht als HTML-Inhalt hinzu
   messageElement.innerHTML = createChatMessageElement(message);
-  // Add the element at the beginning of #chat-history
+  // Fügen Sie das Element am Anfang von #chat-history hinzu
   chatMessages.prepend(messageElement);
+  scrollToBottom();
+  adjustChatHistoryHeight();
+
 };
 
-// Create a function to check the chat command
+// Erstellen Sie eine Funktion, um den Chat-Befehl zu überprüfen
 const checkCommand = () => {
   const input = chatInput.value.trim().toLowerCase();
   const inputArr = input.split(" ");
@@ -85,7 +100,7 @@ const checkCommand = () => {
   }
 };
 
-// Add event listeners for sending the chat message
+// Fügen Sie Event-Listener hinzu, um die Chat-Nachricht zu senden
 chatForm.addEventListener("submit", sendMessage);
 chatInput.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
@@ -93,3 +108,20 @@ chatInput.addEventListener("keyup", function (event) {
     document.querySelector("#chat-send").click();
   }
 });
+
+// Setzen Sie die Höhe von #chat-history, wenn das Fenster geladen wird
+window.onload = function() {
+    const chatHistory = document.querySelector("#chat-history");
+    const contentBoxChat = document.querySelector("#content-box-chat");
+    const chatTextSpace = document.querySelector("#chat-text-space");
+    chatHistory.style.height = (contentBoxChat.offsetHeight - chatTextSpace.offsetHeight) + "px";
+  };
+  
+  // Aktualisieren Sie die Höhe von #chat-history, wenn die Fenstergröße geändert wird
+  window.onresize = function() {
+    const chatHistory = document.querySelector("#chat-history");
+    const contentBoxChat = document.querySelector("#content-box-chat");
+    const chatTextSpace = document.querySelector("#chat-text-space");
+    chatHistory.style.height = (contentBoxChat.offsetHeight - chatTextSpace.offsetHeight) + "px";
+  };
+  

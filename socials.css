@@ -17,9 +17,11 @@
     background-color: #c0bbbb;
     order: 2;
     flex-grow: 1;
-    width: 100%;
+    width: calc(100%-30px);
     height: 449px;
     padding: 0px;
+    overflow: auto;
+    
 }
 
 #chat-right {
@@ -51,6 +53,7 @@
     bottom: 30px;
     left: 0;
     width: 100%;
+    height:100%;
     overflow-y: auto;
     display: flex;
     flex-direction: column-reverse;
@@ -110,5 +113,7 @@
     border-radius: 1px;
     margin-bottom: 1px;
     max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
