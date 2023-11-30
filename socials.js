@@ -25,10 +25,32 @@ const sendMessage = (e) => {
     sender: "You" + ": ",
     text: chatInput.value,
   };
-  chatMessages.innerHTML += createChatMessageElement(message);
+  
+  // Create a new div element
+  const messageElement = document.createElement('div');
+  // Add the message as HTML content
+  messageElement.innerHTML = createChatMessageElement(message);
+  // Add the element at the beginning of #chat-history
+  chatMessages.prepend(messageElement);
+  
   console.log(message.sender, message.text); // Log the message to the console
   checkCommand();
   chatInput.value = "";
+};
+
+// Create a function to send the bot message
+const sendBotMessage = (text) => {
+  const message = {
+    sender: "Bot" + ": ",
+    text: text,
+  };
+  
+  // Create a new div element
+  const messageElement = document.createElement('div');
+  // Add the message as HTML content
+  messageElement.innerHTML = createChatMessageElement(message);
+  // Add the element at the beginning of #chat-history
+  chatMessages.prepend(messageElement);
 };
 
 // Create a function to check the chat command
@@ -40,15 +62,9 @@ const checkCommand = () => {
 
   if (command === "!score") {
     if (value === undefined || value === "help") {
-      chatMessages.innerHTML += createChatMessageElement({
-        sender: "Bot: ",
-        text: "Command: !score [add | remove | set] [X-Value]",
-      });
+      sendBotMessage("Command: !score [add | remove | set] [X-Value]");
     } else if (isNaN(value) && command !== "!score clear" && inputArr.length > 2) {
-      chatMessages.innerHTML += createChatMessageElement({
-        sender: "Bot: ",
-        text: "Please enter a numerical value for X",
-      });
+      sendBotMessage("Please enter a numerical value for X");
     } else {
       switch (inputArr[1]) {
         case "add":
@@ -61,17 +77,11 @@ const checkCommand = () => {
           score = parseInt(value);
           break;
         default:
-          chatMessages.innerHTML += createChatMessageElement({
-            sender: "Bot: ",
-            text: "Command: !score [add | remove | set] [X-Value]",
-          });
+          sendBotMessage("Command: !score [add | remove | set] [X-Value]");
       }
     }
   } else if (command.startsWith("!")) {
-    chatMessages.innerHTML += createChatMessageElement({
-      sender: "Bot: ",
-      text: "Please enter a valid command, e.g. !score",
-    });
+    sendBotMessage("Please enter a valid command, e.g. !score");
   }
 };
 
