@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="researchpage.css" />
     <link rel="stylesheet" type="text/css" href="shoppage.css" />
     <link rel="stylesheet" type="text/css" href="startsheet.css" />
+    <link rel="stylesheet" type="text/css" href="socials.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
     <style>
         body {
@@ -32,7 +33,41 @@
   <div>
     <div id="level">LEVEL 0</div>
     <div id="score">0 $</div>
-      <button id="clicker"></button>
+    <button id="clicker"></button>
+
+
+      <!-- socials -->
+
+    <div id="chat">
+      <div id="header">
+        <button id="chat-left">
+          <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+            <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+          </div>
+      </button>
+      Chat
+      <button id="chat-right">
+        <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+        </div>
+      </button>
+      </div>
+      <div id="content-box-chat">
+        <div id="chat-history"></div>
+        <div id="chat-text-space">
+          <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="chat here ..." />
+            <button type="submit" id="chat-send">Send.</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
 
     
     <div id="leaderboard"> 
@@ -151,13 +186,13 @@
         </div>
         </div>
 
-      <!-- Chat -->
-        <div id="chat-window">
-          <div id="chat-history">
+      <!-- Bottom Row Right -->
+        <div id="right-window">
+          <div id="right-history">
 
           </div>
 
-          <div id="chat-input">
+          <div id="right-input">
             
           </div>
         </div>
@@ -175,6 +210,9 @@
     </script>
     <script
       src = "startsheet.js">
+    </script>
+    <script
+      src = "socials.js">
     </script>
     
    </body>
