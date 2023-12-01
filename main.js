@@ -38,28 +38,34 @@ function changeInterfaceResearch() {
 }
 // Shop | Left Button | Change to Leaderboard
 document.getElementById("shop-left").addEventListener("click", function () {
-changeInterfaceLeaderboard();
+  changeInterfaceLeaderboard();
 });
 // Shop | Right Button | Change to Research
 document.getElementById("shop-right").addEventListener("click", function () {
-changeInterfaceResearch();
+  changeInterfaceResearch();
 });
 // Research | Left Button | Change to Shop
 document.getElementById("research-left").addEventListener("click", function () {
-changeInterfaceShop();
-});
-// Research | Right Button | Change to Leaderboard
-document.getElementById("research-right").addEventListener("click", function () {
-  changeInterfaceLeaderboard();
-});
-// Leaderboard | Left Button | Change to Research
-document.getElementById("leaderboard-left").addEventListener("click", function () {
-  changeInterfaceResearch();
-});
-// Leaderboard | Right Button | Change to Shop
-document.getElementById("leaderboard-right").addEventListener("click", function () {
   changeInterfaceShop();
 });
+// Research | Right Button | Change to Leaderboard
+document
+  .getElementById("research-right")
+  .addEventListener("click", function () {
+    changeInterfaceLeaderboard();
+  });
+// Leaderboard | Left Button | Change to Research
+document
+  .getElementById("leaderboard-left")
+  .addEventListener("click", function () {
+    changeInterfaceResearch();
+  });
+// Leaderboard | Right Button | Change to Shop
+document
+  .getElementById("leaderboard-right")
+  .addEventListener("click", function () {
+    changeInterfaceShop();
+  });
 
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
