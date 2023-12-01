@@ -85,7 +85,7 @@
 
 #chat-input{
     width: 205px;
-    height: 25px;
+    height: 30px;
     background-color: greenyellow;
     border: 0;
     left: 0;
@@ -94,8 +94,8 @@
 
 #chat-send{
     right: 0;
-    width: 45px;
-    height:27px;
+    width: 40px;
+    height:30px;
     position: absolute;
 }
 .chat-message {
