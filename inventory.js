@@ -1,5 +1,14 @@
-
 let maxslot = 6;
+
+
+
+// ITEM LISTE:
+
+let validItems = [
+    "Schwert",
+    "Trank",
+    "Schild",
+]
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const myInventory = new Inventory(maxslot);

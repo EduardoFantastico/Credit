@@ -70,12 +70,12 @@ const checkCommand = () => {
   const inputArr = input.split(" ");
   const command = inputArr[0];
   let value;
-  
+  const validCommands = ["!score", "!slot", "!item"];  
 
   if (inputArr.length > 2 && !isNaN(inputArr[2])) {
     value = parseInt(inputArr[2]);
   }
-
+  if (validCommands.includes(command)) {
   switch (command) {
     case "!score":
           if (value === undefined || value === "help") {
@@ -122,10 +122,53 @@ const checkCommand = () => {
       myInventory.maxSlots = maxslot;
       myInventory.updateHTML();
       break;
+      case "!item":
+      handleItemCommand(inputArr);
+      break;
     default:
       sendBotMessage("Bitte geben Sie einen gültigen Befehl ein, z.B. !score oder !slot");
   }
+  }
 };
+
+
+// Überprüfen Sie, ob der Item-Name in der Liste der gültigen Items enthalten ist
+const isItemValid = (itemName) => {
+  return validItems.map(item => item.toLowerCase()).includes(itemName.trim().toLowerCase());
+};
+
+// Erstellen Sie eine Funktion, um den !item Befehl zu verarbeiten
+const handleItemCommand = (inputArr) => {
+  const action = inputArr[1];
+  const itemName = inputArr[2];
+  const itemAmount = parseInt(inputArr[3]);
+
+  if (!isItemValid(itemName) || isNaN(itemAmount)) {
+    sendBotMessage("Bitte geben Sie einen gültigen Item-Namen aus der Liste und eine numerische Menge ein.");
+    return;
+  }
+
+  switch (action) {
+    case "give":
+      for (let i = 0; i < itemAmount; i++) {
+        myInventory.addItem(itemName);
+      }
+      sendBotMessage("Gegeben: " + itemAmount + " " + itemName + "(s)");
+      break;
+    case "remove":
+      for (let i = 0; i < itemAmount; i++) {
+        const index = myInventory.slots.indexOf(itemName);
+        if (index !== -1) {
+          myInventory.removeItem(index);
+        }
+      }
+      sendBotMessage("Entfernt: " + itemAmount + " " + itemName + "(s)");
+      break;
+    default:
+      sendBotMessage("Bitte verwenden Sie give oder remove als Aktion.");
+  }
+};
+
 
 // Event-Listener
 chatForm.addEventListener("submit", sendMessage);
