@@ -1,6 +1,6 @@
-/* RAINBOW MODE
+/* RAINBOW MODE */
 
-/* #startScreen {
+#startScreen {
   position: absolute;
   top: 0;
   left: 0;
@@ -22,11 +22,12 @@
  * w: http://animista.net, t: @cssanimista
  * ---------------------------------------------- */
 
-/**
+/*
  * ----------------------------------------
  * animation color-change-5x
  * ----------------------------------------
- 
+ */
+/*
 @-webkit-keyframes color-change-5x {
   0% {
     background: #ff595e;
