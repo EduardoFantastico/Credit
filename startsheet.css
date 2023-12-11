@@ -37,11 +37,18 @@
   text-shadow: 0 0 5px #0f0;
 }
 
-#startbutton {
+#startButton {
+  display: inline-block;
+  border: 1;
+  background-color: rgb(250, 40, 40);
+  color: rgb(0, 0, 0) rbe;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  bottom: 40%;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
 }
