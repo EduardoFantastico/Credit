@@ -4,9 +4,7 @@
     left: 0;
     right: 0;
     height: 200px; /* Passen Sie die Höhe nach Bedarf an */
-    width: 85%;
-    max-width: 2000px;
-    min-width: 1100px;
+    width: 1150px;
     background-color: #c0bbbb; /* Passen Sie die Farbe nach Bedarf an */
     margin: auto;
   }
@@ -34,48 +32,97 @@
     width: 100%;
     height: 25%;
   }
-  #inventory-window {
+  #inventory-container {
+    box-sizing: border-box;
     position: absolute;
-    height: 100%;
+    height: 200px;
     width: calc(100% - 500px);
     left: 0;
     margin-left: 200px;
     background-color: blue;
-    display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex; /* geändert von block zu flex, um die Slots nebeneinander anzuordnen */
+    flex-wrap: wrap; /* ermöglicht das Umbruch der Slots, falls nötig */
+    justify-content: flex-start;
+    padding-bottom: 7px;
   }
-  #inventory-top-row {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    left: 0;
-    top: 0;
-    background-color: aqua;
-    display: flex;
-    flex-wrap: wrap;
+
+  #inventory-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
   }
-  
-  #inventory-bottem-row {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    left: 0;
-    bottom: 0;
-    background-color: purple;
-    display: flex;
-    flex-wrap: wrap;
+
+  #inventory-container::-webkit-scrollbar-corner {
+    background-color: transparent;
   }
   
-  #inventory-slot {
+  #inventory-container::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 0, 255, 1);
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .slot.empty, .item-schwert, .item-schild, .item-trank {
+    display: flex; /* Ermöglicht die Verwendung von Flexbox */
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    align-items: flex-end; /* Zentriert den Inhalt vertikal */
+    text-align: center; /* Zentriert den Text, falls nötig */
     left: 0;
     height: 90px;
     width: 90px;
-    margin: auto;
+    margin-left: 14px;
+    margin-top: 7px;
     background-color: grey;
-    border: 1 solid black;
+    border: 1px solid black;
+    flex: 0 0 auto;
   }
+  
+  .item-schwert {
+    background-image: url('Schwert.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: green;
+  }
+  
+  .item-schild {
+    background-image: url('Schild.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: green;
+  }
+  
+  .item-trank {
+    background-image: url('Trank.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: green;
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   #right-window {
     position: absolute;
-    height: 100%;
+    height: 200px;
     width: 300px;
     background-color: red;
     right: 0;

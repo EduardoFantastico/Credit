@@ -6,6 +6,7 @@ let progressLevel = 0;
 let timerLevel = 0;
 let currentlyUpgradingLevel = false; 
 
+
 document.querySelector("#research1").addEventListener("click", function () {
   if (currentlyUpgradingLevel === false) {         // Tests if Level Up is on cooldown
     if (score >= costLevel) {                  // Tests if player has enough points 
@@ -99,7 +100,16 @@ document.querySelector("#research2").addEventListener("click", function () {
           timerGoldRush = 0;
           currentlyUpgradingGoldRush = false;
           // Input Code Here //
+          myInventory.addItem('Schwert');
+          myInventory.addItem('Schild');
+          myInventory.addItem('Trank');
 
+          if (myInventory.hasItem('Trank')) {
+            console.log('Das Item Trank ist im Inventar.');
+        } else {
+            console.log('Das Item Trank ist nicht im Inventar.');
+        }
+        
           // Green blink when finished //
           document.querySelector("#research-bar2").style.width = 0;
           document.documentElement.style.setProperty(

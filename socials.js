@@ -2,17 +2,20 @@
 const chatInput = document.querySelector("#chat-input");
 const chatMessages = document.querySelector("#chat-history");
 const chatForm = document.querySelector("#chat-form");
+
+// Hilfsfunktionen
 const scrollToBottom = () => {
-    setTimeout(() => {
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }, 0);
-  };
-  const adjustChatHistoryHeight = () => {
-    const chatHistory = document.querySelector("#chat-history");
-    const contentBoxChat = document.querySelector("#content-box-chat");
-    const chatTextSpace = document.querySelector("#chat-text-space");
-    chatHistory.style.height = (contentBoxChat.offsetHeight - chatTextSpace.offsetHeight) + "px";
-  };
+  setTimeout(() => {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }, 0);
+};
+
+const adjustChatHistoryHeight = () => {
+  const chatHistory = document.querySelector("#chat-history");
+  const contentBoxChat = document.querySelector("#content-box-chat");
+  const chatTextSpace = document.querySelector("#chat-text-space");
+  chatHistory.style.height = (contentBoxChat.offsetHeight - chatTextSpace.offsetHeight) + "px";
+};
 
 // Erstellen Sie eine Funktion, um das Chat-Nachrichten-Element zu generieren
 const createChatMessageElement = (message) => {
@@ -35,17 +38,14 @@ const sendMessage = (e) => {
     sender: "You: ",
     text: chatInput.value,
   };
-  
-  // Erstellen Sie ein neues div-Element
+
   const messageElement = document.createElement('div');
-  // Fügen Sie die Nachricht als HTML-Inhalt hinzu
   messageElement.innerHTML = createChatMessageElement(message);
-  // Fügen Sie das Element am Anfang von #chat-history hinzu
   chatMessages.prepend(messageElement);
-  scrollToBottom(); //
+  scrollToBottom();
   adjustChatHistoryHeight();
-  
-  console.log(message.sender, message.text); // Loggen Sie die Nachricht in der Konsole
+
+  console.log(message.sender, message.text);
   checkCommand();
   chatInput.value = "";
 };
@@ -56,16 +56,12 @@ const sendBotMessage = (text) => {
     sender: "Bot: ",
     text: text,
   };
-  
-  // Erstellen Sie ein neues div-Element
+
   const messageElement = document.createElement('div');
-  // Fügen Sie die Nachricht als HTML-Inhalt hinzu
   messageElement.innerHTML = createChatMessageElement(message);
-  // Fügen Sie das Element am Anfang von #chat-history hinzu
   chatMessages.prepend(messageElement);
   scrollToBottom();
   adjustChatHistoryHeight();
-
 };
 
 // Erstellen Sie eine Funktion, um den Chat-Befehl zu überprüfen
@@ -73,10 +69,16 @@ const checkCommand = () => {
   const input = chatInput.value.trim().toLowerCase();
   const inputArr = input.split(" ");
   const command = inputArr[0];
-  const value = inputArr[2];
+  let value;
+  
 
-  if (command === "!score") {
-    if (value === undefined || value === "help") {
+  if (inputArr.length > 2 && !isNaN(inputArr[2])) {
+    value = parseInt(inputArr[2]);
+  }
+
+  switch (command) {
+    case "!score":
+          if (value === undefined || value === "help") {
       sendBotMessage("Command: !score [add | remove | set] [X-Value]");
     } else if (isNaN(value) && command !== "!score clear" && inputArr.length > 2) {
       sendBotMessage("Please enter a numerical value for X");
@@ -95,12 +97,37 @@ const checkCommand = () => {
           sendBotMessage("Command: !score [add | remove | set] [X-Value]");
       }
     }
-  } else if (command.startsWith("!")) {
-    sendBotMessage("Please enter a valid command, e.g. !score");
+      break;
+    case "!slot":
+      const action = inputArr[1];
+      if (value === undefined || isNaN(value)) {
+        sendBotMessage("Bitte geben Sie einen numerischen Wert ein.");
+        return;
+      }
+      switch (action) {
+        case "add":
+          console.log("Vorherige maxslot:", maxslot);
+          maxslot += value;
+          console.log("Neue maxslot nach add:", maxslot);
+          break;
+        case "set":
+          maxslot = value;
+          break;
+        case "remove":
+          maxslot -= value;
+          break;
+        default:
+          sendBotMessage("Bitte verwenden Sie add, set oder remove als zweiten Befehl.");
+      }
+      myInventory.maxSlots = maxslot;
+      myInventory.updateHTML();
+      break;
+    default:
+      sendBotMessage("Bitte geben Sie einen gültigen Befehl ein, z.B. !score oder !slot");
   }
 };
 
-// Fügen Sie Event-Listener hinzu, um die Chat-Nachricht zu senden
+// Event-Listener
 chatForm.addEventListener("submit", sendMessage);
 chatInput.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
@@ -109,19 +136,6 @@ chatInput.addEventListener("keyup", function (event) {
   }
 });
 
-// Setzen Sie die Höhe von #chat-history, wenn das Fenster geladen wird
-window.onload = function() {
-    const chatHistory = document.querySelector("#chat-history");
-    const contentBoxChat = document.querySelector("#content-box-chat");
-    const chatTextSpace = document.querySelector("#chat-text-space");
-    chatHistory.style.height = (contentBoxChat.offsetHeight - chatTextSpace.offsetHeight) + "px";
-  };
-  
-  // Aktualisieren Sie die Höhe von #chat-history, wenn die Fenstergröße geändert wird
-  window.onresize = function() {
-    const chatHistory = document.querySelector("#chat-history");
-    const contentBoxChat = document.querySelector("#content-box-chat");
-    const chatTextSpace = document.querySelector("#chat-text-space");
-    chatHistory.style.height = (contentBoxChat.offsetHeight - chatTextSpace.offsetHeight) + "px";
-  };
-  
+// Fensterereignisse
+window.onload = adjustChatHistoryHeight;
+window.onresize = adjustChatHistoryHeight;
