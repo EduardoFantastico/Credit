@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="startsheet.css" />
     <link rel="stylesheet" type="text/css" href="socials.css" />
     <link rel="stylesheet" type="text/css" href="inventory.css"/>
+    <link rel="stylesheet" type="text/css" href="options.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
     <style>
         body {
@@ -36,7 +37,7 @@
     <div id="score">0 $</div>
     <button id="clicker"></button>
 
-
+    
       <!-- socials -->
 
     <div id="chat">
@@ -107,23 +108,7 @@
         </div>
       </button>
       </div>
-      <div id="content-box-research">
-      
-
-
-
-
-
-
-<!-- Forschung 
-<button id =research1><div id="research-bar1"></div><div id="research-text1">LEVEL UP!</div></button>
-<button id =research2><div id="research-bar2"></div><div id="research-text2">Gold Rush</div></button>
-<button id =research3><div id="research-bar3"></div><div id="research-text3">Double it and give it</div></button>
-<button id =research4><div id="research-bar4"></div><div id="research-text4">Randomizer</div></button>
-<button id =research5><div id="research-bar5"></div><div id="research-text5">Goofy Ah</div></button>
-<button id =research6><div id="research-bar6"></div><div id="research-text6">Goofy Ah</div></button>
-<button id =research7><div id="research-bar7"></div><div id="research-text7">Sabotage Houze</div></button>  -->
-      </div>
+      <div id="content-box-research"></div>
     </div>
     <div id="shop">
       <div id="header"> 
@@ -143,7 +128,7 @@
 
       <div id="content-box-shop">
         <!-- Shop-Artikel hier -->
-        <button id =article1>10 $</button>
+      <!--  <button id =article1>10 $</button>
         <div id = "counter1">0x</div>
 
         <button id =article2>100 $</button>
@@ -162,7 +147,7 @@
         <div id = "counter6">0x</div>
 
         <button id =article7>10000 $</button>
-        <div id = "counter7">0x</div>
+        <div id = "counter7">0x</div> -->
       </div>
     </div>
     <div id="bottom-bar"> <!-- (früher items, habs umbenannt auf "bottom-bar")-->
@@ -170,9 +155,22 @@
         <div id="menu-window">
           <button id="menu-tab1">Log In</button>
           <button id="menu-tab2">Register</button>
-          <button id="menu-tab3">Einstellungen</button>
+          <button id="menu-tab3" class="modalBtn">Einstellungen</button>
           <button id="menu-tab4">Skins</button>
         </div>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+              <div class="option">
+              <button class="options-button" id="options-button-cheats"></button>
+              Cheats
+              </div>
+              <div id="option">
+                <button class="options-button"></button>
+                Sound
+                </div>
+          </div>
+      </div>
       
       <!-- Inventar -->
         <div id="inventory-container">
@@ -209,6 +207,10 @@
     <script
       src = "socials.js">
     </script>
+     <script
+     src = "options.js">
+   </script>
+
 
     
    </body>
