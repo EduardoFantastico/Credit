@@ -53,14 +53,15 @@
 }
 
 #article1 {
+  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(171, 140, 4);
+  font-size: 16px;
+  background-color: #ffe5ec;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
-  width: 50%;
+  width: 55%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
@@ -72,27 +73,28 @@
 #counter1 {
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
   line-height: 60px;
   vertical-align: top;
-  width: 43.65%;
+  width: 30%;
   margin-top: 20px;
   margin-left: 5px;
 }
 
 #article2 {
+  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(230, 173, 206);
+  font-size: 16px;
+  background-color: #ffc2d1;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
-  width: 50%;
+  width: 55%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
@@ -104,27 +106,28 @@
 #counter2 {
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
   line-height: 60px;
   vertical-align: top;
-  width: 43.65%;
+  width: 30%;
   margin-top: 20px;
   margin-left: 5px;
 }
 
 #article3 {
+  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(247, 208, 150);
+  font-size: 16px;
+  background-color: #ffb3c6;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
-  width: 50%;
+  width: 55%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
@@ -136,27 +139,28 @@
 #counter3 {
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
   line-height: 60px;
   vertical-align: top;
-  width: 43.65%;
+  width: 30%;
   margin-top: 20px;
   margin-left: 5px;
 }
 
 #article4 {
+  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(184, 233, 184);
+  font-size: 16px;
+  background-color: #ff8fab;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
-  width: 50%;
+  width: 55%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
@@ -168,27 +172,28 @@
 #counter4 {
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
   line-height: 60px;
   vertical-align: top;
-  width: 43.65%;
+  width: 30%;
   margin-top: 20px;
   margin-left: 5px;
 }
 
 #article5 {
+  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(214, 195, 248);
+  font-size: 16px;
+  background-color: #fb6f92;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
-  width: 50%;
+  width: 55%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
@@ -200,27 +205,28 @@
 #counter5 {
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
   line-height: 60px;
   vertical-align: top;
-  width: 43.65%;
+  width: 30%;
   margin-top: 20px;
   margin-left: 5px;
 }
 
 #article6 {
+  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(120, 195, 248);
+  font-size: 16px;
+  background-color: #fa527c;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
-  width: 50%;
+  width: 55%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
@@ -232,27 +238,28 @@
 #counter6 {
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
   line-height: 60px;
   vertical-align: top;
-  width: 43.65%;
+  width: 30%;
   margin-top: 20px;
   margin-left: 5px;
 }
 
 #article7 {
+  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
-  background-color: rgb(120, 195, 148);
+  font-size: 16px;
+  background-color: #ff2e63;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
-  width: 50%;
+  width: 55%;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
@@ -264,14 +271,14 @@
 #counter7 {
   box-sizing: border-box;
   text-align: center;
-  font-size: 25px;
+  font-size: 16px;
   display: inline-block;
   border: 2px solid #000000;
-  border-radius: 20px;
+  border-radius: 5px;
   height: 60px;
   line-height: 60px;
   vertical-align: top;
-  width: 43.65%;
+  width: 30%;
   margin-top: 20px;
   margin-left: 5px;
 }
