@@ -30,6 +30,7 @@ body {
 }
 
 #level {
+  font-family: "Press Start 2P", cursive;
   display: flex;
   justify-content: center; /* Zentriert den Inhalt horizontal */
   align-items: center; /* Zentriert den Inhalt vertikal */
