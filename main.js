@@ -81,3 +81,5 @@ let scorechecker = setInterval(() => {
 let repeatend = setInterval(() => {
   document.querySelector("#score").textContent = score + " $";
 }, 1);
+
+changeInterfaceShop();
