@@ -1,8 +1,15 @@
+window.onload = function () {
+  document.getElementById("myAudio").play();
+};
+
 document.getElementById("startButton").addEventListener("click", function () {
   var name = document.getElementById("nameInput").value;
   document.getElementById("startScreen").style.display = "none";
   document.getElementById("gameScreen").style.display = "block";
   // Ihr Spielstartcode geht hier, z.B. initGame(name);
+
+  // Unterbrechen Sie die Wiedergabe des Audios
+  document.getElementById("myAudio").pause();
 });
 
 /*
