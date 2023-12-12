@@ -8,6 +8,7 @@ let validItems = [
     "Schwert",
     "Trank",
     "Schild",
+    "DoubleUp",
 ]
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -60,6 +61,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             score *= 2;
             console.log('Zaubertrank angeklickt. Score *2.');
             break;
+          case "DoubleUp":
+            score *= 2;
+            console.log("Double Up wurde benutzt.")
           // Fügen Sie hier weitere Fälle für andere Items hinzu
           default:
             console.log('Unbekanntes Item angeklickt.');

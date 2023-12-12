@@ -1,5 +1,246 @@
+// Globale Variablen
+let articles = [];
+let articleIdCounter = 0;
+let ArticleCost = 1;
+let ArticleProgress;
+
+// Artikel hinzufügen
+function addArticle(name, displayName, cost, timerInterval) {
+  const newArticleId = name.split(' ').join('_').toLowerCase();
+  const newArticle = {
+    id: newArticleId,
+    name: name,
+    displayName: displayName,
+    cost: cost,
+    progress: 0,
+    timer: null,
+    isUpgrading: false,
+    timerInterval: timerInterval // bei timer immer die milisekundenanzahl / 5 angeben.
+  };
+  articles.push(newArticle);
+  createArticleElement(newArticle);
+}
+
+addArticle('levelup',"Level Up!",100,3000);
+level = 0;
+
+// Artikel-Element erstellen
+function createArticleElement(article) {
+  const button = document.createElement('button');
+  button.id = article.id;
+  button.innerHTML = `
+    <div class="research-bar" id="research-bar-${article.id}"></div>
+    <div class="research-text">${article.displayName}</div> <!-- Verwenden Sie 'displayName' anstelle von 'name' -->
+  `;
+  button.addEventListener('click', function() {
+    startUpgrade(article);
+  });
+  document.querySelector("#content-box-research").appendChild(button);
+}
+// Artikel entfernen
+function removeArticle(articleId) {
+  articles = articles.filter(article => article.id !== articleId);
+  const articleElement = document.querySelector(`#${articleId}`);
+  articleElement.remove();
+}
+
+
+//ALLE FUNKTIONEN ZU RESEARCH HIER//
+
+//LEVEL UP
+function ArtlevelUp() {
+  console.log("Level Up!")
+  level++;
+  document.querySelector('#level').textContent = 'LEVEL ' + level;
+
+  if (level == 1){
+    changeArticleCost("levelup", 250);
+    changeArticleTimerInterval("levelup", 12000);
+    addArticle('doubleup',"Double Up",1 ,3000);
+  };
+  if (level == 2){
+    changeArticleCost("levelup", 500);
+    changeArticleTimerInterval("levelup", 60000);
+  };
+  if (level == 3){
+    // Fügen Sie hier den Code hinzu, der ausgeführt werden soll, wenn level == 3 ist
+  };
+}
+
+// Double UP
+
+function ArtDoubleUp(){
+  myInventory.addItem("DoubleUp");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Funktion, die verschiedene Befehle basierend auf dem Namen des Artikels ausführt
+function executeCommand(name) {
+  if (name === 'levelup') {
+    ArtlevelUp();
+  } else if (name === 'doubleup') {
+    ArtDoubleUp();
+  }
+  // Fügen Sie hier weitere else-if-Anweisungen für andere Artikel hinzu
+}
+
+function changeArticleCost(articleName, newCost) {
+  for (let i = 0; i < articles.length; i++) {
+    if (articles[i].name === articleName) {
+      articles[i].cost = newCost;
+      break;
+    }
+  }
+}
+function changeArticleTimerInterval(articleName, newTimerInterval) {
+  for (let i = 0; i < articles.length; i++) {
+    if (articles[i].name === articleName) {
+      articles[i].timerInterval = newTimerInterval;
+      break;
+    }
+  }
+}
+
+// Upgrade starten
+function startUpgrade(article) {
+  const progressBar = document.querySelector(`#research-bar-${article.id}`);
+  const articleButton = document.querySelector(`#${article.id}`);
+    if (!article.isUpgrading && score >= article.cost) { // Überprüfen Sie die Kosten des Artikels
+    article.isUpgrading = true;
+    score -= article.cost;
+    progressBar.style.visibility = 'visible';
+    progressBar.style.width = "0%";
+    articleButton.disabled = true; // Deaktivieren Sie den Button
+    article.timer = setInterval(function() {
+      article.progress++;
+      let progressLevel = (article.progress / article.timerInterval) * 100 + "%";
+      progressBar.style.width = progressLevel;
+      if (article.progress >= article.timerInterval) {
+        clearInterval(article.timer);
+        article.isUpgrading = false;
+        progressBar.style.width = '0%';
+        progressBar.style.visibility = 'hidden';
+        article.progress = 0;
+        executeCommand(article.name);
+        articleButton.style.backgroundColor = 'green';
+        setTimeout(function() {
+          articleButton.style.backgroundColor = '';
+          articleButton.disabled = false; // Aktivieren Sie den Button wieder
+        }, 600);
+      }
+    }, 5);
+  } else if (score < article.cost) { // Wenn der Benutzer nicht genug Punkte hat
+    articleButton.style.backgroundColor = 'red'; // Der Button wird rot
+    setTimeout(function() {
+      articleButton.style.backgroundColor = ''; // Der Button kehrt zur ursprünglichen Farbe zurück
+    }, 1000);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // New Research Section
 
+
+
+
+
+/*
 //Research Section 1 | Level Up! | Rises the Level and Point 
 let costLevel = 1;
 let progressLevel = 0;
@@ -88,7 +329,7 @@ document.querySelector("#research2").addEventListener("click", function () {
         // Progress Bar (CSS) //
         let progressGoldRush =
           (timerGoldRush /
-            1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
+            1000) // Hier auch Zeit in 5/1000 einer Sekunde eingeben  
             100 +
           "%";
         document.querySelector("#research-bar2").style.width = progressGoldRush;
@@ -165,7 +406,7 @@ document.querySelector("#research3").addEventListener("click", function () {
         // Progress Bar (CSS) //
         let progressDouble =
           (timerDouble /
-            1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
+            1000) // Hier auch Zeit in 5/1000 einer Sekunde eingeben 
             100 +
           "%";
         document.querySelector("#research-bar3").style.width = progressDouble;
@@ -233,7 +474,7 @@ document.querySelector("#research4").addEventListener("click", function () {
         // Progress Bar (CSS) //
         let progressRandomizer =
           (timerRandomizer /
-            1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
+            1000) // Hier auch Zeit in 5/1000 einer Sekunde eingeben 
             100 +
           "%";
         document.querySelector("#research-bar4").style.width = progressRandomizer;
@@ -300,7 +541,7 @@ document.querySelector("#research5").addEventListener("click", function () {
         // Progress Bar (CSS) //
         let progressGoofyAh =
           (timerGoofyAh /
-            1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
+            1000) // Hier auch Zeit in 5/1000 einer Sekunde eingeben  *
             100 +
           "%";
         document.querySelector("#research-bar5").style.width = progressGoofyAh;
@@ -368,7 +609,7 @@ document.querySelector("#research6").addEventListener("click", function () {
         // Progress Bar (CSS) //
         let progressTest =
           (timerTest /
-            1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
+            1000) // Hier auch Zeit in 5/1000 einer Sekunde eingeben  *
             100 +
           "%";
         document.querySelector("#research-bar6").style.width = progressTest;
@@ -436,7 +677,7 @@ document.querySelector("#research7").addEventListener("click", function () {
         // Progress Bar (CSS) //
         let progressSabotageHouse =
           (timerSabotageHouse /
-            1000) /* Hier auch Zeit in 5/1000 einer Sekunde eingeben */ *
+            1000) // Hier auch Zeit in 5/1000 einer Sekunde eingeben  *
             100 +
           "%";
         document.querySelector("#research-bar7").style.width = progressSabotageHouse;
@@ -483,4 +724,4 @@ document.querySelector("#research7").addEventListener("click", function () {
       }, 1500);
     }
   }
-});
+}); */

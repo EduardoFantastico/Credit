@@ -63,7 +63,7 @@
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   }
   
-  .slot.empty, .item-schwert, .item-schild, .item-trank {
+  .slot.empty, .item-schwert, .item-schild, .item-trank, .item-doubleup {
     display: flex; /* Ermöglicht die Verwendung von Flexbox */
     justify-content: center; /* Zentriert den Inhalt horizontal */
     align-items: flex-end; /* Zentriert den Inhalt vertikal */
@@ -79,7 +79,7 @@
   }
   
   .item-schwert {
-    background-image: url('Schwert.png');
+    background-image: url('source/Schwert.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -87,7 +87,7 @@
   }
   
   .item-schild {
-    background-image: url('Schild.png');
+    background-image: url('source/Schild.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -95,7 +95,15 @@
   }
   
   .item-trank {
-    background-image: url('Trank.png');
+    background-image: url('source/Trank.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: green;
+  }
+
+  .item-doubleup{
+    background-image: url("source/doubleup.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
