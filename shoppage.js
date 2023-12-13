@@ -57,8 +57,6 @@ function shopUpgrade2(upgrade){
   newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
   changeUpgradeCost("upgradetwo", newcost)
   function increaseScoreTwo(){
-    removeUpgrade("upgradeone");
-
     score++;
   }
   setInterval(increaseScoreTwo, 1000);

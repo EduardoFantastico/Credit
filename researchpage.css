@@ -116,7 +116,7 @@
   border: 1px solid rgb(24 , 177 , 248);
   border-radius: 10px;
   visibility: hidden;
-  z-index: 1;
+  z-index: auto; /* Setzen Sie den z-index auf 'auto' */
   box-sizing: border-box; /* Die Breite der Border wird in die Gesamtbreite des Elements einbezogen */
   margin: 0;
   padding-right: 0;

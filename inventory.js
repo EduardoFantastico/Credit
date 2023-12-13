@@ -47,29 +47,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
       }
 
-    handleItemClick(item, index) {
-        switch (item) {
-          case 'Schwert':
+      handleItemClick(item, index) {
+        switch (item.toLowerCase()) { // Konvertiert das Item in Kleinbuchstaben
+          case 'schwert':
             score -= 5;
             console.log('Schwert angeklickt. Score -5.');
             break;
-          case 'Trank':
+          case 'trank':
             score += 5;
             console.log('Trank angeklickt. Score +5.');
             break;
-          case 'Schild':
+          case 'schild':
             score *= 2;
             console.log('Zaubertrank angeklickt. Score *2.');
             break;
-          case "DoubleUp":
-            score *= 2;
+          case 'doubleup':
+            score = score * 2;
             console.log("Double Up wurde benutzt.")
           // Fügen Sie hier weitere Fälle für andere Items hinzu
           default:
             console.log('Unbekanntes Item angeklickt.');
         }
         this.removeItem(index); // Entfernt das Item nach der Aktion
-      }
+    }
   
       updateHTML() {
         const inventoryContainer = document.getElementById('inventory-container');
