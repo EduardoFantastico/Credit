@@ -21,6 +21,12 @@ window.onclick = function(event) {
 
 let volume = document.getElementById('#options-slider-mainsound');
 
-/*volume.addEventListener("change", function(e) {
-  audio.volume = e.currentTarget.value / 100;
-});*/
+document.addEventListener("DOMContentLoaded", function() {
+    var volume = document.getElementById('volume');
+    if(volume) {
+      volume.addEventListener("change", function(e) {
+        audio.volume = e.currentTarget.value / 100;
+      });
+    }
+  });
+  
