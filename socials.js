@@ -64,8 +64,14 @@ const sendBotMessage = (text) => {
   adjustChatHistoryHeight();
 };
 
+
+
+
+
 // Erstellen Sie eine Funktion, um den Chat-Befehl zu überprüfen
 const checkCommand = () => {
+  let cheatsCheckbox = document.getElementById("options-button-cheats").checked;
+  if (cheatsCheckbox){  
   const input = chatInput.value.trim().toLowerCase();
   const inputArr = input.split(" ");
   const command = inputArr[0];
@@ -129,7 +135,7 @@ const checkCommand = () => {
       sendBotMessage("Bitte geben Sie einen gültigen Befehl ein, z.B. !score oder !slot");
   }
   }
-};
+}};
 
 
 // Überprüfen Sie, ob der Item-Name in der Liste der gültigen Items enthalten ist

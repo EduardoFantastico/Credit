@@ -17,3 +17,10 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+
+let volume = document.getElementById('#options-slider-mainsound');
+
+/*volume.addEventListener("change", function(e) {
+  audio.volume = e.currentTarget.value / 100;
+});*/
