@@ -51,24 +51,20 @@ body {
 
 
 #clicker {
-  display: inline-block;
-  border-radius: 50%;
-  border: 0;
-  background-image: url('source/PixelButton.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0);
-  text-align: center;
-  justify-content: center;
+  display: block;
+  background: url('source/Mülleimer.png') no-repeat;
+  background-size: cover; /* Skaliert das Bild, um den Container zu füllen */
   cursor: pointer;
-  width: 350px;
-  height: 350px;
-  bottom: 35px;
+  width: 248px; /* Setzt die Breite auf 350px */
+  height: 350px; /* Setzt die Höhe auf 350px */
+  bottom: 50px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  border: 0;
 }
+
+
 img.clicker {
   image-rendering: pixelated;
   /* oder */
