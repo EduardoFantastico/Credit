@@ -54,7 +54,7 @@ document
   .addEventListener("click", function () {
     changeInterfaceLeaderboard();
   });
-ed;
+
 // Leaderboard | Left Button | Change to Research
 document
   .getElementById("leaderboard-left")
