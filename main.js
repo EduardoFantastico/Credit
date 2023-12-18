@@ -70,7 +70,9 @@ document
 
 // BIG BUTTON
 document.querySelector("#clicker").addEventListener("click", function () {
-  score += pointsPerClick; // Erhöht den Score um die Anzahl der Punkte pro Klick
+  this.classList.add("wackeln"); // Fügt die Wackelklasse hinzu
+  score += pointsPerClick;
+  setTimeout(() => this.classList.remove("wackeln"), 500); // Entfernt die Wackelklasse nach 0.5 Sekunden
 });
 
 let scorechecker = setInterval(() => {
