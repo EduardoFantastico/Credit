@@ -116,7 +116,7 @@
   border: 1px solid rgb(24 , 177 , 248);
   border-radius: 10px;
   visibility: hidden;
-  z-index: 1;
+  z-index: auto; /* Setzen Sie den z-index auf 'auto' */
   box-sizing: border-box; /* Die Breite der Border wird in die Gesamtbreite des Elements einbezogen */
   margin: 0;
   padding-right: 0;
@@ -158,7 +158,6 @@
 }
 
 #research1 {
-  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -203,7 +202,6 @@
 }
 
 #research2 {
-  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -248,7 +246,6 @@
 }
 
 #research3 {
-  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -293,7 +290,6 @@
 }
 
 #research4 {
-  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -338,7 +334,6 @@
 }
 
 #research5 {
-  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -383,7 +378,6 @@
 }
 
 #research6 {
-  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;
@@ -428,7 +422,6 @@
 }
 
 #research7 {
-  font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
   text-align: center;
   font-size: 25px;

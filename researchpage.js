@@ -37,6 +37,9 @@ function createArticleElement(article) {
   });
   document.querySelector("#content-box-research").appendChild(button);
 }
+
+
+
 // Artikel entfernen
 function removeArticle(articleId) {
   articles = articles.filter(article => article.id !== articleId);

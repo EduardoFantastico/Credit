@@ -52,6 +52,112 @@
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
+
+.upgrade-button {
+  font-family: "Press Start 2P", cursive;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  background-color: #ffe5ec;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  height: 60px;
+  width: 55%;
+  line-height: 60px;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.upgrade-counter {
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  display: inline-block;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: top;
+  width: 30%;
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 #article1 {
   font-family: "Press Start 2P", cursive;
   box-sizing: border-box;
@@ -282,3 +388,4 @@
   margin-top: 20px;
   margin-left: 5px;
 }
+*/
