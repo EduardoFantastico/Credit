@@ -117,21 +117,21 @@ document.querySelector('#clicker').addEventListener('click', clickHandler);
 // Definieren Sie die verschiedenen Arten von Müll
 var garbageTypes = [
   {
-    image: "url('source/Müll/AlterApfel1.png')",  //Bild
-    width: '37px',
-    height: '57px',
-    tag: 'AlterApfel',
+    image: "url('source/Müll/AlterApfel1.png')", //Bild
+    width: "37px",
+    height: "57px",
+    tag: "AlterApfel",
     importance: 10000,
     pointsWorth: 2,
   },
   {
     image: "url('source/Müll/PaperBall1.png')",
-    width: '39px',
-    height: '36px',
-    tag: 'PapierBall',
+    width: "39px",
+    height: "36px",
+    tag: "PapierBall",
     importance: 5000,
     pointsWorth: 5,
-  }
+  },
 ];
 
 function addGarbageType(newGarbageType) {
@@ -154,9 +154,8 @@ addGarbageType({
 */
 
 function dropGarbage() {
-  
   // Berechnen Sie die Gesamtwichtigkeit
-  var totalImportance = 0;  
+  var totalImportance = 0;
   for (var i = 0; i < garbageTypes.length; i++) {
     totalImportance += garbageTypes[i].importance;
   }
@@ -184,50 +183,56 @@ function dropGarbage() {
   }
 
   // Erstellen Sie ein neues Div-Element für den Müll
-  var garbage = document.createElement('div');
-  garbage.id = 'garbage';
+  var garbage = document.createElement("div");
+  garbage.id = "garbage";
   garbage.style.width = garbageType.width;
   garbage.style.height = garbageType.height;
   garbage.style.background = garbageType.image;
-  garbage.style.backgroundSize = 'cover';
-  garbage.style.position = 'absolute';
-  garbage.style.bottom = '300px';
-  garbage.style.left = Math.floor(Math.random() * (105 - 60 + 1)) + 60 + 'px';
-  garbage.style.zIndex = '5';  // Setzen Sie den z-index auf 5
-  garbage.dataset.tag = garbageType.tag;  // Setzen Sie den zusätzlichen Tag
-  garbage.dataset.pointsWorth = garbageType.pointsWorth;  // Setzen Sie den Punktwert
+  garbage.style.backgroundSize = "cover";
+  garbage.style.position = "absolute";
+  garbage.style.bottom = "300px";
+  garbage.style.left = Math.floor(Math.random() * (105 - 60 + 1)) + 60 + "px";
+  garbage.style.zIndex = "5"; // Setzen Sie den z-index auf 5
+  garbage.dataset.tag = garbageType.tag; // Setzen Sie den zusätzlichen Tag
+  garbage.dataset.pointsWorth = garbageType.pointsWorth; // Setzen Sie den Punktwert
   score += garbageType.pointsWorth;
 
+  // Fügen Sie eine zufällige Drehung hinzu
+  var rotation = Math.floor(Math.random() * 360); // Zufälliger Winkel zwischen 0 und 360
+  garbage.style.transform = "rotate(" + rotation + "deg)";
+
   // Fügen Sie das neue Müll-Element zum Mülleimer hinzu
-  document.getElementById('clicker').appendChild(garbage);
+  document.getElementById("clicker").appendChild(garbage);
 
   // Generieren Sie eine zufällige Richtung
   var velocityX = (Math.random() < 0.5 ? 1 : -1) * Math.random();
-  var velocityY = 1;  // Anfangsgeschwindigkeit in der y-Richtung
-  var gravity = 10;  // Schwerkraft
-  var time = 0;  // Startzeit
+  var velocityY = 1; // Anfangsgeschwindigkeit in der y-Richtung
+  var gravity = 10; // Schwerkraft
+  var time = 0; // Startzeit
 
   // Setzen Sie die Position des Elements in regelmäßigen Abständen
-  var intervalId = setInterval(function() {
-    time += 0.001;  // Erhöhen Sie die Zeit
+  var intervalId = setInterval(function () {
+    time += 0.001; // Erhöhen Sie die Zeit
 
     // Berechnen Sie die neuen Positionen
-    var newY = -0.5 * Math.pow(gravity, 2) * Math.pow(time, 2) + velocityY + parseFloat(garbage.style.bottom);
+    var newY =
+      -0.5 * Math.pow(gravity, 2) * Math.pow(time, 2) +
+      velocityY +
+      parseFloat(garbage.style.bottom);
     var newX = velocityX + parseFloat(garbage.style.left);
 
     // Überprüfen Sie, ob das Element den Rand des Bildschirms erreicht hat
     if (newX > window.innerWidth || newY < 100) {
-      clearInterval(intervalId);  // Stoppen Sie das Intervall
-      garbage.remove();  // Entfernen Sie das Element
+      clearInterval(intervalId); // Stoppen Sie das Intervall
+      garbage.remove(); // Entfernen Sie das Element
       return;
     }
 
     // Aktualisieren Sie die Positionen des Elements
-    garbage.style.bottom = newY + 'px';
-    garbage.style.left = newX + 'px';
-  }, 1);  // Aktualisieren Sie die Position alle 1 Millisekunde
+    garbage.style.bottom = newY + "px";
+    garbage.style.left = newX + "px";
+  }, 1); // Aktualisieren Sie die Position alle 1 Millisekunde
 }
-
 
 let scorechecker = setInterval(() => {
   if (score > levelLimits[level]) {
