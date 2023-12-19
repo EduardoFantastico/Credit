@@ -70,9 +70,47 @@ document
 
 // BIG BUTTON
 
-document.getElementById('clicker').addEventListener('click', function() {
-  dropGarbage();
-});
+let clickCount = 0;
+let startTime = Date.now();
+const maxCPS = 5; // Maximale Klicks pro Sekunde
+let timeout;
+let progressBar = document.querySelector('#clickprogress');
+let decreaseInterval;
+
+let clickHandler = function() {
+    clearTimeout(timeout); // Löscht den Timeout, wenn ein Klick erfolgt
+    clearInterval(decreaseInterval); // Stoppt das Verringern der Progressbar, wenn ein Klick erfolgt
+    clickCount++;
+    let currentTime = Date.now();
+    let secondsElapsed = (currentTime - startTime) / 1000;
+    let cps = clickCount / secondsElapsed;
+
+    if (cps <= maxCPS) {
+        console.log(`Klicks pro Sekunde: ${cps}`);
+        progressBar.value = cps / maxCPS * 100; // Aktualisiert die Progressbar
+    } else {
+        console.log("Maximales Klicklimit erreicht!");
+        cps = maxCPS;
+    }
+
+    // Setzt den Timer zurück und verringert die Progressbar langsam, wenn innerhalb von 1 Sekunde kein Klick erfolgt
+    timeout = setTimeout(function() {
+        decreaseInterval = setInterval(function() {
+            if (progressBar.value > 0) {
+                progressBar.value -= 1; // Verringert die Progressbar langsam
+            } else {
+                clearInterval(decreaseInterval); // Stoppt das Verringern der Progressbar, wenn sie 0 erreicht
+            }
+        }, 100);
+        clickCount = 0;
+        startTime = Date.now();
+    }, 1000);
+};
+
+document.querySelector('#clicker').addEventListener('click', clickHandler);
+
+
+
 
 
 
