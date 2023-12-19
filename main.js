@@ -50,18 +50,21 @@ document.getElementById("research-left").addEventListener("click", function () {
 });
 // Research | Right Button | Change to Leaderboard
 document
-  .getElementById("research-right").addEventListener("click", function () {
+  .getElementById("research-right")
+  .addEventListener("click", function () {
     changeInterfaceLeaderboard();
   });
 
 // Leaderboard | Left Button | Change to Research
 document
-  .getElementById("leaderboard-left").addEventListener("click", function () {
+  .getElementById("leaderboard-left")
+  .addEventListener("click", function () {
     changeInterfaceResearch();
   });
 // Leaderboard | Right Button | Change to Shop
 document
-  .getElementById("leaderboard-right").addEventListener("click", function () {
+  .getElementById("leaderboard-right")
+  .addEventListener("click", function () {
     changeInterfaceShop();
   });
 
@@ -71,14 +74,22 @@ let decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wir
 let interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
 
 document.getElementById("clicker").addEventListener("click", function () {
+  // Füge die Wackelanimation hinzu
+  this.classList.add("wackeln");
+
   updateProgressBar();
   dropGarbageBasedOnChance(); // Führen Sie dropGarbage() bei jedem Klick aus
   dropGarbage();
+
+  // Entferne die Wackelanimation nach der Animation
+  setTimeout(() => {
+    this.classList.remove("wackeln");
+  }, 100); // Die Dauer sollte der Animationsdauer entsprechen
 });
 
 function updateProgressBar() {
   let progressBar = document.getElementById("clickprogress");
-  progressBar.value += 10;
+  progressBar.value += 5;
 }
 
 // Starten Sie einen Interval-Timer, um den Fortschrittsbalken stetig abzubauen
@@ -118,7 +129,6 @@ function dropGarbageBasedOnChance() {
   }
 }
 
-
 // Definieren Sie die verschiedenen Arten von Müll
 let garbageTypes = [
   {
@@ -144,9 +154,7 @@ let garbageTypes = [
     tag: "Bananenschale",
     importance: 1,
     pointsWorth: 500,
-  }
-
-
+  },
 ];
 
 function addGarbageType(newGarbageType) {
@@ -170,21 +178,21 @@ addGarbageType({
 
 function dropGarbage() {
   // Berechnen Sie die Gesamtwichtigkeit
-  var totalImportance = 0;
-  for (var i = 0; i < garbageTypes.length; i++) {
+  let totalImportance = 0;
+  for (let i = 0; i < garbageTypes.length; i++) {
     totalImportance += garbageTypes[i].importance;
   }
 
   // Berechnen Sie die Dropchance für jedes Element
-  for (var i = 0; i < garbageTypes.length; i++) {
+  for (let i = 0; i < garbageTypes.length; i++) {
     garbageTypes[i].dropChance = garbageTypes[i].importance / totalImportance;
   }
 
   // Wählen Sie zufällig eine Art von Müll aus basierend auf der Drop-Chance
-  var random = Math.random();
-  var cumulativeChance = 0;
-  var garbageType;
-  for (var i = 0; i < garbageTypes.length; i++) {
+  let random = Math.random();
+  let cumulativeChance = 0;
+  let garbageType;
+  for (let i = 0; i < garbageTypes.length; i++) {
     cumulativeChance += garbageTypes[i].dropChance;
     if (random < cumulativeChance) {
       garbageType = garbageTypes[i];
@@ -198,7 +206,7 @@ function dropGarbage() {
   }
 
   // Erstellen Sie ein neues Div-Element für den Müll
-  var garbage = document.createElement("div");
+  let garbage = document.createElement("div");
   garbage.id = "garbage";
   garbage.style.width = garbageType.width;
   garbage.style.height = garbageType.height;
@@ -213,28 +221,28 @@ function dropGarbage() {
   score += garbageType.pointsWorth;
 
   // Fügen Sie eine zufällige Drehung hinzu
-  var rotation = Math.floor(Math.random() * 360); // Zufälliger Winkel zwischen 0 und 360
+  let rotation = Math.floor(Math.random() * 360); // Zufälliger Winkel zwischen 0 und 360
   garbage.style.transform = "rotate(" + rotation + "deg)";
 
   // Fügen Sie das neue Müll-Element zum Mülleimer hinzu
   document.getElementById("clicker").appendChild(garbage);
 
   // Generieren Sie eine zufällige Richtung
-  var velocityX = (Math.random() < 0.5 ? 1 : -1) * Math.random();
-  var velocityY = 1; // Anfangsgeschwindigkeit in der y-Richtung
-  var gravity = 10; // Schwerkraft
-  var time = 0; // Startzeit
+  let velocityX = (Math.random() < 0.5 ? 1 : -1) * Math.random();
+  let velocityY = 1; // Anfangsgeschwindigkeit in der y-Richtung
+  let gravity = 10; // Schwerkraft
+  let time = 0; // Startzeit
 
   // Setzen Sie die Position des Elements in regelmäßigen Abständen
-  var intervalId = setInterval(function () {
+  let intervalId = setInterval(function () {
     time += 0.001; // Erhöhen Sie die Zeit
 
     // Berechnen Sie die neuen Positionen
-    var newY =
+    let newY =
       -0.5 * Math.pow(gravity, 2) * Math.pow(time, 2) +
       velocityY +
       parseFloat(garbage.style.bottom);
-    var newX = velocityX + parseFloat(garbage.style.left);
+    let newX = velocityX + parseFloat(garbage.style.left);
 
     // Überprüfen Sie, ob das Element den Rand des Bildschirms erreicht hat
     if (newX > window.innerWidth || newY < 100) {
