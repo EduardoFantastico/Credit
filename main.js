@@ -50,38 +50,41 @@ document.getElementById("research-left").addEventListener("click", function () {
 });
 // Research | Right Button | Change to Leaderboard
 document
-  .getElementById("research-right").addEventListener("click", function () {
+  .getElementById("research-right")
+  .addEventListener("click", function () {
     changeInterfaceLeaderboard();
   });
 
 // Leaderboard | Left Button | Change to Research
 document
-  .getElementById("leaderboard-left").addEventListener("click", function () {
+  .getElementById("leaderboard-left")
+  .addEventListener("click", function () {
     changeInterfaceResearch();
   });
 // Leaderboard | Right Button | Change to Shop
 document
-  .getElementById("leaderboard-right").addEventListener("click", function () {
+  .getElementById("leaderboard-right")
+  .addEventListener("click", function () {
     changeInterfaceShop();
   });
 
 // TRASH CAN (Clicker Functions)
 
-var decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wird
-var interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
+let decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wird
+let interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
 
 document.getElementById("clicker").addEventListener("click", function () {
   updateProgressBar();
 });
 
 function updateProgressBar() {
-  var progressBar = document.getElementById("clickprogress");
-  progressBar.value += 10; 
+  let progressBar = document.getElementById("clickprogress");
+  progressBar.value += 10;
 }
 
 // Starten Sie einen Interval-Timer, um den Fortschrittsbalken stetig abzubauen
 setInterval(function () {
-  var progressBar = document.getElementById("clickprogress");
+  let progressBar = document.getElementById("clickprogress");
   if (progressBar.value > 0) {
     progressBar.value -= decreaseRate;
   }
@@ -93,23 +96,23 @@ document.getElementById("clicker").addEventListener("click", function () {
 
 // Erstellen Sie eine Funktion, die dropGarbage() basierend auf dem Wert der Fortschrittsleiste aufruft
 function tryDropGarbage() {
-  var progressBar = document.getElementById("clickprogress");
+  let progressBar = document.getElementById("clickprogress");
   if (progressBar.value > 0) {
     // Generieren Sie eine zufällige Zahl zwischen 0 und 100
-    var randomChance = Math.random() * 100;
+    let randomChance = Math.random() * 100;
 
     // Erhöhen Sie die Chance, dass dropGarbage() aufgerufen wird, wenn der Wert der Fortschrittsleiste bestimmte Schwellenwerte erreicht
-    var dropChance = 0;
+    let dropChance = 0;
     if (progressBar.value >= 90) {
       dropChance = 50;
-    } else if (progressBar.value >= 80){
-      dropChance = 34; 
+    } else if (progressBar.value >= 80) {
+      dropChance = 34;
     } else if (progressBar.value >= 50) {
-      dropChance = 23; 
+      dropChance = 23;
     } else if (progressBar.value >= 20) {
-      dropChance = 8; 
+      dropChance = 8;
     } else if (progressBar.value >= 1) {
-      dropChance = 5
+      dropChance = 5;
     }
 
     // Wenn die zufällige Zahl kleiner als die Chance ist, rufen Sie dropGarbage() auf
@@ -121,7 +124,6 @@ function tryDropGarbage() {
 
 // Rufen Sie tryDropGarbage() jede Sekunde auf
 setInterval(tryDropGarbage, 1000);
-
 
 // Definieren Sie die verschiedenen Arten von Müll
 let garbageTypes = [
