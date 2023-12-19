@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Multiplayer Cookie Clicker</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="researchpage.css" />
+    <link rel="stylesheet" type="text/css" href="shoppage.css" />
+    <link rel="stylesheet" type="text/css" href="startsheet.css" />
+    <link rel="stylesheet" type="text/css" href="socials.css" />
+    <link rel="stylesheet" type="text/css" href="inventory.css"/>
+    <link rel="stylesheet" type="text/css" href="options.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-size: cover;
+        }
+    </style>
+  </head>
+    <div id="startScreen" class="focus-in-contract retro-style">
+      <div class="container"></div>
+      <h1 id="title">Please log in...</h1>
+      <input type="text" id="nameInput" class="retro-style" placeholder="Name" />
+      <input type="password" id="passwordInput" class="retro-style" placeholder="Passwort" />
+      <button id="startButton" class="retro-style">Spiel starten</button>
+    </div>
+    <audio id="myAudio" controls autoplay style="display:none;">
+      <source src="source/Credit.mp3" type="audio/mpeg">
+      Ihr Browser unterstützt das Audio-Element nicht.
+    </audio>
+  </body>
+  
+
+
+<div id="gameScreen" style="display: none;">
+    <!-- Ihr Spielcode geht hier -->
+  <div>
+    <div id="level">LEVEL 0</div>-
+    <div id="score">0 $</div>
+    <button id="clicker"></button>
+    <progress id="clickprogress" value="0" max="100"></progress>
+
+    
+      <!-- socials -->
+
+    <div id="chat">
+      <div id="header">
+        <button id="chat-left">
+          <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+            <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+          </div>
+      </button>
+      Chat
+      <button id="chat-right">
+        <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+        </div>
+      </button>
+      </div>
+      <div id="content-box-chat">
+        <div id="chat-history"></div>
+        <div id="chat-text-space">
+          <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="chat here ..." />
+            <button type="submit" id="chat-send">Send.</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    
+    <div id="leaderboard"> 
+      <div id="header">
+        <button id="leaderboard-left">
+          <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+            <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+          </div>
+      </button>
+      Ranks
+      <button id="leaderboard-right">
+        <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+        </div>
+      </button>
+      </div>
+      <div id="content-box-leaderboard">
+
+      </div>
+    </div>
+
+    <div id="research">
+      <div id="header">
+        
+        <button id="research-left">
+          <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+            <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+          </div>
+      </button>
+      Research
+      <button id="research-right">
+        <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+          
+          <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+        </div>
+      </button>
+      </div>
+      <div id="content-box-research"></div>
+    </div>
+    <div id="shop">
+      <div id="header"> 
+        <button id="shop-left">
+          <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+            <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+          </div>
+      </button>
+        Shop
+        <button id="shop-right">
+         <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+  
+          <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+        </div>
+      </button>
+      </div>
+
+      <div id="content-box-shop">
+      </div>
+    </div>
+    <div id="bottom-bar"> <!-- (früher items, habs umbenannt auf "bottom-bar")-->
+      <!-- Menü Leiste -->
+        <div id="menu-window">
+          <button id="menu-tab1">Log In</button>
+          <button id="menu-tab2">Register</button>
+          <button id="menu-tab3" class="modalBtn">Einstellungen</button>
+          <button id="menu-tab4">Skins</button>
+        </div>
+        <div id="myModal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+              <div class="option">
+              <input type="checkbox" class="options-button" id="options-button-cheats"></input>
+              Cheats
+              </div>
+              <div id="option">
+                <input type="range" id="options-button" class="options-slider-mainsound"></span>
+                Sound
+                </div>
+          </div>
+      </div>
+      
+      <!-- Inventar -->
+        <div id="inventory-container">
+        </div>
+
+      <!-- Bottom Row Right -->
+        <div id="right-window">
+        </div>
+
+    </div>
+  </div>
+  <script
+  src ="inventory.js">
+</script>
+    <script
+      src = "main.js">
+    </script>
+    <script
+      src = "researchpage.js">
+    </script>
+    <script
+      src = "shoppage.js">
+    </script>
+    <script
+      src = "startsheet.js">
+    </script>
+    <script
+      src = "socials.js">
+    </script>
+     <script
+     src = "options.js">
+   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js">
+   </script>
+
+
+    
+   </body>
+</html>
+ 
