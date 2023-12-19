@@ -78,6 +78,7 @@ let progressBar = document.querySelector('#clickprogress');
 let decreaseInterval;
 
 let clickHandler = function() {
+    dropGarbage();
     clearTimeout(timeout); // Löscht den Timeout, wenn ein Klick erfolgt
     clearInterval(decreaseInterval); // Stoppt das Verringern der Progressbar, wenn ein Klick erfolgt
     clickCount++;
