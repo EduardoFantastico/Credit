@@ -70,8 +70,8 @@ document
 
 // BIG BUTTON
 
-var decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wird
-var interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
+let decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wird
+let interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
 
 document.getElementById("clicker").addEventListener("click", function () {
   dropGarbage();
@@ -79,13 +79,13 @@ document.getElementById("clicker").addEventListener("click", function () {
 });
 
 function updateProgressBar() {
-  var progressBar = document.getElementById("clickprogress");
+  let progressBar = document.getElementById("clickprogress");
   progressBar.value += 10; // Zum Beispiel
 }
 
 // Starten Sie einen Interval-Timer, um den Fortschrittsbalken stetig abzubauen
 setInterval(function () {
-  var progressBar = document.getElementById("clickprogress");
+  let progressBar = document.getElementById("clickprogress");
   if (progressBar.value > 0) {
     progressBar.value -= decreaseRate;
   }
