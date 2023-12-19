@@ -48,15 +48,13 @@ body {
   margin: auto;
 }
 
-
-
 #clicker {
   display: block;
-  background: url('source/Mülleimer.png') no-repeat;
-  background-size: cover; /* Skaliert das Bild, um den Container zu füllen */
+  background: url("source/Mülleimer.png") no-repeat;
+  background-size: cover;
   cursor: pointer;
-  width: 248px; /* Setzt die Breite auf 350px */
-  height: 350px; /* Setzt die Höhe auf 350px */
+  width: 248px;
+  height: 350px;
   bottom: 50px;
   position: absolute;
   left: 50%;
@@ -64,6 +62,24 @@ body {
   border: 0;
 }
 
+.wackeln {
+  animation: wackeln 0.1s infinite;
+}
+
+@keyframes wackeln {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(-5deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(5deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
 
 img.clicker {
   image-rendering: pixelated;
