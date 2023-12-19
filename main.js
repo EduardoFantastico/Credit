@@ -50,21 +50,18 @@ document.getElementById("research-left").addEventListener("click", function () {
 });
 // Research | Right Button | Change to Leaderboard
 document
-  .getElementById("research-right")
-  .addEventListener("click", function () {
+  .getElementById("research-right").addEventListener("click", function () {
     changeInterfaceLeaderboard();
   });
 
 // Leaderboard | Left Button | Change to Research
 document
-  .getElementById("leaderboard-left")
-  .addEventListener("click", function () {
+  .getElementById("leaderboard-left").addEventListener("click", function () {
     changeInterfaceResearch();
   });
 // Leaderboard | Right Button | Change to Shop
 document
-  .getElementById("leaderboard-right")
-  .addEventListener("click", function () {
+  .getElementById("leaderboard-right").addEventListener("click", function () {
     changeInterfaceShop();
   });
 
@@ -75,6 +72,8 @@ let interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
 
 document.getElementById("clicker").addEventListener("click", function () {
   updateProgressBar();
+  dropGarbageBasedOnChance(); // Führen Sie dropGarbage() bei jedem Klick aus
+  dropGarbage();
 });
 
 function updateProgressBar() {
@@ -90,12 +89,8 @@ setInterval(function () {
   }
 }, interval);
 
-document.getElementById("clicker").addEventListener("click", function () {
-  updateProgressBar();
-});
-
 // Erstellen Sie eine Funktion, die dropGarbage() basierend auf dem Wert der Fortschrittsleiste aufruft
-function tryDropGarbage() {
+function dropGarbageBasedOnChance() {
   let progressBar = document.getElementById("clickprogress");
   if (progressBar.value > 0) {
     // Generieren Sie eine zufällige Zahl zwischen 0 und 100
@@ -118,31 +113,40 @@ function tryDropGarbage() {
     // Wenn die zufällige Zahl kleiner als die Chance ist, rufen Sie dropGarbage() auf
     if (randomChance < dropChance) {
       dropGarbage();
+      // Wenn die zufällige Zahl kleiner als die Hälfte der Chance ist, rufen Sie dropGarbage() ein zweites Mal auf
     }
   }
 }
 
-// Rufen Sie tryDropGarbage() jede Sekunde auf
-setInterval(tryDropGarbage, 1000);
 
 // Definieren Sie die verschiedenen Arten von Müll
 let garbageTypes = [
-  {
-    image: "url('source/Müll/AlterApfel1.png')", //Bild
-    width: "37px",
-    height: "57px",
-    tag: "AlterApfel",
-    importance: 10000,
-    pointsWorth: 2,
-  },
   {
     image: "url('source/Müll/PaperBall1.png')",
     width: "39px",
     height: "36px",
     tag: "PapierBall",
-    importance: 5000,
-    pointsWorth: 5,
+    importance: 80000,
+    pointsWorth: 1,
   },
+  {
+    image: "url('source/Müll/AlterApfel1.png')", //Bild
+    width: "37px",
+    height: "57px",
+    tag: "AlterApfel",
+    importance: 20000,
+    pointsWorth: 2,
+  },
+  {
+    image: "url('source/Müll/Bananenschale1.png')",
+    width: "64px",
+    height: "36px",
+    tag: "Bananenschale",
+    importance: 1,
+    pointsWorth: 500,
+  }
+
+
 ];
 
 function addGarbageType(newGarbageType) {
