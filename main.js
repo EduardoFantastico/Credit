@@ -80,24 +80,26 @@ document.getElementById('clicker').addEventListener('click', function() {
 var garbageTypes = [
   {
     image: "url('source/Müll/AlterApfel1.png')",  //Bild
-    width: '30px',
-    height: '46px',
+    width: '37px',
+    height: '57px',
     tag: 'AlterApfel',
     importance: 10000,
     pointsWorth: 2,
   },
   {
     image: "url('source/Müll/PaperBall1.png')",
-    width: '26px',
-    height: '24px',
+    width: '39px',
+    height: '36px',
     tag: 'PapierBall',
-    importance: 10000,
-    pointsWorth: 2,
+    importance: 5000,
+    pointsWorth: 5,
   }
 ];
 
 function addGarbageType(newGarbageType) {
+  this.classList.add("wackeln");
   garbageTypes.push(newGarbageType);
+  setTimeout(() => this.classList.remove("wackeln"), 500);
 }
 
 /*
@@ -152,10 +154,11 @@ function dropGarbage() {
   garbage.style.backgroundSize = 'cover';
   garbage.style.position = 'absolute';
   garbage.style.bottom = '300px';
-  garbage.style.left = '70px';
+  garbage.style.left = Math.floor(Math.random() * (105 - 60 + 1)) + 60 + 'px';
   garbage.style.zIndex = '5';  // Setzen Sie den z-index auf 5
   garbage.dataset.tag = garbageType.tag;  // Setzen Sie den zusätzlichen Tag
   garbage.dataset.pointsWorth = garbageType.pointsWorth;  // Setzen Sie den Punktwert
+  score += garbageType.pointsWorth;
 
   // Fügen Sie das neue Müll-Element zum Mülleimer hinzu
   document.getElementById('clicker').appendChild(garbage);
@@ -195,7 +198,7 @@ let scorechecker = setInterval(() => {
 }, 1);
 
 let repeatend = setInterval(() => {
-  document.querySelector("#score").textContent = score + " $";
+  document.querySelector("#score").textContent = score + " Trash";
 }, 1);
 
 changeInterfaceShop();
