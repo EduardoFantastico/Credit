@@ -1,139 +1,144 @@
 #bottom-bar {
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    height: 200px; /* Passen Sie die Höhe nach Bedarf an */
-    width: 1300px;
-    background-color: #c0bbbb; /* Passen Sie die Farbe nach Bedarf an */
-    margin: auto;
-    z-index: 6;
-  }
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  width: 1300px;
+  background-color: #c0bbbb;
+  margin: auto;
+  z-index: 6;
+}
 
-  #menu-window {
-    position: absolute;
-    height: 100%;
-    width: 300px;
-    background-color: green;
-    left: 0;
-  }
-  #menu-tab1 {
-    width: 100%;
-    height: 25%;
-  }
-  #menu-tab2 {
-    width: 100%;
-    height: 25%;
-  }
-  #menu-tab3 {
-    width: 100%;
-    height: 25%;
-  }
-  #menu-tab4 {
-    width: 100%;
-    height: 25%;
-  }
-  #inventory-container {
-    box-sizing: border-box;
-    position: absolute;
-    height: 200px;
-    width: 700px;
-    left: 0;
-    margin-left: 300px;
-    background-color: blue;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    display: flex; /* geändert von block zu flex, um die Slots nebeneinander anzuordnen */
-    flex-wrap: wrap; /* ermöglicht das Umbruch der Slots, falls nötig */
-    justify-content: flex-start;
-    padding-bottom: 7px;
+#menu-window {
+  position: absolute;
+  height: 100%;
+  width: 300px;
+  background-color: green;
+  left: 0;
+}
 
-  }
+#menu-tab1, #menu-tab2, #menu-tab3, #menu-tab4 {
+  width: 100%;
+  height: 25%;
+}
 
-  #inventory-container::-webkit-scrollbar {
-    width: 8px;
-    background-color: transparent;
-  }
+#inventory-container {
+  box-sizing: border-box;
+  position: absolute;
+  height: 200px;
+  width: 700px;
+  left: 0;
+  margin-left: 300px;
+  background-color: blue;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding-bottom: 7px;
+}
 
-  #inventory-container::-webkit-scrollbar-corner {
-    background-color: transparent;
-  }
-  
-  #inventory-container::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 0, 255, 1);
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-  
-  .slot.empty, .item-schwert, .item-schild, .item-trank, .item-doubleup {
-    display: flex; /* Ermöglicht die Verwendung von Flexbox */
-    justify-content: center; /* Zentriert den Inhalt horizontal */
-    align-items: flex-end; /* Zentriert den Inhalt vertikal */
-    text-align: center; /* Zentriert den Text, falls nötig */
-    left: 0;
-    height: 90px;
-    width: 90px;
-    margin-left: 14px;
-    margin-top: 7px;
-    background-color: grey;
-    border: 1px solid black;
-    flex: 0 0 auto;
-  }
-  
-  .item-schwert {
-    background-image: url('source/Schwert.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: green;
-  }
-  
-  .item-schild {
-    background-image: url('source/Schild.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: green;
-  }
-  
-  .item-trank {
-    background-image: url('source/Trank.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: green;
-  }
+#inventory-container::-webkit-scrollbar {
+  background-color: transparent;
+}
 
-  .item-doubleup{
-    background-image: url("source/doubleup.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: green;
-  }
-  
-  
+#inventory-container::-webkit-scrollbar-thumb {
+  height: 6px;
+  background-color: #F90;
+  background-clip: padding-box;
+  border: 4px solid transparent;
+  border-radius: 8px;
+}
 
+#inventory-container::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
 
+#inventory-container::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.slot {
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  text-align: left;
+  left: 0;
+  position: relative;
+  height: 180px !important;
+  width: 144px !important;
+  margin-left: 14px;
+  margin-top: 4px;
+  background-color: grey;
+  border: 1px solid black;
+  flex: 0 0 auto;
+  background-image: url("source/EmptyEmployee1.png");
+  font-size: 12px;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 5px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background-color: #4CAF50;
+  width: 0%;
+}
+
+.button-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+#right-window {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  background-color: red;
+  right: 0;
+}
 
 
+.button-container button {
+  /* Allgemeine Stile für beide Buttons */
+  border: none;
+  color: grey;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s; /* Übergangseffekt */
+  cursor: pointer;
+  width: 60px;
+}
 
+.button-container button:hover {
+  background-color: darkgray; /* Dunkelgrün beim Überfahren mit der Maus */
+}
 
+.button-container button:first-child {
+  border-bottom-right-radius: 50px;
+}
 
+.button-container button:last-child {
+  border-bottom-left-radius: 50px;
+}
 
-
-
-
-
-
-
-
-
-
-  #right-window {
-    position: absolute;
-    height: 200px;
-    width: 300px;
-    background-color: red;
-    right: 0;
-  }
+.slot p {
+  padding-left: 10px; /* Verschiebt den Text 10 Pixel nach rechts */
+}
