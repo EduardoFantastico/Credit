@@ -89,10 +89,10 @@ body {
   #clickprogress::-moz-progress-bar {
   background-color: #4CAF50;
   border-radius: 5px;
-  }
+}
 
 .wackeln {
-  animation: wackeln 0.1s infinite;
+  animation: wackeln 0.12s infinite;
 }
 
 @keyframes wackeln {
