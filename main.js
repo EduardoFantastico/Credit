@@ -74,17 +74,20 @@ let decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wir
 let interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
 
 document.getElementById("clicker").addEventListener("click", function () {
-  // Füge die Wackelanimation hinzu
-  this.classList.add("wackeln");
+  // Überprüfen Sie, ob die Wackelanimation bereits läuft
+  if (!this.classList.contains("wackeln")) {
+    // Füge die Wackelanimation hinzu
+    this.classList.add("wackeln");
+
+    // Entferne die Wackelanimation nach der Animation
+    setTimeout(() => {
+      this.classList.remove("wackeln");
+    }, 100); // Die Dauer sollte der Animationsdauer entsprechen
+  }
 
   updateProgressBar();
   dropGarbageBasedOnChance(); // Führen Sie dropGarbage() bei jedem Klick aus
   dropGarbage();
-
-  // Entferne die Wackelanimation nach der Animation
-  setTimeout(() => {
-    this.classList.remove("wackeln");
-  }, 100); // Die Dauer sollte der Animationsdauer entsprechen
 });
 
 function updateProgressBar() {
@@ -171,7 +174,6 @@ function setImportance(tag, newValue) {
   }
 }
 
-
 function addGarbageType(newGarbageType) {
   this.classList.add("wackeln");
   garbageTypes.push(newGarbageType);
@@ -219,34 +221,33 @@ function dropGarbage() {
   if (!garbageType) {
     garbageType = garbageTypes[garbageTypes.length - 1];
   }
-// Erstellen Sie ein neues Div-Element für den Müll
-let garbage = document.createElement("div");
-garbage.id = "garbage";
-garbage.style.width = garbageType.width;
-garbage.style.height = garbageType.height;
-garbage.style.background = garbageType.image;
-garbage.style.backgroundSize = "cover";
-garbage.style.position = "absolute";
+  // Erstellen Sie ein neues Div-Element für den Müll
+  let garbage = document.createElement("div");
+  garbage.id = "garbage";
+  garbage.style.width = garbageType.width;
+  garbage.style.height = garbageType.height;
+  garbage.style.background = garbageType.image;
+  garbage.style.backgroundSize = "cover";
+  garbage.style.position = "absolute";
 
-// Setzen Sie die Position des Mülls
-garbage.style.bottom = (300 + 50) + "px"; // Sie können den Wert ändern, um die Position anzupassen
+  // Setzen Sie die Position des Mülls
+  garbage.style.bottom = 300 + 50 + "px"; // Sie können den Wert ändern, um die Position anzupassen
 
-// Berechnen Sie die linke Position und verschieben Sie sie um 50%
-let leftPosition = Math.floor(Math.random() * (105 - 60 + 1)) + 60;
-garbage.style.left = (leftPosition + window.innerWidth * 0.5 - 125) + "px";
+  // Berechnen Sie die linke Position und verschieben Sie sie um 50%
+  let leftPosition = Math.floor(Math.random() * (105 - 60 + 1)) + 60;
+  garbage.style.left = leftPosition + window.innerWidth * 0.5 - 125 + "px";
 
-garbage.style.zIndex = "3"; // Setzen Sie den z-index auf 5
-garbage.dataset.tag = garbageType.tag; // Setzen Sie den zusätzlichen Tag
-garbage.dataset.pointsWorth = garbageType.pointsWorth; // Setzen Sie den Punktwert
-score += garbageType.pointsWorth;
+  garbage.style.zIndex = "3"; // Setzen Sie den z-index auf 5
+  garbage.dataset.tag = garbageType.tag; // Setzen Sie den zusätzlichen Tag
+  garbage.dataset.pointsWorth = garbageType.pointsWorth; // Setzen Sie den Punktwert
+  score += garbageType.pointsWorth;
 
-// Fügen Sie eine zufällige Drehung hinzu
-let rotation = Math.floor(Math.random() * 360); // Zufälliger Winkel zwischen 0 und 360
-garbage.style.transform = "rotate(" + rotation + "deg)";
+  // Fügen Sie eine zufällige Drehung hinzu
+  let rotation = Math.floor(Math.random() * 360); // Zufälliger Winkel zwischen 0 und 360
+  garbage.style.transform = "rotate(" + rotation + "deg)";
 
-// Fügen Sie das neue Müll-Element zum body hinzu
-document.body.appendChild(garbage);
-
+  // Fügen Sie das neue Müll-Element zum body hinzu
+  document.body.appendChild(garbage);
 
   // Generieren Sie eine zufällige Richtung
   let velocityX = (Math.random() < 0.5 ? 1 : -1) * Math.random();
