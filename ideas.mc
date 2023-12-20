@@ -15,26 +15,18 @@ Level 10: Müllinsel
 
 Racoons:
 
-Benny Bandit
-Percy Panda
-Ricky Rascal
-Billy Burglar
-Ronnie Rocket
-Sammy Sneak
-Robbie Raccoon
-Marvin Mask
-Nina Night
-Freddie Furry
-Charlie Crawler
-Daisy Digger
-Eddie Explorer
+Benny the Bandit
+Percy the Red Panda
+Ricky the Robber
+Billy the Burglar
+Rocket the Lorrydriver
+Marvin the Masked
+Nighty the Ninja
+Freddie Furry (Tommy Purple)
+Eddy Explorer
 Felix Furry
-Gina Grappler
-Harry Hider
-Ivy Intruder
+Gary Potter
 Jackie Jumper
-Kenny Keeper
-Lily Lurker
 Mickey Mischief
 Nancy Nightcrawler
 Oscar Observer
