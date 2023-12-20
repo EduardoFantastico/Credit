@@ -1,7 +1,7 @@
 let upgrades = [];
 
 function addUpgrade(name, displayName, cost) {
-  const newUpgradeId = name.split(' ').join('_').toLowerCase();
+  const newUpgradeId = name.split(" ").join("_").toLowerCase();
   const newUpgrade = {
     id: newUpgradeId,
     name: name,
@@ -15,21 +15,21 @@ function addUpgrade(name, displayName, cost) {
 
 function createUpgradeElement(upgrade) {
   // Erstelle ein neues div-Element mit der Klasse "upgrade-box"
-  const div = document.createElement('div');
+  const div = document.createElement("div");
   div.id = upgrade.id;
   div.className = "upgrade-box";
 
   // Erstelle einen Button innerhalb des div-Elements
-  const button = document.createElement('button');
+  const button = document.createElement("button");
   button.className = "upgrade-button";
   button.innerHTML = upgrade.cost + " $"; // Setze die Kosten auf dem Button
-  button.addEventListener('click', function() {
+  button.addEventListener("click", function () {
     upgradeButtonPressed(upgrade);
   });
   div.appendChild(button);
 
   // Erstelle ein weiteres div innerhalb des ersten div-Elements
-  const innerDiv = document.createElement('div');
+  const innerDiv = document.createElement("div");
   innerDiv.className = "upgrade-counter";
   innerDiv.innerHTML = upgrade.count + "x"; // Zeige die Menge an
   div.appendChild(innerDiv);
@@ -40,23 +40,23 @@ function createUpgradeElement(upgrade) {
 
 // Remove Upgrade
 function removeUpgrade(upgradeId) {
-  upgrades = upgrades.filter(upgrade => upgrade.id !== upgradeId);
+  upgrades = upgrades.filter((upgrade) => upgrade.id !== upgradeId);
   const upgradeElement = document.querySelector(`#${upgradeId}`);
   upgradeElement.remove();
 }
 
 // - - - - - - - - //
 
-function shopUpgrade1(upgrade){
+function shopUpgrade1(upgrade) {
   pointsPerClick++;
   newcost = Math.round(upgrade.cost * 1.2); // Verwenden Sie Math.round() anstelle von math.round()
-  changeUpgradeCost("upgradeone", newcost)
+  changeUpgradeCost("upgradeone", newcost);
 }
 
-function shopUpgrade2(upgrade){
+function shopUpgrade2(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
-  changeUpgradeCost("upgradetwo", newcost)
-  function increaseScoreTwo(){
+  changeUpgradeCost("upgradetwo", newcost);
+  function increaseScoreTwo() {
     score++;
   }
   setInterval(increaseScoreTwo, 1000);
@@ -65,10 +65,10 @@ function shopUpgrade2(upgrade){
 function executeUpgradeFunction(upgrade) {
   switch (upgrade.name) {
     case "upgradeone":
-        shopUpgrade1(upgrade);
+      shopUpgrade1(upgrade);
       break;
     case "upgradetwo":
-        shopUpgrade2(upgrade);
+      shopUpgrade2(upgrade);
       break;
 
     default:
@@ -78,97 +78,32 @@ function executeUpgradeFunction(upgrade) {
 
 function changeUpgradeCost(upgradeName, newCost) {
   // Finden Sie das Upgrade nach Namen
-  const upgrade = upgrades.find(upg => upg.name === upgradeName);
+  const upgrade = upgrades.find((upg) => upg.name === upgradeName);
 
   // Wenn das Upgrade existiert, ändern Sie den Preis
   if (upgrade) {
     upgrade.cost = newCost;
-    document.querySelector("#" + upgrade.id + " .upgrade-button").textContent = upgrade.cost + " $";
+    document.querySelector("#" + upgrade.id + " .upgrade-button").textContent =
+      upgrade.cost + " $";
   } else {
     console.log("Upgrade nicht gefunden: " + upgradeName);
   }
 }
 
-function upgradeButtonPressed(upgrade){
-  if (score >= upgrade.cost){
+function upgradeButtonPressed(upgrade) {
+  if (score >= upgrade.cost) {
     score -= upgrade.cost;
-    upgrade.count ++;
-    document.querySelector("#" + upgrade.id + " .upgrade-button").textContent = upgrade.cost + " $";
-    document.querySelector("#" + upgrade.id + " .upgrade-counter").textContent = upgrade.count + "x";
+    upgrade.count++;
+    document.querySelector("#" + upgrade.id + " .upgrade-button").textContent =
+      upgrade.cost + " $";
+    document.querySelector("#" + upgrade.id + " .upgrade-counter").textContent =
+      upgrade.count + "x";
     executeUpgradeFunction(upgrade);
   }
 }
 
-addUpgrade("upgradeone","Upgrade One", 10);
-addUpgrade("upgradetwo","Upgrade Two", 100);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+addUpgrade("upgradeone", "Upgrade One", 10);
+addUpgrade("upgradetwo", "Upgrade Two", 100);
 
 /*
 // FIRST ARTICLE

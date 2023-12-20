@@ -113,7 +113,7 @@
   bottom: 0;
   left: 0;
   background-color: rgb(24, 177, 248);
-  border: 1px solid rgb(24 , 177 , 248);
+  border: 1px solid rgb(24, 177, 248);
   border-radius: 10px;
   visibility: hidden;
   z-index: auto; /* Setzen Sie den z-index auf 'auto' */
@@ -132,19 +132,6 @@
   align-items: center;
   margin: auto; /* Zentriert den Text */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* 
 :root {
@@ -465,4 +452,4 @@
   left: 0;
 }
 
-*/ 
+*/

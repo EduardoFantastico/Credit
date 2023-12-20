@@ -37,3 +37,12 @@ Stanley Sneak
 Tina Tracker
 Ulysses Unseen
 Vicky Visitor
+
+Kaufoptionen:
+- Müll hat Wert und diesen kann man durch kauf steigern
+- Müll hat verschiedene Wahrscheinlichkeiten
+- Höheres Level -> neuer Müll
+- Rüttelstärke erhöhen == Mehr Müll wird gedroppt
+
+Hiring:
+- Racoon-Slots kann man kaufen
