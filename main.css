@@ -14,6 +14,7 @@ body {
 
 #score {
   display: flex;
+  font-family: "Press Start 2P", cursive;
   justify-content: center; /* Zentriert den Inhalt horizontal */
   align-items: center; /* Zentriert den Inhalt vertikal */
   height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
@@ -104,6 +105,15 @@ body {
   }
   100% {
     transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

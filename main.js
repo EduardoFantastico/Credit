@@ -245,6 +245,7 @@ function dropGarbage() {
   // Fügen Sie eine zufällige Drehung hinzu
   let rotation = Math.floor(Math.random() * 360); // Zufälliger Winkel zwischen 0 und 360
   garbage.style.transform = "rotate(" + rotation + "deg)";
+  garbage.style.animation = "spin 2s linear infinite";
 
   // Fügen Sie das neue Müll-Element zum body hinzu
   document.body.appendChild(garbage);
