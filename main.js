@@ -144,7 +144,7 @@ let garbageTypes = [
     width: "39px",
     height: "36px",
     tag: "PapierBall",
-    importance: 80000,
+    importance: 1,
     pointsWorth: 1,
   },
   {
@@ -152,8 +152,8 @@ let garbageTypes = [
     width: "37px",
     height: "57px",
     tag: "AlterApfel",
-    importance: 20000,
-    pointsWorth: 2,
+    importance: 1,
+    pointsWorth: 1,
   },
   {
     image: "url('source/Müll/Bananenschale1.png')",
@@ -161,7 +161,31 @@ let garbageTypes = [
     height: "36px",
     tag: "Bananenschale",
     importance: 1,
-    pointsWorth: 500,
+    pointsWorth: 1,
+  },
+  {
+    image: "url('source/Müll/PaperBall2.png')",
+    width: "39px",
+    height: "36px",
+    tag: "PaperBall2",
+    importance: 1,
+    pointsWorth: 1,
+  },
+  {
+    image: "url('source/Müll/SchimmelToast1.png')",
+    width: "42px",
+    height: "39px",
+    tag: "SchimmelToast",
+    importance: 1,
+    pointsWorth: 1,
+  },
+  {
+    image: "url('source/Müll/TinCan1.png')",
+    width: "60px",
+    height: "60px",
+    tag: "TinCan",
+    importance: 1,
+    pointsWorth: 1,
   },
 ];
 

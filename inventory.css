@@ -116,19 +116,18 @@
 
 
 .button-container button {
-  /* Allgemeine Stile für beide Buttons */
   border: none;
   color: grey;
   text-align: center;
   display: inline-block;
   font-size: 16px;
-  transition-duration: 0.4s; /* Übergangseffekt */
+  transition-duration: 0.4s;
   cursor: pointer;
   width: 60px;
 }
 
 .button-container button:hover {
-  background-color: darkgray; /* Dunkelgrün beim Überfahren mit der Maus */
+  background-color: darkgray;
 }
 
 .button-container button:first-child {
@@ -140,5 +139,5 @@
 }
 
 .slot p {
-  padding-left: 10px; /* Verschiebt den Text 10 Pixel nach rechts */
+  padding-left: 10px;
 }
