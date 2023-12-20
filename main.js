@@ -111,14 +111,19 @@ function dropGarbageBasedOnChance() {
     let dropChance = 0;
     if (progressBar.value >= 90) {
       dropChance = 50;
+      setImportance("Bananenschale", 5);
     } else if (progressBar.value >= 80) {
       dropChance = 34;
+      setImportance("Bananenschale", 1);
     } else if (progressBar.value >= 50) {
       dropChance = 23;
+      setImportance("Bananenschale", 0);
     } else if (progressBar.value >= 20) {
       dropChance = 8;
+      setImportance("Bananenschale", 0);
     } else if (progressBar.value >= 1) {
       dropChance = 5;
+      setImportance("Bananenschale", 0);
     }
 
     // Wenn die zufällige Zahl kleiner als die Chance ist, rufen Sie dropGarbage() auf
@@ -156,6 +161,16 @@ let garbageTypes = [
     pointsWorth: 500,
   },
 ];
+
+function setImportance(tag, newValue) {
+  for (let i = 0; i < garbageTypes.length; i++) {
+    if (garbageTypes[i].tag === tag) {
+      garbageTypes[i].importance = newValue;
+      break;
+    }
+  }
+}
+
 
 function addGarbageType(newGarbageType) {
   this.classList.add("wackeln");
@@ -220,7 +235,7 @@ garbage.style.bottom = (300 + 50) + "px"; // Sie können den Wert ändern, um di
 let leftPosition = Math.floor(Math.random() * (105 - 60 + 1)) + 60;
 garbage.style.left = (leftPosition + window.innerWidth * 0.5 - 125) + "px";
 
-garbage.style.zIndex = "5"; // Setzen Sie den z-index auf 5
+garbage.style.zIndex = "3"; // Setzen Sie den z-index auf 5
 garbage.dataset.tag = garbageType.tag; // Setzen Sie den zusätzlichen Tag
 garbage.dataset.pointsWorth = garbageType.pointsWorth; // Setzen Sie den Punktwert
 score += garbageType.pointsWorth;
