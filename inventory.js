@@ -1,28 +1,20 @@
-let maxslot = 6;
+let maxslot = 10;
 
-
-
-// ITEM LISTE:
-
-let validItems = [
-    "Schwert",
-    "Trank",
-    "Schild",
-    "DoubleUp",
-]
-
+// Initialisierung der Employeelist nach dem Laden des DOM
 document.addEventListener('DOMContentLoaded', (event) => {
-    const myInventory = new Inventory(maxslot);
-    myInventory.updateHTML(); // Initialisiert das HTML-Inventory, nachdem das DOM geladen wurde
-  });
-  
-  class Inventory {
+    const myEmployeelist = new Employeelist(maxslot);
+    myEmployeelist.updateHTML();
+});
+
+class Employeelist {
+    // Konstruktor initialisiert die Slots
     constructor(maxSlots) {
         this.maxSlots = maxSlots;
         this.slots = new Array(maxSlots).fill(null);
     }
-  
-    addItem(item) {
+
+    // Fügt ein Employee hinzu, wenn ein Slot frei ist
+    addEmployee(item) {
         const freierSlotIndex = this.slots.indexOf(null);
         if (freierSlotIndex !== -1) {
             this.slots[freierSlotIndex] = item;
@@ -31,94 +23,73 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.log('Kein freier Slot verfügbar');
         }
     }
-  
-    removeItem(slotIndex) {
-        if (this.slots[slotIndex]) {
-          this.slots[slotIndex] = null; // Entfernt das Item
-          // Rutscht die verbleibenden Items nach vorne
-          this.slots = this.slots.filter(item => item !== null);
-          // Füllt die freien Plätze am Ende des Arrays mit null
-          while (this.slots.length < this.maxSlots) {
-            this.slots.push(null);
-          }
-          this.updateHTML(); // Aktualisiert das HTML
-        } else {
-          console.log('Slot ist bereits leer');
-        }
-      }
 
-      handleItemClick(item, index) {
-        switch (item.toLowerCase()) { // Konvertiert das Item in Kleinbuchstaben
-          case 'schwert':
-            score -= 5;
-            console.log('Schwert angeklickt. Score -5.');
-            break;
-          case 'trank':
-            score += 5;
-            console.log('Trank angeklickt. Score +5.');
-            break;
-          case 'schild':
-            score *= 2;
-            console.log('Zaubertrank angeklickt. Score *2.');
-            break;
-          case 'doubleup':
-            score = score * 2;
-            console.log("Double Up wurde benutzt.")
-          // Fügen Sie hier weitere Fälle für andere Items hinzu
-          default:
-            console.log('Unbekanntes Item angeklickt.');
+    // Entfernt ein Employee und aktualisiert die Slots
+    removeEmployee(slotIndex) {
+        if (this.slots[slotIndex]) {
+            this.slots[slotIndex] = null;
+            this.slots = this.slots.filter(item => item !== null);
+            while (this.slots.length < this.maxSlots) {
+                this.slots.push(null);
+            }
+            this.updateHTML();
+        } else {
+            console.log('Slot ist bereits leer');
         }
-        this.removeItem(index); // Entfernt das Item nach der Aktion
     }
-  
-      updateHTML() {
+
+    // Aktualisiert das HTML basierend auf den Slots
+    updateHTML() {
         const inventoryContainer = document.getElementById('inventory-container');
-        inventoryContainer.innerHTML = ''; // Lösche den aktuellen Inhalt
-        // Erweitere das Slots-Array, wenn maxSlots erhöht wird
+        inventoryContainer.innerHTML = '';
         if (this.maxSlots > this.slots.length) {
-          const newSlots = new Array(this.maxSlots - this.slots.length).fill(null);
-          this.slots = [...this.slots, ...newSlots];
+            const newSlots = new Array(this.maxSlots - this.slots.length).fill(null);
+            this.slots = [...this.slots, ...newSlots];
         }
-        // Reduziere das Slots-Array, wenn maxSlots verringert wird
         if (this.maxSlots < this.slots.length) {
-          this.slots = this.slots.slice(0, this.maxSlots);
+            this.slots = this.slots.slice(0, this.maxSlots);
         }
-        // Rendere die Slots basierend auf dem neuen Wert von maxslot
         this.slots.forEach((item, index) => {
-          const slotElement = document.createElement('button');
-          slotElement.className = 'slot';
-          slotElement.id = `slot-${index}`;
-          slotElement.type = 'button';
-          if (item) {
-            slotElement.textContent = item;
-            slotElement.classList.add(`item-${item.toLowerCase()}`);
-            slotElement.addEventListener('click', () => {
-              this.handleItemClick(item, index); // Ruft die neue Funktion auf
-            });
-          } else {
-            slotElement.textContent = 'Empty';
-            slotElement.classList.add('empty');
-          }
-          inventoryContainer.appendChild(slotElement);
+            const slotElement = document.createElement('div');
+            slotElement.className = 'slot';
+            slotElement.id = `slot-${index}`;
+
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress-bar';
+            progressBar.style.height = '5px';
+            progressBar.style.width = '100%';
+            slotElement.appendChild(progressBar);
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'button-container';
+            const leftButton = document.createElement('button');
+            leftButton.textContent = 'Links';
+            const rightButton = document.createElement('button');
+            rightButton.textContent = 'Rechts';
+            buttonContainer.appendChild(leftButton);
+            buttonContainer.appendChild(rightButton);
+            slotElement.appendChild(buttonContainer);
+
+            const textElement = document.createElement('p');
+            if (item) {
+                textElement.textContent = item;
+                textElement.classList.add(`item-${item.toLowerCase()}`);
+            } else {
+                textElement.textContent = 'Unrevealed Robbie';
+                textElement.classList.add('empty');
+            }
+            slotElement.appendChild(textElement);
+
+            inventoryContainer.appendChild(slotElement);
         });
-      }
-      
-  
-    hasItem(item) {
+    }
+
+    // Überprüft, ob ein bestimmtes Employee vorhanden ist
+    hasEmployee(item) {
         return this.slots.includes(item);
     }
-  }
-  
-  // Verwendung
-  const myInventory = new Inventory(maxslot);
-  myInventory.updateHTML(); // Initialisiert das HTML-Inventory
-  
-  // Items hinzufügen
-  // myInventory.addItem('Trank'); // Entfernen Sie diese Zeile oder fügen Sie sie in eine Funktion ein, die aufgerufen wird, wenn ein Item erhalten wird
-  
-  // Überprüfen, ob ein Item vorhanden ist
-  // ...
-  
-  // Ein Item entfernen
-  // myInventory.removeItem(0); // Dies kann auch in eine Funktion verschoben werden, die aufgerufen wird, wenn ein Item entfernt werden soll
-  
+}
+
+// Verwendung
+const myEmployeelist = new Employeelist(maxslot);
+myEmployeelist.updateHTML();

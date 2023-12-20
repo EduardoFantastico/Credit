@@ -64,117 +64,52 @@ const sendBotMessage = (text) => {
   adjustChatHistoryHeight();
 };
 
-
-
-
-
 // Erstellen Sie eine Funktion, um den Chat-Befehl zu überprüfen
 const checkCommand = () => {
   let cheatsCheckbox = document.getElementById("options-button-cheats").checked;
   if (cheatsCheckbox){  
-  const input = chatInput.value.trim().toLowerCase();
-  const inputArr = input.split(" ");
-  const command = inputArr[0];
-  let value;
-  const validCommands = ["!score", "!slot", "!item"];  
+    const input = chatInput.value.trim().toLowerCase();
+    const inputArr = input.split(" ");
+    const command = inputArr[0];
+    let value;
+    const validCommands = ["!score"];  
 
-  if (inputArr.length > 2 && !isNaN(inputArr[2])) {
-    value = parseInt(inputArr[2]);
-  }
-  if (validCommands.includes(command)) {
-  switch (command) {
-    case "!score":
-          if (value === undefined || value === "help") {
-      sendBotMessage("Command: !score [add | remove | set] [X-Value]");
-    } else if (isNaN(value) && command !== "!score clear" && inputArr.length > 2) {
-      sendBotMessage("Please enter a numerical value for X");
-    } else {
-      switch (inputArr[1]) {
-        case "add":
-          score += parseInt(value);
-          break;
-        case "remove":
-          score -= parseInt(value);
-          break;
-        case "set":
-          score = parseInt(value);
-          break;
-        default:
-          sendBotMessage("Command: !score [add | remove | set] [X-Value]");
+    if (inputArr.length > 2 && !isNaN(inputArr[2])) {
+      value = parseInt(inputArr[2]);
+    }
+    if (input.startsWith('!')) {
+      if (validCommands.includes(command)) {
+        switch (command) {
+          case "!score":
+            if (value === undefined || value === "help") {
+              sendBotMessage("Command: !score [add | remove | set] [X-Value]");
+            } else if (isNaN(value) && command !== "!score clear" && inputArr.length > 2) {
+              sendBotMessage("Please enter a numerical value for X");
+            } else {
+              switch (inputArr[1]) {
+                case "add":
+                  score += parseInt(value);
+                  break;
+                case "remove":
+                  score -= parseInt(value);
+                  break;
+                case "set":
+                  score = parseInt(value);
+                  break;
+                default:
+                  sendBotMessage("Command: !score [add | remove | set] [X-Value]");
+              }
+            }
+            break;
+          default:
+            sendBotMessage("Bitte geben Sie einen gültigen Befehl ein, z.B. !score");
+        }
+      } else {
+        sendBotMessage("Bitte geben Sie einen gültigen Befehl ein, z.B. !score");
       }
     }
-      break;
-    case "!slot":
-      const action = inputArr[1];
-      if (value === undefined || isNaN(value)) {
-        sendBotMessage("Bitte geben Sie einen numerischen Wert ein.");
-        return;
-      }
-      switch (action) {
-        case "add":
-          console.log("Vorherige maxslot:", maxslot);
-          maxslot += value;
-          console.log("Neue maxslot nach add:", maxslot);
-          break;
-        case "set":
-          maxslot = value;
-          break;
-        case "remove":
-          maxslot -= value;
-          break;
-        default:
-          sendBotMessage("Bitte verwenden Sie add, set oder remove als zweiten Befehl.");
-      }
-      myInventory.maxSlots = maxslot;
-      myInventory.updateHTML();
-      break;
-      case "!item":
-      handleItemCommand(inputArr);
-      break;
-    default:
-      sendBotMessage("Bitte geben Sie einen gültigen Befehl ein, z.B. !score oder !slot");
-  }
-  }
-}};
-
-
-// Überprüfen Sie, ob der Item-Name in der Liste der gültigen Items enthalten ist
-const isItemValid = (itemName) => {
-  return validItems.map(item => item.toLowerCase()).includes(itemName.trim().toLowerCase());
-};
-
-// Erstellen Sie eine Funktion, um den !item Befehl zu verarbeiten
-const handleItemCommand = (inputArr) => {
-  const action = inputArr[1];
-  const itemName = inputArr[2];
-  const itemAmount = parseInt(inputArr[3]);
-
-  if (!isItemValid(itemName) || isNaN(itemAmount)) {
-    sendBotMessage("Bitte geben Sie einen gültigen Item-Namen aus der Liste und eine numerische Menge ein.");
-    return;
-  }
-
-  switch (action) {
-    case "give":
-      for (let i = 0; i < itemAmount; i++) {
-        myInventory.addItem(itemName);
-      }
-      sendBotMessage("Gegeben: " + itemAmount + " " + itemName + "(s)");
-      break;
-    case "remove":
-      for (let i = 0; i < itemAmount; i++) {
-        const index = myInventory.slots.indexOf(itemName);
-        if (index !== -1) {
-          myInventory.removeItem(index);
-        }
-      }
-      sendBotMessage("Entfernt: " + itemAmount + " " + itemName + "(s)");
-      break;
-    default:
-      sendBotMessage("Bitte verwenden Sie give oder remove als Aktion.");
   }
 };
-
 
 // Event-Listener
 chatForm.addEventListener("submit", sendMessage);
