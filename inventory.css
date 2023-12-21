@@ -85,24 +85,47 @@
   background-color: bisque;
   height: 180px;
   width: 180px;
+  display: flex; /* Hinzugefügt */
+  flex-direction: column; /* Hinzugefügt */
+  justify-content: space-between; /* Hinzugefügt */
+}
+
+#textContainer {
+  /* Hinzugefügt */
+  flex-grow: 1;
+}
+
+#buttonContainer {
+  /* Hinzugefügt */
+  display: flex;
+  justify-content: space-between;
+}
+
+#priceElement,
+#nameElement,
+#speedElement,
+#capacityElement,
+#lazinessElement{
+  margin-left: 5px;
 }
 
 #priceElement{
-  margin-left: 5px;
-  font-size: 16px; /* Setzen Sie die gewünschte Schriftgröße */
+  font-size: 16px;
 }
+
 #nameElement{
-  margin-left: 5px;
-  font-size: 12px; /* Setzen Sie die gewünschte Schriftgröße */
+  font-size: 12px;
 }
-#speedElement{
-  margin-left: 5px;
-  font-size: 10px; /* Setzen Sie die gewünschte Schriftgröße */
+
+#speedElement,
+#capacityElement,
+#lazinessElement{
+  font-size: 10px;
 }
-#capacityElement{
-  margin-left: 5px;
-  font-size: 10px; /* Setzen Sie die gewünschte Schriftgröße */
-}#lazinessElement{
-  margin-left: 5px;
-  font-size: 10px; /* Setzen Sie die gewünschte Schriftgröße */
+#button1,
+#button2{
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  margin: 0;
 }
