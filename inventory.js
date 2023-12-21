@@ -6,34 +6,54 @@ class Employee {
     laziness = 0,
     capacity = 0,
     background = "source/EmptyEmployee1.png",
-    sleepy = false
+    sleepy = false,
+    hired = false,
+    price = 0
   ) {
-    this.name = name; // Name des Mitarbeiters
-    this.speed = speed; // Geschwindigkeit des Mitarbeiters
-    this.laziness = laziness; // Faulheit des Mitarbeiters
-    this.capacity = capacity; // Kapazität des Mitarbeiters
-    this.background = background; // Hintergrundbild des Mitarbeiters
-    this.sleepy = sleepy; // Schlafzustand des Mitarbeiters
+    this.name = name;
+    this.speed = speed;
+    this.laziness = laziness;
+    this.capacity = capacity;
+    this.background = background;
+    this.sleepy = sleepy;
+    this.hired = hired;
+    this.price = price;
+    console.log(`Price for ${this.name}: ${this.price}`); // Log the price value when an Employee object is created
+    
   }
 }
 
 // Definiere die Employeelist-Klasse
 class Employeelist {
-  constructor() {
-    this.slots = []; // Initialisiere die slots-Array
+  constructor(maxEmployees = 10) {
+    this.slots = [];
+    this.maxEmployees = maxEmployees;
   }
 
   // Methode zum Hinzufügen eines Employees
-  addEmployee(employee) {
-    this.slots.push(employee); // Füge den Employee zur slots-Array hinzu
-    this.updateHTML(); // Aktualisiere das HTML
+// Methode zum Hinzufügen eines Employees
+addEmployee(name, speed, laziness, capacity, background, sleepy, price) {
+  console.log(`Price passed to addEmployee: ${price}`); // Log the price value passed to addEmployee
+  if (this.slots.length < this.maxEmployees) {
+    const employee = new Employee(name, speed, laziness, capacity, background, sleepy, price);
+    this.price = price;
+    console.log(`Price for ${employee.name}: ${employee.price}`); // Log the price value when an Employee object is created
+    this.slots.push(employee);
+    employee.hired = false;
+    this.updateHTML();
+    this.price = price;
+  } else {
+    console.log("Maximale Anzahl von Mitarbeitern erreicht");
   }
+}
+
 
   // Methode zum Entfernen eines Employees
   removeEmployee(slotIndex) {
     if (this.slots[slotIndex]) {
-      this.slots.splice(slotIndex, 1); // Entferne den Employee aus der slots-Array
-      this.updateHTML(); // Aktualisiere das HTML
+      this.slots[slotIndex].hired = false;
+      this.slots.splice(slotIndex, 1);
+      this.updateHTML();
     } else {
       console.log("Slot ist bereits leer");
     }
@@ -47,33 +67,89 @@ class Employeelist {
       const slotElement = document.createElement("div");
       slotElement.className = "slot";
       slotElement.id = `slot-${index}`;
-      slotElement.style.backgroundImage = `url(${employee.background})`; // Setze den Hintergrund des Slots
+      slotElement.style.backgroundImage = `url(${employee.background})`;
 
-      const progressBar = document.createElement("div");
-      progressBar.className = "progress-bar";
-      progressBar.style.height = "5px";
-      progressBar.style.width = "100%";
-      slotElement.appendChild(progressBar);
+      const hireButton = document.createElement("button");
+      hireButton.textContent = "Einstellen";
+      hireButton.style.position = "absolute";
+      hireButton.style.bottom = "0";
+      hireButton.style.right = "0";
+      hireButton.addEventListener("click", () => {
+        if (score >= employee.price) {
+          score -= employee.price;
+          employee.hired = true;
+          this.updateHTML();
+        } else {
+          console.log("Nicht genug Punkte zum Einstellen");
+        }
+      });
+      slotElement.appendChild(hireButton);
 
-      const buttonContainer = document.createElement("div");
-      buttonContainer.className = "button-container";
-      const leftButton = document.createElement("button");
-      leftButton.textContent = "Links";
-      const rightButton = document.createElement("button");
-      rightButton.textContent = "Rechts";
-      buttonContainer.appendChild(leftButton);
-      buttonContainer.appendChild(rightButton);
-      slotElement.appendChild(buttonContainer);
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Entfernen";
+      removeButton.style.position = "absolute";
+      removeButton.style.bottom = "0";
+      removeButton.style.left = "0";
+      removeButton.addEventListener("click", () => {
+        this.removeEmployee(index);
+      });
+      slotElement.appendChild(removeButton);
 
-      const textElement = document.createElement("p");
-      if (employee) {
-        textElement.textContent = `${employee.name}, Speed: ${employee.speed}, Laziness: ${employee.laziness}, Capacity: ${employee.capacity}, Sleepy: ${employee.sleepy}`;
-        textElement.classList.add(`item-${employee.name.toLowerCase()}`);
+      if (employee.hired) {
+        const nameElement = document.createElement("p");
+        nameElement.textContent = `${employee.name}`;
+        nameElement.className = "employee-name";
+        nameElement.style.position = "absolute";
+        nameElement.style.top = "140px"; // Verschiebe den Namen nach unten
+        slotElement.appendChild(nameElement);
+
+        hireButton.style.display = "none";
+        removeButton.style.display = "none";
+
+        // Erstelle die Progressbar
+        const progressBar = document.createElement("div");
+        progressBar.className = "progress-bar";
+        const progressBarInner = document.createElement("div");
+        progressBarInner.className = "progress-bar-inner";
+        progressBar.appendChild(progressBarInner);
+        slotElement.appendChild(progressBar);
+
+        // Erstelle die Buttons
+        const buttonContainer = document.createElement("div");
+        buttonContainer.className = "button-container";
+        const button1 = document.createElement("button");
+        button1.textContent = "ButtonL";
+        const button2 = document.createElement("button");
+        button2.textContent = "ButtonR";
+        buttonContainer.appendChild(button1);
+        buttonContainer.appendChild(button2);
+        slotElement.appendChild(buttonContainer);
       } else {
-        textElement.textContent = "Unrevealed Robbie";
-        textElement.classList.add("empty");
+        const nameElement = document.createElement("p");
+        nameElement.textContent = `${employee.name}`;
+        nameElement.className = "employee-name";
+        slotElement.appendChild(nameElement);
+
+        const speedElement = document.createElement("p");
+        speedElement.textContent = `Speed: ${employee.speed}`;
+        speedElement.className = "employee-speed";
+        slotElement.appendChild(speedElement);
+
+        const lazinessElement = document.createElement("p");
+        lazinessElement.textContent = `Laziness: ${employee.laziness}`;
+        lazinessElement.className = "employee-laziness";
+        slotElement.appendChild(lazinessElement);
+
+        const capacityElement = document.createElement("p");
+        capacityElement.textContent = `Capacity: ${employee.capacity}`;
+        capacityElement.className = "employee-capacity";
+        slotElement.appendChild(capacityElement);
+
+        const priceElement = document.createElement("p");
+        priceElement.textContent = `Price: ${employee.price}`;
+        priceElement.className = "employee-price";
+        slotElement.appendChild(priceElement);
       }
-      slotElement.appendChild(textElement);
 
       inventoryContainer.appendChild(slotElement);
     });
@@ -83,12 +159,26 @@ class Employeelist {
   hasEmployee(item) {
     return this.slots.includes(item);
   }
+  logAllValues() {
+    this.slots.forEach((employee, index) => {
+      console.log(`Employee ${index + 1}:`);
+      console.log(`Name: ${employee.name}`);
+      console.log(`Speed: ${employee.speed}`);
+      console.log(`Laziness: ${employee.laziness}`);
+      console.log(`Capacity: ${employee.capacity}`);
+      console.log(`Background: ${employee.background}`);
+      console.log(`Sleepy: ${employee.sleepy}`);
+      console.log(`Hired: ${employee.hired}`);
+      console.log(`Price: ${employee.price}`);
+      console.log('-------------------------');
+    });
+  }  
 }
 
 // Initialisiere die Employeelist und füge einen Employee hinzu, wenn das DOM geladen ist
 document.addEventListener("DOMContentLoaded", (event) => {
   const myEmployeelist = new Employeelist();
   myEmployeelist.updateHTML();
-  const racoon = new Employee("Racoon");
-  myEmployeelist.addEmployee(racoon);
+  myEmployeelist.addEmployee("Racoon", 5, 2, 10, "source/EmptyEmployee1.png", false, 100);
+  myEmployeelist.logAllValues();
 });

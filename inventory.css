@@ -142,4 +142,40 @@
 
 .slot p {
   padding-left: 10px;
+  font-size: 11px;
+}
+
+
+/* CSS */
+.employee-name {
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.employee-speed {
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+
+.employee-laziness {
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
+
+.employee-capacity {
+  position: absolute;
+  top: 60px;
+  left: 0;
+}
+
+.employee-price {
+  font-weight: bold;
+  position: absolute;
+  bottom: 10px;
+  left: 40%;
+  transform: translateX(-50%);
 }
