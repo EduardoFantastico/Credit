@@ -189,24 +189,24 @@ let garbageTypes = [
   },
   {
     image: "url('source/Müll/Pizza.png')",
-    width: "31px",
-    height: "22px",
+    width: "62px",
+    height: "44px",
     tag: "Pizza",
     importance: 1,
     pointsWorth: 1,
   },
   {
     image: "url('source/Müll/meat.png')",
-    width: "35px",
-    height: "37px",
+    width: "60px",
+    height: "63px",
     tag: "Meat",
     importance: 1,
     pointsWorth: 1,
   },
   {
     image: "url('source/Müll/diamond.png')",
-    width: "35px",
-    height: "28px",
+    width: "23.33px",  /* 35px * 2/3 */
+    height: "18.67px", /* 28px * 2/3 */
     tag: "Diamond",
     importance: 1,
     pointsWorth: 1,
