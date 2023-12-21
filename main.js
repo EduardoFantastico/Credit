@@ -187,6 +187,30 @@ let garbageTypes = [
     importance: 1,
     pointsWorth: 1,
   },
+  {
+    image: "url('source/Müll/Pizza.png')",
+    width: "31px",
+    height: "22px",
+    tag: "Pizza",
+    importance: 1,
+    pointsWorth: 1,
+  },
+  {
+    image: "url('source/Müll/meat.png')",
+    width: "35px",
+    height: "37px",
+    tag: "Meat",
+    importance: 1,
+    pointsWorth: 1,
+  },
+  {
+    image: "url('source/Müll/diamond.png')",
+    width: "35px",
+    height: "28px",
+    tag: "Diamond",
+    importance: 1,
+    pointsWorth: 1,
+  },
 ];
 
 function setImportance(tag, newValue) {
