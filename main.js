@@ -1,7 +1,7 @@
 "use strict";
 let level = 0;
 let score = 0;
-let pointsPerClick = 1; // Punkte pro Klick
+let pointsPerClick = 1;
 let levelLimits = [
   1000,
   5000,
@@ -15,6 +15,34 @@ let levelLimits = [
   10000000,
   Infinity,
 ];
+
+// Get the progress bar element
+let limitBar = document.getElementById('limit');
+
+// Get the icon element
+let icon = document.getElementById('limitIcon');
+
+// Function to update the progress bar and icon position
+function updateLimitBar() {
+  // Calculate the progress based on the score and the current level limit
+  let progress = (score / levelLimits[level]) * 100;
+
+  // Update the width of the progress bar
+  limitBar.style.width = progress + '%';
+
+  // Set the icon's position according to the progress
+  icon.style.left = (progress - 1.5) + '%'; // Adjust the '5' as needed
+
+  // Start the wobble animation if the progress is greater than 80%
+  if (progress > 80) {
+    icon.style.animation = 'wobble 0.5s infinite ease-in-out';
+  } else {
+    icon.style.animation = '';
+  }
+}
+
+
+
 
 // Change Interface | Switch between Shop, Leaderboard, Research, etc
 
@@ -336,6 +364,7 @@ let scorechecker = setInterval(() => {
 
 let repeatend = setInterval(() => {
   document.querySelector("#score").textContent = score + " Trash";
+    updateLimitBar();
 }, 1);
 
 changeInterfaceShop();
