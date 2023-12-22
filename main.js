@@ -31,15 +31,24 @@ function updateLimitBar() {
   limitBar.style.width = progress + '%';
 
   // Set the icon's position according to the progress
-  icon.style.left = (progress - 1.5) + '%'; // Adjust the '5' as needed
+  icon.style.left = (progress - 5) + '%'; // Adjust the '5' as needed
 
-  // Start the wobble animation if the progress is greater than 80%
-  if (progress > 80) {
-    icon.style.animation = 'wobble 0.5s infinite ease-in-out';
+  // Start the wobble animation and change the color based on the progress
+  if (progress === 100) {
+    icon.style.animation = 'wobble 0.05s infinite ease-in-out'; // Increase the speed of wobbling even more
+    limitBar.style.backgroundColor = 'red !important'; // Add !important
+  } else if (progress > 90) {
+    icon.style.animation = 'wobble 0.1s infinite ease-in-out'; // Increase the speed of wobbling even more
+    limitBar.style.backgroundColor = 'red !important'; // Add !important
+  } else if (progress > 80) {
+    icon.style.animation = 'wobble 0.2s infinite ease-in-out'; // Increase the speed of wobbling
+    limitBar.style.backgroundColor = 'orange !important'; // Add !important
   } else {
     icon.style.animation = '';
+    limitBar.style.backgroundColor = 'green !important'; // Add !important
   }
 }
+
 
 
 
