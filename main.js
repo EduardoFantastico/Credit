@@ -16,11 +16,10 @@ let levelLimits = [
   Infinity,
 ];
 
-// Get the progress bar element
-let limitBar = document.getElementById('limit');
-
-// Get the icon element
-let icon = document.getElementById('limitIcon');
+// Get the progress and icon elements
+let limitContainer = document.getElementById("limitContainer");
+let limit = document.getElementById("limit");
+let iconContainer = document.getElementById("icon-container");
 
 // Function to update the progress bar and icon position
 function updateLimitBar() {
@@ -28,30 +27,23 @@ function updateLimitBar() {
   let progress = (score / levelLimits[level]) * 100;
 
   // Update the width of the progress bar
-  limitBar.style.width = progress + '%';
+  limit.style.width = progress + "%";
 
   // Set the icon's position according to the progress
-  icon.style.left = (progress - 5) + '%'; // Adjust the '5' as needed
+  iconContainer.style.left = progress - 5 + "%"; // Adjust the '5' as needed
 
-  // Start the wobble animation and change the color based on the progress
-  if (progress === 100) {
-    icon.style.animation = 'wobble 0.05s infinite ease-in-out'; // Increase the speed of wobbling even more
-    limitBar.style.backgroundColor = 'red !important'; // Add !important
-  } else if (progress > 90) {
-    icon.style.animation = 'wobble 0.1s infinite ease-in-out'; // Increase the speed of wobbling even more
-    limitBar.style.backgroundColor = 'red !important'; // Add !important
-  } else if (progress > 80) {
-    icon.style.animation = 'wobble 0.2s infinite ease-in-out'; // Increase the speed of wobbling
-    limitBar.style.backgroundColor = 'orange !important'; // Add !important
+  // Change the color of the progress bar based on the progress
+  if (progress < 50) {
+    let percent = progress * 2; // Convert progress from 0-50 into 0-100
+    limit.style.backgroundColor = "rgb(" + percent + "%, 100%, 0%)";
+  } else if (progress < 75) {
+    let percent = (progress - 50) * 4; // Convert progress from 50-75 into 0-100
+    limit.style.backgroundColor = "rgb(100%, " + (100 - percent) + "%, 0%)";
   } else {
-    icon.style.animation = '';
-    limitBar.style.backgroundColor = 'green !important'; // Add !important
+    let percent = (progress - 75) * 4; // Convert progress from 75-100 into 0-100
+    limit.style.backgroundColor = "rgb(100%, 0%, " + percent + "%)";
   }
 }
-
-
-
-
 
 // Change Interface | Switch between Shop, Leaderboard, Research, etc
 
@@ -242,8 +234,8 @@ let garbageTypes = [
   },
   {
     image: "url('source/Müll/diamond.png')",
-    width: "23.33px",  /* 35px * 2/3 */
-    height: "18.67px", /* 28px * 2/3 */
+    width: "23.33px" /* 35px * 2/3 */,
+    height: "18.67px" /* 28px * 2/3 */,
     tag: "Diamond",
     importance: 1,
     pointsWorth: 1,
@@ -373,7 +365,7 @@ let scorechecker = setInterval(() => {
 
 let repeatend = setInterval(() => {
   document.querySelector("#score").textContent = score + " Trash";
-    updateLimitBar();
+  updateLimitBar();
 }, 1);
 
 changeInterfaceShop();

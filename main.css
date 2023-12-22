@@ -64,7 +64,7 @@ body {
 #limit {
   width: 0%;
   height: 100%;
-  background-color: green !important; /* Set the color of the progress bar */
+  background-color: green; /* Set the color of the progress bar */
 }
 
 #icon-container {
@@ -75,9 +75,15 @@ body {
 }
 
 @keyframes wobble {
-  0% { transform: rotate(-15deg); }
-  50% { transform: rotate(15deg); }
-  100% { transform: rotate(-15deg); }
+  0% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
 }
 
 #limitIcon {
@@ -86,8 +92,6 @@ body {
   width: 25px;
   height: 25px;
 }
-
-
 
 #clicker {
   display: block;
