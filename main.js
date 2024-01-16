@@ -30,7 +30,7 @@ function updateLimitBar() {
   limit.style.width = progress + "%";
 
   // Set the icon's position according to the progress
-  iconContainer.style.left = progress - 5 + "%"; // Adjust the '5' as needed
+  iconContainer.style.left = progress - 1 + "%"; // Adjust the '5' as needed
 
   // Change the color of the progress bar based on the progress
   if (progress < 50) {
