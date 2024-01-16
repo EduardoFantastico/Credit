@@ -3,7 +3,7 @@ window.onload = function () {
 };
 
 document.getElementById("startButton").addEventListener("click", function () {
-  var name = document.getElementById("nameInput").value;
+  let name = document.getElementById("nameInput").value;
   document.getElementById("startScreen").style.display = "none";
   document.getElementById("gameScreen").style.display = "block";
   // Ihr Spielstartcode geht hier, z.B. initGame(name);
@@ -12,13 +12,18 @@ document.getElementById("startButton").addEventListener("click", function () {
   document.getElementById("myAudio").pause();
 });
 
-/*
+document.getElementById("registerButton").addEventListener("click", function () {
+  document.getElementById("startScreen").style.display = "none";
+  document.getElementById("registerScreen").style.display = "block";
+});
 
------ SICHERE METHODE ZUM EINLOGGEN
+
+
+// ----- SICHERE METHODE ZUM EINLOGGEN
 
 document.getElementById("startButton").addEventListener("click", function () {
-  var name = document.getElementById("nameInput").value;
-  var password = document.getElementById("passwordInput").value;
+  let name = document.getElementById("nameInput").value;
+  let password = document.getElementById("passwordInput").value;
   if (name && password === "123") {
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("gameScreen").style.display = "block";
@@ -28,4 +33,3 @@ document.getElementById("startButton").addEventListener("click", function () {
   }
 });
 
-*/

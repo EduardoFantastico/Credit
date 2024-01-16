@@ -27,19 +27,40 @@
   </head>
   <body>
     <!-- Startbildschirm -->
-    <div id="startScreen" class="focus-in-contract retro-style">
-      <div class="container"></div>
-      <h1 id="title">Please log in...</h1>
-      <input type="text" id="nameInput" class="retro-style" placeholder="Name" />
-      <input type="password" id="passwordInput" class="retro-style" placeholder="Passwort" />
-      <button id="startButton" class="retro-style">Spiel starten</button>
-    </div>
+<div id="startScreen" class="focus-in-contract retro-style">
+  <div class="container"></div>
+  <h1 id="title">Please log in...</h1>
+  <input type="text" id="nameInput" class="retro-style" placeholder="Name" />
+  <input type="password" id="passwordInput" class="retro-style" placeholder="Passwort" />
+  <button id="startButton" class="retro-style">Spiel starten</button>
+  <button id="registerButton" class="retro-style">Registrieren</button>
+</div>
 
-    <!-- Audio-Element -->
-    <audio id="myAudio" controls autoplay style="display:none;">
-      <source src="source/Credit.mp3" type="audio/mpeg">
-      Ihr Browser unterstützt das Audio-Element nicht.
-    </audio>
+<!-- Registrierungsbildschirm -->
+<div id="registerScreen" class="focus-in-contract retro-style" style="display: none;">
+  <div class="container"></div>
+  <h1 id="title">Please register...</h1>
+  <select id="genderInput" class="retro-style">
+    <option value="männlich">Männlich</option>
+    <option value="weiblich">Weiblich</option>
+    <option value="divers">Divers</option>
+  </select>
+  <input type="text" id="firstNameInput" class="retro-style" placeholder="Vorname" />
+  <input type="text" id="lastNameInput" class="retro-style" placeholder="Nachname" />
+  <input type="date" id="dobInput" class="retro-style" />
+  <input type="email" id="emailInput" class="retro-style" placeholder="Email" />
+  <input type="text" id="usernameInput" class="retro-style" placeholder="Benutzername" />
+  <input type="password" id="passwordInputRegister" class="retro-style" placeholder="Passwort" />
+  <input type="password" id="passwordInputRegisterConfirm" class="retro-style" placeholder="Passwort bestätigen" />
+  <input type="checkbox" id="termsInput" class="retro-style" /> Ich stimme den AGB zu
+  <button id="confirmRegisterButton" class="retro-style">Registrierung bestätigen</button>
+</div>
+
+<!-- Audio-Element -->
+<audio id="myAudio" controls autoplay style="display:none;">
+  <source src="source/Credit.mp3" type="audio/mpeg">
+  Ihr Browser unterstützt das Audio-Element nicht.
+</audio>
 
     <!-- Spielbildschirm -->
     <div id="gameScreen" style="display: none;">
