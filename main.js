@@ -369,3 +369,10 @@ let repeatend = setInterval(() => {
 }, 1);
 
 changeInterfaceShop();
+
+
+let socket = new WebSocket("ws://localhost:8765");
+
+socket.onmessage = function(event) {
+    console.log(event.data);
+};
