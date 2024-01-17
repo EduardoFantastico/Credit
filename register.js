@@ -1,3 +1,7 @@
+window.location.reload = function () {
+    console.log('Seitenneuladen wurde verhindert');
+};
+
 let socket = new WebSocket('ws://localhost:8765');
 
 socket.onopen = function(event) {
@@ -8,8 +12,12 @@ socket.onerror = function(error) {
     console.log('WebSocket-Fehler: ' + error);
 };
 
-document.getElementById('confirmRegisterButton').addEventListener('click', function(event) {
+
+
+document.querySelector('#confirmRegisterButton').addEventListener('click', function(event) {
+    console.log('Button wurde geklickt');
     event.preventDefault();
+
 
     let password = document.getElementById('passwordInputRegister').value;
     let passwordConfirm = document.getElementById('passwordInputRegisterConfirm').value;
