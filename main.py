@@ -50,14 +50,14 @@ async def server(websocket, path):
 
             if data['type'] == 'register':
                 register(data['gender'], data['firstName'], data['lastName'], data['dob'], data['email'], data['username'], data['password'])
-                await websocket.send("Registrierung erfolgreich.")
+                await websocket.send(json.dumps({"message": "Registrierung erfolgreich."}))
             elif data['type'] == 'removeAccounts':
                 conn = sqlite3.connect('users.db')
                 c = conn.cursor()
                 c.execute("DELETE FROM users")
                 conn.commit()
                 conn.close()
-                await websocket.send("Alle Accounts wurden entfernt.")
+                await websocket.send(json.dumps({"message": "Alle Accounts wurden entfernt."}))
             elif data['type'] == 'listAccounts':
                 conn = sqlite3.connect('users.db')
                 c = conn.cursor()
@@ -65,7 +65,7 @@ async def server(websocket, path):
                 accounts = c.fetchall()
                 conn.close()
                 account_list = ', '.join(['ID: ' + str(account[0]) + ', Geschlecht: ' + account[1] + ', Vorname: ' + account[2] + ', Nachname: ' + account[3] + ', Geburtsdatum: ' + account[4] + ', Email: ' + account[5] + ', Benutzername: ' + account[6] + ', Passwort: ' + account[7] for account in accounts])
-                await websocket.send("Liste aller Accounts: " + account_list)
+                await websocket.send(json.dumps({"message": "Liste aller Accounts: " + account_list}))
         except websockets.exceptions.ConnectionClosedOK:
             print("Verbindung ordnungsgemäß geschlossen")
             break
