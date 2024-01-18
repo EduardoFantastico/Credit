@@ -49,15 +49,16 @@
     <option value="divers">Kampfhelikopter</option>
     <option value="divers">Rafael Dutra, 17 Jahre, Gaimersheim</option>
   </select>
-  <input type="text" id="firstNameInput" class="retro-style" placeholder="Vorname" />
-  <input type="text" id="lastNameInput" class="retro-style" placeholder="Nachname" />
+  <input type="text" id="firstNameInput" class="retro-style" placeholder="Vorname" maxlength="25" />
+  <input type="text" id="lastNameInput" class="retro-style" placeholder="Nachname" maxlength="25" />
   <input type="date" id="dobInput" class="retro-style" />
-  <input type="email" id="emailInput" class="retro-style" placeholder="Email" />
-  <input type="text" id="usernameInput" class="retro-style" placeholder="Benutzername" />
-  <input type="password" id="passwordInputRegister" class="retro-style" placeholder="Passwort" />
-  <input type="password" id="passwordInputRegisterConfirm" class="retro-style" placeholder="Passwort bestätigen" />
+  <input type="email" id="emailInput" class="retro-style" placeholder="Email" maxlength="35"/>
+  <input type="text" id="usernameInput" class="retro-style" placeholder="Benutzername" maxlength="31" />
+  <input type="password" id="passwordInputRegister" class="retro-style" placeholder="Passwort" maxlength="31" />
+  <input type="password" id="passwordInputRegisterConfirm" class="retro-style" placeholder="Passwort bestätigen" maxlength="31" />
   <input type="checkbox" id="termsInput" class="retro-style" /> Ich stimme den AGB zu
-  <input type="button" id="confirmRegisterButton" class="retro-style" value="Registrierung bestätigen">  <button id="deleteAccountsButton" class="retro-style">Alle Accounts löschen</button>
+  <button id="confirmRegisterButton" class="retro-style"> Registrierung bestätigen </button> 
+  <button id="deleteAccountsButton" class="retro-style">Alle Accounts löschen</button>
   <button id="listAccountsButton" class="retro-style">Alle Accounts auflisten</button>
 </div>
 
