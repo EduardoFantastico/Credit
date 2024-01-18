@@ -91,6 +91,23 @@
   transform: translateX(-50%);
 }
 
+#registerButton {
+  font-family: "Press Start 2P", cursive;
+  display: inline-block;
+  border: 1;
+  background-color: rgb(250, 114, 3);
+  color: rgb(0, 0, 0) rbe;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 180px;
+  height: 35px;
+  bottom: 34%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 #nameInput {
   font-family: "Press Start 2P", cursive;
   display: inline-block;

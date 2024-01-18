@@ -1,60 +1,72 @@
 #title {
-    font-family: "Press Start 2P", cursive;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Ändern Sie dies in flex-start, um den Titel oben zu zentrieren */
-    align-items: center;
-    color: #0f0;
-    font-size: 70px; /* Erhöhen Sie die Schriftgröße, um den Titel größer zu machen */
-    text-shadow: 0 0 5px #0f0;
-    margin-top: 1em; /* Steuern Sie den Abstand vom oberen Rand der Seite */
-    }
-    
-    
-    .registertitle {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 20vh; /* Reduzieren Sie diesen Wert, um den Abstand zu verringern */
-    }
-    
-    #genderInput,
-    #firstNameInput,
-    #lastNameInput,
-    #dobInput,
-    #emailInput,
-    #usernameInput,
-    #passwordInputRegister,
-    #passwordInputRegisterConfirm,
-    #termsInput {
-        font-family: "Press Start 2P", cursive;
-        display: block;
-        border: 1;
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-        text-align: center;
-        justify-content: center;
-        cursor: pointer;
-        width: 300px;
-        height: 25px;
-        margin: 10px auto;
-    }
-    
-    #confirmRegisterButton,
-    #deleteAccountsButton,
-    #listAccountsButton {
-        font-family: "Press Start 2P", cursive;
-        display: block;
-        border: 1;
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
-        text-align: center;
-        justify-content: center;
-        cursor: pointer;
-        width: 300px;
-        height: 40px;
-        margin: 10px auto;
-    }
+  font-family: "Press Start 2P", cursive;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ändern Sie dies in flex-start, um den Titel oben zu zentrieren */
+  align-items: center;
+  color: #0f0;
+  font-size: 70px; /* Erhöhen Sie die Schriftgröße, um den Titel größer zu machen */
+  text-shadow: 0 0 5px #0f0;
+  margin-top: 1em; /* Steuern Sie den Abstand vom oberen Rand der Seite */
+}
+
+.registertitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20vh; /* Reduzieren Sie diesen Wert, um den Abstand zu verringern */
+}
+
+#genderInput,
+#firstNameInput,
+#lastNameInput,
+#dobInput,
+#emailInput,
+#usernameInput,
+#passwordInputRegister,
+#passwordInputRegisterConfirm {
+  font-family: "Press Start 2P", cursive;
+  display: block;
+  border: 1;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 300px;
+  height: 25px;
+  margin: 10px auto;
+}
+
+#confirmRegisterButton,
+#deleteAccountsButton,
+#listAccountsButton {
+  font-family: "Press Start 2P", cursive;
+  display: block;
+  border: 1;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 300px;
+  height: 40px;
+  margin: 10px auto;
+}
+
+#termsInput {
+  font-family: "Press Start 2P", cursive;
+  display: block;
+  border: 1;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 300px;
+  height: 30px;
+  margin: 10px auto;
+}
