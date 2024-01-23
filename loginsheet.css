@@ -41,30 +41,30 @@
   font-family: "Pixel", Arial, Helvetica, sans-serif;
 }
 
-#starttitle {
+#logintitle {
   font-family: "Press Start 2P", cursive;
   position: absolute;
-  top: 1;
+  top: 150px; /* oder top: 1%; */
   left: 0;
   width: 100%;
-  height: 50%; /* Reduzieren Sie die Höhe, damit der Titel oben auf der Seite erscheint */
+  height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Ändern Sie dies in flex-start, um den Titel oben zu zentrieren */
+  justify-content: flex-start;
   align-items: center;
   color: #0f0;
-  font-size: 70px; /* Erhöhen Sie die Schriftgröße, um den Titel größer zu machen */
+  font-size: 70px;
   text-shadow: 0 0 5px #0f0;
 }
 
 #loginScreen {
   font-family: "Press Start 2P", cursive;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -103,6 +103,23 @@
   width: 180px;
   height: 35px;
   bottom: 34%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#loginBackButton {
+  font-family: "Press Start 2P", cursive;
+  display: inline-block;
+  border: 1;
+  background-color: rgb(255, 77, 101);
+  color: rgb(0, 0, 0) rbe;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 110px;
+  height: 35px;
+  bottom: 28%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

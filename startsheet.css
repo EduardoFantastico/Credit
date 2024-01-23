@@ -1,0 +1,96 @@
+#startscreen {
+  font-family: "Press Start 2P", cursive;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #0f0;
+  font-family: "Pixel", Arial, Helvetica, sans-serif;
+  text-shadow: 0 0 5px #0f0;
+}
+
+#starttitle {
+  font-family: "Press Start 2P", cursive;
+  position: absolute;
+  top: 1;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Reduzieren Sie die Höhe, damit der Titel oben auf der Seite erscheint */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ändern Sie dies in flex-start, um den Titel oben zu zentrieren */
+  align-items: center;
+  color: #0f0;
+  font-size: 70px; /* Erhöhen Sie die Schriftgröße, um den Titel größer zu machen */
+  text-shadow: 0 0 5px #0f0;
+}
+
+#singleButton {
+  font-family: "Press Start 2P", cursive;
+  display: block;
+  border: 1;
+  background-color: rgb(107, 255, 186);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  bottom: 52%;
+  position: absolute;
+  width: 250px;
+  height: 60px;
+  margin: 10px auto;
+}
+
+#multiButton {
+  font-family: "Press Start 2P", cursive;
+  display: block;
+  border: 1;
+  background-color: rgb(14, 159, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  bottom: 42%;
+  position: absolute;
+  width: 250px;
+  height: 60px;
+  margin: 10px auto;
+}
+
+#optionsButton {
+  font-family: "Press Start 2P", cursive;
+  display: block;
+  border: 1;
+  background-color: rgb(91, 255, 58);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  bottom: 32%;
+  position: absolute;
+  width: 175px;
+  height: 40px;
+  margin: 10px auto;
+}
+
+#quitButton {
+  font-family: "Press Start 2P", cursive;
+  display: block;
+  border: 1;
+  background-color: rgb(255, 76, 32);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  bottom: 25%;
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  margin: 10px auto;
+}

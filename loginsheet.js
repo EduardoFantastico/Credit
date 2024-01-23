@@ -1,7 +1,3 @@
-window.onload = function () {
-  document.getElementById("myAudio").play();
-};
-
 document
   .getElementById("loginStartButton")
   .addEventListener("click", function () {
@@ -35,4 +31,19 @@ document
     } else {
       alert("Bitte geben Sie Ihren Namen und das korrekte Passwort ein");
     }
+  });
+
+document
+  .getElementById("loginBackButton")
+  .addEventListener("click", function () {
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("startscreen").style.display = "block";
+
+    // Überprüfen Sie, ob die CSS-Stile korrekt angewendet werden
+    console.log(
+      window.getComputedStyle(document.getElementById("startscreen"))
+    );
+
+    // Überprüfen Sie, ob es andere JavaScript-Funktionen gibt, die die Startseite beeinflussen
+    // Fügen Sie Ihren Code hier ein
   });
