@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="researchpage.css" />
     <link rel="stylesheet" type="text/css" href="shoppage.css" />
     <link rel="stylesheet" type="text/css" href="startsheet.css" />
+    <link rel="stylesheet" type="text/css" href="loginsheet.css" />
     <link rel="stylesheet" type="text/css" href="socials.css" />
     <link rel="stylesheet" type="text/css" href="inventory.css"/>
     <link rel="stylesheet" type="text/css" href="options.css"/>
@@ -28,13 +29,19 @@
   </head>
   <body>
     <!-- Startbildschirm -->
-<div id="startScreen" class="focus-in-contract retro-style">
+    <div id="startscreen" class="focus-in-contract retro-style" style="display: none;">
+      <button id = "singleButton">Singleplayer</button>
+      <button id = "multiButton">Multiplayer</button>
+      <button id = "optionsButton">Options</button>
+      <button id = "quitButton">Quit</button>
+    </div>
+<div id="loginScreen" class="focus-in-contract retro-style">
   <div class="container"></div>
   <h1 id="starttitle">Please log in...</h1>
   <input type="text" id="nameInput" class="retro-style" placeholder="Name" />
   <input type="password" id="passwordInput" class="retro-style" placeholder="Passwort" />
-  <button id="startButton" class="retro-style">Spiel starten</button>
-  <button id="registerButton" class="retro-style">Registrieren</button>
+  <button id="loginStartButton" class="retro-style">Start Game</button>
+  <button id="registerButton" class="retro-style">Register</button>
 </div>
 
 <!-- Registrierungsbildschirm -->
@@ -207,6 +214,7 @@
       <script src="register.js"></script>
       <script src="shoppage.js"></script>
       <script src="startsheet.js"></script>
+      <script src="loginsheet.js"></script>
       <script src="socials.js"></script>
       <script src="options.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
