@@ -62,12 +62,13 @@
   border: 2px solid #000000;
   border-radius: 5px;
   height: 60px;
-  width: 55%;
+  width: 230px;
   line-height: 60px;
   vertical-align: top;
   display: inline-block;
   margin-top: 20px;
   margin-right: 5px;
+  margin-left: 5px;
   cursor: pointer;
 }
 
