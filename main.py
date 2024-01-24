@@ -3,13 +3,10 @@ import websockets
 import sqlite3
 import json
 
-# Verbindung zur SQLite-Datenbank erstellen
 conn = sqlite3.connect('users.db')
 
-# Cursor-Objekt erstellen
 c = conn.cursor()
 
-# Überprüfen, ob die Tabelle bereits existiert
 c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='users'")
 if c.fetchone() is None:
     # Tabelle erstellen
@@ -25,7 +22,6 @@ if c.fetchone() is None:
         password TEXT)
     ''')
 
-# Änderungen speichern und Verbindung schließen
 conn.commit()
 conn.close()    
 
@@ -33,23 +29,30 @@ def register(gender, firstName, lastName, dob, email, username, password):
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
 
-    # Neuen Benutzer hinzufügen
     c.execute("INSERT INTO users (gender, firstName, lastName, dob, email, username, password) VALUES (?, ?, ?, ?, ?, ?, ?)", (gender, firstName, lastName, dob, email, username, password))
 
     conn.commit()
     conn.close()
 
-# Eine Zuordnung von WebSockets zu Benutzernamen
+def login(username, password):
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+
+    c.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+    user = c.fetchone()
+
+    conn.close()
+
+    return user is not None
+
+
 usernames = {}
 
-# Eine Zuordnung von Benutzernamen zu ihren WebSocket-Verbindungen
 connections = {}
 
-# Ein Set für alle verbundenen WebSockets
 connected = set()
 
 async def echo(websocket, path):
-    # Neuen Client hinzufügen
     connected.add(websocket)
     try:
         async for message in websocket:
@@ -57,6 +60,13 @@ async def echo(websocket, path):
             if data['type'] == 'register':
                 register(data['gender'], data['firstName'], data['lastName'], data['dob'], data['email'], data['username'], data['password'])
                 await websocket.send(json.dumps({'message': 'Account erstellt: ' + data['username'], 'sessionID': data.get('sessionID')}))
+            elif data['type'] == 'login':
+                username = data['username']
+                password = data['password']
+                if login(username, password):
+                    await websocket.send(json.dumps({'message': 'Erfolgreich angemeldet als: ' + username, 'sessionID': data.get('sessionID')}))
+                else:
+                    await websocket.send(json.dumps({'message': 'Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihren Benutzernamen und Ihr Passwort.', 'sessionID': data.get('sessionID')}))
             elif data['type'] == 'listAccounts':
                 conn = sqlite3.connect('users.db')
                 c = conn.cursor()
@@ -77,6 +87,7 @@ async def echo(websocket, path):
     finally:
         # Client entfernen
         connected.remove(websocket)
+
 
 
 start_server = websockets.serve(echo, "localhost", 8765)
