@@ -88,27 +88,57 @@ function upgradeButtonPressed(upgrade) {
   }
 }
 
-addUpgrade("button3", "Button3", 3);
-addUpgrade("button4", "Button4", 4);
-addUpgrade("button5", "Button5", 5);
-addUpgrade("button6", "Button6", 6);
-addUpgrade("button7", "Button7", 7);
-addUpgrade("button8", "Button8", 8);
-addUpgrade("button9", "Button9", 9);
-addUpgrade("button10", "Button10", 10);
-addUpgrade("button11", "Button11", 11);
-addUpgrade("button12", "Button12", 12);
-addUpgrade("button13", "Button13", 13);
-addUpgrade("button14", "Button14", 14);
-addUpgrade("button15", "Button15", 15);
-addUpgrade("button16", "Button16", 16);
-addUpgrade("button17", "Button17", 17);
-addUpgrade("button18", "Button18", 18);
-addUpgrade("button19", "Button19", 19);
-addUpgrade("button20", "Button20", 20);
-addUpgrade("button21", "Button21", 21);
-addUpgrade("button22", "Button22", 22);
-addUpgrade("button33", "Button33", 33);
+addUpgrade("button3", "Button3");
+addUpgrade("button4", "Button4");
+addUpgrade("button5", "Button5");
+addUpgrade("button6", "Button6");
+addUpgrade("button7", "Button7");
+addUpgrade("button8", "Button8");
+addUpgrade("button9", "Button9");
+addUpgrade("button10", "Button10");
+addUpgrade("button11", "Button11");
+addUpgrade("button12", "Button12");
+addUpgrade("button13", "Button13");
+addUpgrade("button14", "Button14");
+addUpgrade("button15", "Button15");
+addUpgrade("button16", "Button16");
+addUpgrade("button17", "Button17");
+addUpgrade("button18", "Button18");
+addUpgrade("button19", "Button19");
+addUpgrade("button20", "Button20");
+addUpgrade("button21", "Button21");
+addUpgrade("button22", "Button22");
+addUpgrade("button33", "Button33");
+
+let kaufZähler = {
+  button3: 0,
+  button4: 0,
+  // Füge hier weitere Buttons hinzu
+};
+
+let aktuellerButton = null;
+let counterBox = document.querySelector("#counterBox");
+
+document.querySelector("#button3").addEventListener("click", function () {
+  // ...
+  aktuellerButton = "button3";
+  counterBox.textContent = kaufZähler[aktuellerButton] + "x";
+  // ...
+});
+
+document.querySelector("#button4").addEventListener("click", function () {
+  // ...
+  aktuellerButton = "button4";
+  counterBox.textContent = kaufZähler[aktuellerButton] + "x";
+  // ...
+});
+
+document.querySelector("#buyItem").addEventListener("click", function () {
+  if (aktuellerButton) {
+    kaufZähler[aktuellerButton]++;
+    counterBox.textContent = kaufZähler[aktuellerButton] + "x";
+  }
+});
 
 let isClicked = false; // Zustand des Buttons
 
@@ -124,6 +154,29 @@ document.querySelector("#button3").addEventListener("click", function () {
     descTitle.textContent = "Müllbeutel";
     descText.textContent =
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.";
+    isClicked = true;
+  } else {
+    // Wenn der Button ein zweites Mal geklickt wird
+    descBox.style.transform = "";
+    descBox.style.display = "none";
+    descTitle.textContent = "";
+    descText.textContent = "";
+    isClicked = false;
+  }
+});
+
+document.querySelector("#button4").addEventListener("click", function () {
+  let descBox = document.querySelector("#descBox");
+  let descTitle = document.querySelector("#descTitle");
+  let descText = document.querySelector("#descText");
+
+  if (!isClicked) {
+    // Wenn der Button das erste Mal geklickt wird
+    descBox.style.transform = "translateX(575px)";
+    descBox.style.display = "block";
+    descTitle.textContent = "Was ist Ziegenkäse?";
+    descText.textContent =
+      "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt.";
     isClicked = true;
   } else {
     // Wenn der Button ein zweites Mal geklickt wird
