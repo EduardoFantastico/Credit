@@ -88,17 +88,17 @@ function upgradeButtonPressed(upgrade) {
   }
 }
 
-addUpgrade("button3", "Button3");
-addUpgrade("button4", "Button4");
-addUpgrade("button5", "Button5");
-addUpgrade("button6", "Button6");
-addUpgrade("button7", "Button7");
-addUpgrade("button8", "Button8");
-addUpgrade("button9", "Button9");
-addUpgrade("button10", "Button10");
-addUpgrade("button11", "Button11");
-addUpgrade("button12", "Button12");
-addUpgrade("button13", "Button13");
+addUpgrade("button3", "Mülleimer Rütteln");
+addUpgrade("button4", "Streuen");
+addUpgrade("button5", "Pfandflaschensammler");
+addUpgrade("button6", "Rüttelmaschine");
+addUpgrade("button7", "Dellen reinschlagen");
+addUpgrade("button8", "Nie wieder hungrig");
+addUpgrade("button9", "Trash Trucker");
+addUpgrade("button10", "Durchsichtiges Glück");
+addUpgrade("button11", "Herr des Mülls");
+addUpgrade("button12", "Macht lustige Geräusche");
+addUpgrade("button13", "Müllmeister");
 addUpgrade("button14", "Button14");
 addUpgrade("button15", "Button15");
 addUpgrade("button16", "Button16");
@@ -181,16 +181,16 @@ function updateDescBox(buttonId, title, text) {
 document.querySelector("#button3").addEventListener("click", function () {
   updateDescBox(
     "button3",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    "Mülleimer Rütteln",
+    "Du hast etwas Neues rausgefunden! Wenn du an dieser gewaltigen Tonne schüttelst, kommt viel mehr Müll raus! Du fügst den Multiplikatorbalken zu deinem Spiel hinzu. Je stärker du rüttelst, desto mehr kommt raus!."
   );
 });
 
 document.querySelector("#button4").addEventListener("click", function () {
   updateDescBox(
     "button4",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+    "Müll in die Welt streuen",
+    "Alleine arbeiten ist sehr anstrengend. Du schmeißt daher deinen Müll rum, in der Hoffnung mehr Hilfe zu erhalten. Wilde Waschbären werden darauf aufmerksam und werden ihren Weg zu dir finden"
   );
 });
 

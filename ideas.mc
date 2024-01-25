@@ -83,7 +83,7 @@ Level 3 (Epischer Müll erscheint im Spiel) Employee System - die ersten Waschb�
 - Herr des Mülls - Employees können eingestellt und verwaltet werden (nur geringe Standardauswahl zu Beginn)
 
 Level 4 (Legendärer Müll erscheint)
--  - Legendärer Müll hat eine höhere Dropwahrscheinlichkeit (kann man verkaufen)
+- Macht lustige Geräusche - Legendärer Müll hat eine höhere Dropwahrscheinlichkeit (kann man verkaufen)
 - Müllmeister - Employees können weitergebildet werden
 
 Level 5     Battle begins
