@@ -110,7 +110,30 @@ addUpgrade("button21", "Button21", 21);
 addUpgrade("button22", "Button22", 22);
 addUpgrade("button33", "Button33", 33);
 
+let isClicked = false; // Zustand des Buttons
 
+document.querySelector("#button3").addEventListener("click", function () {
+  let descBox = document.querySelector("#descBox");
+  let descTitle = document.querySelector("#descTitle");
+  let descText = document.querySelector("#descText");
+
+  if (!isClicked) {
+    // Wenn der Button das erste Mal geklickt wird
+    descBox.style.transform = "translateX(575px)";
+    descBox.style.display = "block";
+    descTitle.textContent = "Müllbeutel";
+    descText.textContent =
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.";
+    isClicked = true;
+  } else {
+    // Wenn der Button ein zweites Mal geklickt wird
+    descBox.style.transform = "";
+    descBox.style.display = "none";
+    descTitle.textContent = "";
+    descText.textContent = "";
+    isClicked = false;
+  }
+});
 
 /*
 // FIRST ARTICLE
