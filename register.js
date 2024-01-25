@@ -1,4 +1,4 @@
-let socket = new WebSocket("ws://localhost:8765");
+/* let socket = new WebSocket("ws://localhost:8765");
 let sessionID = Math.random().toString(36).substring(2);
 
 socket.onopen = function (event) {
@@ -61,3 +61,5 @@ socket.onmessage = function (event) {
   let data = JSON.parse(event.data);
   console.log(data.message);
 };
+
+*/

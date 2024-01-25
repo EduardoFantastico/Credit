@@ -7,7 +7,6 @@ function addUpgrade(name, displayName, cost) {
     name: name,
     displayName: displayName,
     cost: cost,
-    count: 0,
   };
   upgrades.push(newUpgrade);
   createUpgradeElement(newUpgrade);
@@ -22,17 +21,11 @@ function createUpgradeElement(upgrade) {
   // Erstelle einen Button innerhalb des div-Elements
   const button = document.createElement("button");
   button.className = "upgrade-button";
-  button.innerHTML = upgrade.cost + " $"; // Setze die Kosten auf dem Button
+  button.innerHTML = upgrade.displayName; // Setze den Anzeigenamen auf dem Button
   button.addEventListener("click", function () {
     upgradeButtonPressed(upgrade);
   });
   div.appendChild(button);
-
-  // Erstelle ein weiteres div innerhalb des ersten div-Elements
-  const innerDiv = document.createElement("div");
-  innerDiv.className = "upgrade-counter";
-  innerDiv.innerHTML = upgrade.count + "x"; // Zeige die Menge an
-  div.appendChild(innerDiv);
 
   // Füge das div-Element zum content-box-shop hinzu
   document.querySelector("#content-box-shop").appendChild(div);
@@ -83,8 +76,6 @@ function changeUpgradeCost(upgradeName, newCost) {
   // Wenn das Upgrade existiert, ändern Sie den Preis
   if (upgrade) {
     upgrade.cost = newCost;
-    document.querySelector("#" + upgrade.id + " .upgrade-button").textContent =
-      upgrade.cost + " $";
   } else {
     console.log("Upgrade nicht gefunden: " + upgradeName);
   }
@@ -93,17 +84,33 @@ function changeUpgradeCost(upgradeName, newCost) {
 function upgradeButtonPressed(upgrade) {
   if (score >= upgrade.cost) {
     score -= upgrade.cost;
-    upgrade.count++;
-    document.querySelector("#" + upgrade.id + " .upgrade-button").textContent =
-      upgrade.cost + " $";
-    document.querySelector("#" + upgrade.id + " .upgrade-counter").textContent =
-      upgrade.count + "x";
     executeUpgradeFunction(upgrade);
   }
 }
 
-addUpgrade("upgradeone", "Upgrade One", 10);
-addUpgrade("upgradetwo", "Upgrade Two", 100);
+addUpgrade("button3", "Button3", 3);
+addUpgrade("button4", "Button4", 4);
+addUpgrade("button5", "Button5", 5);
+addUpgrade("button6", "Button6", 6);
+addUpgrade("button7", "Button7", 7);
+addUpgrade("button8", "Button8", 8);
+addUpgrade("button9", "Button9", 9);
+addUpgrade("button10", "Button10", 10);
+addUpgrade("button11", "Button11", 11);
+addUpgrade("button12", "Button12", 12);
+addUpgrade("button13", "Button13", 13);
+addUpgrade("button14", "Button14", 14);
+addUpgrade("button15", "Button15", 15);
+addUpgrade("button16", "Button16", 16);
+addUpgrade("button17", "Button17", 17);
+addUpgrade("button18", "Button18", 18);
+addUpgrade("button19", "Button19", 19);
+addUpgrade("button20", "Button20", 20);
+addUpgrade("button21", "Button21", 21);
+addUpgrade("button22", "Button22", 22);
+addUpgrade("button33", "Button33", 33);
+
+
 
 /*
 // FIRST ARTICLE
