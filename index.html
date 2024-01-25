@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="options.css"/>
     <link rel="stylesheet" type="text/css" href="register.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
+    <link rel="stylesheet" type="text/css" href="userProfile.css"/>
 
     <!-- Inline-Styling -->
     <style>
@@ -203,7 +204,16 @@
             <button id="menu-tab4">- - -</button>
           </div>
 
-          <!-- Modal -->
+          <!-- Profile Overlay -->
+          <div id="profileOverlay" class="overlay">
+           <!-- Overlay content -->
+            <div class="overlay-content">
+            <span class="closeButton">&times;</span>
+              <p>Here are some contents for the profile...</p>
+            </div>
+           </div>
+
+          <!-- OptionsIG -->
           <div id="myModal" class="modal">
             <div class="modal-content">
               <span class="close">×</span>
@@ -237,5 +247,6 @@
       <script src="socials.js"></script>
       <script src="options.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+      <script src="userProfile.js"></script>
     </body>
 </html>
