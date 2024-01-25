@@ -108,30 +108,43 @@ addUpgrade("button19", "Button19");
 addUpgrade("button20", "Button20");
 addUpgrade("button21", "Button21");
 addUpgrade("button22", "Button22");
-addUpgrade("button33", "Button33");
+addUpgrade("button23", "Button23");
 
 let kaufZähler = {
   button3: 0,
   button4: 0,
+  button5: 0,
+  button6: 0,
+  button7: 0,
+  button8: 0,
+  button9: 0,
+  button10: 0,
+  button11: 0,
+  button12: 0,
+  button13: 0,
+  button14: 0,
+  button15: 0,
+  button16: 0,
+  button17: 0,
+  button18: 0,
+  button19: 0,
+  button20: 0,
+  button21: 0,
+  button22: 0,
+  button23: 0,
+
   // Füge hier weitere Buttons hinzu
 };
 
 let aktuellerButton = null;
 let counterBox = document.querySelector("#counterBox");
 
-document.querySelector("#button3").addEventListener("click", function () {
-  // ...
-  aktuellerButton = "button3";
-  counterBox.textContent = kaufZähler[aktuellerButton] + "x";
-  // ...
-});
-
-document.querySelector("#button4").addEventListener("click", function () {
-  // ...
-  aktuellerButton = "button4";
-  counterBox.textContent = kaufZähler[aktuellerButton] + "x";
-  // ...
-});
+for (let i = 3; i <= 23; i++) {
+  document.querySelector("#button" + i).addEventListener("click", function () {
+    aktuellerButton = "button" + i;
+    counterBox.textContent = kaufZähler[aktuellerButton] + "x";
+  });
+}
 
 document.querySelector("#buyItem").addEventListener("click", function () {
   if (aktuellerButton) {
@@ -141,51 +154,196 @@ document.querySelector("#buyItem").addEventListener("click", function () {
 });
 
 let isClicked = false; // Zustand des Buttons
+let activeButton = null; // Aktiver Button
 
-document.querySelector("#button3").addEventListener("click", function () {
+function updateDescBox(buttonId, title, text) {
   let descBox = document.querySelector("#descBox");
   let descTitle = document.querySelector("#descTitle");
   let descText = document.querySelector("#descText");
 
-  if (!isClicked) {
-    // Wenn der Button das erste Mal geklickt wird
-    descBox.style.transform = "translateX(575px)";
-    descBox.style.display = "block";
-    descTitle.textContent = "Müllbeutel";
-    descText.textContent =
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.";
-    isClicked = true;
-  } else {
-    // Wenn der Button ein zweites Mal geklickt wird
+  if (activeButton === buttonId) {
+    // Wenn der gleiche Button erneut geklickt wird
     descBox.style.transform = "";
     descBox.style.display = "none";
     descTitle.textContent = "";
     descText.textContent = "";
-    isClicked = false;
+    activeButton = null;
+  } else {
+    // Wenn ein anderer Button geklickt wird
+    descBox.style.transform = "translateX(575px)";
+    descBox.style.display = "block";
+    descTitle.textContent = title;
+    descText.textContent = text;
+    activeButton = buttonId;
   }
+}
+
+document.querySelector("#button3").addEventListener("click", function () {
+  updateDescBox(
+    "button3",
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
 });
 
 document.querySelector("#button4").addEventListener("click", function () {
-  let descBox = document.querySelector("#descBox");
-  let descTitle = document.querySelector("#descTitle");
-  let descText = document.querySelector("#descText");
+  updateDescBox(
+    "button4",
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+  );
+});
 
-  if (!isClicked) {
-    // Wenn der Button das erste Mal geklickt wird
-    descBox.style.transform = "translateX(575px)";
-    descBox.style.display = "block";
-    descTitle.textContent = "Was ist Ziegenkäse?";
-    descText.textContent =
-      "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt.";
-    isClicked = true;
-  } else {
-    // Wenn der Button ein zweites Mal geklickt wird
-    descBox.style.transform = "";
-    descBox.style.display = "none";
-    descTitle.textContent = "";
-    descText.textContent = "";
-    isClicked = false;
-  }
+document.querySelector("#button5").addEventListener("click", function () {
+  updateDescBox(
+    "button5",
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+  );
+});
+
+document.querySelector("#button6").addEventListener("click", function () {
+  updateDescBox(
+    "button6",
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button7").addEventListener("click", function () {
+  updateDescBox(
+    "button7",
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+  );
+});
+
+document.querySelector("#button8").addEventListener("click", function () {
+  updateDescBox(
+    "button8",
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+  );
+});
+
+document.querySelector("#button9").addEventListener("click", function () {
+  updateDescBox(
+    "button9",
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button10").addEventListener("click", function () {
+  updateDescBox(
+    "button10",
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+  );
+});
+
+document.querySelector("#button11").addEventListener("click", function () {
+  updateDescBox(
+    "button11",
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+  );
+});
+
+document.querySelector("#button12").addEventListener("click", function () {
+  updateDescBox(
+    "button12",
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button13").addEventListener("click", function () {
+  updateDescBox(
+    "button13",
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+  );
+});
+
+document.querySelector("#button14").addEventListener("click", function () {
+  updateDescBox(
+    "button14",
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+  );
+});
+
+document.querySelector("#button15").addEventListener("click", function () {
+  updateDescBox(
+    "button15",
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button16").addEventListener("click", function () {
+  updateDescBox(
+    "button16",
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+  );
+});
+
+document.querySelector("#button17").addEventListener("click", function () {
+  updateDescBox(
+    "button17",
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+  );
+});
+
+document.querySelector("#button18").addEventListener("click", function () {
+  updateDescBox(
+    "button18",
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button19").addEventListener("click", function () {
+  updateDescBox(
+    "button19",
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+  );
+});
+
+document.querySelector("#button20").addEventListener("click", function () {
+  updateDescBox(
+    "button20",
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+  );
+});
+
+document.querySelector("#button21").addEventListener("click", function () {
+  updateDescBox(
+    "button21",
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button22").addEventListener("click", function () {
+  updateDescBox(
+    "button22",
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+  );
+});
+
+document.querySelector("#button23").addEventListener("click", function () {
+  updateDescBox(
+    "button23",
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+  );
 });
 
 /*
