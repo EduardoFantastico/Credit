@@ -177,6 +177,10 @@ addUpgrade("button18", "Button18");
 addUpgrade("button19", "Button19");
 addUpgrade("button20", "Button20");
 
+for(let i = 1; i <= 20; i++) {
+  unlockUpgrade(`button${i}`);
+}
+
 
 let kaufZähler = {
   button1: 0,
