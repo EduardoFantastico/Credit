@@ -7,10 +7,12 @@ function addUpgrade(name, displayName, cost) {
     name: name,
     displayName: displayName,
     cost: cost,
+    locked: true,  // Fügen Sie diese Zeile hinzu
   };
   upgrades.push(newUpgrade);
   createUpgradeElement(newUpgrade);
 }
+
 
 function createUpgradeElement(upgrade) {
   // Erstelle ein neues div-Element mit der Klasse "upgrade-box"
@@ -18,18 +20,55 @@ function createUpgradeElement(upgrade) {
   div.id = upgrade.id;
   div.className = "upgrade-box";
 
+  // Wenn das Upgrade gesperrt ist, setzen Sie display auf none
+  if (upgrade.locked) {
+    div.style.display = "none";
+  }
+
   // Erstelle einen Button innerhalb des div-Elements
   const button = document.createElement("button");
   button.className = "upgrade-button";
   button.innerHTML = upgrade.displayName; // Setze den Anzeigenamen auf dem Button
-  button.addEventListener("click", function () {
-    upgradeButtonPressed(upgrade);
-  });
+
+  adjustFontSize(button);
   div.appendChild(button);
 
   // Füge das div-Element zum content-box-shop hinzu
   document.querySelector("#content-box-shop").appendChild(div);
 }
+
+function unlockUpgrade(upgradeId) {
+  // Finden Sie das Upgrade in der Liste
+  const upgrade = upgrades.find((upg) => upg.id === upgradeId);
+
+  // Wenn das Upgrade existiert und noch nicht freigeschaltet wurde
+  if (upgrade && upgrade.locked) {
+    // Setzen Sie die Eigenschaft "locked" auf false
+    upgrade.locked = false;
+
+    // Machen Sie das Element sichtbar
+    let upgradeBox = document.querySelector(`#${upgradeId}`);
+    upgradeBox.style.display = "block";
+  }
+}
+//Schriftgröße anpassen
+
+function adjustFontSize(button) {
+  const maxFontSize = 12; // Maximale Schriftgröße in Pixel
+  const minFontSize = 8; // Minimale Schriftgröße in Pixel
+  const maxLength = 20; // Maximale Textlänge, bei der die Schriftgröße reduziert wird
+
+  // Wenn der Text zu lang ist, reduzieren Sie die Schriftgröße
+  if (button.innerHTML.length > maxLength) {
+    const newFontSize = Math.max(minFontSize, maxFontSize - (button.innerHTML.length - maxLength));
+    button.style.fontSize = newFontSize + "px";
+  } else {
+    // Wenn der Text nicht zu lang ist, setzen Sie die Schriftgröße auf den Maximalwert
+    button.style.fontSize = maxFontSize + "px";
+  }
+}
+
+
 
 // Remove Upgrade
 function removeUpgrade(upgradeId) {
@@ -40,15 +79,50 @@ function removeUpgrade(upgradeId) {
 
 // - - - - - - - - //
 
-function shopUpgrade1(upgrade) {
-  pointsPerClick++;
-  newcost = Math.round(upgrade.cost * 1.2); // Verwenden Sie Math.round() anstelle von math.round()
-  changeUpgradeCost("upgradeone", newcost);
+// button1 - Mülleimer Rütteln//
+function shopUpgradeButton1(upgrade) {
+  document.getElementById("clickprogress").style.display = "block";
+  if (kaufZähler["button1"] < 5){
+  dropchance90 = dropchance90 + 120;
+  newcost = Math.round(upgrade.cost * 1.05 + 7); // Verwenden Sie Math.round() anstelle von math.round()
+  } else if (kaufZähler["button1"] < 10){
+    dropchance90 = dropchance90 + 95;
+    dropchance80 = dropchance80 + 100;
+    newcost = Math.round(upgrade.cost * 1.04 + 12);
+  } else if (kaufZähler["button1"] < 20){
+    dropchance90 = dropchance90 + 80;
+    dropchance80 = dropchance80 + 80;
+    dropchance50 = dropchance50 + 100;
+    newcost = Math.round(upgrade.cost * 1.12) + 19;
+  } else if (kaufZähler["button1"] < 40){
+    dropchance90 = dropchance90 + 75;
+    dropchance80 = dropchance80 + 70;
+    dropchance50 = dropchance50 + 80;
+    dropchance20 = dropchance20 + 60;
+    newcost = Math.round(upgrade.cost * 1.18) + 41;
+  } else if (kaufZähler["button1"] < 100){
+    dropchance90 = dropchance90 + 120;
+    dropchance80 = dropchance80 + 80;
+    dropchance50 = dropchance50 + 80;
+    dropchance20 = dropchance20 + 50;
+    dropchance01 = dropchance01 + 40;
+    newcost = Math.round(upgrade.cost * 1.18) + 41;
+  } else if (kaufZähler["button1"] < 250){
+
+  } else if (kaufZähler["button1"] < 500){
+
+  } else if (kaufZähler["button1"] < 10){
+
+  }
+  changeUpgradeCost("button1", newcost);
+  console.log("Neuer Preis: "+newcost);
+  console.log("Dropchances: [90%: " + dropchance90 / 100 + "] [80%: " + dropchance80 / 100 +"] [50%: " + dropchance50 / 100 + "]");
 }
 
-function shopUpgrade2(upgrade) {
+// button2 - //
+function shopUpgradeButton2(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
-  changeUpgradeCost("upgradetwo", newcost);
+  changeUpgradeCost("button2", newcost);
   function increaseScoreTwo() {
     score++;
   }
@@ -57,11 +131,11 @@ function shopUpgrade2(upgrade) {
 
 function executeUpgradeFunction(upgrade) {
   switch (upgrade.name) {
-    case "upgradeone":
-      shopUpgrade1(upgrade);
+    case "button1":
+      shopUpgradeButton1(upgrade);
       break;
-    case "upgradetwo":
-      shopUpgrade2(upgrade);
+    case "button2":
+      shopUpgradeButton2(upgrade);
       break;
 
     default:
@@ -81,24 +155,20 @@ function changeUpgradeCost(upgradeName, newCost) {
   }
 }
 
-function upgradeButtonPressed(upgrade) {
-  if (score >= upgrade.cost) {
-    score -= upgrade.cost;
-    executeUpgradeFunction(upgrade);
-  }
-}
 
-addUpgrade("button3", "Mülleimer Rütteln");
-addUpgrade("button4", "Streuen");
-addUpgrade("button5", "Pfandflaschensammler");
-addUpgrade("button6", "Rüttelmaschine");
-addUpgrade("button7", "Dellen reinschlagen");
-addUpgrade("button8", "Nie wieder hungrig");
-addUpgrade("button9", "Trash Trucker");
-addUpgrade("button10", "Durchsichtiges Glück");
-addUpgrade("button11", "Herr des Mülls");
-addUpgrade("button12", "Macht lustige Geräusche");
-addUpgrade("button13", "Müllmeister");
+addUpgrade("button1", "Mülleimer Rütteln", 10); 
+addUpgrade("button2", "Streuen");
+addUpgrade("button3", "Pfandflaschensammler");
+addUpgrade("button4", "Rüttelmaschine");
+addUpgrade("button5", "Dellen reinschlagen");
+addUpgrade("button6", "Nie wieder hungrig");
+addUpgrade("button7", "Trash Trucker");
+addUpgrade("button8", "Durchsichtiges Glück");
+addUpgrade("button9", "Herr des Mülls");
+addUpgrade("button10", "Macht lustige Geräusche");
+addUpgrade("button11", "Müllmeister");
+addUpgrade("button12", "Button12");
+addUpgrade("button13", "Button13");
 addUpgrade("button14", "Button14");
 addUpgrade("button15", "Button15");
 addUpgrade("button16", "Button16");
@@ -106,11 +176,11 @@ addUpgrade("button17", "Button17");
 addUpgrade("button18", "Button18");
 addUpgrade("button19", "Button19");
 addUpgrade("button20", "Button20");
-addUpgrade("button21", "Button21");
-addUpgrade("button22", "Button22");
-addUpgrade("button23", "Button23");
+
 
 let kaufZähler = {
+  button1: 0,
+  button2: 0,
   button3: 0,
   button4: 0,
   button5: 0,
@@ -129,9 +199,6 @@ let kaufZähler = {
   button18: 0,
   button19: 0,
   button20: 0,
-  button21: 0,
-  button22: 0,
-  button23: 0,
 
   // Füge hier weitere Buttons hinzu
 };
@@ -139,7 +206,7 @@ let kaufZähler = {
 let aktuellerButton = null;
 let counterBox = document.querySelector("#counterBox");
 
-for (let i = 3; i <= 23; i++) {
+for (let i = 1; i <= 20; i++) {
   document.querySelector("#button" + i).addEventListener("click", function () {
     aktuellerButton = "button" + i;
     counterBox.textContent = kaufZähler[aktuellerButton] + "x";
@@ -148,10 +215,24 @@ for (let i = 3; i <= 23; i++) {
 
 document.querySelector("#buyItem").addEventListener("click", function () {
   if (aktuellerButton) {
-    kaufZähler[aktuellerButton]++;
-    counterBox.textContent = kaufZähler[aktuellerButton] + "x";
+    // Finden Sie das Upgrade nach Namen
+    const upgrade = upgrades.find((upg) => upg.name === aktuellerButton);
+
+    // Wenn das Upgrade existiert und der score größer ist als der Preis des Upgrades
+    if (upgrade && score >= upgrade.cost) {
+      // Reduzieren Sie den score um den Preis des Upgrades
+      score -= upgrade.cost;
+
+      // Führen Sie die Funktion executeUpgradeFunction aus
+      executeUpgradeFunction(upgrade);
+      
+      // Aktualisieren Sie den Kaufzähler und die Anzeige
+      kaufZähler[aktuellerButton]++;
+      counterBox.textContent = kaufZähler[aktuellerButton] + "x";
+    }
   }
 });
+
 
 let isClicked = false; // Zustand des Buttons
 let activeButton = null; // Aktiver Button
@@ -178,59 +259,75 @@ function updateDescBox(buttonId, title, text) {
   }
 }
 
+document.querySelector("#button1").addEventListener("click", function () {
+  updateDescBox(
+    "button1",
+    "Mülleimer Rütteln",
+    "Du hast etwas Neues rausgefunden! Wenn du an dieser gewaltigen Tonne schüttelst, kommt viel mehr Müll raus! Du fügst den Multiplikatorbalken zu deinem Spiel hinzu. Je stärker du rüttelst, desto mehr kommt raus!."
+  );
+});
+
+document.querySelector("#button2").addEventListener("click", function () {
+  updateDescBox(
+    "button2",
+    "Müll in die Welt streuen",
+    "Alleine arbeiten ist sehr anstrengend. Du schmeißt daher deinen Müll rum, in der Hoffnung mehr Hilfe zu erhalten. Wilde Waschbären werden darauf aufmerksam und werden ihren Weg zu dir finden"
+  );
+});
+
 document.querySelector("#button3").addEventListener("click", function () {
   updateDescBox(
     "button3",
-    "Mülleimer Rütteln",
-    "Du hast etwas Neues rausgefunden! Wenn du an dieser gewaltigen Tonne schüttelst, kommt viel mehr Müll raus! Du fügst den Multiplikatorbalken zu deinem Spiel hinzu. Je stärker du rüttelst, desto mehr kommt raus!."
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
   );
 });
 
 document.querySelector("#button4").addEventListener("click", function () {
   updateDescBox(
     "button4",
-    "Müll in die Welt streuen",
-    "Alleine arbeiten ist sehr anstrengend. Du schmeißt daher deinen Müll rum, in der Hoffnung mehr Hilfe zu erhalten. Wilde Waschbären werden darauf aufmerksam und werden ihren Weg zu dir finden"
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
   );
 });
 
 document.querySelector("#button5").addEventListener("click", function () {
   updateDescBox(
     "button5",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+    "Was ist Ziegenkäse?",
+    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
   );
 });
 
 document.querySelector("#button6").addEventListener("click", function () {
   updateDescBox(
     "button6",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
   );
 });
 
 document.querySelector("#button7").addEventListener("click", function () {
   updateDescBox(
     "button7",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
   );
 });
 
 document.querySelector("#button8").addEventListener("click", function () {
   updateDescBox(
     "button8",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
+    "Müllbeutel",
+    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
   );
 });
 
 document.querySelector("#button9").addEventListener("click", function () {
   updateDescBox(
     "button9",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+    "Rafael Dutra?",
+    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
   );
 });
 
@@ -322,29 +419,6 @@ document.querySelector("#button20").addEventListener("click", function () {
   );
 });
 
-document.querySelector("#button21").addEventListener("click", function () {
-  updateDescBox(
-    "button21",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-  );
-});
-
-document.querySelector("#button22").addEventListener("click", function () {
-  updateDescBox(
-    "button22",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
-  );
-});
-
-document.querySelector("#button23").addEventListener("click", function () {
-  updateDescBox(
-    "button23",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
 
 /*
 // FIRST ARTICLE

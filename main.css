@@ -119,6 +119,7 @@ body {
   transform: translateX(-50%);
   border: 0;
   z-index: 6;
+  display: none;
 }
 
 #clickprogress::-webkit-progress-bar {

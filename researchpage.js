@@ -21,7 +21,7 @@ function addArticle(name, displayName, cost, timerInterval) {
   createArticleElement(newArticle);
 }
 
-addArticle("levelup", "Level Up!", 100, 3000);
+addArticle("müllstudie", " Müll Studie", 5, 1666);
 level = 0;
 
 // Artikel-Element erstellen
@@ -67,18 +67,24 @@ function ArtlevelUp() {
   }
 }
 
-// Double UP
 
-function ArtDoubleUp() {
-  myInventory.addItem("DoubleUp");
+//Müll-Studie
+
+function ArtMüllStudie() {
+  unlockUpgrade("button1");
+  addArticle("levelup", "Level Up!", 100, 3000);
+  removeArticle("müllstudie");
 }
+
+
+
 
 // Funktion, die verschiedene Befehle basierend auf dem Namen des Artikels ausführt
 function executeCommand(name) {
   if (name === "levelup") {
     ArtlevelUp();
-  } else if (name === "doubleup") {
-    ArtDoubleUp();
+  } else if (name === "müllstudie") {
+    ArtMüllStudie();
   }
   // Fügen Sie hier weitere else-if-Anweisungen für andere Artikel hinzu
 }
@@ -138,6 +144,10 @@ function startUpgrade(article) {
     }, 1000);
   }
 }
+
+
+
+
 
 // New Research Section
 

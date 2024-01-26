@@ -16,6 +16,12 @@ let levelLimits = [
   Infinity,
 ];
 
+let dropchance90 = 0;
+let dropchance80 = 0;
+let dropchance50 = 0;
+let dropchance20 = 0;
+let dropchance01 = 0;
+
 // Get the progress and icon elements
 let limitContainer = document.getElementById("limitContainer");
 let limit = document.getElementById("limit");
@@ -137,30 +143,26 @@ function dropGarbageBasedOnChance() {
   let progressBar = document.getElementById("clickprogress");
   if (progressBar.value > 0) {
     // Generieren Sie eine zufällige Zahl zwischen 0 und 100
-    let randomChance = Math.random() * 100;
+    let randomChance = Math.random() * 10000;
 
     // Erhöhen Sie die Chance, dass dropGarbage() aufgerufen wird, wenn der Wert der Fortschrittsleiste bestimmte Schwellenwerte erreicht
     let dropChance = 0;
     if (progressBar.value >= 90) {
-      dropChance = 50;
-      setImportance("Bananenschale", 5);
+      dropChance = dropchance90;
     } else if (progressBar.value >= 80) {
-      dropChance = 34;
-      setImportance("Bananenschale", 1);
+      dropChance = dropchance80;
     } else if (progressBar.value >= 50) {
-      dropChance = 23;
-      setImportance("Bananenschale", 0);
+      dropChance = dropchance50;
     } else if (progressBar.value >= 20) {
-      dropChance = 8;
-      setImportance("Bananenschale", 0);
+      dropChance = dropchance20;
     } else if (progressBar.value >= 1) {
-      dropChance = 5;
-      setImportance("Bananenschale", 0);
+      dropChance = dropchance01;
     }
 
     // Wenn die zufällige Zahl kleiner als die Chance ist, rufen Sie dropGarbage() auf
     if (randomChance < dropChance) {
       dropGarbage();
+      console.log("yay");
       // Wenn die zufällige Zahl kleiner als die Hälfte der Chance ist, rufen Sie dropGarbage() ein zweites Mal auf
     }
   }
@@ -177,22 +179,6 @@ let garbageTypes = [
     pointsWorth: 1,
   },
   {
-    image: "url('source/Müll/AlterApfel1.png')", //Bild
-    width: "37px",
-    height: "57px",
-    tag: "AlterApfel",
-    importance: 1,
-    pointsWorth: 1,
-  },
-  {
-    image: "url('source/Müll/Bananenschale1.png')",
-    width: "64px",
-    height: "36px",
-    tag: "Bananenschale",
-    importance: 1,
-    pointsWorth: 1,
-  },
-  {
     image: "url('source/Müll/PaperBall2.png')",
     width: "39px",
     height: "36px",
@@ -201,42 +187,10 @@ let garbageTypes = [
     pointsWorth: 1,
   },
   {
-    image: "url('source/Müll/SchimmelToast1.png')",
-    width: "42px",
-    height: "39px",
-    tag: "SchimmelToast",
-    importance: 1,
-    pointsWorth: 1,
-  },
-  {
     image: "url('source/Müll/TinCan1.png')",
     width: "60px",
     height: "60px",
     tag: "TinCan",
-    importance: 1,
-    pointsWorth: 1,
-  },
-  {
-    image: "url('source/Müll/Pizza.png')",
-    width: "62px",
-    height: "44px",
-    tag: "Pizza",
-    importance: 1,
-    pointsWorth: 1,
-  },
-  {
-    image: "url('source/Müll/meat.png')",
-    width: "60px",
-    height: "63px",
-    tag: "Meat",
-    importance: 1,
-    pointsWorth: 1,
-  },
-  {
-    image: "url('source/Müll/diamond.png')",
-    width: "23.33px" /* 35px * 2/3 */,
-    height: "18.67px" /* 28px * 2/3 */,
-    tag: "Diamond",
     importance: 1,
     pointsWorth: 1,
   },
@@ -368,4 +322,4 @@ let repeatend = setInterval(() => {
   updateLimitBar();
 }, 1);
 
-changeInterfaceShop();
+changeInterfaceResearch();
