@@ -73,7 +73,12 @@ function ArtlevelUp() {
 function ArtMüllStudie() {
   unlockUpgrade("button1");
   addArticle("levelup", "Level Up!", 100, 3000);
+  addArticle("müllstreuen", "Müll Streuen", 1200, 1200000);
   removeArticle("müllstudie");
+}
+
+function ArtMüllStreuen() {
+  
 }
 
 
@@ -85,6 +90,8 @@ function executeCommand(name) {
     ArtlevelUp();
   } else if (name === "müllstudie") {
     ArtMüllStudie();
+  } else if (name === "müllstreuen") {
+    ArtMüllStreuen();
   }
   // Fügen Sie hier weitere else-if-Anweisungen für andere Artikel hinzu
 }
