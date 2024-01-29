@@ -56,7 +56,7 @@ function ArtlevelUp() {
   if (level == 1) {
     changeArticleCost("levelup", 250);
     changeArticleTimerInterval("levelup", 12000);
-    addArticle("doubleup", "Double Up", 1, 3000);
+    
   }
   if (level == 2) {
     changeArticleCost("levelup", 500);
