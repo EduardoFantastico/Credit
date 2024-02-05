@@ -119,14 +119,24 @@ function shopUpgradeButton1(upgrade) {
   console.log("Dropchances: [90%: " + dropchance90 / 100 + "] [80%: " + dropchance80 / 100 +"] [50%: " + dropchance50 / 100 + "]");
 }
 
-// button2 - //
+// button2 -  Pfandflaschensammler//
 function shopUpgradeButton2(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
+
+  if (kaufZähler["button2"] < 5){
+
+  } else if (kaufZähler["button2"] < 5) {
+
+  } else if (kaufZähler["button2"] < 5) {
+    
+  } else if (kaufZähler["button2"] < 5) {
+    
+  } else if (kaufZähler["button2"] < 5) {
+    
+  } else if (kaufZähler["button2"] < 5) {
+    
+  } 
   changeUpgradeCost("button2", newcost);
-  function increaseScoreTwo() {
-    score++;
-  }
-  setInterval(increaseScoreTwo, 1000);
 }
 
 function executeUpgradeFunction(upgrade) {
@@ -137,7 +147,60 @@ function executeUpgradeFunction(upgrade) {
     case "button2":
       shopUpgradeButton2(upgrade);
       break;
-
+    case "button3":
+      shopUpgradeButton3(upgrade);
+      break;
+    case "button4":
+      shopUpgradeButton4(upgrade);
+      break;
+    case "button5":
+      shopUpgradeButton5(upgrade);
+      break;
+    case "button6":
+      shopUpgradeButton6(upgrade);
+      break;
+    case "button7":
+      shopUpgradeButton7(upgrade);
+      break;
+    case "button8":
+      shopUpgradeButton8(upgrade);
+      break;
+    case "button9":
+      shopUpgradeButton9(upgrade);
+      break;
+    case "button10":
+      shopUpgradeButton10(upgrade);
+      break;
+    case "button11":
+      shopUpgradeButton11(upgrade);
+      break;
+    case "button12":
+      shopUpgradeButton12(upgrade);
+      break;
+    case "button13":
+      shopUpgradeButton13(upgrade);
+      break;
+    case "button14":
+      shopUpgradeButton14(upgrade);
+      break;
+    case "button15":
+      shopUpgradeButton15(upgrade);
+      break;
+    case "button16":
+      shopUpgradeButton16(upgrade);
+      break;
+    case "button17":
+      shopUpgradeButton17(upgrade);
+      break;
+    case "button18":
+      shopUpgradeButton18(upgrade);
+      break;
+    case "button19":
+      shopUpgradeButton19(upgrade);
+      break;
+    case "button20":
+      shopUpgradeButton20(upgrade);
+      break;
     default:
       console.log("Keine Funktion für dieses Upgrade definiert.");
   }
@@ -157,16 +220,16 @@ function changeUpgradeCost(upgradeName, newCost) {
 
 
 addUpgrade("button1", "Mülleimer Rütteln", 10); 
-addUpgrade("button2", "Streuen");
-addUpgrade("button3", "Pfandflaschensammler");
-addUpgrade("button4", "Rüttelmaschine");
-addUpgrade("button5", "Dellen reinschlagen");
-addUpgrade("button6", "Nie wieder hungrig");
-addUpgrade("button7", "Trash Trucker");
-addUpgrade("button8", "Durchsichtiges Glück");
-addUpgrade("button9", "Herr des Mülls");
-addUpgrade("button10", "Macht lustige Geräusche");
-addUpgrade("button11", "Müllmeister");
+addUpgrade("button2", "Pfandflaschensammler");
+addUpgrade("button3", "Rüttelmaschine");
+addUpgrade("button4", "Dellen reinschlagen");
+addUpgrade("button5", "Nie wieder hungrig");
+addUpgrade("button6", "Trash Trucker");
+addUpgrade("button7", "Durchsichtiges Glück");
+addUpgrade("button8", "Herr des Mülls");
+addUpgrade("button9", "Macht lustige Geräusche");
+addUpgrade("button10", "Müllmeister");
+addUpgrade("button11", "Button11");
 addUpgrade("button12", "Button12");
 addUpgrade("button13", "Button13");
 addUpgrade("button14", "Button14");
