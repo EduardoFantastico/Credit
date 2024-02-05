@@ -95,15 +95,10 @@ Level 4 (Legendärer Müll erscheint)
 - Schockhalsband - Deine Employees können gezielt aufgeweckt werden - You are replacable!
 
 Level 5     Battle begins
-<<<<<<< HEAD
 --- Du hast gemerkt dass du nicht der einzige Waschbär mit der Idee bist, du befindest dich nun in einem Monopolkrieg (Ranking System wird etabliert) --- 
 - Fernglas geben - Du gibst einem deiner Günstlinge ein Fernglas - du kannst bei Einsatz die Zahlen deiner Gegner sehen
 - Sabotage erforschen - Du und deine Günstlinge wollen an die Spitze, unmoralisch zu sein wird dein Freund
 - Müll klauen - Einer deiner Waschbären läuft zu einem zufälligen Gegner und stiehlt seinen Müll (Wahrscheinlichkeiten)
-=======
-- 
-- 
->>>>>>> 20862d5183fe391cb6347b470bbbb28e74ff5142
 
 Level 6     Lootboxen
 - Einstellungsgespräch - Große Persönlichkeiten wollen für dich arbeiten, gelegentlich finden sich besondere Waschbären darunter
@@ -120,13 +115,19 @@ Level 7
 
 Level 8
 - Schild aufstellen - Trash Trucker hält öfter bei dir an
-- 
-- 
+- Müllglocken - Du wirst auf Sabotage aufmerksam gemacht 
+- Uhr kaputt machen - Die Zeit hält für x an
+- - Du erfährst welche Sabotage dein Gegner gerade erforscht oder besitzt
+- Forschung eines Gegners unterbrechen
 
 Level 9
 - Truck übernahme - Einer deiner Waschbären gibt sich als Trash Trucker aus und entführt den Laster deines Gegners - so lange bis er es bemerkt
-- 
+- Müllspiegel - Die nächste Sabotage wird komplett reflektiert und läuft zu deinen Gunsten aus
+- - Du kannst eine zufällige Sabotage deines Gegners klauen
+- Müllboxen kaufen - Du kannst Employee-Boxen nun kaufen
+- Ein Employee deines Gegners arbeitet für dich bis dein Gegner es bemerkt
 
 Level 10    (Endstatus - Ready for Battle)
--
--
+- - Du kannst einen zufälligen Employee deines Gegners klauen
+- Waschbärenaufstand - Alle Waschbären deines Gegners arbeiten für 15 Sekunden für dich
+- Waschbärassassine - Du kannst aussuchen, welche Waschbären von deinem Gegner "verschwinden" sollen (viele normale Waschbären, 1 Employee usw.)
