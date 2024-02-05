@@ -88,7 +88,7 @@ Level 4 (Legendärer Müll erscheint)
 
 Level 5     Battle begins
 - 
--
+- 
 
 Level 6     Lootboxen
 -
