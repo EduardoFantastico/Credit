@@ -99,6 +99,11 @@ Level 5     Battle begins
 - Fernglas geben - Du gibst einem deiner Günstlinge ein Fernglas - du kannst bei Einsatz die Zahlen deiner Gegner sehen
 - Sabotage erforschen - Du und deine Günstlinge wollen an die Spitze, unmoralisch zu sein wird dein Freund
 - Müll klauen - Einer deiner Waschbären läuft zu einem zufälligen Gegner und stiehlt seinen Müll (Wahrscheinlichkeiten)
+<<<<<<< HEAD
+=======
+- 
+- 
+>>>>>>> 3ac6c75658b699d48f8747a2bd6cfdba52419840
 
 Level 6     Lootboxen
 - Einstellungsgespräch - Große Persönlichkeiten wollen für dich arbeiten, gelegentlich finden sich besondere Waschbären darunter
