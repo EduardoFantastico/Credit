@@ -212,8 +212,23 @@
           <div id="profileOverlay" class="overlay">
            <!-- Overlay content -->
             <div class="overlay-content">
-            <span class="closeButton">&times;</span>
-              <p>Here are some contents for the profile...</p>
+              <div class="profile-left">
+                <div class="profile-picture"></div>
+                <div class="profile-filler">filler1 text</div>
+                <div class="profile-filler">filler2 text</div>
+                <div class="profile-filler">filler3 text</div>
+              </div>
+              <div class="profile-mid">
+                <div class="profile-name">Testname</div>
+                <div class="profile-accountname">Account</div>
+                <button class="profile-button-chat">1</button>
+                <button class="profile-button-2">2</button>
+                <button class="profile-button-3">3</button>
+              </div>
+              <div class="profile-right">
+                <span class="closeButton">&times;</span>
+              </div>
+
             </div>
            </div>
 
@@ -221,16 +236,35 @@
           <div id="myModal" class="modal">
             <div class="modal-content">
               <span class="close">×</span>
-                <div class="option">
+              <div class="option">
                 <input type="checkbox" class="options-button" id="options-button-cheats" checked>
                 Cheats
+              </div>
+              <div id="cheatOptions" style="display: none; margin-left: 20px;">
+                <div class="option">
+                  <input type="checkbox" class="options-button" id="option1">
+                  No Limit
                 </div>
-                <div id="option">
-                  <input type="range" id="options-button" class="options-slider-mainsound"></span>
-                  Sound
-                  </div>
+                <div class="option">
+                  <input type="checkbox" class="options-button" id="option2">
+                  Option 2
+                </div>
+                <div class="option">
+                  <input type="checkbox" class="options-button" id="option3">
+                  Option 3
+                </div>
+                <div class="option">
+                  <input type="checkbox" class="options-button" id="option4">
+                  Option 4
+                </div>
+              </div>
+              <div id="option">
+                <input type="range" id="options-button" class="options-slider-mainsound"></span>
+                Sound
+              </div>
             </div>
           </div>
+          
           
           <!-- Inventar -->
           <div id="inventory-container"></div>

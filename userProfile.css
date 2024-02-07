@@ -1,27 +1,94 @@
 /* The Overlay (background) */
 .overlay {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  min-width: 720px;
+}
+
   
   /* Overlay Content/Box */
   .overlay-content {
+    display: flex;
     background-color: #fefefe;
-    margin: 5% auto; /*centered */
-    
-    padding: 20px;
+    margin: auto;
     border: 1px solid #888;
-    width: 600px; /* Could be more or less, depending on screen size */
-    height: 720px;
+    width: 90%; 
+    height: 90%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
   }
   
+
+
+
+  /* Profile Left */
+.profile-left {
+  width: 180px; 
+  padding: 10px; 
+}
+
+
+.profile-picture {
+  width: 144px; 
+  height: 180px;
+  background-image: url('source/EmptyEmployee1.png');
+  margin: auto;
+  margin-top: 10px; 
+  margin-bottom: 20px;
+}
+
+.profile-filler {
+  height: 30px;
+  width: 100%;
+}
+
+
+/* Profile Mid */
+.profile-mid {
+  width: calc(100% - 260px);
+  height: 100%;
+}
+
+.profile-name {
+  margin-top: 40px;
+  margin-left: 5px;
+  font-size: 24px; 
+}
+
+.profile-accountname {
+  font-size: 14px; 
+  margin-left: 20px;
+  color: #888;
+}
+
+.profile-button-chat,
+.profile-button-2,
+.profile-button-3 {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+
+
+
+/* Profile Right */
+.profile-right {
+  width: 60px;
+  height: 100%;
+}
+
+
   /* The Close Button */
   .closeButton {
     color: #aaa;
@@ -36,3 +103,8 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+
+
+
+

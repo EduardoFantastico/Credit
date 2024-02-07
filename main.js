@@ -29,25 +29,30 @@ let iconContainer = document.getElementById("icon-container");
 
 // Function to update the progress bar and icon position
 function updateLimitBar() {
-  // Calculate the progress based on the score and the current level limit
-  let progress = (score / levelLimits[level]) * 100;
+  if(nolevellimit == false){
+    // Calculate the progress based on the score and the current level limit
+    let progress = (score / levelLimits[level]) * 100;
 
-  // Update the width of the progress bar
-  limit.style.width = progress + "%";
+    // Update the width of the progress bar
+    limit.style.width = progress + "%";
 
-  // Set the icon's position according to the progress
-  iconContainer.style.left = progress - 1 + "%"; // Adjust the '5' as needed
+    // Set the icon's position according to the progress
+    iconContainer.style.left = progress - 1 + "%"; // Adjust the '5' as needed
 
-  // Change the color of the progress bar based on the progress
-  if (progress < 50) {
-    let percent = progress * 2; // Convert progress from 0-50 into 0-100
-    limit.style.backgroundColor = "rgb(" + percent + "%, 100%, 0%)";
-  } else if (progress < 75) {
-    let percent = (progress - 50) * 4; // Convert progress from 50-75 into 0-100
-    limit.style.backgroundColor = "rgb(100%, " + (100 - percent) + "%, 0%)";
+    // Change the color of the progress bar based on the progress
+    if (progress < 50) {
+      let percent = progress * 2; // Convert progress from 0-50 into 0-100
+      limit.style.backgroundColor = "rgb(" + percent + "%, 100%, 0%)";
+    } else if (progress < 75) {
+      let percent = (progress - 50) * 4; // Convert progress from 50-75 into 0-100
+      limit.style.backgroundColor = "rgb(100%, " + (100 - percent) + "%, 0%)";
+    } else {
+      let percent = (progress - 75) * 4; // Convert progress from 75-100 into 0-100
+      limit.style.backgroundColor = "rgb(100%, 0%, " + percent + "%)";
+    }
   } else {
-    let percent = (progress - 75) * 4; // Convert progress from 75-100 into 0-100
-    limit.style.backgroundColor = "rgb(100%, 0%, " + percent + "%)";
+    limit.style.width = "0%";
+    iconContainer.style.left = -1 + "%";
   }
 }
 
@@ -311,11 +316,17 @@ function dropGarbage() {
   }, 1); // Aktualisieren Sie die Position alle 1 Millisekunde
 }
 
+
+
 let scorechecker = setInterval(() => {
-  if (score > levelLimits[level]) {
-    score = levelLimits[level];
+  if(nolevellimit == false){
+    if (score > levelLimits[level]) {
+      score = levelLimits[level];
+    }
   }
 }, 1);
+
+
 
 let repeatend = setInterval(() => {
   document.querySelector("#score").textContent = score + " Trash";
