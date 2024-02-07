@@ -80,6 +80,7 @@ Level 1 (Gewöhnlicher Müll erscheint im Spiel)
 - Dellen reinschlagen - Müllcap kann erhöht werden
 
 Level 2 (Seltener Müll erscheint im Spiel)  
+-!!! Böse Nager versuchen fortan deinen Müll zu stehlen, hindere sie durch klicken daran oder kaufe eine der späteren Maßnahmen!!!
 - Nie wieder hungrig - Seltener Müll hat eine höhere Dropwahrscheinlichkeit (kann man verkaufen)
 - Waschbärenplage - Manche Waschbären unterstehen dir und bringen dir gelegentlich Müll vorbei
 - Essensreste schmeißen - Deine Waschbärenfreunde bringen dir mehr Müll
@@ -90,23 +91,21 @@ Level 3 (Epischer Müll erscheint im Spiel) Employee System - die ersten Waschb�
 - Restebankett - Wilde Waschbären haben einen Ort zum Essen und kommen häufiger vorbei
 
 Level 4 (Legendärer Müll erscheint)
+- (Wasch)bärenfalle gegen Diebe (maximalanzahl)
 - Macht lustige Geräusche - Legendärer Müll hat eine höhere Dropwahrscheinlichkeit (kann man verkaufen)
-- Müllmeister - Employees können weitergebildet werden
-- Schockhalsband - Deine Employees können gezielt aufgeweckt werden - You are replacable!
+-!!! Forschungspunkte werden freigeschalten, dienen zur speziellen Verbesserung !!!
+- Müllmeister - Employees können weitergebildet werden -> Trash ausgeben um Stats zu verbessern (maximum)
+- Schockhalsband - Deine Employees können gezielt aufgeweckt werden - You are replacable! Get back to work!
 
 Level 5     Battle begins
 --- Du hast gemerkt dass du nicht der einzige Waschbär mit der Idee bist, du befindest dich nun in einem Monopolkrieg (Ranking System wird etabliert) --- 
-- Fernglas geben - Du gibst einem deiner Günstlinge ein Fernglas - du kannst bei Einsatz die Zahlen deiner Gegner sehen
-- Sabotage erforschen - Du und deine Günstlinge wollen an die Spitze, unmoralisch zu sein wird dein Freund
+- Fernglas geben - Du gibst einem deiner Günstlinge ein Fernglas - du kannst bei Einsatz die Zahlen deiner Gegner sehen (cooldown)
+- Sabotage erforschen - Du und deine Günstlinge wollen an die Spitze, unmoralisch zu sein wird dein Freund 
 - Müll klauen - Einer deiner Waschbären läuft zu einem zufälligen Gegner und stiehlt seinen Müll (Wahrscheinlichkeiten)
-<<<<<<< HEAD
-=======
-- 
-- 
->>>>>>> 3ac6c75658b699d48f8747a2bd6cfdba52419840
 
 Level 6     Lootboxen
 - Einstellungsgespräch - Große Persönlichkeiten wollen für dich arbeiten, gelegentlich finden sich besondere Waschbären darunter
+- Forschungspunkte zum Kauf von besonderen Waschbären
 - Neue Büros (Umzungskarton) - Du kannst 1 weiteren Employee zur gleichen Zeit anstellen (maximale Anzahl)
 - Schlägerei anstiften - Dein Gegner hat genauso wie du, Waschbären, die Aufträge - hindere sie dran! (Hälfte der Waschbären deines Gegners werden außer Gefecht gesetzt)
 - Müllhypnose - Einer der Waschbären deines Gegners bringt den Müll von ihm/ihr zu dir - solange bis es dein Gegner merkt 
@@ -133,6 +132,10 @@ Level 9
 - Ein Employee deines Gegners arbeitet für dich bis dein Gegner es bemerkt
 
 Level 10    (Endstatus - Ready for Battle)
+- Müllfrachter (ähnlich wie Trucker)
 - - Du kannst einen zufälligen Employee deines Gegners klauen
 - Waschbärenaufstand - Alle Waschbären deines Gegners arbeiten für 15 Sekunden für dich
 - Waschbärassassine - Du kannst aussuchen, welche Waschbären von deinem Gegner "verschwinden" sollen (viele normale Waschbären, 1 Employee usw.)
+
+Level "x"
+"Du hast gemerkt dass es so nicht länger weiter gehen kann, du möchtest in die nächste Phase einsteigen. Du kaufst dir mit deiner Beute eine Müllhalde!"
