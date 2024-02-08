@@ -9,7 +9,7 @@ let closeButton = document.getElementsByClassName("closeButton")[0];
 
 // When the user clicks the button, open the overlay 
 profileBtn.onclick = function() {
-  profileOverlay.style.display = "block";
+  profileOverlay.style.display = "flex";
 }
 
 // When the user clicks on <span> (x), close the overlay

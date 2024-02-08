@@ -56,7 +56,7 @@ function unlockUpgrade(upgradeId) {
 function adjustFontSize(button) {
   const maxFontSize = 12; // Maximale Schriftgröße in Pixel
   const minFontSize = 8; // Minimale Schriftgröße in Pixel
-  const maxLength = 20; // Maximale Textlänge, bei der die Schriftgröße reduziert wird
+  const maxLength = 15; // Maximale Textlänge, bei der die Schriftgröße reduziert wird
 
   // Wenn der Text zu lang ist, reduzieren Sie die Schriftgröße
   if (button.innerHTML.length > maxLength) {
