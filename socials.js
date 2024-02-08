@@ -27,7 +27,6 @@ const createChatMessageElement = (message) => {
   `;
 };
 
-// Erstellen Sie eine Funktion, um die Chat-Nachricht zu senden
 const sendMessage = (e) => {
   e.preventDefault();
 
@@ -130,7 +129,8 @@ chatInput.addEventListener("keyup", function (event) {
     document.querySelector("#chat-send").click();
   }
 });
-
 // Fensterereignisse
 window.onload = adjustChatHistoryHeight;
 window.onresize = adjustChatHistoryHeight;
+
+adjustChatHistoryHeight();

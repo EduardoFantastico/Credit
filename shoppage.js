@@ -51,22 +51,26 @@ function unlockUpgrade(upgradeId) {
     upgradeBox.style.display = "block";
   }
 }
-//Schriftgröße anpassen
+
 
 function adjustFontSize(button) {
-  const maxFontSize = 12; // Maximale Schriftgröße in Pixel
-  const minFontSize = 8; // Minimale Schriftgröße in Pixel
   const maxLength = 15; // Maximale Textlänge, bei der die Schriftgröße reduziert wird
 
-  // Wenn der Text zu lang ist, reduzieren Sie die Schriftgröße
+  // Wenn der Text zu lang ist, erzwingen Sie einen Zeilenumbruch
   if (button.innerHTML.length > maxLength) {
-    const newFontSize = Math.max(minFontSize, maxFontSize - (button.innerHTML.length - maxLength));
-    button.style.fontSize = newFontSize + "px";
+    button.style.wordWrap = "break-word";
+    button.style.whiteSpace = "normal";
+    button.style.lineHeight = "1.5"; // Setzen Sie dies auf den gewünschten Zeilenabstand
+    button.style.hyphens = "auto";
   } else {
-    // Wenn der Text nicht zu lang ist, setzen Sie die Schriftgröße auf den Maximalwert
-    button.style.fontSize = maxFontSize + "px";
+    // Wenn der Text nicht zu lang ist, setzen Sie word-wrap und white-space auf normal und die Höhe auf den ursprünglichen Wert
+    button.style.wordWrap = "normal";
+    button.style.whiteSpace = "nowrap";
+    button.style.lineHeight = "normal"; // Setzen Sie dies auf den ursprünglichen Zeilenabstand
   }
 }
+
+
 
 
 
