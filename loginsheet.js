@@ -39,13 +39,24 @@ document
     document.getElementById("loginScreen").style.display = "none";
     document.getElementById("startscreen").style.display = "block";
 
-    // Überprüfen Sie, ob die CSS-Stile korrekt angewendet werden
-    console.log(
-      window.getComputedStyle(document.getElementById("startscreen"))
-    );
+    // Stellen Sie die ursprünglichen CSS-Stile wieder her
+    var startscreen = document.getElementById("startscreen");
+    startscreen.style.position = "fixed";
+    startscreen.style.top = "0";
+    startscreen.style.left = "0";
+    startscreen.style.width = "100%";
+    startscreen.style.height = "100%";
+    startscreen.style.display = "flex";
+    startscreen.style.flexDirection = "column";
+    startscreen.style.justifyContent = "center";
+    startscreen.style.alignItems = "center";
+    startscreen.style.backgroundColor = "#000";
+    startscreen.style.color = "#0f0";
+    startscreen.style.fontFamily = "'Pixel', Arial, Helvetica, sans-serif";
+    startscreen.style.textShadow = "0 0 5px #0f0";
 
-    // Überprüfen Sie, ob es andere JavaScript-Funktionen gibt, die die Startseite beeinflussen
-    // Fügen Sie Ihren Code hier ein
+    // Überprüfen Sie, ob die CSS-Stile korrekt angewendet werden
+    console.log(window.getComputedStyle(startscreen));
   });
 
 /* document
