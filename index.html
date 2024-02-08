@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="register.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
     <link rel="stylesheet" type="text/css" href="userProfile.css"/>
+    <link rel="stylesheet" type="text/css" href="friends.css"/>
+    <link rel="stylesheet" type="text/css" href="sabotage.css"/>
 
 
     <link rel="icon" href="data:,">
@@ -144,6 +146,25 @@
           </div>
         </div>
 
+        <!-- Friends -->
+        <div id="friends">
+          <div id="header"> 
+            <button id="friends-left">
+              <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+                <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+              </div>
+            </button>
+            Friends
+            <button id="friends-right">
+            <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+              <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+            </div>
+          </button>
+          </div>
+          <div id="content-box-friends"></div>
+        </div>
+
+
         <!-- Rangliste -->
         <div id="leaderboard"> 
           <div id="header">
@@ -198,6 +219,25 @@
           <div id="content-box-shop"></div>
         </div>
 
+
+        <!-- Sabotage -->
+          <div id="sabotage">
+            <div id="header"> 
+              <button id="sabotage-left">
+                <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+                  <img class="rotate-180" src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+                </div>
+              </button>
+              Sabotage
+              <button id="sabotage-right">
+              <div class="main-icon-without-slide pd-lv4 icon-png-container " data-type="img" data-png="https://cdn-icons-png.flaticon.com/512/271/271228.png" data-premium="0" data-id="271228">
+                <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" width="35" height="35" alt="Right arrow free icon" title="Right arrow free icon">
+              </div>
+            </button>
+            </div>
+            <div id="content-box-sabotage"></div>
+          </div>
+
         <!-- Untere Leiste -->
         <div id="bottom-bar">
           <!-- Menü -->
@@ -205,7 +245,7 @@
             <button id="menu-tab1">Profil</button>
             <button id="menu-tab2">- - -</button>
             <button id="menu-tab3" class="modalBtn">Einstellungen</button>
-            <button id="menu-tab4">- - -</button>
+            <button id="menu-tab4">Back to Menu</button>
           </div>
 
           <!-- Profile Overlay -->
@@ -286,5 +326,7 @@
       <script src="options.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
       <script src="userProfile.js"></script>
+      <script src="friends.js"></script>
+      <script src="sabotage.js"></script>
     </body>
 </html>

@@ -60,25 +60,25 @@ function updateLimitBar() {
 
 // Function | Change to Shop
 function changeInterfaceShop() {
-  document.getElementById("research").style.marginLeft = "-300px";
-  document.getElementById("leaderboard").style.marginLeft = "-300px";
-  document.getElementById("shop").style.marginLeft = "20px";
+  document.getElementById("research").style.display = "none";
+  document.getElementById("sabotage").style.display = "none";
+  document.getElementById("shop").style.display = "block";
 }
-// Function | Change to Leaderboard
-function changeInterfaceLeaderboard() {
-  document.querySelector("#research").style.marginLeft = "-300px";
-  document.querySelector("#leaderboard").style.marginLeft = "20px";
-  document.querySelector("#shop").style.marginLeft = "-300px";
+// Function | Change to Sabotage
+function changeInterfaceSabotage() {
+  document.querySelector("#research").style.display = "none";
+  document.querySelector("#sabotage").style.display = "block";
+  document.querySelector("#shop").style.display = "none";
 }
 // Function | Change to Research
 function changeInterfaceResearch() {
-  document.querySelector("#research").style.marginLeft = "20px";
-  document.querySelector("#leaderboard").style.marginLeft = "-300px";
-  document.querySelector("#shop").style.marginLeft = "-300px";
+  document.querySelector("#research").style.display = "block";
+  document.querySelector("#sabotage").style.display = "none";
+  document.querySelector("#shop").style.display = "none";
 }
-// Shop | Left Button | Change to Leaderboard
+// Shop | Left Button | Change to Sabotage
 document.getElementById("shop-left").addEventListener("click", function () {
-  changeInterfaceLeaderboard();
+  changeInterfaceSabotage();
 });
 // Shop | Right Button | Change to Research
 document.getElementById("shop-right").addEventListener("click", function () {
@@ -88,25 +88,80 @@ document.getElementById("shop-right").addEventListener("click", function () {
 document.getElementById("research-left").addEventListener("click", function () {
   changeInterfaceShop();
 });
-// Research | Right Button | Change to Leaderboard
+// Research | Right Button | Change to Sabotage
 document
-  .getElementById("research-right")
+  .getElementById("research-right").addEventListener("click", function () {
+    changeInterfaceSabotage();
+  });
+
+// Sabotage | Left Button | Change to Research
+document
+  .getElementById("sabotage-left").addEventListener("click", function () {
+    changeInterfaceResearch();
+  });
+// Sabotage | Right Button | Change to Shop
+document
+  .getElementById("sabotage-right").addEventListener("click", function () {
+    changeInterfaceShop();
+  });
+
+
+
+
+  // Function | Change to Chat
+function changeInterfaceChat() {
+  document.getElementById("friends").style.display = "none";
+  document.getElementById("leaderboard").style.display = "none";
+  document.getElementById("chat").style.display = "block";
+}
+// Function | Change to Leaderboard
+function changeInterfaceLeaderboard() {
+  document.querySelector("#friends").style.display = "none";
+  document.querySelector("#leaderboard").style.display = "block";
+  document.querySelector("#chat").style.display = "none";
+}
+// Function | Change to Friends
+function changeInterfaceFriends() {
+  document.querySelector("#friends").style.display = "block";
+  document.querySelector("#leaderboard").style.display = "none";
+  document.querySelector("#chat").style.display = "none";
+}
+// Chat | Left Button | Change to Leaderboard
+document.getElementById("chat-left").addEventListener("click", function () {
+  changeInterfaceLeaderboard();
+});
+// Chat | Right Button | Change to Friends
+document.getElementById("chat-right").addEventListener("click", function () {
+  changeInterfaceFriends();
+});
+
+// Friends | Left Button | Change to Chat
+document.getElementById("friends-left").addEventListener("click", function () {
+  changeInterfaceChat();
+});
+// Friends | Right Button | Change to Leaderboard
+document
+  .getElementById("friends-right")
   .addEventListener("click", function () {
     changeInterfaceLeaderboard();
   });
 
-// Leaderboard | Left Button | Change to Research
+// Leaderboard | Left Button | Change to Friends
 document
   .getElementById("leaderboard-left")
   .addEventListener("click", function () {
-    changeInterfaceResearch();
+    changeInterfaceFriends();
   });
-// Leaderboard | Right Button | Change to Shop
+// Leaderboard | Right Button | Change to Chat
 document
   .getElementById("leaderboard-right")
   .addEventListener("click", function () {
-    changeInterfaceShop();
+    changeInterfaceChat();
   });
+
+
+
+
 
 // TRASH CAN (Clicker Functions)
 
@@ -334,3 +389,4 @@ let repeatend = setInterval(() => {
 }, 1);
 
 changeInterfaceResearch();
+changeInterfaceChat();

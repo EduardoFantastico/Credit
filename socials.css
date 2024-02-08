@@ -1,6 +1,6 @@
 #chat {
   background-color: #c0bbbb;
-  display: block;
+  display: none;
   justify-content: center; /* Zentriert den Inhalt horizontal */
   text-align: center;
   height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
@@ -83,7 +83,7 @@
 
 #chat-input {
   width: 205px;
-  height: 30px;
+  height: 29px;
   background-color: greenyellow;
   border: 0;
   left: 0;

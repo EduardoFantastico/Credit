@@ -1,13 +1,13 @@
 #research {
   background-color: #c0bbbb;
-  display: block;
+  display: none;
   justify-content: center; /* Zentriert den Inhalt horizontal */
   text-align: center;
   height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
   height: 500px;
   width: 250px;
   margin-top: 20px;
-  margin-left: -300px;
+  margin-left: 20px;
   background-color: #c0bbbb;
   border: 1px solid #000;
   position: absolute;
