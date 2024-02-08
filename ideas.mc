@@ -95,15 +95,10 @@ Level 4 (Legendärer Müll erscheint)
 - Schockhalsband - Deine Employees können gezielt aufgeweckt werden - You are replacable!
 
 Level 5     Battle begins
-<<<<<<< HEAD
 --- Du hast gemerkt dass du nicht der einzige Waschbär mit der Idee bist, du befindest dich nun in einem Monopolkrieg (Ranking System wird etabliert) --- 
 - Fernglas geben - Du gibst einem deiner Günstlinge ein Fernglas - du kannst bei Einsatz die Zahlen deiner Gegner sehen
 - Sabotage erforschen - Du und deine Günstlinge wollen an die Spitze, unmoralisch zu sein wird dein Freund
 - Müll klauen - Einer deiner Waschbären läuft zu einem zufälligen Gegner und stiehlt seinen Müll (Wahrscheinlichkeiten)
-=======
-- 
-- 
->>>>>>> 20862d5183fe391cb6347b470bbbb28e74ff5142
 
 Level 6     Lootboxen
 - Einstellungsgespräch - Große Persönlichkeiten wollen für dich arbeiten, gelegentlich finden sich besondere Waschbären darunter

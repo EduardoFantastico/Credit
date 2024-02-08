@@ -48,7 +48,6 @@ document
     // Fügen Sie Ihren Code hier ein
   });
 
-
 /* document
   .getElementById("loginStartButton")
   .addEventListener("click", function () {
