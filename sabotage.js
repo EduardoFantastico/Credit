@@ -1,81 +1,86 @@
 let sabotages = [];
+let openWindowId = null;
 
-function addSabotage(id, displayName, cost) {
+function addSabotage(id, displayName, cost, producetime, usetime) {
   const newSabotage = {
     id: id,
     displayName: displayName,
     cost: cost,
-    uses: 0, // Füge ein neues Feld "uses" hinzu
+    uses: 0,
+    producetime: producetime,
+    usetime: usetime,
+    inUse: false,
+    inDevelopment: false,
   };
   sabotages.push(newSabotage);
   createSabotageElement(newSabotage);
 }
 
 function createSabotageElement(sabotage) {
-  const sabotageElement = document.createElement("div");
-  sabotageElement.classList.add("sabotage");
-  sabotageElement.innerHTML = `
-    <p>${sabotage.displayName}</p>
-    <p>Cost: ${sabotage.cost}</p>
-    <p>Uses: ${sabotage.uses}</p> <!-- Zeige die Anzahl der Uses an -->
-  `;
+  // Erstellt ein neues div-Element
+  let SabotageElement = document.createElement("div");
 
-  // Klick-Event für den Sabotage
-  sabotageElement.addEventListener("click", () => {
-    console.log(`Sabotage ${sabotage.displayName} wurde geklickt!`);
+  // Fügt dem neuen Element den Namen der Sabotage hinzu
+  SabotageElement.innerHTML = sabotage.displayName;
 
-    // Erstelle ein neues Fenster
-    const newWindow = document.createElement("div");
-    newWindow.style.position = "absolute";
-    newWindow.style.left = "250px";
-    newWindow.style.width = "250px";
-    newWindow.style.height = "500px";
-    newWindow.style.backgroundColor = "#c0bbbb";
-    newWindow.style.border = "1px solid #000";
-    newWindow.style.textAlign = "center";
-    newWindow.style.justifyContent = "center";
+  // Fügt die Klasse "sabotage-element" zum neuen Element hinzu
+  SabotageElement.classList.add("sabotage-element");
 
-    // Füge eine Überschrift hinzu
-    const heading = document.createElement("h1");
-    heading.textContent = "Sabotage Details";
-    newWindow.appendChild(heading);
+  // Überprüft die Länge des Texts und ändert die line-height, wenn nötig
+  if (sabotage.displayName.length > 15) {
+    SabotageElement.style.whiteSpace = "normal";
+    SabotageElement.style.lineHeight = "1.5"; // Setzen Sie dies auf den gewünschten Zeilenabstand
+    SabotageElement.style.hyphens = "auto";
+    SabotageElement.style.display = "flex"; // Fügt Flexbox hinzu
+    SabotageElement.style.alignItems = "center"; // Zentriert den Inhalt vertikal
+    SabotageElement.style.justifyContent = "center"; // Zentriert den Inhalt horizontal
+  }
 
-    // Füge ein Textfeld hinzu
-    const textField = document.createElement("p");
-    textField.textContent = `Details für ${sabotage.displayName}`;
-    newWindow.appendChild(textField);
-
-    // Füge die Schaltflächen "Kaufen" und "Verwenden" hinzu
-    const buyButton = document.createElement("button");
-    buyButton.textContent = "Kaufen";
-    buyButton.addEventListener("click", () => {
-      sabotage.uses++; // Erhöhe die Anzahl der Uses, wenn auf "Kaufen" geklickt wird
-      console.log(`Sabotage ${sabotage.displayName} wurde gekauft!`);
-    });
-    newWindow.appendChild(buyButton);
-
-    const useButton = document.createElement("button");
-    useButton.textContent = "Verwenden";
-    useButton.addEventListener("click", () => {
-      if (sabotage.uses > 0) { // Stelle sicher, dass die Sabotage gekauft wurde
-        sabotage.uses--; // Verringere die Anzahl der Uses, wenn auf "Verwenden" geklickt wird
-        console.log(`Sabotage ${sabotage.displayName} wurde verwendet!`);
-      } else {
-        console.log(`Keine Uses für Sabotage ${sabotage.displayName} verfügbar!`);
-      }
-    });
-    newWindow.appendChild(useButton);
-
-    // Füge ein Timer-Feld hinzu
-    const timerField = document.createElement("p");
-    timerField.textContent = "00:00:00";
-    newWindow.appendChild(timerField);
-
-    // Füge das neue Fenster zum body hinzu
-    document.body.appendChild(newWindow);
+  // Fügt einen Event-Listener zum neuen Element hinzu
+  SabotageElement.addEventListener("click", function() {
+    openWindow(sabotage);
   });
+
+  // Fügt das neue Element zur "content-box-sabotage" hinzu
+  document.getElementById("content-box-sabotage").appendChild(SabotageElement);
 }
 
-// Beispielaufrufe
-addSabotage("sabotage1", "Explosive Banane", 10);
-addSabotage("sabotage2", "Schleimige Schuhe", 15);
+
+function openWindow(sabotage) {
+  // Überprüft, ob das Fenster, das geöffnet werden soll, bereits geöffnet ist
+  if (openWindowId === "window-" + sabotage.id) {
+    // Wenn ja, entfernt es
+    document.getElementById(openWindowId).remove();
+    openWindowId = null;
+    return;
+  }
+
+  // Überprüft, ob bereits ein anderes Fenster geöffnet ist
+  if (openWindowId) {
+    // Wenn ja, entfernt es
+    document.getElementById(openWindowId).remove();
+  }
+
+  // Erstellt ein neues Fenster
+  let window = document.createElement("div");
+  window.id = "window-" + sabotage.id;
+  window.classList.add("sabotageWindow"); // Fügt die CSS-Klasse hinzu
+
+  // Fügt das Fenster zum Dokument hinzu
+  document.body.appendChild(window);
+
+  // Speichert die ID des geöffneten Fensters
+  openWindowId = window.id;
+}
+
+
+
+
+
+
+
+addSabotage('sabotage1', 'Operation Blitz', 100, 60);
+addSabotage('sabotage2', 'Mission Phantom', 200, 120);
+addSabotage('sabotage3', 'Aktion Schatten', 150, 90);
+addSabotage('sabotage4', 'Unternehmen Sturm', 250, 150);
+addSabotage('sabotage5', 'Plan Welle', 300, 180);
