@@ -121,8 +121,8 @@ Level 8
 - Schild aufstellen - Trash Trucker hält öfter bei dir an
 - Müllglocken - Du wirst auf Sabotage aufmerksam gemacht 
 - Uhr kaputt machen - Die Zeit hält für x an
-- - Du erfährst welche Sabotage dein Gegner gerade erforscht oder besitzt
-- Forschung eines Gegners unterbrechen
+- Waschbär Spionage - Du erfährst welche Sabotage dein Gegner gerade erforscht oder besitzt
+- Waschbär Sabotage - Forschung eines Gegners unterbrechen
 
 Level 9
 - Truck übernahme - Einer deiner Waschbären gibt sich als Trash Trucker aus und entführt den Laster deines Gegners - so lange bis er es bemerkt

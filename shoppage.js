@@ -223,26 +223,27 @@ function changeUpgradeCost(upgradeName, newCost) {
 }
 
 
-addUpgrade("button1", "Mülleimer Rütteln", 10); 
-addUpgrade("button2", "Pfandflaschensammler");
-addUpgrade("button3", "Rüttelmaschine");
-addUpgrade("button4", "Dellen reinschlagen");
-addUpgrade("button5", "Nie wieder hungrig");
-addUpgrade("button6", "Trash Trucker");
-addUpgrade("button7", "Durchsichtiges Glück");
-addUpgrade("button8", "Herr des Mülls");
-addUpgrade("button9", "Macht lustige Geräusche");
-addUpgrade("button10", "Müllmeister");
-addUpgrade("button11", "Button11");
-addUpgrade("button12", "Button12");
-addUpgrade("button13", "Button13");
-addUpgrade("button14", "Button14");
-addUpgrade("button15", "Button15");
-addUpgrade("button16", "Button16");
-addUpgrade("button17", "Button17");
-addUpgrade("button18", "Button18");
-addUpgrade("button19", "Button19");
-addUpgrade("button20", "Button20");
+addUpgrade("button1", "Mülleiner Rütteln", 12);
+addUpgrade("button2", "Pfandflaschen- sammler", 34);
+addUpgrade("button3", "Rüttelmaschine", 56);
+addUpgrade("button4", "Dellen Reinschlagen", 78);
+addUpgrade("button5", "Nie wieder Hungrig", 90);
+addUpgrade("button6", "Essensreste schmeißen", 23);
+addUpgrade("button7", "Durchsichtiges Glück", 45);
+addUpgrade("button8", "Restebankett", 67);
+addUpgrade("button9", "Macht Lustige Geräusche", 89);
+addUpgrade("button10", "Schrottiger Anhänger", 21);
+addUpgrade("button11", "Schilder aufstellen", 43);
+addUpgrade("button12", "Uhr kaputt machen", 65);
+addUpgrade("button13", "Button13", 87);
+addUpgrade("button14", "Button14", 19);
+addUpgrade("button15", "Button15", 41);
+addUpgrade("button16", "Button16", 63);
+addUpgrade("button17", "Button17", 85);
+addUpgrade("button18", "Button18", 17);
+addUpgrade("button19", "Button19", 39);
+addUpgrade("button20", "Button20", 61);
+
 
 for(let i = 1; i <= 20; i++) {
   unlockUpgrade(`button${i}`);
@@ -330,6 +331,25 @@ function updateDescBox(buttonId, title, text) {
   }
 }
 
+document.querySelector("#research-left").addEventListener("click", closeDescBox);
+document.querySelector("#research-right").addEventListener("click", closeDescBox);
+document.querySelector("#shop-left").addEventListener("click", closeDescBox);
+document.querySelector("#shop-right").addEventListener("click", closeDescBox);
+document.querySelector("#sabotage-left").addEventListener("click", closeDescBox);
+document.querySelector("#sabotage-right").addEventListener("click", closeDescBox);
+
+function closeDescBox() {
+  let descBox = document.querySelector("#descBox");
+  let descTitle = document.querySelector("#descTitle");
+  let descText = document.querySelector("#descText");
+
+  descBox.style.transform = "";
+  descBox.style.display = "none";
+  descTitle.textContent = "";
+  descText.textContent = "";
+  activeButton = null;
+}
+
 document.querySelector("#button1").addEventListener("click", function () {
   updateDescBox(
     "button1",
@@ -337,6 +357,160 @@ document.querySelector("#button1").addEventListener("click", function () {
     "Du hast etwas Neues rausgefunden! Wenn du an dieser gewaltigen Tonne schüttelst, kommt viel mehr Müll raus! Du fügst den Multiplikatorbalken zu deinem Spiel hinzu. Je stärker du rüttelst, desto mehr kommt raus!."
   );
 });
+
+document.querySelector("#button2").addEventListener("click", function () {
+  updateDescBox(
+    "button2",
+    "Pfandflaschen- sammler",
+    "Beispiel Text: Mit dieser Verbesserung kannst du Pfandflaschen sammeln und so zusätzliches Geld verdienen. Jede Flasche zählt!"
+  );
+});
+
+document.querySelector("#button3").addEventListener("click", function () {
+  updateDescBox(
+    "button3",
+    "Rüttelmaschine",
+    "Beispiel Text: Diese Maschine rüttelt den Mülleimer für dich. So kannst du dich auf andere Dinge konzentrieren, während der Müll weiterhin effizient gesammelt wird."
+  );
+});
+
+document.querySelector("#button4").addEventListener("click", function () {
+  updateDescBox(
+    "button4",
+    "Dellen Reinschlagen",
+    "Beispiel Text: Mit dieser Verbesserung kannst du mehr Platz in deinem Mülleimer schaffen, indem du Dellen in den Mülleimer schlägst. Mehr Platz für mehr Müll!"
+  );
+});
+
+document.querySelector("#button5").addEventListener("click", function () {
+  updateDescBox(
+    "button5",
+    "Nie wieder Hungrig",
+    "Beispiel Text: Mit dieser Verbesserung kannst du Essensreste aus dem Müll sammeln und verwerten. Nie wieder hungrig!"
+  );
+});
+
+document.querySelector("#button6").addEventListener("click", function () {
+  updateDescBox(
+    "button6",
+    "Essensreste schmeißen",
+    "Beispiel Text: Mit dieser Verbesserung kannst du Essensreste effizienter entsorgen. Weniger Abfall, mehr Sauberkeit!"
+  );
+});
+
+document.querySelector("#button7").addEventListener("click", function () {
+  updateDescBox(
+    "button7",
+    "Durchsichtiges Glück",
+    "Beispiel Text: Mit dieser Verbesserung kannst du sehen, was in deinem Mülleimer ist, ohne ihn zu öffnen. Keine Überraschungen mehr!"
+  );
+});
+
+document.querySelector("#button8").addEventListener("click", function () {
+  updateDescBox(
+    "button8",
+    "Restebankett",
+    "Beispiel Text: Mit dieser Verbesserung kannst du ein Festmahl aus Resten zubereiten. Wer sagt, dass man gutes Essen verschwenden sollte?"
+  );
+});
+
+document.querySelector("#button9").addEventListener("click", function () {
+  updateDescBox(
+    "button9",
+    "Macht Lustige Geräusche",
+    "Beispiel Text: Mit dieser Verbesserung macht dein Mülleimer lustige Geräusche, wenn du ihn öffnest. Wer hat gesagt, dass Müll langweilig sein muss?"
+  );
+});
+
+document.querySelector("#button10").addEventListener("click", function () {
+  updateDescBox(
+    "button10",
+    "Schrottiger Anhänger",
+    "Beispiel Text: Mit dieser Verbesserung kannst du einen Anhänger an deinem Mülleimer befestigen, um mehr Müll zu transportieren. Mehr Müll auf einmal!"
+  );
+});
+
+document.querySelector("#button11").addEventListener("click", function () {
+  updateDescBox(
+    "button11",
+    "Schilder aufstellen",
+    "Beispiel Text: Mit dieser Verbesserung kannst du Schilder aufstellen, um andere darauf hinzuweisen, dass sie ihren Müll ordnungsgemäß entsorgen sollen. Gemeinsam für eine saubere Umwelt!"
+  );
+});
+
+document.querySelector("#button12").addEventListener("click", function () {
+  updateDescBox(
+    "button12",
+    "Uhr kaputt machen",
+    "Beispiel Text: Mit dieser Verbesserung kannst du die Uhr an deinem Mülleimer kaputt machen. Wer braucht schon Zeit, wenn er Müll hat?"
+  );
+});
+
+document.querySelector("#button13").addEventListener("click", function () {
+  updateDescBox(
+    "button13",
+    "Button13",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button14").addEventListener("click", function () {
+  updateDescBox(
+    "button14",
+    "Button14",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button15").addEventListener("click", function () {
+  updateDescBox(
+    "button15",
+    "Button15",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button16").addEventListener("click", function () {
+  updateDescBox(
+    "button16",
+    "Button16",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button17").addEventListener("click", function () {
+  updateDescBox(
+    "button17",
+    "Button17",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button18").addEventListener("click", function () {
+  updateDescBox(
+    "button18",
+    "Button18",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button19").addEventListener("click", function () {
+  updateDescBox(
+    "button19",
+    "Button19",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+document.querySelector("#button20").addEventListener("click", function () {
+  updateDescBox(
+    "button20",
+    "Button20",
+    "Beispiel Text: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+  );
+});
+
+/*
 
 document.querySelector("#button2").addEventListener("click", function () {
   updateDescBox(
@@ -354,141 +528,7 @@ document.querySelector("#button3").addEventListener("click", function () {
   );
 });
 
-document.querySelector("#button4").addEventListener("click", function () {
-  updateDescBox(
-    "button4",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-  );
-});
-
-document.querySelector("#button5").addEventListener("click", function () {
-  updateDescBox(
-    "button5",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
-  );
-});
-
-document.querySelector("#button6").addEventListener("click", function () {
-  updateDescBox(
-    "button6",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
-
-document.querySelector("#button7").addEventListener("click", function () {
-  updateDescBox(
-    "button7",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
-
-document.querySelector("#button8").addEventListener("click", function () {
-  updateDescBox(
-    "button8",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-  );
-});
-
-document.querySelector("#button9").addEventListener("click", function () {
-  updateDescBox(
-    "button9",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
-
-document.querySelector("#button10").addEventListener("click", function () {
-  updateDescBox(
-    "button10",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
-  );
-});
-
-document.querySelector("#button11").addEventListener("click", function () {
-  updateDescBox(
-    "button11",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
-
-document.querySelector("#button12").addEventListener("click", function () {
-  updateDescBox(
-    "button12",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-  );
-});
-
-document.querySelector("#button13").addEventListener("click", function () {
-  updateDescBox(
-    "button13",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
-  );
-});
-
-document.querySelector("#button14").addEventListener("click", function () {
-  updateDescBox(
-    "button14",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
-
-document.querySelector("#button15").addEventListener("click", function () {
-  updateDescBox(
-    "button15",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-  );
-});
-
-document.querySelector("#button16").addEventListener("click", function () {
-  updateDescBox(
-    "button16",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
-  );
-});
-
-document.querySelector("#button17").addEventListener("click", function () {
-  updateDescBox(
-    "button17",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
-
-document.querySelector("#button18").addEventListener("click", function () {
-  updateDescBox(
-    "button18",
-    "Müllbeutel",
-    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-  );
-});
-
-document.querySelector("#button19").addEventListener("click", function () {
-  updateDescBox(
-    "button19",
-    "Was ist Ziegenkäse?",
-    "Ziegenkäse ist Käse aus Ziegenmilch. Es gibt, wie auch bei Käse aus Kuhmilch, eine große Bandbreite von unterschiedlichen Sorten. Nicht jede Sorte wird zu 100 % aus Ziegenmilch hergestellt, oft ist Kuh- oder Schafsmilch untergemischt."
-  );
-});
-
-document.querySelector("#button20").addEventListener("click", function () {
-  updateDescBox(
-    "button20",
-    "Rafael Dutra?",
-    "Rafael, ein mutiger Junge, segelte ins Unbekannte. Ein Sturm erfasste sein Boot. Allein, verloren, doch unerschüttert, wurde seine Reise zur tragischen Heldengeschichte."
-  );
-});
+*/
 
 
 /*
