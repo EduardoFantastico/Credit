@@ -7,12 +7,11 @@ function addUpgrade(name, displayName, cost) {
     name: name,
     displayName: displayName,
     cost: cost,
-    locked: true,  // Fügen Sie diese Zeile hinzu
+    locked: true, // Fügen Sie diese Zeile hinzu
   };
   upgrades.push(newUpgrade);
   createUpgradeElement(newUpgrade);
 }
-
 
 function createUpgradeElement(upgrade) {
   // Erstelle ein neues div-Element mit der Klasse "upgrade-box"
@@ -52,7 +51,6 @@ function unlockUpgrade(upgradeId) {
   }
 }
 
-
 function adjustFontSize(button) {
   const maxLength = 15; // Maximale Textlänge, bei der die Schriftgröße reduziert wird
 
@@ -70,10 +68,6 @@ function adjustFontSize(button) {
   }
 }
 
-
-
-
-
 // Remove Upgrade
 function removeUpgrade(upgradeId) {
   upgrades = upgrades.filter((upgrade) => upgrade.id !== upgradeId);
@@ -83,6 +77,64 @@ function removeUpgrade(upgradeId) {
 
 // - - - - - - - - //
 
+// button1 - Mülleimer Rütteln//
+function shopUpgradeButton1(upgrade) {
+  document.getElementById("clickprogress").style.display = "block";
+  if (kaufZähler["button1"] < 5) {
+    dropchance90 = dropchance90 + 120;
+    newcost = Math.round(upgrade.cost * 1.05 + 7); // Verwenden Sie Math.round() anstelle von math.round()
+  } else if (kaufZähler["button1"] < 10) {
+    dropchance90 = dropchance90 + 95;
+    dropchance80 = dropchance80 + 100;
+    newcost = Math.round(upgrade.cost * 1.04 + 12);
+  } else if (kaufZähler["button1"] < 20) {
+    dropchance90 = dropchance90 + 80;
+    dropchance80 = dropchance80 + 80;
+    dropchance50 = dropchance50 + 100;
+    newcost = Math.round(upgrade.cost * 1.12) + 19;
+  } else if (kaufZähler["button1"] < 40) {
+    dropchance90 = dropchance90 + 75;
+    dropchance80 = dropchance80 + 70;
+    dropchance50 = dropchance50 + 80;
+    dropchance20 = dropchance20 + 60;
+    newcost = Math.round(upgrade.cost * 1.18) + 41;
+  } else if (kaufZähler["button1"] < 100) {
+    dropchance90 = dropchance90 + 120;
+    dropchance80 = dropchance80 + 80;
+    dropchance50 = dropchance50 + 80;
+    dropchance20 = dropchance20 + 50;
+    dropchance01 = dropchance01 + 40;
+    newcost = Math.round(upgrade.cost * 1.18) + 41;
+  } else if (kaufZähler["button1"] < 250) {
+  } else if (kaufZähler["button1"] < 500) {
+  } else if (kaufZähler["button1"] < 10) {
+  }
+  changeUpgradeCost("button1", newcost);
+  console.log("Neuer Preis: " + newcost);
+  console.log(
+    "Dropchances: [90%: " +
+      dropchance90 / 100 +
+      "] [80%: " +
+      dropchance80 / 100 +
+      "] [50%: " +
+      dropchance50 / 100 +
+      "]"
+  );
+}
+
+// button2 -  Pfandflaschensammler//
+function shopUpgradeButton2(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
+
+  if (kaufZähler["button2"] < 5) {
+  } else if (kaufZähler["button2"] < 5) {
+  } else if (kaufZähler["button2"] < 5) {
+  } else if (kaufZähler["button2"] < 5) {
+  } else if (kaufZähler["button2"] < 5) {
+  } else if (kaufZähler["button2"] < 5) {
+  }
+  changeUpgradeCost("button2", newcost);
+}
 
 function executeUpgradeFunction(upgrade) {
   switch (upgrade.name) {
@@ -163,34 +215,30 @@ function changeUpgradeCost(upgradeName, newCost) {
   }
 }
 
+addUpgrade("button1", "Mülleiner Rütteln", 12);
+addUpgrade("button2", "Pfandflaschen- sammler", 34);
+addUpgrade("button3", "Rüttelmaschine", 56);
+addUpgrade("button4", "Dellen Reinschlagen", 78);
+addUpgrade("button5", "Nie wieder Hungrig", 90);
+addUpgrade("button6", "Essensreste schmeißen", 23);
+addUpgrade("button7", "Durchsichtiges Glück", 45);
+addUpgrade("button8", "Restebankett", 67);
+addUpgrade("button9", "Macht Lustige Geräusche", 89);
+addUpgrade("button10", "Schrottiger Anhänger", 21);
+addUpgrade("button11", "Schilder aufstellen", 43);
+addUpgrade("button12", "Uhr kaputt machen", 65);
+addUpgrade("button13", "Button13", 87);
+addUpgrade("button14", "Button14", 19);
+addUpgrade("button15", "Button15", 41);
+addUpgrade("button16", "Button16", 63);
+addUpgrade("button17", "Button17", 85);
+addUpgrade("button18", "Button18", 17);
+addUpgrade("button19", "Button19", 39);
+addUpgrade("button20", "Button20", 61);
 
-addUpgrade("button1", "Mülleiner Rütteln", 1);
-addUpgrade("button2", "Pfandflaschen- sammler", 1);
-addUpgrade("button3", "Rüttelmaschine", 1);
-addUpgrade("button4", "Dellen Reinschlagen", 1);
-addUpgrade("button5", "Nie wieder Hungrig", 1);
-addUpgrade("button6", "Essensreste schmeißen", 1);
-addUpgrade("button7", "Durchsichtiges Glück", 1);
-addUpgrade("button8", "Restebankett", 1);
-addUpgrade("button9", "Macht Lustige Geräusche", 1);
-addUpgrade("button10", "Schrottiger Anhänger", 1);
-addUpgrade("button11", "Schilder aufstellen", 1);
-addUpgrade("button12", "Uhr kaputt machen", 1);
-addUpgrade("button13", "Button13", 1);
-addUpgrade("button14", "Button14", 1);
-addUpgrade("button15", "Button15", 1);
-addUpgrade("button16", "Button16", 1);
-addUpgrade("button17", "Button17", 1);
-addUpgrade("button18", "Button18", 1);
-addUpgrade("button19", "Button19", 1);
-addUpgrade("button20", "Button20", 1);
-
-
-
-for(let i = 1; i <= 20; i++) {
+for (let i = 1; i <= 20; i++) {
   unlockUpgrade(`button${i}`);
 }
-
 
 let kaufZähler = {
   button1: 0,
@@ -239,14 +287,13 @@ document.querySelector("#buyItem").addEventListener("click", function () {
 
       // Führen Sie die Funktion executeUpgradeFunction aus
       executeUpgradeFunction(upgrade);
-      
+
       // Aktualisieren Sie den Kaufzähler und die Anzeige
       kaufZähler[aktuellerButton]++;
       counterBox.textContent = kaufZähler[aktuellerButton] + "x";
     }
   }
 });
-
 
 let isClicked = false; // Zustand des Buttons
 let activeButton = null; // Aktiver Button
@@ -273,12 +320,20 @@ function updateDescBox(buttonId, title, text) {
   }
 }
 
-document.querySelector("#research-left").addEventListener("click", closeDescBox);
-document.querySelector("#research-right").addEventListener("click", closeDescBox);
+document
+  .querySelector("#research-left")
+  .addEventListener("click", closeDescBox);
+document
+  .querySelector("#research-right")
+  .addEventListener("click", closeDescBox);
 document.querySelector("#shop-left").addEventListener("click", closeDescBox);
 document.querySelector("#shop-right").addEventListener("click", closeDescBox);
-document.querySelector("#sabotage-left").addEventListener("click", closeDescBox);
-document.querySelector("#sabotage-right").addEventListener("click", closeDescBox);
+document
+  .querySelector("#sabotage-left")
+  .addEventListener("click", closeDescBox);
+document
+  .querySelector("#sabotage-right")
+  .addEventListener("click", closeDescBox);
 
 function closeDescBox() {
   let descBox = document.querySelector("#descBox");
@@ -292,8 +347,6 @@ function closeDescBox() {
   activeButton = null;
 }
 
-// button1 - Mülleimer Rütteln//
-
 document.querySelector("#button1").addEventListener("click", function () {
   updateDescBox(
     "button1",
@@ -302,102 +355,19 @@ document.querySelector("#button1").addEventListener("click", function () {
   );
 });
 
-function shopUpgradeButton1(upgrade) {
-  document.getElementById("clickprogress").style.display = "block";
-  if (kaufZähler["button1"] < 5){
-  dropchance90 = dropchance90 + 120;
-  newcost = Math.round(upgrade.cost * 1.05 + 7); // Verwenden Sie Math.round() anstelle von math.round()
-  } else if (kaufZähler["button1"] < 10){
-    dropchance90 = dropchance90 + 95;
-    dropchance80 = dropchance80 + 100;
-    newcost = Math.round(upgrade.cost * 1.04 + 12);
-  } else if (kaufZähler["button1"] < 20){
-    dropchance90 = dropchance90 + 80;
-    dropchance80 = dropchance80 + 80;
-    dropchance50 = dropchance50 + 100;
-    newcost = Math.round(upgrade.cost * 1.12) + 19;
-  } else if (kaufZähler["button1"] < 40){
-    dropchance90 = dropchance90 + 75;
-    dropchance80 = dropchance80 + 70;
-    dropchance50 = dropchance50 + 80;
-    dropchance20 = dropchance20 + 60;
-    newcost = Math.round(upgrade.cost * 1.18) + 41;
-  } else if (kaufZähler["button1"] < 100){
-    dropchance90 = dropchance90 + 120;
-    dropchance80 = dropchance80 + 80;
-    dropchance50 = dropchance50 + 80;
-    dropchance20 = dropchance20 + 50;
-    dropchance01 = dropchance01 + 40;
-    newcost = Math.round(upgrade.cost * 1.18) + 41;
-  } else if (kaufZähler["button1"] < 250){
-
-  } else if (kaufZähler["button1"] < 500){
-
-  } else if (kaufZähler["button1"] < 10){
-
-  }
-  changeUpgradeCost("button1", newcost);
-  console.log("Neuer Preis: "+newcost);
-  console.log("Dropchances: [90%: " + dropchance90 / 100 + "] [80%: " + dropchance80 / 100 +"] [50%: " + dropchance50 / 100 + "]");
-}
-
-
-
-// button2 -  Pfandflaschensammler//
-
 document.querySelector("#button2").addEventListener("click", function () {
   updateDescBox(
     "button2",
-    "Pfandflaschen- sammler",
-    "Beispiel Text: Mit dieser Verbesserung kannst du Pfandflaschen sammeln und so zusätzliches Geld verdienen. Jede Flasche zählt!"
+    "Pfandflaschen-sammler",
+    "In den Tiefen dieser riesigen Blechbüchse hast du einen unglaublichen Fund gemacht! Plastik! Du bist begeistert von diesem neuen Material und erkennst den Wert dieser neuen, wertvollen Ressource!"
   );
 });
-
-function addplastic(){
-  addGarbageType({
-    image: "url('source/Müll/plastikbottle1.png')",
-    width: '30px',
-    height: '54px',
-    tag: 'NeuesElement',
-    importance: 1,
-    pointsWorth: 2,
-  });
-  addGarbageType({
-    image: "url('source/Müll/plastikbottle2.png')",
-    width: '24px',
-    height: '54px',
-    tag: 'NeuesElement',
-    importance: 1,
-    pointsWorth: 2,
-  });
-  addGarbageType({
-    image: "url('source/Müll/plastikbottle3.png')",
-    width: '24px',
-    height: '54px',
-    tag: 'NeuesElement',
-    importance: 1,
-    pointsWorth: 2,
-  });
-}
-
-addplastic();
-
-function shopUpgradeButton2(upgrade) {
-  console.log("button2");
-  newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
-  if (kaufZähler["button1"] == 0){
-    addplastic();
-  } else {
-
-  }
-  changeUpgradeCost("button2", newcost);
-}
 
 document.querySelector("#button3").addEventListener("click", function () {
   updateDescBox(
     "button3",
     "Rüttelmaschine",
-    "Beispiel Text: Diese Maschine rüttelt den Mülleimer für dich. So kannst du dich auf andere Dinge konzentrieren, während der Müll weiterhin effizient gesammelt wird."
+    "Die ganze Zeit an dieser blöden Tonne zu rütteln macht echt müde... Dein Erfindergeist war gefragt! Du hast eine Rüttelmaschine erfunden, sie erledigt diese nervige Aufgabe für dich. Fortan rüttelt die Maschine an der Mülltonne und generiert Müll für dich."
   );
 });
 
@@ -405,7 +375,7 @@ document.querySelector("#button4").addEventListener("click", function () {
   updateDescBox(
     "button4",
     "Dellen Reinschlagen",
-    "Beispiel Text: Mit dieser Verbesserung kannst du mehr Platz in deinem Mülleimer schaffen, indem du Dellen in den Mülleimer schlägst. Mehr Platz für mehr Müll!"
+    "Du hast gemerkt dass die Mittel nur begrenzt sind. Unglaublich nervig!. Du entscheidest dich also für Vandalismus und schlägst ein paar Dellen in die Tonne, damit mehr Müll reinpasst. Du kannst nun mehr Müll sammeln!"
   );
 });
 
@@ -556,7 +526,6 @@ document.querySelector("#button3").addEventListener("click", function () {
 });
 
 */
-
 
 /*
 // FIRST ARTICLE

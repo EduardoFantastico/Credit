@@ -127,6 +127,7 @@
 
 #descText {
   display: block;
+  line-height: 130%;
   font-size: 12px;
   justify-content: center;
   text-align: center;
