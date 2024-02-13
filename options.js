@@ -1,5 +1,3 @@
-let nolevellimit = false;
-
 let modal = document.getElementById("myModal");
 let btn = document.getElementsByClassName("modalBtn");
 let span = document.getElementsByClassName("close")[0];
@@ -49,16 +47,16 @@ document.getElementById("options-button-cheats").addEventListener("change", func
 });
 
 function option1else(){
-  nolevellimit = false;
-  console.log(nolevellimit);
+  noLevelLimit = false;
+  console.log(noLevelLimit);
 }
 
 
 
 document.getElementById("option1").addEventListener("change", function() {
   if (this.checked) {
-    nolevellimit = true;
-    console.log(nolevellimit);
+    noLevelLimit = true;
+    console.log(noLevelLimit);
   } else {
     option1else();
   }
