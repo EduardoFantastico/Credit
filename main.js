@@ -266,9 +266,7 @@ function setImportance(tag, newValue) {
 }
 
 function addGarbageType(newGarbageType, element) {
-  element.classList.add("wackeln");
   garbageTypes.push(newGarbageType);
-  setTimeout(() => element.classList.remove("wackeln"), 500);
 }
 
 /*
