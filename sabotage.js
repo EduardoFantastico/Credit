@@ -34,7 +34,7 @@ function createSabotageElement(sabotage) {
   // Erstellt einen Button innerhalb des div-Elements
   const button = document.createElement("button");
   button.className = "sabotage-button";
-  button.style.position = "absolute"; // Positioniert den Button über dem Sabotage-Element
+  // button.style.position = "absolute"; // Positioniert den Button über dem Sabotage-Element
   button.style.backgroundColor = "transparent"; // Macht den Button transparent
   button.style.border = "none"; // Entfernt den Rand des Buttons
 
