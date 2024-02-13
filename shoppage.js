@@ -75,6 +75,26 @@ function removeUpgrade(upgradeId) {
   upgradeElement.remove();
 }
 
+document.querySelector("#buyItem").addEventListener("click", function () {
+  if (aktuellerButton) {
+    // Finden Sie das Upgrade nach Namen
+    const upgrade = upgrades.find((upg) => upg.name === aktuellerButton);
+
+    // Wenn das Upgrade existiert und der score größer ist als der Preis des Upgrades
+    if (upgrade && score >= upgrade.cost) {
+      // Reduzieren Sie den score um den Preis des Upgrades
+      score -= upgrade.cost;
+
+      // Führen Sie die Funktion executeUpgradeFunction aus
+      executeUpgradeFunction(upgrade);
+
+      // Aktualisieren Sie den Kaufzähler und die Anzeige
+      kaufZähler[aktuellerButton]++;
+      counterBox.textContent = kaufZähler[aktuellerButton] + "x";
+    }
+  }
+});
+
 // - - - - - - - - //
 
 // button1 - Mülleimer Rütteln//
@@ -274,26 +294,6 @@ for (let i = 1; i <= 20; i++) {
     counterBox.textContent = kaufZähler[aktuellerButton] + "x";
   });
 }
-
-document.querySelector("#buyItem").addEventListener("click", function () {
-  if (aktuellerButton) {
-    // Finden Sie das Upgrade nach Namen
-    const upgrade = upgrades.find((upg) => upg.name === aktuellerButton);
-
-    // Wenn das Upgrade existiert und der score größer ist als der Preis des Upgrades
-    if (upgrade && score >= upgrade.cost) {
-      // Reduzieren Sie den score um den Preis des Upgrades
-      score -= upgrade.cost;
-
-      // Führen Sie die Funktion executeUpgradeFunction aus
-      executeUpgradeFunction(upgrade);
-
-      // Aktualisieren Sie den Kaufzähler und die Anzeige
-      kaufZähler[aktuellerButton]++;
-      counterBox.textContent = kaufZähler[aktuellerButton] + "x";
-    }
-  }
-});
 
 let isClicked = false; // Zustand des Buttons
 let activeButton = null; // Aktiver Button
