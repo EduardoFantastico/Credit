@@ -75,7 +75,8 @@ function removeUpgrade(upgradeId) {
   upgradeElement.remove();
 }
 
-<<<<<<< HEAD
+// - - - - - - - - //
+
 document.querySelector("#buyItem").addEventListener("click", function () {
   if (aktuellerButton) {
     // Finden Sie das Upgrade nach Namen
@@ -95,8 +96,6 @@ document.querySelector("#buyItem").addEventListener("click", function () {
     }
   }
 });
-
-// - - - - - - - - //
 
 // button1 - Mülleimer Rütteln//
 function shopUpgradeButton1(upgrade) {
@@ -157,8 +156,6 @@ function shopUpgradeButton2(upgrade) {
   changeUpgradeCost("button2", newcost);
 }
 
-=======
->>>>>>> 1aba1127281e464cd49de0e9d46c968f55f9ca37
 function executeUpgradeFunction(upgrade) {
   switch (upgrade.name) {
     case "button1":
@@ -350,8 +347,6 @@ function closeDescBox() {
   activeButton = null;
 }
 
-// button1 - Mülleimer Rütteln//
-
 document.querySelector("#button1").addEventListener("click", function () {
   updateDescBox(
     "button1",
@@ -360,49 +355,6 @@ document.querySelector("#button1").addEventListener("click", function () {
   );
 });
 
-
-function shopUpgradeButton1(upgrade) {
-  document.getElementById("clickprogress").style.display = "block";
-  if (kaufZähler["button1"] < 5){
-  dropchance90 = dropchance90 + 120;
-  newcost = Math.round(upgrade.cost * 1.05 + 7); // Verwenden Sie Math.round() anstelle von math.round()
-  } else if (kaufZähler["button1"] < 10){
-    dropchance90 = dropchance90 + 95;
-    dropchance80 = dropchance80 + 100;
-    newcost = Math.round(upgrade.cost * 1.04 + 12);
-  } else if (kaufZähler["button1"] < 20){
-    dropchance90 = dropchance90 + 80;
-    dropchance80 = dropchance80 + 80;
-    dropchance50 = dropchance50 + 100;
-    newcost = Math.round(upgrade.cost * 1.12) + 19;
-  } else if (kaufZähler["button1"] < 40){
-    dropchance90 = dropchance90 + 75;
-    dropchance80 = dropchance80 + 70;
-    dropchance50 = dropchance50 + 80;
-    dropchance20 = dropchance20 + 60;
-    newcost = Math.round(upgrade.cost * 1.18) + 41;
-  } else if (kaufZähler["button1"] < 100){
-    dropchance90 = dropchance90 + 120;
-    dropchance80 = dropchance80 + 80;
-    dropchance50 = dropchance50 + 80;
-    dropchance20 = dropchance20 + 50;
-    dropchance01 = dropchance01 + 40;
-    newcost = Math.round(upgrade.cost * 1.18) + 41;
-  } else if (kaufZähler["button1"] < 250){
-
-  } else if (kaufZähler["button1"] < 500){
-
-  } else if (kaufZähler["button1"] < 10){
-
-  }
-  changeUpgradeCost("button1", newcost);
-  console.log("Neuer Preis: "+newcost);
-  console.log("Dropchances: [90%: " + dropchance90 / 100 + "] [80%: " + dropchance80 / 100 +"] [50%: " + dropchance50 / 100 + "]");
-}
-
-
-// button2 -  Pfandflaschensammler//
-
 document.querySelector("#button2").addEventListener("click", function () {
   updateDescBox(
     "button2",
@@ -410,17 +362,6 @@ document.querySelector("#button2").addEventListener("click", function () {
     "In den Tiefen dieser riesigen Blechbüchse hast du einen unglaublichen Fund gemacht! Plastik! Du bist begeistert von diesem neuen Material und erkennst den Wert dieser neuen, wertvollen Ressource!"
   );
 });
-
-function shopUpgradeButton2(upgrade) {
-  console.log("button2");
-  newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
-  if (kaufZähler["button1"] == 0){
-    addplastic();
-  } else {
-
-  }
-  changeUpgradeCost("button2", newcost);
-}
 
 document.querySelector("#button3").addEventListener("click", function () {
   updateDescBox(
