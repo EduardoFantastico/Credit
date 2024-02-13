@@ -22,6 +22,23 @@ function addArticle(name, displayName, cost, timerInterval) {
 }
 
 addArticle("müllstudie", " Müll Studie", 5, 1666);
+addArticle("levelup", "Level Up!", 5, 3000);
+addArticle("müllstreuen", "Müll Streuen", 5, 5);
+addArticle("waschbärenplage", "Waschbärenplage", 5, 5);
+addArticle("herrdesmülls", "Herr des Mülls", 5, 5);
+addArticle("schockhalsband", "Schock Halsband", 5, 5);
+addArticle("fernglasgeben", "Fernglas geben", 5, 5);
+addArticle("sabotageerforschen", "Sabotage Erforschen", 5, 5);
+addArticle("einstellungsgespräch", "Einstellungsgespräch", 5, 5);
+addArticle("neuebüros", "Neue Büros", 5, 5);
+addArticle("wachwaschbär", "Wach Waschbär", 5, 5);
+addArticle("trashtrucker", "Trash Trucker", 5, 5);
+addArticle("müllturm", "Müll Turm", 5, 5);
+addArticle("müllglocken", "Müll Glocken", 5, 5);
+addArticle("müllfrachter", "Müll Frachter", 5, 5);
+
+
+
 level = 0;
 
 // Artikel-Element erstellen
@@ -72,9 +89,9 @@ function ArtlevelUp() {
 
 function ArtMüllStudie() {
   unlockUpgrade("button1");
-  addArticle("levelup", "Level Up!", 100, 3000);
-  addArticle("müllstreuen", "Müll Streuen", 1200, 1200000);
-  removeArticle("müllstudie");
+//  addArticle("levelup", "Level Up!", 100, 3000);
+//  addArticle("müllstreuen", "Müll Streuen", 1200, 1200000);
+//  removeArticle("müllstudie");
 }
 
 function ArtMüllStreuen() {

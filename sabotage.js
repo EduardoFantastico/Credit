@@ -19,6 +19,14 @@ function createSabotageElement(sabotage) {
   let SabotageElement = document.createElement("div");
   SabotageElement.id = sabotage.id;
   SabotageElement.className = "sabotage-element";
+  SabotageElement.style.display = "flex";  // Fügt display: flex hinzu
+  SabotageElement.style.alignItems = "center";  // Zentriert den Inhalt vertikal
+  SabotageElement.style.justifyContent = "center";  // Zentriert den Inhalt horizontal
+
+  // Setzt die line-height auf 1.5, wenn displayName mehr als 15 Zeichen hat
+  if (sabotage.displayName.length > 15) {
+    SabotageElement.style.lineHeight = "1.5";
+  }
 
   // Fügt dem neuen Element den Namen der Sabotage hinzu
   SabotageElement.innerHTML = sabotage.displayName;
@@ -36,6 +44,9 @@ function createSabotageElement(sabotage) {
   // Fügt das neue Element zur "content-box-sabotage" hinzu
   document.getElementById("content-box-sabotage").appendChild(SabotageElement);
 }
+
+
+
 
 
 
