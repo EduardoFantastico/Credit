@@ -265,10 +265,10 @@ function setImportance(tag, newValue) {
   }
 }
 
-function addGarbageType(newGarbageType) {
-  this.classList.add("wackeln");
+function addGarbageType(newGarbageType, element) {
+  element.classList.add("wackeln");
   garbageTypes.push(newGarbageType);
-  setTimeout(() => this.classList.remove("wackeln"), 500);
+  setTimeout(() => element.classList.remove("wackeln"), 500);
 }
 
 /*

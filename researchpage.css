@@ -1,9 +1,10 @@
+/*
 #research {
   background-color: #c0bbbb;
   display: none;
-  justify-content: center; /* Zentriert den Inhalt horizontal */
+  justify-content: center;
   text-align: center;
-  height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
+  height: 50px;
   height: 500px;
   width: 250px;
   margin-top: 20px;
@@ -13,6 +14,8 @@
   position: absolute;
   left: 0;
 }
+*/
+
 
 #research-right {
   background-color: rgba(0, 0, 0, 0);
