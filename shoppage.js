@@ -165,6 +165,32 @@ function shopUpgradeButton4(upgrade) {
   console.log(maxScoreCap);
 }
 
+// button3 - Rüttelmaschine
+function simulateClick() {
+  var element = document.getElementById("clicker");
+  if (element) {
+    var event = new MouseEvent("click", {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    });
+    element.dispatchEvent(event);
+  } else {
+    console.log('Element mit der ID "clicker" wurde nicht gefunden.');
+  }
+}
+
+let intervalId;
+let intervalDuration = 1000; // Startintervall in Millisekunden
+
+function shopUpgradeButton3(upgrade) {
+  if (intervalId) {
+    clearInterval(intervalId); // Stoppt das vorherige Intervall, falls vorhanden
+  }
+  intervalDuration = Math.max(1, intervalDuration / 1.1); // Halbiert das Intervall, minimal 1 Millisekunde
+  intervalId = setInterval(simulateClick, intervalDuration); // Startet ein neues Intervall
+}
+
 function executeUpgradeFunction(upgrade) {
   switch (upgrade.name) {
     case "button1":
