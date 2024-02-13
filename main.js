@@ -1,4 +1,5 @@
 "use strict";
+let noLevelLimit = false;
 let level = 0;
 let score = 0;
 let pointsPerClick = 1;
@@ -29,7 +30,7 @@ let iconContainer = document.getElementById("icon-container");
 
 // Function to update the progress bar and icon position
 function updateLimitBar() {
-  if(nolevellimit == false){
+  if(noLevelLimit == false){
     // Calculate the progress based on the score and the current level limit
     let progress = (score / levelLimits[level]) * 100;
 
@@ -282,6 +283,35 @@ addGarbageType({
 
 */
 
+function addplastic(){
+  addGarbageType({
+    image: "url('source/Müll/plastikbottle1.png')",
+    width: '30px',
+    height: '54px',
+    tag: 'NeuesElement',
+    importance: 1,
+    pointsWorth: 2,
+  });
+  addGarbageType({
+    image: "url('source/Müll/plastikbottle2.png')",
+    width: '24px',
+    height: '54px',
+    tag: 'NeuesElement',
+    importance: 1,
+    pointsWorth: 2,
+  });
+  addGarbageType({
+    image: "url('source/Müll/plastikbottle3.png')",
+    width: '24px',
+    height: '54px',
+    tag: 'NeuesElement',
+    importance: 1,
+    pointsWorth: 2,
+  });
+}
+
+addplastic();
+
 function dropGarbage() {
   // Berechnen Sie die Gesamtwichtigkeit
   let totalImportance = 0;
@@ -372,7 +402,7 @@ function dropGarbage() {
 
 
 let scorechecker = setInterval(() => {
-  if(nolevellimit == false){
+  if(noLevelLimit == false){
     if (score > levelLimits[level]) {
       score = levelLimits[level];
     }
