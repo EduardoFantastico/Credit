@@ -17,6 +17,10 @@ let levelLimits = [
   Infinity,
 ];
 
+
+let BonusCap = 0;
+let maxScoreCap = 0;
+
 let dropchance90 = 0;
 let dropchance80 = 0;
 let dropchance50 = 0;
@@ -32,7 +36,8 @@ let iconContainer = document.getElementById("icon-container");
 function updateLimitBar() {
   if(noLevelLimit == false){
     // Calculate the progress based on the score and the current level limit
-    let progress = (score / levelLimits[level]) * 100;
+    maxScoreCap = levelLimits[level] + BonusCap;
+    let progress = (score / maxScoreCap) * 100;
 
     // Update the width of the progress bar
     limit.style.width = progress + "%";
@@ -266,6 +271,11 @@ function setImportance(tag, newValue) {
   }
 }
 
+function increaseImportance(tag, number) {
+  let currentImportance = garbageTypes.find(item => item.tag === tag).importance;
+  setImportance(tag, currentImportance + number);
+}
+
 function addGarbageType(newGarbageType, element) {
   garbageTypes.push(newGarbageType);
 }
@@ -288,7 +298,7 @@ function addplastic(){
     image: "url('source/Müll/plastikbottle1.png')",
     width: '30px',
     height: '54px',
-    tag: 'NeuesElement',
+    tag: 'plastikbottle1',
     importance: 1,
     pointsWorth: 2,
   });
@@ -296,7 +306,7 @@ function addplastic(){
     image: "url('source/Müll/plastikbottle2.png')",
     width: '24px',
     height: '54px',
-    tag: 'NeuesElement',
+    tag: 'plastikbottle2',
     importance: 1,
     pointsWorth: 2,
   });
@@ -304,7 +314,7 @@ function addplastic(){
     image: "url('source/Müll/plastikbottle3.png')",
     width: '24px',
     height: '54px',
-    tag: 'NeuesElement',
+    tag: 'plastikbottle3',
     importance: 1,
     pointsWorth: 2,
   });
@@ -403,8 +413,9 @@ function dropGarbage() {
 
 let scorechecker = setInterval(() => {
   if(noLevelLimit == false){
-    if (score > levelLimits[level]) {
-      score = levelLimits[level];
+    maxScoreCap = levelLimits[level] + BonusCap;
+    if (score > maxScoreCap) {
+      score = maxScoreCap;
     }
   }
 }, 1);

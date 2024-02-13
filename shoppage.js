@@ -145,15 +145,24 @@ function shopUpgradeButton1(upgrade) {
 // button2 -  Pfandflaschensammler//
 function shopUpgradeButton2(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
-
-  if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  }
+  increaseImportance("plastikbottle1", 1);
+  increaseImportance("plastikbottle2", 1);
+  increaseImportance("plastikbottle3", 1);
   changeUpgradeCost("button2", newcost);
+
+/*  let item = garbageTypes.find(element => element.tag === 'plastikbottle1');
+    if(item) {
+    console.log(item.importance);
+    } */
+}
+
+// button3 - Dellen Reinschlagen //
+
+function shopUpgradeButton4(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  BonusCap = Math.round(BonusCap + 100 * 1.1 * (level + 1));
+  changeUpgradeCost("button2", newcost);
+  console.log(maxScoreCap);
 }
 
 function executeUpgradeFunction(upgrade) {
