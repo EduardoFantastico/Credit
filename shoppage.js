@@ -215,26 +215,26 @@ function changeUpgradeCost(upgradeName, newCost) {
   }
 }
 
-addUpgrade("button1", "Mülleiner Rütteln", 12);
-addUpgrade("button2", "Pfandflaschen- sammler", 34);
-addUpgrade("button3", "Rüttelmaschine", 56);
-addUpgrade("button4", "Dellen Reinschlagen", 78);
-addUpgrade("button5", "Nie wieder Hungrig", 90);
-addUpgrade("button6", "Essensreste schmeißen", 23);
-addUpgrade("button7", "Durchsichtiges Glück", 45);
-addUpgrade("button8", "Restebankett", 67);
-addUpgrade("button9", "Macht Lustige Geräusche", 89);
-addUpgrade("button10", "Schrottiger Anhänger", 21);
-addUpgrade("button11", "Schilder aufstellen", 43);
-addUpgrade("button12", "Uhr kaputt machen", 65);
-addUpgrade("button13", "Button13", 87);
-addUpgrade("button14", "Button14", 19);
-addUpgrade("button15", "Button15", 41);
-addUpgrade("button16", "Button16", 63);
-addUpgrade("button17", "Button17", 85);
-addUpgrade("button18", "Button18", 17);
-addUpgrade("button19", "Button19", 39);
-addUpgrade("button20", "Button20", 61);
+addUpgrade("button1", "Mülleiner Rütteln", 0);
+addUpgrade("button2", "Pfandflaschen- sammler", 0);
+addUpgrade("button3", "Rüttelmaschine", 0);
+addUpgrade("button4", "Dellen Reinschlagen", 0);
+addUpgrade("button5", "Nie wieder Hungrig", 0);
+addUpgrade("button6", "Essensreste schmeißen", 0);
+addUpgrade("button7", "Durchsichtiges Glück", 0);
+addUpgrade("button8", "Restebankett", 0);
+addUpgrade("button9", "Macht Lustige Geräusche", 0);
+addUpgrade("button10", "Schrottiger Anhänger", 0);
+addUpgrade("button11", "Schilder aufstellen", 0);
+addUpgrade("button12", "Uhr kaputt machen", 0);
+addUpgrade("button13", "Button13", 0);
+addUpgrade("button14", "Button14", 0);
+addUpgrade("button15", "Button15", 0);
+addUpgrade("button16", "Button16", 0);
+addUpgrade("button17", "Button17", 0);
+addUpgrade("button18", "Button18", 0);
+addUpgrade("button19", "Button19", 0);
+addUpgrade("button20", "Button20", 0);
 
 for (let i = 1; i <= 20; i++) {
   unlockUpgrade(`button${i}`);
