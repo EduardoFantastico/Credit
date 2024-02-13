@@ -19,9 +19,9 @@ function createSabotageElement(sabotage) {
   let SabotageElement = document.createElement("div");
   SabotageElement.id = sabotage.id;
   SabotageElement.className = "sabotage-element";
-  SabotageElement.style.display = "flex";  // Fügt display: flex hinzu
-  SabotageElement.style.alignItems = "center";  // Zentriert den Inhalt vertikal
-  SabotageElement.style.justifyContent = "center";  // Zentriert den Inhalt horizontal
+  SabotageElement.style.display = "flex"; // Fügt display: flex hinzu
+  SabotageElement.style.alignItems = "center"; // Zentriert den Inhalt vertikal
+  SabotageElement.style.justifyContent = "center"; // Zentriert den Inhalt horizontal
 
   // Setzt die line-height auf 1.5, wenn displayName mehr als 15 Zeichen hat
   if (sabotage.displayName.length > 15) {
@@ -45,26 +45,20 @@ function createSabotageElement(sabotage) {
   document.getElementById("content-box-sabotage").appendChild(SabotageElement);
 }
 
-
-
-
-
-
-addSabotage('sabotage1', 'Müll klauen', 100, 60);
-addSabotage('sabotage2', 'Schlägerei anstiften', 200, 120);
-addSabotage('sabotage3', 'Müllhypnose', 150, 90);
-addSabotage('sabotage4', 'Müll anzünden', 250, 150);
-addSabotage('sabotage5', 'Müll Glocken', 300, 180);
-addSabotage('sabotage6', 'Waschbär Spionage', 300, 180);
-addSabotage('sabotage7', 'Waschbär Sabotage', 300, 180);
-addSabotage('sabotage8', 'Truck übernahme', 300, 180);
-addSabotage('sabotage9', 'Spiegel', 300, 180);
-addSabotage('sabotage10', 'Kriegsdiebstahl', 300, 180); // Du kannst eine zufällige Sabotage deines Gegners klauen
-addSabotage('sabotage11', 'Waschbär Diebstahl', 300, 180); // Klaue einen Waschbär deines Gegners
-addSabotage('sabotage12', 'Kriegsdiebstahl', 300, 180);
-addSabotage('sabotage13', 'Waschbäraufstand', 300, 180);
-addSabotage('sabotage14', 'Waschbären Assasine', 300, 180);
-
+addSabotage("sabotage1", "Müll klauen", 100, 60);
+addSabotage("sabotage2", "Schlägerei anstiften", 200, 120);
+addSabotage("sabotage3", "Müllhypnose", 150, 90);
+addSabotage("sabotage4", "Müll anzünden", 250, 150);
+addSabotage("sabotage5", "Müll Glocken", 300, 180);
+addSabotage("sabotage6", "Waschbär Spionage", 300, 180);
+addSabotage("sabotage7", "Waschbär Sabotage", 300, 180);
+addSabotage("sabotage8", "Truck übernahme", 300, 180);
+addSabotage("sabotage9", "Spiegel", 300, 180);
+addSabotage("sabotage10", "Kriegsdiebstahl", 300, 180); // Du kannst eine zufällige Sabotage deines Gegners klauen
+addSabotage("sabotage11", "Waschbär Diebstahl", 300, 180); // Klaue einen Waschbär deines Gegners
+addSabotage("sabotage12", "Kriegsdiebstahl", 300, 180);
+addSabotage("sabotage13", "Waschbäraufstand", 300, 180);
+addSabotage("sabotage14", "Waschbären Assassine", 300, 180);
 
 document.querySelector("#sabotage1").addEventListener("click", function () {
   updateDescBox(
