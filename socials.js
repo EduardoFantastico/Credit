@@ -1,4 +1,4 @@
-// Holen Sie sich das Chat-Eingabe-, Chat-Verlauf- und Chat-Formular-Element
+// Elemente für den Chat
 const chatInput = document.querySelector("#chat-input");
 const chatMessages = document.querySelector("#chat-history");
 const chatForm = document.querySelector("#chat-form");
@@ -18,13 +18,21 @@ const adjustChatHistoryHeight = () => {
     contentBoxChat.offsetHeight - chatTextSpace.offsetHeight + "px";
 };
 
-// Erstellen Sie eine Funktion, um das Chat-Nachrichten-Element zu generieren
+// Funktion zum Erstellen eines Chat-Nachrichten-Elements
 const createChatMessageElement = (message) => {
   return `
     <div class="chat-message">
       <div class="message-text">${message.sender}${message.text}</div>
     </div>
   `;
+};
+
+const createMessageElement = (message) => {
+  const messageElement = document.createElement("div");
+  messageElement.innerHTML = createChatMessageElement(message);
+  chatMessages.prepend(messageElement);
+  scrollToBottom();
+  adjustChatHistoryHeight();
 };
 
 const sendMessage = (e) => {
@@ -39,32 +47,22 @@ const sendMessage = (e) => {
     text: chatInput.value,
   };
 
-  const messageElement = document.createElement("div");
-  messageElement.innerHTML = createChatMessageElement(message);
-  chatMessages.prepend(messageElement);
-  scrollToBottom();
-  adjustChatHistoryHeight();
-
-  console.log(message.sender, message.text);
+  createMessageElement(message);
   checkCommand();
   chatInput.value = "";
 };
 
-// Erstellen Sie eine Funktion, um die Chat-Nachricht des Bots zu senden
+// Funktion zum Senden einer Chat-Nachricht des Bots
 const sendBotMessage = (text) => {
   const message = {
     sender: "Bot: ",
     text: text,
   };
 
-  const messageElement = document.createElement("div");
-  messageElement.innerHTML = createChatMessageElement(message);
-  chatMessages.prepend(messageElement);
-  scrollToBottom();
-  adjustChatHistoryHeight();
+  createMessageElement(message);
 };
 
-// Erstellen Sie eine Funktion, um den Chat-Befehl zu überprüfen
+// Funktion zum Überprüfen des Chat-Befehls
 const checkCommand = () => {
   let cheatsCheckbox = document.getElementById("options-button-cheats").checked;
   if (cheatsCheckbox) {
@@ -72,7 +70,7 @@ const checkCommand = () => {
     const inputArr = input.split(" ");
     const command = inputArr[0];
     let value;
-    const validCommands = ["!score"];
+    const validCommands = ["!score", "!level"];
 
     if (inputArr.length > 2 && !isNaN(inputArr[2])) {
       value = parseInt(inputArr[2]);
@@ -107,6 +105,36 @@ const checkCommand = () => {
               }
             }
             break;
+          case "!level":
+            if (value === undefined || value === "help") {
+              sendBotMessage("Command: !level [add | remove | set] [X-Value]");
+            } else if (
+              isNaN(value) &&
+              command !== "!level clear" &&
+              inputArr.length > 2
+            ) {
+              sendBotMessage("Please enter a numerical value for X");
+            } else {
+              switch (inputArr[1]) {
+                case "add":
+                  level += parseInt(value);
+                  document.querySelector("#level").textContent = "LEVEL " + level;
+                  break;
+                case "remove":
+                  level -= parseInt(value);
+                  document.querySelector("#level").textContent = "LEVEL " + level;
+                  break;
+                case "set":
+                  level = parseInt(value);
+                  document.querySelector("#level").textContent = "LEVEL " + level;
+                  break;
+                default:
+                  sendBotMessage(
+                    "Command: !level [add | remove | set] [X-Value]"
+                  );
+              }
+            }
+            break;
           default:
             sendBotMessage(
               "Bitte geben Sie einen gültigen Befehl ein, z.B. !score"
@@ -129,6 +157,7 @@ chatInput.addEventListener("keyup", function (event) {
     document.querySelector("#chat-send").click();
   }
 });
+
 // Fensterereignisse
 window.onload = adjustChatHistoryHeight;
 window.onresize = adjustChatHistoryHeight;
