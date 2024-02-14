@@ -374,77 +374,54 @@ function addGlass(){
   });
 }
 
-
+// Elementreferenzen und Anfangsvariablen
 let trashTruckElement = document.getElementById('trashTruck');
 let currentPosition = window.innerWidth;
 let speed = 0;
 let isBraking = false;
 let isMoving = false;
-let waitingTime = 0;
 
-// Überprüft auf Schilder und handhabt das Bremsen und Warten
-function checkForSigns() {
-  for (let i = 0; i < signs.length; i++) {
-      let sign = signs[i];
-      if (!isBraking && sign.position > currentPosition && sign.position < currentPosition + trashTruckElement.offsetWidth) {
-          isBraking = true;
-          waitingTime = 3000 * signCounts[sign.position];
-          signs.splice(i, 1);
-          signCounts[sign.position]--;
-          break;
-      }
-  }
-}
-
-// Bewegt den Müllwagen und handhabt die Geschwindigkeitsänderungen
+// Funktion zum Bewegen des Müllwagens
 function moveTrashTruck() {
-  if (currentPosition < -trashTruckElement.offsetWidth) {
-      currentPosition = window.innerWidth;
-      isBraking = false;
-      speed = 0;
-      isMoving = false;
-  } else {
-      currentPosition -= speed;
-      trashTruckElement.style.left = currentPosition + 'px';
-      if (isBraking && speed > 0) {
-          speed -= 0.1;
-          if (speed < 0) speed = 0;
-      } else if (!isBraking && speed < 5) {
-          speed += 0.1;
-      }
-  }
-  checkForSigns();
-  if (isMoving) {
-    if (waitingTime > 0) {
-        setTimeout(function() {
-            requestAnimationFrame(moveTrashTruck);
-            isBraking = false;
-        }, waitingTime);
-        waitingTime = 0;
+    // Wenn der Truck das Ende des Bildschirms erreicht hat, setze die Werte zurück
+    if (currentPosition < -trashTruckElement.offsetWidth) {
+        currentPosition = window.innerWidth;
+        isBraking = false;
+        speed = 0;
+        isMoving = false;
     } else {
+        // Aktualisiere die Position und Geschwindigkeit des Trucks
+        currentPosition -= speed;
+        trashTruckElement.style.left = currentPosition + 'px';
+        
+        // Kontrolliere die Geschwindigkeit basierend auf dem Bremszustand
+        if (isBraking && speed > 0) {
+            speed -= 0.1;
+            if (speed < 0) speed = 0;
+        } else if (!isBraking && speed < 5) {
+            speed += 0.1;
+        }
+    }
+    
+    // Fordere den nächsten Frame an, wenn der Truck sich bewegt
+    if (isMoving) {
         requestAnimationFrame(moveTrashTruck);
     }
-  }
 }
 
-// Startet die Bewegung des Müllwagens und erstellt ein Schild, wenn auf den Tab geklickt wird
+// Event-Listener zum Starten der Bewegung des Trucks
 document.getElementById('menu-tab2').addEventListener('click', function() {
     isMoving = true;
-    isBraking = false;
     requestAnimationFrame(moveTrashTruck);
-    createSign();
-    updateSignDesigns();
 });
 
-// Startet das Bremsen, wenn auf den Müllwagen geklickt wird
+// Event-Listener zum Bremsen des Trucks
 trashTruckElement.addEventListener('click', function() {
     isBraking = true;
     setTimeout(function() {
         isBraking = false;
     }, 5000);
 });
-
-
 
 
 function dropGarbage() {
