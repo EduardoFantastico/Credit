@@ -320,7 +320,132 @@ function addplastic(){
   });
 }
 
-addplastic();
+function addfood(){
+  addGarbageType({
+    image: "url('source/Müll/AlterApfel1.png')",
+    width: '37px',
+    height: '57px',
+    tag: 'AlterApfel1',
+    importance: 1,
+    pointsWorth: 3,
+  });
+  addGarbageType({
+    image: "url('source/Müll/Bananenschale1.png')",
+    width: '64',
+    height: '36px',
+    tag: 'Bananenschale1',
+    importance: 1,
+    pointsWorth: 3,
+  });
+  addGarbageType({
+    image: "url('source/Müll/Pizza.png')",
+    width: '62px',
+    height: '44px',
+    tag: 'Pizza',
+    importance: 1,
+    pointsWorth: 3,
+  });
+  addGarbageType({
+    image: "url('source/Müll/meat.png')",
+    width: '60px',
+    height: '63px',
+    tag: 'meat',
+    importance: 1,
+    pointsWorth: 3,
+  });
+  addGarbageType({
+    image: "url('source/Müll/SchimmelToast1.png')",
+    width: '42px',
+    height: '39px',
+    tag: 'SchimmelToast1',
+    importance: 1,
+    pointsWorth: 3,
+  });
+}
+
+function addGlass(){
+  addGarbageType({
+    image: "url('source/Müll/winebottle1.png')",
+    width: '16px',
+    height: '56px',
+    tag: 'winebottle1',
+    importance: 1,
+    pointsWorth: 5,
+  });
+}
+
+
+let trashTruckElement = document.getElementById('trashTruck');
+let currentPosition = window.innerWidth;
+let speed = 0;
+let isBraking = false;
+let isMoving = false;
+let waitingTime = 0;
+
+// Überprüft auf Schilder und handhabt das Bremsen und Warten
+function checkForSigns() {
+  for (let i = 0; i < signs.length; i++) {
+      let sign = signs[i];
+      if (!isBraking && sign.position > currentPosition && sign.position < currentPosition + trashTruckElement.offsetWidth) {
+          isBraking = true;
+          waitingTime = 3000 * signCounts[sign.position];
+          signs.splice(i, 1);
+          signCounts[sign.position]--;
+          break;
+      }
+  }
+}
+
+// Bewegt den Müllwagen und handhabt die Geschwindigkeitsänderungen
+function moveTrashTruck() {
+  if (currentPosition < -trashTruckElement.offsetWidth) {
+      currentPosition = window.innerWidth;
+      isBraking = false;
+      speed = 0;
+      isMoving = false;
+  } else {
+      currentPosition -= speed;
+      trashTruckElement.style.left = currentPosition + 'px';
+      if (isBraking && speed > 0) {
+          speed -= 0.1;
+          if (speed < 0) speed = 0;
+      } else if (!isBraking && speed < 5) {
+          speed += 0.1;
+      }
+  }
+  checkForSigns();
+  if (isMoving) {
+    if (waitingTime > 0) {
+        setTimeout(function() {
+            requestAnimationFrame(moveTrashTruck);
+            isBraking = false;
+        }, waitingTime);
+        waitingTime = 0;
+    } else {
+        requestAnimationFrame(moveTrashTruck);
+    }
+  }
+}
+
+// Startet die Bewegung des Müllwagens und erstellt ein Schild, wenn auf den Tab geklickt wird
+document.getElementById('menu-tab2').addEventListener('click', function() {
+    isMoving = true;
+    isBraking = false;
+    requestAnimationFrame(moveTrashTruck);
+    createSign();
+    updateSignDesigns();
+});
+
+// Startet das Bremsen, wenn auf den Müllwagen geklickt wird
+trashTruckElement.addEventListener('click', function() {
+    isBraking = true;
+    setTimeout(function() {
+        isBraking = false;
+    }, 5000);
+});
+
+
+
 
 function dropGarbage() {
   // Berechnen Sie die Gesamtwichtigkeit

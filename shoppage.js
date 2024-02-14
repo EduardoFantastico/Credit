@@ -145,6 +145,9 @@ function shopUpgradeButton1(upgrade) {
 // button2 -  Pfandflaschensammler//
 function shopUpgradeButton2(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
+  if ((kaufZähler["button2"] == 0)) {
+    addplastic();
+  }
   increaseImportance("plastikbottle1", 1);
   increaseImportance("plastikbottle2", 1);
   increaseImportance("plastikbottle3", 1);
@@ -156,18 +159,9 @@ function shopUpgradeButton2(upgrade) {
     } */
 }
 
-// button3 - Dellen Reinschlagen //
-
-function shopUpgradeButton4(upgrade) {
-  newcost = Math.round(upgrade.cost * 1.25);
-  BonusCap = Math.round(BonusCap + 100 * 1.1 * (level + 1));
-  changeUpgradeCost("button2", newcost);
-  console.log(maxScoreCap);
-}
-
 // button3 - Rüttelmaschine
 function simulateClick() {
-  var element = document.getElementById("clicker");
+  let element = document.getElementById("clicker");
   if (element) {
     var event = new MouseEvent("click", {
       bubbles: true,
@@ -178,6 +172,185 @@ function simulateClick() {
   } else {
     console.log('Element mit der ID "clicker" wurde nicht gefunden.');
   }
+}
+
+// button4 - Dellen Reinschlagen //
+
+function shopUpgradeButton4(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  BonusCap = Math.round(BonusCap + 100 * 1.1 * (level + 1));
+  changeUpgradeCost("button4", newcost);
+  console.log(maxScoreCap);
+}
+
+// button5 - Nie wieder Hungrig
+function shopUpgradeButton5(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  if ((kaufZähler["button5"] == 0)) {
+    addfood();
+  }
+  increaseImportance("AlterApfel1", 1);
+  increaseImportance("Bananenschale1", 1);
+  increaseImportance("Pizza", 1);
+  increaseImportance("meat", 1);
+  increaseImportance("SchimmelToast1", 1);
+
+  changeUpgradeCost("button5", newcost);
+  console.log("Upgrade für button5 wurde durchgeführt");
+}
+
+// button6 - Essensreste schmeißen
+function shopUpgradeButton6(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button6", newcost);
+  console.log("Upgrade für button6 wurde durchgeführt");
+}
+
+// button7 - Durchsichtiges Glück
+function shopUpgradeButton7(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  if ((kaufZähler["button7"] == 0)) {
+    addGlass();
+  }
+  increaseImportance("winebottle1", 1);
+
+  changeUpgradeCost("button7", newcost);
+  console.log("Upgrade für button7 wurde durchgeführt");
+}
+
+// button8 - Restebankett
+function shopUpgradeButton8(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button8", newcost);
+  console.log("Upgrade für button8 wurde durchgeführt");
+}
+
+// button9 - Macht Lustige Geräusche
+function shopUpgradeButton9(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button9", newcost);
+  console.log("Upgrade für button9 wurde durchgeführt");
+}
+
+// button10 - Schrottiger Anhänger
+function shopUpgradeButton10(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button10", newcost);
+  console.log("Upgrade für button10 wurde durchgeführt");
+}
+
+// button11 - Schilder aufstellen
+
+// Definieren Sie einige Designs
+let designs = ["design1", "design2", "design3", "design4", "design5","design6","design7","design8"];
+
+// Erstellen Sie ein Array, um alle Schilder zu speichern
+let signs = [];
+
+// Erstellen Sie ein Objekt, um die Anzahl der Schilder an jeder Position zu speichern
+let signCounts = {};
+
+function createSign() {
+  // Zufällige Höhe (entweder 370 oder 320)
+  let top = Math.random() < 0.5 ? 370 : 320;
+
+  // Definieren Sie 6 gleichmäßig verteilte Positionen zwischen left: 300px und right: 100% width - 400px
+  let positions = [];
+  let rangeStart = 300;
+  let rangeEnd = window.innerWidth - 400;
+  let step = (rangeEnd - rangeStart) / 5;
+  for (let i = 0; i < 6; i++) {
+    positions.push(rangeStart + step * i);
+  }
+
+  // Wählen Sie eine zufällige Position aus den definierten Positionen
+  let left = positions[Math.floor(Math.random() * positions.length)];
+
+  // Wenn das Schild weiter oben ist, verschieben Sie es weiter nach links
+  if (top === 320) {
+    left += 50; // Sie können diesen Wert anpassen, um den gewünschten Abstand zu erreichen
+  }
+
+  // Erstellen Sie ein neues Schild-Element
+  let sign = document.createElement('div');
+  sign.style.position = 'absolute';
+  sign.style.top = top + 'px';
+  sign.style.left = left + 'px';
+
+  // Setzen Sie den z-index basierend auf der Höhe
+  sign.style.zIndex = top === 320 ? '1' : '0';
+
+  // Fügen Sie das Schild-Element zum div mit der id "gameScreen" hinzu
+  let gameScreen = document.getElementById('gameScreen');
+  gameScreen.appendChild(sign);
+
+  // Speichern Sie das Schild und seine Position in dem Array
+  signs.push({element: sign, position: left});
+
+  // Aktualisieren Sie signCounts
+  if (!signCounts[left]) {
+    signCounts[left] = 0;
+  }
+  signCounts[left]++;
+}
+
+
+// Aktualisieren Sie die Position der Schilder, wenn das Fenster skaliert wird
+window.addEventListener('resize', function() {
+  let rangeStart = 300;
+  let rangeEnd = window.innerWidth - 400;
+  signs.forEach(function(sign) {
+    let newPosition = sign.position / window.innerWidth * (rangeEnd - rangeStart) + rangeStart;
+    sign.element.style.left = newPosition + 'px';
+  });
+});
+
+// Funktion, um das Design der Schilder basierend auf der Anzahl der Schilder an einem Ort zu ändern
+function updateSignDesigns() {
+  let signCounts = {};
+  signs.forEach(function(sign) {
+    let position = sign.position;
+    if (!signCounts[position]) {
+      signCounts[position] = [];
+    }
+    signCounts[position].push(sign);
+  });
+
+  Object.values(signCounts).forEach(function(signsAtPosition) {
+    signsAtPosition.forEach(function(sign, index) {
+      if (index < designs.length) {
+        sign.element.className = designs[index];
+      } else {
+        sign.element.className = designs[designs.length - 1];
+      }
+    });
+  });
+}
+
+function shopUpgradeButton11(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+    createSign();
+  updateSignDesigns();
+
+  changeUpgradeCost("button11", newcost);
+  console.log("Upgrade für button11 wurde durchgeführt");
+}
+
+// button12 - Uhr kaputt machen
+function shopUpgradeButton12(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button12", newcost);
+  console.log("Upgrade für button12 wurde durchgeführt");
 }
 
 let intervalId;

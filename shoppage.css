@@ -115,6 +115,7 @@
   border: 1px solid #000;
   position: absolute;
   left: 0;
+  z-index: 5;
 }
 
 #descTitle {
@@ -166,6 +167,99 @@
   margin-top: -40px;
   margin-left: 150px;
 }
+
+.design1 {
+  background-color: red;
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design2 {
+  background-color: blue;
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design3 {
+  background-color: green;
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design4 {
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design5 {
+  background-color: purple;
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design6 {
+  background-color: #FF6347; /* Tomatenrot */
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design7 {
+  background-color: #40E0D0; /* Türkis */
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design8 {
+  background-color: #FFD700; /* Gold */
+  color: black;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design9 {
+  background-color: #ADFF2F; /* Grün-Gelb */
+  color: black;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+.design10 {
+  background-color: #FF69B4; /* Hot Pink */
+  color: white;
+  border: 1px solid black;
+  font-size: 20px;
+  width: 10px;
+  height: 20px;
+}
+
+
+
 
 /*
 #article1 {
