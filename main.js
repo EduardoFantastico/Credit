@@ -253,13 +253,21 @@ let garbageTypes = [
     pointsWorth: 1,
   },
   {
-    image: "url('source/Müll/TinCan1.png')",
-    width: "60px",
-    height: "60px",
-    tag: "TinCan",
+    image: "url('source/Müll/Notiz1.png')",
+    width: "52px",
+    height: "46px",
+    tag: "Notiz1",
     importance: 1,
     pointsWorth: 1,
   },
+  {
+    image: "url('source/Müll/Notiz2.png')",
+    width: "30px",
+    height: "50px",
+    tag: "Notiz2",
+    importance: 1,
+    pointsWorth: 1,
+  }
 ];
 
 function setImportance(tag, newValue) {
@@ -374,39 +382,138 @@ function addGlass(){
   });
 }
 
+function addMetal(){
+  addGarbageType({
+    image: "url('source/Müll/Nagel1.png')",
+    width: '15px',
+    height: '25px',
+    tag: 'Nagel1',
+    importance: 1,
+    pointsWorth: 7,
+  });
+  addGarbageType({
+    image: "url('source/Müll/Nagel2.png')",
+    width: '26px',
+    height: '23px',
+    tag: 'Nagel2',
+    importance: 1,
+    pointsWorth: 7,
+  });
+  addGarbageType({
+    image: "url('source/Müll/Spoon.png')",
+    width: '45px',
+    height: '45px',
+    tag: 'Spoon',
+    importance: 1,
+    pointsWorth: 7,
+  });
+  addGarbageType({
+    image: "url('source/Müll/TinCan1.png')",
+    width: "60px",
+    height: "60px",
+    tag: "TinCan",
+    importance: 1,
+    pointsWorth: 7,
+  });
+  addGarbageType({
+    image: "url('source/Müll/TinCan2.png')",
+    width: "32px",
+    height: "60px",
+    tag: "TinCan2",
+    importance: 1,
+    pointsWorth: 7,
+  });
+}
+
 // Elementreferenzen und Anfangsvariablen
 let trashTruckElement = document.getElementById('trashTruck');
 let currentPosition = window.innerWidth;
 let speed = 0;
 let isBraking = false;
 let isMoving = false;
+let isPaused = false;
+let pauseDuration = 0;
+let isTruckClicked = false; // Variable zum Verfolgen, ob der Truck angeklickt wurde
+let stopSigns = []; // Array zum Speichern der Stoppschilder
+
+// Konstanten
+const BRAKE_SPEED = 0.1;
+const MAX_SPEED = 5;
+const STOP_SIGN_WIDTH = 150;
+const STOP_SIGN_GAP = 145;
+
+// Funktion zum Erstellen eines Stoppschilds
+function createStopSign() {
+    let stopSign = document.createElement('div');
+    stopSign.style.position = 'absolute';
+    stopSign.style.bottom = '0px';
+    stopSign.style.width = '50px';
+    stopSign.style.height = '50px';
+    stopSign.style.top = "250px";
+    stopSign.style.backgroundColor = 'red';
+    document.body.appendChild(stopSign);
+    stopSigns.push(stopSign);
+
+    // Zufällige Position für das Stoppschild
+    let position = Math.random() < 0.5 ? 400 : window.innerWidth - 450;
+    stopSign.style.left = position + 'px';
+}
+
+// Funktion zum Überprüfen, ob der Truck vor einem Stoppschild ist
+function checkForStopSign() {
+    if (!isTruckClicked) { // Überprüfe nur auf Stoppschilder, wenn der Truck nicht angeklickt wurde
+        for (let i = 0; i < stopSigns.length; i++) {
+            let stopSign = stopSigns[i];
+            let stopSignPosition = parseInt(stopSign.style.left);
+            if (currentPosition - stopSignPosition < STOP_SIGN_WIDTH && currentPosition - stopSignPosition > STOP_SIGN_GAP) {
+                let stopSignCount = stopSigns.filter(sign => parseInt(sign.style.left) === stopSignPosition).length;
+                pauseAndResume(3000 * stopSignCount); // Haltefunktion ausführen
+                break;
+            }
+        }
+    }
+}
+
+// Funktion zum Anhalten und Neustarten des Trucks
+function pauseAndResume(x) {
+  isPaused = true;
+  pauseDuration = x;
+
+  setTimeout(function() {
+      isPaused = false;
+      isBraking = false;
+  }, pauseDuration);
+}
 
 // Funktion zum Bewegen des Müllwagens
 function moveTrashTruck() {
-    // Wenn der Truck das Ende des Bildschirms erreicht hat, setze die Werte zurück
-    if (currentPosition < -trashTruckElement.offsetWidth) {
-        currentPosition = window.innerWidth;
-        isBraking = false;
-        speed = 0;
-        isMoving = false;
-    } else {
-        // Aktualisiere die Position und Geschwindigkeit des Trucks
-        currentPosition -= speed;
-        trashTruckElement.style.left = currentPosition + 'px';
-        
-        // Kontrolliere die Geschwindigkeit basierend auf dem Bremszustand
-        if (isBraking && speed > 0) {
-            speed -= 0.1;
-            if (speed < 0) speed = 0;
-        } else if (!isBraking && speed < 5) {
-            speed += 0.1;
-        }
-    }
-    
-    // Fordere den nächsten Frame an, wenn der Truck sich bewegt
-    if (isMoving) {
-        requestAnimationFrame(moveTrashTruck);
-    }
+  // Überprüfe auf Stoppschilder
+  checkForStopSign();
+
+  // Wenn der Truck das Ende des Bildschirms erreicht hat, setze die Werte zurück
+  if (currentPosition < -trashTruckElement.offsetWidth) {
+      currentPosition = window.innerWidth;
+      isBraking = false;
+      speed = 0;
+      isMoving = false;
+  } else {
+      // Aktualisiere die Position und Geschwindigkeit des Trucks
+      currentPosition -= speed;
+      trashTruckElement.style.left = currentPosition + 'px';
+      
+      // Kontrolliere die Geschwindigkeit basierend auf dem Bremszustand und dem Pausenzustand
+      if ((isBraking || isPaused) && speed > 0) {
+          speed -= BRAKE_SPEED;
+          if (speed < 0) speed = 0;
+      } else if (!isBraking && !isPaused && speed < MAX_SPEED) {
+          speed += BRAKE_SPEED;
+      }
+  }
+  
+  // Fordere den nächsten Frame an, wenn der Truck sich bewegt
+  if (isMoving) {
+      requestAnimationFrame(moveTrashTruck);
+  }
 }
 
 // Event-Listener zum Starten der Bewegung des Trucks
@@ -417,10 +524,13 @@ document.getElementById('menu-tab2').addEventListener('click', function() {
 
 // Event-Listener zum Bremsen des Trucks
 trashTruckElement.addEventListener('click', function() {
-    isBraking = true;
-    setTimeout(function() {
-        isBraking = false;
-    }, 5000);
+    isTruckClicked = !isTruckClicked; // Wechselt den Zustand von isTruckClicked bei jedem Klick
+    if (!isTruckClicked) {
+        isBraking = true;
+        setTimeout(function() {
+            isBraking = false;
+        }, 5000);
+    }
 });
 
 

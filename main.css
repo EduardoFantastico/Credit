@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
-
+html{
+  overflow:hidden;
+}
 body {
   font-family: "Press Start 2P", cursive !important;
   background-color: #525252;
@@ -10,7 +12,14 @@ body {
 }
 
 #gameScreen {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
   display: none;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #score {
@@ -21,7 +30,7 @@ body {
   height: 50px; /* Stellen Sie die Höhe auf den gewünschten Wert ein */
 
   font-size: 2em;
-  position: fixed;
+  position: absolute;
   top: 50px;
   left: 0;
   right: 0;
@@ -46,7 +55,7 @@ body {
   border-radius: 15px 15px 0 0;
   font-size: 1.2em;
   font-weight: bold;
-  position: fixed;
+  position: absolute;
   top: 10px;
   left: 0;
   right: 0;

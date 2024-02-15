@@ -213,9 +213,9 @@ function shopUpgradeButton7(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25);
   if ((kaufZähler["button7"] == 0)) {
     addGlass();
-  }
+  } else {
   increaseImportance("winebottle1", 1);
-
+  }
   changeUpgradeCost("button7", newcost);
   console.log("Upgrade für button7 wurde durchgeführt");
 }
@@ -232,7 +232,15 @@ function shopUpgradeButton8(upgrade) {
 // button9 - Macht Lustige Geräusche
 function shopUpgradeButton9(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25);
-
+  if ((kaufZähler["button9"] == 0)) {
+    addMetal();
+  } else {
+    increaseImportance("Nagel1", 1);
+    increaseImportance("Nagel2", 1);
+    increaseImportance("Spoon", 1);
+    increaseImportance("TinCan", 1);
+    increaseImportance("TinCan2", 1);
+  }
 
   changeUpgradeCost("button9", newcost);
   console.log("Upgrade für button9 wurde durchgeführt");
@@ -251,7 +259,7 @@ function shopUpgradeButton10(upgrade) {
 
 function shopUpgradeButton11(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25);
-
+  createStopSign();
   changeUpgradeCost("button11", newcost);
   console.log("Upgrade für button11 wurde durchgeführt");
 }
