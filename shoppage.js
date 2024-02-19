@@ -99,6 +99,7 @@ document.querySelector("#buyItem").addEventListener("click", function () {
 
 // button1 - Mülleimer Rütteln//
 function shopUpgradeButton1(upgrade) {
+  console.log("Hi");
   document.getElementById("clickprogress").style.display = "block";
   if (kaufZähler["button1"] < 5) {
     dropchance90 = dropchance90 + 120;
@@ -145,22 +146,25 @@ function shopUpgradeButton1(upgrade) {
 // button2 -  Pfandflaschensammler//
 function shopUpgradeButton2(upgrade) {
   newcost = Math.round(upgrade.cost * 1.25); // Verwenden Sie Math.round() anstelle von math.round()
-
-  if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
-  } else if (kaufZähler["button2"] < 5) {
+  if ((kaufZähler["button2"] == 0)) {
+    addplastic();
   }
+  increaseImportance("plastikbottle1", 1);
+  increaseImportance("plastikbottle2", 1);
+  increaseImportance("plastikbottle3", 1);
   changeUpgradeCost("button2", newcost);
+
+/*  let item = garbageTypes.find(element => element.tag === 'plastikbottle1');
+    if(item) {
+    console.log(item.importance);
+    } */
 }
 
 // button3 - Rüttelmaschine
 function simulateClick() {
   let element = document.getElementById("clicker");
   if (element) {
-    let event = new MouseEvent("click", {
+    var event = new MouseEvent("click", {
       bubbles: true,
       cancelable: true,
       view: window,
@@ -169,6 +173,105 @@ function simulateClick() {
   } else {
     console.log('Element mit der ID "clicker" wurde nicht gefunden.');
   }
+}
+
+// button4 - Dellen Reinschlagen //
+
+function shopUpgradeButton4(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  BonusCap = Math.round(BonusCap + 100 * 1.1 * (level + 1));
+  changeUpgradeCost("button4", newcost);
+  console.log(maxScoreCap);
+}
+
+// button5 - Nie wieder Hungrig
+function shopUpgradeButton5(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  if ((kaufZähler["button5"] == 0)) {
+    addfood();
+  }
+  increaseImportance("AlterApfel1", 1);
+  increaseImportance("Bananenschale1", 1);
+  increaseImportance("Pizza", 1);
+  increaseImportance("meat", 1);
+  increaseImportance("SchimmelToast1", 1);
+
+  changeUpgradeCost("button5", newcost);
+  console.log("Upgrade für button5 wurde durchgeführt");
+}
+
+// button6 - Essensreste schmeißen
+function shopUpgradeButton6(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button6", newcost);
+  console.log("Upgrade für button6 wurde durchgeführt");
+}
+
+// button7 - Durchsichtiges Glück
+function shopUpgradeButton7(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  if ((kaufZähler["button7"] == 0)) {
+    addGlass();
+  } else {
+  increaseImportance("winebottle1", 1);
+  }
+  changeUpgradeCost("button7", newcost);
+  console.log("Upgrade für button7 wurde durchgeführt");
+}
+
+// button8 - Restebankett
+function shopUpgradeButton8(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button8", newcost);
+  console.log("Upgrade für button8 wurde durchgeführt");
+}
+
+// button9 - Macht Lustige Geräusche
+function shopUpgradeButton9(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  if ((kaufZähler["button9"] == 0)) {
+    addMetal();
+  } else {
+    increaseImportance("Nagel1", 1);
+    increaseImportance("Nagel2", 1);
+    increaseImportance("Spoon", 1);
+    increaseImportance("TinCan", 1);
+    increaseImportance("TinCan2", 1);
+  }
+
+  changeUpgradeCost("button9", newcost);
+  console.log("Upgrade für button9 wurde durchgeführt");
+}
+
+// button10 - Schrottiger Anhänger
+function shopUpgradeButton10(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button10", newcost);
+  console.log("Upgrade für button10 wurde durchgeführt");
+}
+
+// button11 - Schilder aufstellen
+
+function shopUpgradeButton11(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+  createStopSign();
+  changeUpgradeCost("button11", newcost);
+  console.log("Upgrade für button11 wurde durchgeführt");
+}
+
+// button12 - Uhr kaputt machen
+function shopUpgradeButton12(upgrade) {
+  newcost = Math.round(upgrade.cost * 1.25);
+
+
+  changeUpgradeCost("button12", newcost);
+  console.log("Upgrade für button12 wurde durchgeführt");
 }
 
 let intervalId;

@@ -174,7 +174,7 @@ document
 let decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wird
 let interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
 
-document.getElementById("clicker").addEventListener("click", function () {
+document.getElementById("clicker").addEventListener("click", function (event) {
   // Überprüfen Sie, ob die Wackelanimation bereits läuft
   if (!this.classList.contains("wackeln")) {
     // Füge die Wackelanimation hinzu
@@ -186,8 +186,12 @@ document.getElementById("clicker").addEventListener("click", function () {
     }, 100); // Die Dauer sollte der Animationsdauer entsprechen
   }
 
-  updateProgressBar();
-  dropGarbageBasedOnChance(); // Führen Sie dropGarbage() bei jedem Klick aus
+  // Überprüfen Sie, ob der Klick vom Benutzer kommt
+  if (event.isTrusted) {
+    updateProgressBar();
+    dropGarbageBasedOnChance(); // Führen Sie dropGarbage() bei jedem Klick aus
+  }
+
   dropGarbage();
 });
 
