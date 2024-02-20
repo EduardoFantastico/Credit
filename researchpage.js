@@ -24,12 +24,12 @@ function addArticle(name, displayName, cost, timerInterval) {
 addArticle("müllstudie", " Müll Studie", 5, 1666);
 addArticle("levelup", "Level Up!", 5, 3000);
 addArticle("müllstreuen", "Müll Streuen", 5, 5);
-addArticle("waschbärenplage", "Waschbärenplage", 5, 5);
+addArticle("waschbärenplage", "Waschbären- plage", 5, 5);
 addArticle("herrdesmülls", "Herr des Mülls", 5, 5);
 addArticle("schockhalsband", "Schock Halsband", 5, 5);
 addArticle("fernglasgeben", "Fernglas geben", 5, 5);
 addArticle("sabotageerforschen", "Sabotage Erforschen", 5, 5);
-addArticle("einstellungsgespräch", "Einstellungsgespräch", 5, 5);
+addArticle("einstellungsgespräch", "Einstellungs- gespräch", 5, 5);
 addArticle("neuebüros", "Neue Büros", 5, 5);
 addArticle("wachwaschbär", "Wach Waschbär", 5, 5);
 addArticle("trashtrucker", "Trash Trucker", 5, 5);
@@ -45,15 +45,26 @@ level = 0;
 function createArticleElement(article) {
   const button = document.createElement("button");
   button.id = article.id;
+  const researchText = document.createElement("div");
+  researchText.innerHTML = article.displayName; // Verwenden Sie 'displayName' anstelle von 'name'
+  
+  // Wenn die Länge von displayName größer als 15 ist, passiert das:
+  if (article.displayName.length > 15) {
+    researchText.style.whiteSpace = "normal";
+    researchText.style.lineHeight = "1.5"; // Setzen Sie dies auf den gewünschten Zeilenabstand
+    researchText.style.hyphens = "auto";
+  }
+
   button.innerHTML = `
     <div class="research-bar" id="research-bar-${article.id}"></div>
-    <div class="research-text">${article.displayName}</div> <!-- Verwenden Sie 'displayName' anstelle von 'name' -->
   `;
+  button.appendChild(researchText);
   button.addEventListener("click", function () {
     startUpgrade(article);
   });
   document.querySelector("#content-box-research").appendChild(button);
 }
+
 
 // Artikel entfernen
 function removeArticle(articleId) {
