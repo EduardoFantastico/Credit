@@ -245,7 +245,7 @@ let garbageTypes = [
     width: "39px",
     height: "36px",
     tag: "PapierBall",
-    importance: 1,
+    importance: 2,
     pointsWorth: 1,
   },
   {
@@ -253,7 +253,7 @@ let garbageTypes = [
     width: "39px",
     height: "36px",
     tag: "PaperBall2",
-    importance: 1,
+    importance: 2,
     pointsWorth: 1,
   },
   {
@@ -261,7 +261,7 @@ let garbageTypes = [
     width: "52px",
     height: "46px",
     tag: "Notiz1",
-    importance: 1,
+    importance: 2,
     pointsWorth: 1,
   },
   {
@@ -269,7 +269,7 @@ let garbageTypes = [
     width: "30px",
     height: "50px",
     tag: "Notiz2",
-    importance: 1,
+    importance: 2,
     pointsWorth: 1,
   }
 ];
@@ -311,7 +311,7 @@ function addplastic(){
     width: '30px',
     height: '54px',
     tag: 'plastikbottle1',
-    importance: 1,
+    importance: 2,
     pointsWorth: 2,
   });
   addGarbageType({
@@ -319,7 +319,7 @@ function addplastic(){
     width: '24px',
     height: '54px',
     tag: 'plastikbottle2',
-    importance: 1,
+    importance: 2,
     pointsWorth: 2,
   });
   addGarbageType({
@@ -327,7 +327,7 @@ function addplastic(){
     width: '24px',
     height: '54px',
     tag: 'plastikbottle3',
-    importance: 1,
+    importance: 2,
     pointsWorth: 2,
   });
 }
@@ -338,7 +338,7 @@ function addfood(){
     width: '37px',
     height: '57px',
     tag: 'AlterApfel1',
-    importance: 1,
+    importance: 2,
     pointsWorth: 3,
   });
   addGarbageType({
@@ -346,7 +346,7 @@ function addfood(){
     width: '64',
     height: '36px',
     tag: 'Bananenschale1',
-    importance: 1,
+    importance: 2,
     pointsWorth: 3,
   });
   addGarbageType({
@@ -354,7 +354,7 @@ function addfood(){
     width: '62px',
     height: '44px',
     tag: 'Pizza',
-    importance: 1,
+    importance: 2,
     pointsWorth: 3,
   });
   addGarbageType({
@@ -362,7 +362,7 @@ function addfood(){
     width: '60px',
     height: '63px',
     tag: 'meat',
-    importance: 1,
+    importance: 2,
     pointsWorth: 3,
   });
   addGarbageType({
@@ -370,7 +370,7 @@ function addfood(){
     width: '42px',
     height: '39px',
     tag: 'SchimmelToast1',
-    importance: 1,
+    importance: 2,
     pointsWorth: 3,
   });
 }
@@ -381,7 +381,7 @@ function addGlass(){
     width: '16px',
     height: '56px',
     tag: 'winebottle1',
-    importance: 1,
+    importance: 2,
     pointsWorth: 5,
   });
 }
@@ -392,7 +392,7 @@ function addMetal(){
     width: '15px',
     height: '25px',
     tag: 'Nagel1',
-    importance: 1,
+    importance: 2,
     pointsWorth: 7,
   });
   addGarbageType({
@@ -400,7 +400,7 @@ function addMetal(){
     width: '26px',
     height: '23px',
     tag: 'Nagel2',
-    importance: 1,
+    importance: 2,
     pointsWorth: 7,
   });
   addGarbageType({
@@ -408,7 +408,7 @@ function addMetal(){
     width: '45px',
     height: '45px',
     tag: 'Spoon',
-    importance: 1,
+    importance: 2,
     pointsWorth: 7,
   });
   addGarbageType({
@@ -416,7 +416,7 @@ function addMetal(){
     width: "60px",
     height: "60px",
     tag: "TinCan",
-    importance: 1,
+    importance: 2,
     pointsWorth: 7,
   });
   addGarbageType({
@@ -424,7 +424,7 @@ function addMetal(){
     width: "32px",
     height: "60px",
     tag: "TinCan2",
-    importance: 1,
+    importance: 2,
     pointsWorth: 7,
   });
 }
