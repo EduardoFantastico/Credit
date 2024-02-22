@@ -17,7 +17,6 @@ let levelLimits = [
   Infinity,
 ];
 
-
 let BonusCap = 0;
 let maxScoreCap = 0;
 
@@ -27,33 +26,33 @@ let dropchance50 = 0;
 let dropchance20 = 0;
 let dropchance01 = 0;
 
-// Get the progress and icon elements
+// Hole die Fortschritts- und Symbol-Elemente
 let limitContainer = document.getElementById("limitContainer");
 let limit = document.getElementById("limit");
 let iconContainer = document.getElementById("icon-container");
 
-// Function to update the progress bar and icon position
+// Funktion zur Aktualisierung der Fortschrittsleiste und der Symbolposition
 function updateLimitBar() {
   if(noLevelLimit == false){
-    // Calculate the progress based on the score and the current level limit
+    // Berechnet Score basierend auf Levellimit
     maxScoreCap = levelLimits[level] + BonusCap;
     let progress = (score / maxScoreCap) * 100;
 
-    // Update the width of the progress bar
+    // Aktualisiere die Breite der Fortschrittsleiste
     limit.style.width = progress + "%";
 
-    // Set the icon's position according to the progress
-    iconContainer.style.left = progress - 1 + "%"; // Adjust the '5' as needed
+    // Setze die Position des Symbols entsprechend dem Fortschritt
+    iconContainer.style.left = progress - 1 + "%";
 
-    // Change the color of the progress bar based on the progress
+    // Ändere die Farbe der Fortschrittsleiste basierend auf dem Fortschritt
     if (progress < 50) {
-      let percent = progress * 2; // Convert progress from 0-50 into 0-100
+      let percent = progress * 2;
       limit.style.backgroundColor = "rgb(" + percent + "%, 100%, 0%)";
     } else if (progress < 75) {
-      let percent = (progress - 50) * 4; // Convert progress from 50-75 into 0-100
+      let percent = (progress - 50) * 4;
       limit.style.backgroundColor = "rgb(100%, " + (100 - percent) + "%, 0%)";
     } else {
-      let percent = (progress - 75) * 4; // Convert progress from 75-100 into 0-100
+      let percent = (progress - 75) * 4;
       limit.style.backgroundColor = "rgb(100%, 0%, " + percent + "%)";
     }
   } else {
@@ -62,181 +61,129 @@ function updateLimitBar() {
   }
 }
 
+
 // Change Interface | Switch between Shop, Leaderboard, Research, etc
 
-// Function | Change to Shop
-function changeInterfaceShop() {
-  document.getElementById("research").style.display = "none";
-  document.getElementById("sabotage").style.display = "none";
-  document.getElementById("shop").style.display = "block";
+// Function | Change Interface
+function changeInterface(show, hide1, hide2) {
+  document.getElementById(show).style.display = "block";
+  document.getElementById(hide1).style.display = "none";
+  document.getElementById(hide2).style.display = "none";
 }
-// Function | Change to Sabotage
-function changeInterfaceSabotage() {
-  document.querySelector("#research").style.display = "none";
-  document.querySelector("#sabotage").style.display = "block";
-  document.querySelector("#shop").style.display = "none";
-}
-// Function | Change to Research
-function changeInterfaceResearch() {
-  document.querySelector("#research").style.display = "block";
-  document.querySelector("#sabotage").style.display = "none";
-  document.querySelector("#shop").style.display = "none";
-}
+
 // Shop | Left Button | Change to Sabotage
 document.getElementById("shop-left").addEventListener("click", function () {
-  changeInterfaceSabotage();
+  changeInterface("sabotage", "research", "shop");
 });
 // Shop | Right Button | Change to Research
 document.getElementById("shop-right").addEventListener("click", function () {
-  changeInterfaceResearch();
+  changeInterface("research", "sabotage", "shop");
 });
+
 // Research | Left Button | Change to Shop
 document.getElementById("research-left").addEventListener("click", function () {
-  changeInterfaceShop();
+  changeInterface("shop", "research", "sabotage");
 });
 // Research | Right Button | Change to Sabotage
-document
-  .getElementById("research-right").addEventListener("click", function () {
-    changeInterfaceSabotage();
-  });
+document.getElementById("research-right").addEventListener("click", function () {
+  changeInterface("sabotage", "shop", "research");
+});
 
 // Sabotage | Left Button | Change to Research
-document
-  .getElementById("sabotage-left").addEventListener("click", function () {
-    changeInterfaceResearch();
-  });
+document.getElementById("sabotage-left").addEventListener("click", function () {
+  changeInterface("research", "shop", "sabotage");
+});
 // Sabotage | Right Button | Change to Shop
-document
-  .getElementById("sabotage-right").addEventListener("click", function () {
-    changeInterfaceShop();
-  });
+document.getElementById("sabotage-right").addEventListener("click", function () {
+  changeInterface("shop", "sabotage", "research");
+});
 
-
-
-
-  // Function | Change to Chat
-function changeInterfaceChat() {
-  document.getElementById("friends").style.display = "none";
-  document.getElementById("leaderboard").style.display = "none";
-  document.getElementById("chat").style.display = "block";
-}
-// Function | Change to Leaderboard
-function changeInterfaceLeaderboard() {
-  document.querySelector("#friends").style.display = "none";
-  document.querySelector("#leaderboard").style.display = "block";
-  document.querySelector("#chat").style.display = "none";
-}
-// Function | Change to Friends
-function changeInterfaceFriends() {
-  document.querySelector("#friends").style.display = "block";
-  document.querySelector("#leaderboard").style.display = "none";
-  document.querySelector("#chat").style.display = "none";
-}
 // Chat | Left Button | Change to Leaderboard
 document.getElementById("chat-left").addEventListener("click", function () {
-  changeInterfaceLeaderboard();
+  changeInterface("leaderboard", "friends", "chat");
 });
 // Chat | Right Button | Change to Friends
 document.getElementById("chat-right").addEventListener("click", function () {
-  changeInterfaceFriends();
+  changeInterface("friends", "leaderboard", "chat");
 });
 
 // Friends | Left Button | Change to Chat
 document.getElementById("friends-left").addEventListener("click", function () {
-  changeInterfaceChat();
+  changeInterface("chat", "friends", "leaderboard");
 });
 // Friends | Right Button | Change to Leaderboard
-document
-  .getElementById("friends-right")
-  .addEventListener("click", function () {
-    changeInterfaceLeaderboard();
-  });
+document.getElementById("friends-right").addEventListener("click", function () {
+  changeInterface("leaderboard", "chat", "friends");
+});
 
 // Leaderboard | Left Button | Change to Friends
-document
-  .getElementById("leaderboard-left")
-  .addEventListener("click", function () {
-    changeInterfaceFriends();
-  });
+document.getElementById("leaderboard-left").addEventListener("click", function () {
+  changeInterface("friends", "leaderboard", "chat");
+});
 // Leaderboard | Right Button | Change to Chat
-document
-  .getElementById("leaderboard-right")
-  .addEventListener("click", function () {
-    changeInterfaceChat();
-  });
+document.getElementById("leaderboard-right").addEventListener("click", function () {
+  changeInterface("chat", "friends", "leaderboard");
+});
 
+        // TRASH CAN (Clicker Functions)
 
+// Rate, mit der der Fortschrittsbalken abnimmt
+let decreaseRate = 0.1;
 
+// Intervall für die setInterval-Funktion in Millisekunden
+let interval = 10;
+let progressBar = document.getElementById("clickprogress");
+let clicker = document.getElementById("clicker");
 
-
-// TRASH CAN (Clicker Functions)
-
-let decreaseRate = 0.1; // Die Rate, mit der der Fortschrittsbalken abgebaut wird
-let interval = 10; // Die Zeit in Millisekunden zwischen jedem Abbau
-
-document.getElementById("clicker").addEventListener("click", function (event) {
-  // Überprüfen Sie, ob die Wackelanimation bereits läuft
+// Fügen Sie dem Clicker einen Event-Listener für das 'click'-Event hinzu
+clicker.addEventListener("click", function (event) {
+  // Wenn der Clicker nicht bereits die Klasse 'wackeln' hat, fügen Sie sie hinzu
   if (!this.classList.contains("wackeln")) {
-    // Füge die Wackelanimation hinzu
     this.classList.add("wackeln");
-
-    // Entferne die Wackelanimation nach der Animation
-    setTimeout(() => {
-      this.classList.remove("wackeln");
-    }, 100); // Die Dauer sollte der Animationsdauer entsprechen
+    setTimeout(() => this.classList.remove("wackeln"), 100);
   }
-
-  // Überprüfen Sie, ob der Klick vom Benutzer kommt
   if (event.isTrusted) {
-    updateProgressBar();
-    dropGarbageBasedOnChance(); // Führen Sie dropGarbage() bei jedem Klick aus
+    progressBar.value += 5;
+    dropGarbageBasedOnChance();
   }
-
+  // Funktion um Müll fallen zu lassen
   dropGarbage();
 });
 
-function updateProgressBar() {
-  let progressBar = document.getElementById("clickprogress");
-  progressBar.value += 5;
-}
-
-// Starten Sie einen Interval-Timer, um den Fortschrittsbalken stetig abzubauen
+// Setzen Sie ein Intervall, um den Wert des Fortschrittsbalkens im Laufe der Zeit zu verringern
 setInterval(function () {
-  let progressBar = document.getElementById("clickprogress");
   if (progressBar.value > 0) {
+    // Verringern Sie den Wert des Fortschrittsbalkens um die Abnahmerate
     progressBar.value -= decreaseRate;
   }
 }, interval);
 
-// Erstellen Sie eine Funktion, die dropGarbage() basierend auf dem Wert der Fortschrittsleiste aufruft
+// Funktion, um Müll auf Basis von Zufall fallen zu lassen
 function dropGarbageBasedOnChance() {
-  let progressBar = document.getElementById("clickprogress");
+  // Wenn der Wert des Fortschrittsbalkens größer als 0 ist
   if (progressBar.value > 0) {
-    // Generieren Sie eine zufällige Zahl zwischen 0 und 100
-    let randomChance = Math.random() * 10000;
-
-    // Erhöhen Sie die Chance, dass dropGarbage() aufgerufen wird, wenn der Wert der Fortschrittsleiste bestimmte Schwellenwerte erreicht
-    let dropChance = 0;
-    if (progressBar.value >= 90) {
-      dropChance = dropchance90;
-    } else if (progressBar.value >= 80) {
-      dropChance = dropchance80;
-    } else if (progressBar.value >= 50) {
-      dropChance = dropchance50;
-    } else if (progressBar.value >= 20) {
-      dropChance = dropchance20;
-    } else if (progressBar.value >= 1) {
-      dropChance = dropchance01;
-    }
-
-    // Wenn die zufällige Zahl kleiner als die Chance ist, rufen Sie dropGarbage() auf
-    if (randomChance < dropChance) {
+    // Holen Sie sich die Drop-Chance basierend auf dem Wert des Fortschrittsbalkens
+    let dropChance = getDropChance(progressBar.value);
+    // Wenn eine zufällige Zahl kleiner ist als die Drop-Chance
+    if (Math.random() * 10000 < dropChance) {
+      // Rufen Sie die Funktion auf, um Müll fallen zu lassen
       dropGarbage();
-      console.log("yay");
-      // Wenn die zufällige Zahl kleiner als die Hälfte der Chance ist, rufen Sie dropGarbage() ein zweites Mal auf
     }
   }
 }
+
+// Funktion, um die Drop-Chance basierend auf dem Wert des Fortschrittsbalkens zu erhalten
+function getDropChance(value) {
+  // Geben Sie die entsprechende Drop-Chance zurück, basierend auf dem Wert des Fortschrittsbalkens
+  if (value >= 90) return dropchance90;
+  if (value >= 80) return dropchance80;
+  if (value >= 50) return dropchance50;
+  if (value >= 20) return dropchance20;
+  if (value >= 1) return dropchance01;
+  return 0;
+}
+
+
 
 // Definieren Sie die verschiedenen Arten von Müll
 let garbageTypes = [
@@ -643,5 +590,5 @@ let repeatend = setInterval(() => {
   updateLimitBar();
 }, 1);
 
-changeInterfaceResearch();
-changeInterfaceChat();
+changeInterface("research", "sabotage", "shop");
+changeInterface("chat", "friends", "leaderboard");

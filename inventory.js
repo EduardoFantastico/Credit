@@ -1,74 +1,85 @@
 function createEmployee(name, price, speed, capacity, laziness) {
+  // Zugriff auf das Hauptinventar-Element
   let inventoryContainer = document.getElementById("inventory-container");
 
+  // Erstellung des Hauptcontainers für jeden Mitarbeiter
   let mainContainer = document.createElement("div");
   mainContainer.id = "mainContainer";
 
+  // Erstellung des Profilbild-Containers
   let profilePicContainer = document.createElement("div");
   profilePicContainer.id = "profilePicContainer";
   mainContainer.appendChild(profilePicContainer);
 
+  // Erstellung des Info-Containers, der Text und Buttons enthält
   let infoContainer = document.createElement("div");
   infoContainer.id = "infoContainer";
 
-  let textContainer = document.createElement("div"); /* Hinzugefügt */
-  textContainer.id = "textContainer"; /* Hinzugefügt */
+  // Erstellung des Textcontainers, der alle Textelemente enthält
+  let textContainer = document.createElement("div");
+  textContainer.id = "textContainer";
 
+  // Erstellung und Hinzufügen der einzelnen Textelemente
   let priceElement = document.createElement("p");
   priceElement.id = "priceElement";
-  priceElement.textContent = "PRICE: " + price;
-  textContainer.appendChild(priceElement); /* Geändert */
-
+  priceElement.textContent = `PRICE: ${price}`; 
+  textContainer.appendChild(priceElement);
+   
   let nameElement = document.createElement("p");
   nameElement.id = "nameElement";
   nameElement.textContent = name;
-  textContainer.appendChild(nameElement); /* Geändert */
+  textContainer.appendChild(nameElement);
 
   let speedElement = document.createElement("p");
   speedElement.id = "speedElement";
-  speedElement.textContent = "Speed: " + speed;
-  textContainer.appendChild(speedElement); /* Geändert */
+  speedElement.textContent = `Speed: ${speed}`; 
+  textContainer.appendChild(speedElement);
 
   let capacityElement = document.createElement("p");
   capacityElement.id = "capacityElement";
-  capacityElement.textContent = "Capacity: " + capacity;
-  textContainer.appendChild(capacityElement); /* Geändert */
+  capacityElement.textContent = `Capacity: ${capacity}`; 
+  textContainer.appendChild(capacityElement);
 
   let lazinessElement = document.createElement("p");
   lazinessElement.id = "lazinessElement";
-  lazinessElement.textContent = "Laziness: " + laziness;
-  textContainer.appendChild(lazinessElement); /* Geändert */
+  lazinessElement.textContent = `Laziness: ${laziness}`; 
+  textContainer.appendChild(lazinessElement);
 
-  infoContainer.appendChild(textContainer); /* Hinzugefügt */
+  // Hinzufügen des Textcontainers zum Info-Container
+  infoContainer.appendChild(textContainer);
 
-  // Erstelle die Buttons und füge sie zum Info-Container hinzu
-  let buttonContainer = document.createElement("div"); /* Hinzugefügt */
-  buttonContainer.id = "buttonContainer"; /* Hinzugefügt */
+  // Erstellung des Button-Containers
+  let buttonContainer = document.createElement("div");
+  buttonContainer.id = "buttonContainer";
 
+  // Erstellung und Hinzufügen der einzelnen Buttons
   let invButton1 = document.createElement("button");
   invButton1.id = "invButton1";
   invButton1.textContent = "Button 1";
   invButton1.addEventListener("click", function () {
-    // Fügen Sie hier den Code ein, der ausgeführt werden soll, wenn Button 1 geklickt wird.
-    console.log("Button 1 wurde geklickt!");
+  console.log("Button 1 wurde geklickt!"); // Aktion für Button 1
   });
-  buttonContainer.appendChild(invButton1); /* Geändert */
+  buttonContainer.appendChild(invButton1);
 
   let invButton2 = document.createElement("button");
   invButton2.id = "invButton2";
   invButton2.textContent = "Button 2";
   invButton2.addEventListener("click", function () {
-    // Fügen Sie hier den Code ein, der ausgeführt werden soll, wenn Button 2 geklickt wird.
-    console.log("Button 2 wurde geklickt!");
+  console.log("Button 2 wurde geklickt!"); // Aktion für Button 2
   });
-  buttonContainer.appendChild(invButton2); /* Geändert */
+  buttonContainer.appendChild(invButton2);
 
-  infoContainer.appendChild(buttonContainer); /* Geändert */
+  // Hinzufügen des Button-Containers zum Info-Container
+  infoContainer.appendChild(buttonContainer);
 
+  // Hinzufügen des Info-Containers zum Hauptcontainer
   mainContainer.appendChild(infoContainer);
+
+  // Hinzufügen des Hauptcontainers zum Inventar-Container
   inventoryContainer.appendChild(mainContainer);
 }
 
+// Erstellung von Mitarbeiter-Elementen
 createEmployee("Racooner", 500, 5, 12, 13);
 createEmployee("Larry", 700, 7, 12, 32);
 createEmployee("Gandalf magicboy", 200, 4, 5, 10);
