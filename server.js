@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+// Loggen, wenn ein neuer Benutzer die Hauptseite besucht
+app.get('/', (req, res) => {
+  console.log('Ein neuer Benutzer hat die Hauptseite besucht.');
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Pfad zu Ihren statischen Dateien (z.B. HTML, CSS, JS)
 const staticPath = __dirname;
 
