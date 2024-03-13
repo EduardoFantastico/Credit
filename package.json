@@ -1,0 +1,29 @@
+{
+  "name": "trashclicker",
+  "version": "0.1.1",
+  "description": "Trash Clicker Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/EduardoFantastico/Credit/"
+  },
+  "keywords": [
+    "Trash",
+    "Clicker",
+    "Racoon",
+    "Waschbär",
+    "Müll",
+    "Krieg",
+    "Game",
+    "Multiplayer",
+    "Singleplayer"
+  ],
+  "author": "EduardoFantastico, Password",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
